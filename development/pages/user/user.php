@@ -250,7 +250,7 @@
                 
                 <span class="collection-item-menu">
                     <ul>
-                        <li class="edit"><a href="?page=item&id=<?php echo $value['collection_id']; ?>"></a></li>
+                        <li class="edit"><a id="<?php echo $value['collection_id']; ?>"></a></li>
                         <li class="delete"><a href="?page=user&filter=collection&id=<?php echo $user['id']; ?>&action=remove&collection_id=<?php echo $value['collection_id']; ?>" id="<?php echo $value['collection_id']; ?>"></a></li>
                     </ul>
                 </span>
