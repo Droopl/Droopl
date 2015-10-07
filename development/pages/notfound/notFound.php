@@ -1,6 +1,6 @@
 <section class="notfound">
 	<header>
-		<img src="images/assets/lantern.svg">
+		<img src="images/assets/lantern.svg" height="50" style="opacity:.3;" class="animated fadeInDown">
 		<h1 class="animated fadeInDown">404</h1>
 		<h2 class="animated fadeInUp">Page Not Found</h2>
 		<h3 class="animated fadeInUp">Press any key to start</h3>

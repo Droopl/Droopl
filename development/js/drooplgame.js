@@ -7,9 +7,11 @@ $(function () {
 			if(!gameStarted){
 				gameStarted = true;
 				$(".notfound header:first-child h1").removeClass("fadeInDown");
+				$(".notfound header:first-child img").removeClass("fadeInDown");
 				$(".notfound header:first-child h2").removeClass("fadeInUp");
 				$(".notfound header:first-child h3").removeClass("fadeInUp");
 				$(".notfound header:first-child h1").addClass("fadeOutUp");
+				$(".notfound header:first-child img").addClass("fadeOutUp");
 				$(".notfound header:first-child h2").addClass("fadeOutDown");
 				$(".notfound header:first-child h3").addClass("fadeOutDown");
 				startGame();
@@ -126,9 +128,11 @@ $(function () {
 		function stopGame () {
 
 			$(".notfound header:first-child h1").removeClass("fadeOutUp");
+			$(".notfound header:first-child img").removeClass("fadeOutUp");
 			$(".notfound header:first-child h2").removeClass("fadeOutDown");
 			$(".notfound header:first-child h3").removeClass("fadeOutDown");
 			$(".notfound header:first-child h1").addClass("fadeInDown");
+			$(".notfound header:first-child img").addClass("fadeInDown");
 			$(".notfound header:first-child h2").addClass("fadeInUp");
 			$(".notfound header:first-child h3").text("Press any key to restart");
 			$(".notfound header:first-child h3").addClass("fadeInUp");
