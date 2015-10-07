@@ -7,6 +7,7 @@ $(function () {
 	function startGame () {
 		
 		var coins = [];
+		var lives = 3;
 		var canvas = document.getElementById("cnvs");
 		canvas.width = $(canvas).parent().width();
 		canvas.height = $(canvas).parent().height();
@@ -16,9 +17,12 @@ $(function () {
 		var xpos = $(canvas).parent().width()/2;
 		var speed = $(canvas).width()/20;
 
+		for (var i = 0; i < lives; i++) {
+			$(".notfound header nav ul").append($("<li/>").addClass("animated pulse infinite"));
+		};
+
 		$(window).on("keydown",function(e){
 
-		   console.log(e.keyCode);
 
 		  switch(e.keyCode){
 		    case 37:
@@ -57,9 +61,6 @@ $(function () {
 		  		}
 
 		  		var index = parseInt(coin.count/10);
-
-		  		console.log(index)
-
 		  		var url = "coin"+index;
 
 		  		var coinImg = document.getElementById(url);
@@ -68,6 +69,29 @@ $(function () {
 		  	}else{
 
 		  		coins.splice(coins.indexOf(coin),1);
+
+		  		lives--;
+
+		  		console.log("lost a life");
+
+		  		if(lives != 0){
+
+			  		var hearts = $(".notfound header nav ul li");
+
+			  		for (var i = hearts.length; i > lives-1; i--) {
+			  			var heart = hearts.get(i);
+			  			$(heart).removeClass("pulse infinite");
+			  			$(heart).addClass("fadeOutUp");
+			  		};
+		  			
+		  		}else{
+		  			stopGame();
+		  		}
+
+
+
+		  		
+
 		  	}
 		  	
 
@@ -83,11 +107,16 @@ $(function () {
 			coins.push(createCoint(x,0,1,0,0));
 
 
-		  console.log(coins);
+		},3000);
 
-		},1000);
+		function stopGame (context) {
+			console.log("stopGame");
+			context.clearRect(0, 0, canvas.width, canvas.height);
+		}
 
 	}
+
+	
 
 	function createCoint (xPos,yPos,speed,frame,count) {
 		return { xPos:xPos, yPos:yPos,speed:speed,frame:frame,count:count}

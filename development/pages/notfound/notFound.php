@@ -3,12 +3,9 @@
 		<h1>404</h1>
 		<h2>Page Not Found</h2>
 		<h3>Press any key to start</h3>
-		<nav class="hears">
-			<header><h1>Lives</h1></header>
+		<nav class="hearts">
+			<header class="hide"><h1>Lives</h1></header>
 			<ul>
-				<li></li>
-				<li></li>
-				<li></li>
 			</ul>
 		</nav>
 	</header>
