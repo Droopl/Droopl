@@ -32,6 +32,18 @@ class CollectionController extends AppController{
 		}
 
 	}
+
+	public function update(){
+
+		if(!empty($_GET['id'])){
+			if(!empty($_POST)){
+				print_r($_POST);
+			}
+		}else{
+			$this->redirect->("?page=sdsqdqd");
+		}
+
+	}
 	public function item(){
 
 		$item = array();

@@ -89,6 +89,24 @@ class CollectionDAO
         return false;
 	}
 
+	public function updateItem($id,$description,$collection_image,$status,$available){
+
+
+		$sql = "UPDATE `collection` SET ( description,collection_image,status,available) VALUES ( :description, :collection_image,:status,:available) WHERE collection_id = :id;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":description",$description);
+        $stmt->bindValue(":collection_image",$collection_image);
+        $stmt->bindValue(":status",$status);
+        $stmt->bindValue(":available",$available);
+        $stmt->bindValue(":id",$id);
+
+        if($stmt->execute()){
+
+            return true;
+        }
+        return false;
+	}
+
 	public function removeItem($collection_id){
 
 		$sql ="DELETE FROM `collection` WHERE `collection_id` = :collection_id";
@@ -103,6 +121,6 @@ class CollectionDAO
 		return false;
 	}
 
-	
+
 
 }
