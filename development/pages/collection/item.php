@@ -30,13 +30,13 @@
                     <p class="available"></p>
                     <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="available">
                     
-                    <?php if($item['status'] == 0){ ?>
+                    <?php if($item['user_id'] == $_SESSION['user']['id']){ if($item['status'] == 0){ ?>
                         <p class="public"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="public">
                     <?php }else{ ?>
                         <p class="private"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="private">
-                    <?php } ?>
+                    <?php } }?>
                 </div>
 			</aside>
 		</form>
