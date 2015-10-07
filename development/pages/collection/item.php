@@ -27,8 +27,13 @@
 				</header>
 				<textarea id="item_description" name="item_description" readonly><?php if(!empty($item['description'])){ echo $item['description']; }else{ echo "this item has no description yet";} ?></textarea>
                 <div class="button-container">
-                    <p class="available"></p>
-                    <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="available">
+                    <?php if($item['available'] == 0){ ?>
+                        <p class="available"></p>
+                        <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="available">
+                    <?php }else{ ?>
+                        <p class="not-available"></p>
+                        <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="not available">
+                    <?php } ?>
                     
                     <?php if($item['user_id'] == $_SESSION['user']['id']){ if($item['status'] == 0){ ?>
                         <p class="public"></p>

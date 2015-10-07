@@ -614,9 +614,10 @@ $(function  () {
     
     function editCollectionItem(e){
         
-        if($(this).parent().parent().parent().hasClass("editable")){
-        
+        if($(this).parent().parent().parent().hasClass("editable") && !$("article.collection_item div.feed section.detail-collection-item form header input[type='submit']#edit_item").hasClass("editable")){
+            
             e.preventDefault();
+        
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").addClass("editable");
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Save");
 
@@ -625,14 +626,32 @@ $(function  () {
             $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").focus();
             
             $("article.collection_item div.feed section.detail-collection-item form aside div.button-container input[type='button'].privacy-editable").on("click",function(){
+                var button = $(this);
                 if($(this).attr("value") == "public"){
-                    $(this).attr("value","private");
-                    $(this).prev().switchClass("public","private");
-                }else if($(this).attr("value") == "private"){
-                    $(this).attr("value","public");
+                    button.attr("value","private");
+                    //console.log(button.prev());
+                    button.prev().removeClass("public").addClass("private");
+                }else if(button.attr("value") == "private"){
+                    button.attr("value","public");
+                    button.prev().removeClass("private").addClass("public");
+                }
+            });
+            
+            $("article.collection_item div.feed section.detail-collection-item form aside div.button-container input[type='button'].availability-editable").on("click",function(){
+                var button = $(this);
+                if($(this).attr("value") == "available"){
+                    $(this).attr("value","not available");
+                    //console.log(button.prev());
+                    button.prev().removeClass("available").addClass("not-available");
+                }else if($(this).attr("value") == "not available"){
+                    $(this).attr("value","available");
+                    button.prev().removeClass("not-available").addClass("available");
                 }
             });
         
+        }else{
+            e.preventDefault();
+            console.log("else");
         }
         
     }

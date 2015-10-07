@@ -2363,7 +2363,7 @@ article.collection_item div.feed section.detail-collection-item form aside div.b
 article.collection_item div.feed section.detail-collection-item form aside div.button-container p.not-available {
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 11px;
+    background-size: 10px;
     background-image: url(../images/assets/not-available-icon.svg);
 }
 article.collection_item div.feed section.detail-collection-item form aside div.button-container p.public {
