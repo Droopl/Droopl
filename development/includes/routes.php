@@ -8,6 +8,7 @@ $routes = array(
 	'login' => array('controller' => 'User', 'action' => 'login'),
 	'user' => array('controller' => 'User', 'action' => 'user'),
 	'collection' => array('controller' => 'Collection', 'action' =>'remove'),
+	'update' => array('controller' => 'Collection', 'action' =>'update'),
 	'add' => array('controller' => 'Collection', 'action' =>'add'),
 	'item' => array('controller' => 'Collection', 'action' =>'item'),
 	'messages' => array('controller' => 'Messages', 'action' =>'messages'),
