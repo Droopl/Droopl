@@ -40,7 +40,7 @@ $(function () {
 
 		});
 
-		setInterval(function () {
+		var draw = setInterval(function () {
 
 
 		  if(xpos <= 0){
@@ -72,8 +72,6 @@ $(function () {
 
 		  		lives--;
 
-		  		console.log("lost a life");
-
 		  		if(lives != 0){
 
 			  		var hearts = $(".notfound header nav ul li");
@@ -82,15 +80,17 @@ $(function () {
 			  			var heart = hearts.get(i);
 			  			$(heart).removeClass("pulse infinite");
 			  			$(heart).addClass("fadeOutUp");
+			  			setTimeout(function () {
+			  				$(heart).remove();	
+			  			},1000);
 			  		};
 		  			
 		  		}else{
+
+		  			$(".notfound header nav ul li").removeClass("pulse infinite");
+			  		$(".notfound header nav ul li").addClass("fadeOutUp");
 		  			stopGame();
 		  		}
-
-
-
-		  		
 
 		  	}
 		  	
@@ -101,7 +101,7 @@ $(function () {
 		  context.fillRect(xpos,canvas.height - 40,40,40);
 		});
 
-		setInterval(function () {
+		var coinsInterval = setInterval(function () {
 
 			var x = Math.floor((Math.random() * $(canvas).width()) + 20);
 			coins.push(createCoint(x,0,1,0,0));
@@ -111,6 +111,8 @@ $(function () {
 
 		function stopGame (context) {
 			console.log("stopGame");
+			clearInterval(coinsInterval);
+			clearInterval(draw);
 			context.clearRect(0, 0, canvas.width, canvas.height);
 		}
 

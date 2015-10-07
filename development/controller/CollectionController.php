@@ -37,8 +37,34 @@ class CollectionController extends AppController{
 
 		if(!empty($_GET['id'])){
 			if(!empty($_POST)){
-				print_r($_POST);
-				
+
+				$name = "";
+				$description = "";
+				$available = 0;
+				$status = 0;
+
+				if(!empty($_POST['item_name'])){
+					$name = $_POST['item_name'];
+				}
+
+				if(!empty($_POST['item_description'])){
+					$description = $_POST['item_description'];
+				}
+
+				if(!empty($_POST['item_availability'])){
+					$available = $_POST['item_availability'];
+				}
+
+				if(!empty($_POST['item_privacy'])){
+					$status = $_POST['item_privacy'];
+				}
+
+				$updated = $this->collectionDAO->updateItem($_GET['id'],$description,$name,$status,$available);
+
+				echo boolval($updated);
+
+				exit();
+
 			}
 		}else{
 

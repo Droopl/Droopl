@@ -89,13 +89,13 @@ class CollectionDAO
         return false;
 	}
 
-	public function updateItem($id,$description,$collection_image,$status,$available){
+	public function updateItem($id,$description,$item_name,$status,$available){
 
 
-		$sql = "UPDATE `collection` SET ( description,collection_image,status,available) VALUES ( :description, :collection_image,:status,:available) WHERE collection_id = :id;";
+		$sql = "UPDATE `collection` SET description = :description, item_name = :item_name ,status = :status , available = :available  WHERE collection_id = :id;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(":description",$description);
-        $stmt->bindValue(":collection_image",$collection_image);
+        $stmt->bindValue(":item_name",$item_name);
         $stmt->bindValue(":status",$status);
         $stmt->bindValue(":available",$available);
         $stmt->bindValue(":id",$id);
