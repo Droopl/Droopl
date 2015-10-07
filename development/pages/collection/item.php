@@ -1,0 +1,45 @@
+<article class="collection_item">
+	<div class="feed">
+	<section class="detail-collection-item <?php if($item['user_id'] == $_SESSION['user']['id']){ echo "editable"; } ?>">
+		<form action="?page=add" method="post" id="edit_collection" name="edit_collection" enctype="multipart/form-data">
+			<header id="upload">
+                <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
+                    <input type="submit" id="edit_item" name="edit_item" value>
+                <?php } ?>
+                <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
+				<div class="dragndrop" id="dragndrop" style="background-image: url(images/collection/<?php echo $item['collection_image']; ?>);border: none">
+					<div class="preloader">
+						<ul class="progress">
+						</ul>
+						<input type="file" id="collection_image" name="collection_image" accept="image/*">
+                        <span class="remove-file"><p class="icon-cross"></p></span>
+					</div>
+				</div>
+                <?php }else{ ?>
+                    <img class="non-editable-collection-img" src="images/collection/<?php echo $item['collection_image']; ?>">
+                <?php } ?>
+			</header>
+			<aside>
+                <a class="close-collection-detail"></a>
+				<header>
+					<h1 class="hide">Info about your item</h1>
+					<input type="text" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>" readonly>
+				</header>
+				<textarea id="item_description" name="item_description" readonly><?php if(!empty($item['description'])){ echo $item['description']; }else{ echo "this item has no description yet";} ?></textarea>
+                <div class="button-container">
+                    <p class="available"></p>
+                    <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="available">
+                    
+                    <?php if($item['status'] == 0){ ?>
+                        <p class="public"></p>
+                        <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="public">
+                    <?php }else{ ?>
+                        <p class="private"></p>
+                        <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="private">
+                    <?php } ?>
+                </div>
+			</aside>
+		</form>
+	</section>
+	</div>
+</article>

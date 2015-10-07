@@ -1,0 +1,293 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.hide{
+	display: none;
+}
+input:focus{
+	outline: none;
+}
+
+body{
+	font-family: Roboto;
+	background-color: #F3F3F3;
+	letter-spacing: .5px;
+	color: #3E454C;
+}
+
+header#head{
+
+	width: 100%;
+	height: 75px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: white;
+	border-bottom: 1px solid #E7E7E8;
+}
+header#head nav{
+	width: 1024px;
+	margin: 0 auto;
+}
+article.container{
+	z-index: -9999;
+	left: 50%;
+	margin-left: -512px;
+	position: fixed;
+	width: 1024px;
+	height: 100%;
+	background-color: white;
+	border: 1px solid #E7E7E8; 
+}
+article.container section{
+	margin-top: 75px;
+}
+article.container section.conversation{
+	width: 65%;
+	height: 91%;
+	position: absolute;
+	left: 35%;
+}
+article.container section.conversation h1{
+	
+	position: absolute;
+	z-index: 1;
+	display: block;
+	width: 90%;
+	padding: 20px 5%;
+	text-align: center;
+	font-size: .9em;
+	background-color: white;
+
+	border-left: 1px solid #E7E7E8;
+	border-right: 1px solid #E7E7E8; 
+}
+article.container section.conversation nav{
+	position: absolute;
+	height: 75px;
+	top: 100%;
+	margin-top: -75px;
+	width: 100%;
+	border: 1px solid #E7E7E8; 
+	background-color: white;
+}
+article.container section.conversation nav input{
+	float: left;
+	width: 75%;
+	padding: 0 5%;
+	height: 75px;
+	border: none;
+	border-right: 1px solid #E7E7E8; 
+
+
+}
+article.container section.conversation div.chat{
+	
+	position: absolute;
+	width: 90%;
+	padding: 0 5%;
+	height: 100%;
+	overflow-y: scroll;
+	font-size: .8em;
+}
+article.container section.conversation div.chat ul{
+
+	display: block;
+	float: left;
+	width: 100%;
+}
+article.container section.conversation div.chat.chat ul li:first-child{
+	margin-top: 65px;
+}
+
+article.container section.conversation div.chat ul li:last-child{
+	margin-bottom: 90px;
+}
+article.container section.conversation div.chat ul li{
+
+	display: block;
+	float: left;
+	width: 100%;
+	margin: 10px 0;
+
+}
+article.container section.conversation div.chat ul li .ball-pulse-sync div{
+
+	background-color: #F77A52; 
+	width: 10px;
+	height: 10px;
+	margin-top: 20px;
+
+}
+article.container section.conversation div.chat ul li .ball-pulse-sync div:first-child{
+
+}
+
+article.container section.conversation div.chat ul li p{
+
+	display: block;
+	width: 50%;
+	float: left;
+
+}
+article.container section.conversation div.chat ul li p.me{
+
+	float: right;
+}
+article.container section.conversation div.chat ul li p.me span{
+
+	text-align: right;
+	float: right;
+	background-color: #F77A52;
+	color: white;
+}
+article.container section.conversation div.chat ul li p span{
+
+	display: block;
+	padding: 10px 15px;
+	float: left;
+	text-align: left;
+	border-radius: 25px;
+	background-color: rgba(0,0,0,.05);
+	border: 1px solid rgba(0,0,0,.05);
+
+}
+article.container section.conversation h1 span.status{
+
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin-left: 5px;
+
+}
+article.container section.conversation h1 span.status.on{
+	
+	background-color: #00A388;
+}
+article.container section.conversation h1 span.status.off{
+
+	background-color: #F77A52;
+}
+article.container section.list-conversations{
+	width: 35%;
+	height: 92.5%;
+	position: absolute;
+	left: 0;
+	border-right: 1px solid #E7E7E8; 
+}
+article.container section.list-conversations ul.conversations{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: scroll;
+
+}
+article.container section.list-conversations ul.conversations li{
+	display: block;
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #E7E7E8; 
+
+}
+article.container section.list-conversations ul.conversations li a{
+	display: block;
+	float: left;
+	width: 90%;
+	padding: 5%;
+	text-decoration: none;
+
+
+	-webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+
+}
+article.container section.list-conversations ul.conversations li a:hover{
+	display: block;
+	float: left;
+	width: 90%;
+	padding: 5%;
+	text-decoration: none;
+	background-color: rgba(0,0,0,.02);
+
+}
+article.container section.list-conversations ul.conversations li a .picture{
+	float: left;
+	width: 20%;
+	height: 60px;
+	text-align: center;
+	position: relative;
+	line-height: 70px;
+
+}
+article.container section.list-conversations ul.conversations li a .info{
+	float: left;
+	width: 70%;
+	padding: 0 5%;
+	height: 30px;
+	margin-top: 10px;
+
+}
+article.container section.list-conversations ul.conversations li a .info h1{
+	float: left;
+	width: 100%;
+	font-size: .8em;
+	font-weight: 400;
+	color: #3E454C;
+
+}
+article.container section.list-conversations ul.conversations li a .info p{
+	float: left;
+	width: 100%;
+	font-size: .7em;
+	font-weight: lighter;
+	color: #3E454C;
+
+}
+article.container section.list-conversations ul.conversations li a .picture img{
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 40px;
+	margin-left: -20px;
+	margin-top: -20px;
+	border-radius: 50%;
+
+}
+article.container section.list-conversations ul.conversations li:first-child{
+	margin-top: 60px;
+
+}
+article.container section.list-conversations nav{
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	border-bottom: 1px solid #E7E7E8; 
+}
+article.container section.list-conversations nav ul li{
+	display: block;
+	float: left;
+	line-height: 60px;
+	height: 60px;
+}
+article.container section.list-conversations nav ul li:first-child{
+	width: 75%;
+	border-right: 1px solid #E7E7E8; 
+
+}
+
+article.container section.list-conversations nav ul li input{
+	width: 80%;
+	float: left;
+	height: 60px;
+	padding: 0 10%;
+	border: none;
+	background: none;
+}
