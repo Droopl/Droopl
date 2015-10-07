@@ -782,6 +782,7 @@ article aside#side section.collection ul li{
     height: 35px;
     margin: 0 7px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 article aside#side section.collection ul li.add-to-collection.bordered{
     border: 1px solid #F27D6B;
@@ -1639,6 +1640,7 @@ article div.feed section.quest header a.collection_item{
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 50%;
     margin-right: 0;
+    cursor: pointer;
 }
 article div.feed section.quest header a.collection_item img{
     margin-right: 0;
