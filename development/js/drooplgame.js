@@ -7,15 +7,14 @@ $(function () {
 	function startGame () {
 
 
-	var speed = 0;
-	var friction = .25;
 	
 	var canvas = document.getElementById("cnvs");
 	canvas.width = $(canvas).parent().width();
 	canvas.height = $(canvas).parent().height();
 	var context = canvas.getContext("2d");
 
-	var xpos = $(canvas).parent().width()/2
+	var xpos = $(canvas).parent().width()/2;
+	var speed = $(canvas).width()/20;
 
 	$(window).on("keydown",function(e){
 
@@ -23,11 +22,11 @@ $(function () {
 
 	  switch(e.keyCode){
 	    case 37:
-	    speed --;
+	    xpos -= speed;
 	    break;
 
 	    case 39:
-	    speed ++;
+	    xpos += speed;
 	    break;
 
 	    case 40:
@@ -39,14 +38,11 @@ $(function () {
 
 	setInterval(function () {
 
-	  xpos += speed*friction;
 
 	  if(xpos <= 0){
 	    xpos = 0;
-	    speed = 0;
 	  }else if(xpos >= canvas.width){
 	    xpos = canvas.width-40;
-	    speed = 0;
 	  }
 
 	  context.clearRect(0, 0, canvas.width, canvas.height);
