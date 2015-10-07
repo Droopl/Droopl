@@ -30,17 +30,21 @@
                     <?php if($item['available'] == 0){ ?>
                         <p class="available"></p>
                         <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="available">
+                        <input type="text" name="item_availability" id="item_availability" class="hide" value="0">
                     <?php }else{ ?>
                         <p class="not-available"></p>
                         <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="not available">
+                        <input type="text" name="item_availability" id="item_availability" class="hide" value="1">
                     <?php } ?>
                     
                     <?php if($item['user_id'] == $_SESSION['user']['id']){ if($item['status'] == 0){ ?>
                         <p class="public"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="public">
+                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="0"> 
                     <?php }else{ ?>
                         <p class="private"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="private">
+                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="1"> 
                     <?php } }?>
                 </div>
 			</aside>

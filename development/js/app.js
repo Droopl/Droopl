@@ -586,7 +586,7 @@ $(function  () {
         $("article.collection_item").removeClass("hide");
         section.addClass("animated fadeInUpBig").insertAfter("article.collection_item header.collection_item");
           
-        $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']#edit_item").on("click",editCollectionItem);
+        $("article.collection_item div.feed section.detail-collection-item form").on("submit",editCollectionItem);
           
         $("article.collection_item div.feed section.detail-collection-item form aside a.close-collection-detail").on("click",function (e) {
 
@@ -614,7 +614,7 @@ $(function  () {
     
     function editCollectionItem(e){
         
-        if($(this).parent().parent().parent().hasClass("editable") && !$("article.collection_item div.feed section.detail-collection-item form header input[type='submit']#edit_item").hasClass("editable")){
+        if($(this).parent().hasClass("editable") && !$("article.collection_item div.feed section.detail-collection-item form header input[type='submit']#edit_item").hasClass("editable")){
             
             e.preventDefault();
         
@@ -631,9 +631,11 @@ $(function  () {
                     button.attr("value","private");
                     //console.log(button.prev());
                     button.prev().removeClass("public").addClass("private");
+                    $(this).next().attr("value","1");
                 }else if(button.attr("value") == "private"){
                     button.attr("value","public");
                     button.prev().removeClass("private").addClass("public");
+                    $(this).next().attr("value","0");
                 }
             });
             
@@ -643,17 +645,19 @@ $(function  () {
                     $(this).attr("value","not available");
                     //console.log(button.prev());
                     button.prev().removeClass("available").addClass("not-available");
+                    $(this).next().attr("value","1");
                 }else if($(this).attr("value") == "not available"){
                     $(this).attr("value","available");
                     button.prev().removeClass("not-available").addClass("available");
+                    $(this).next().attr("value","0");
                 }
             });
         
         }else{
             e.preventDefault();
             
-            
-              var url = "index.php?page=update&id="; // the script where you handle the form input.
+              var id = $("article.collection_item div.feed section.detail-collection-item").attr("id");
+              var url = "index.php?page=update&id="+id; // the script where you handle the form input.
 
               var formData = new FormData($(this)[0]);
 
