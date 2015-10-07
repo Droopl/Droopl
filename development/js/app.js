@@ -583,7 +583,7 @@ $(function  () {
     
     $("article div.feed section.quest header a.collection_item").on("click",getCollectionDetail);
     $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-menu ul li.edit a").on("click",getCollectionDetail);
-    $("article aside#side section.collection ul li").on("click",getCollectionDetail);
+    $("article aside#side section.collection ul li img").on("click",getCollectionDetail);
     $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-detail").on("click",getCollectionDetail);
     
     function getCollectionDetail(e) {

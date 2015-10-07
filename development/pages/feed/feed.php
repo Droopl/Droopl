@@ -106,7 +106,7 @@
                 
                 <?php if(!empty($collection[$i])){ ?>
                 
-                <li id="<?php echo $collection[$i]['collection_id']; ?>"><img src="images/collection/<?php echo $collection[$i]['collection_image']; ?>" alt="collection item rachouan rejeb"></li>
+                <li><img id="<?php echo $collection[$i]['collection_id']; ?>" src="images/collection/<?php echo $collection[$i]['collection_image']; ?>" alt="collection item rachouan rejeb"></li>
                 
                 <?php }else{ ?>
                 	<li class="add-to-collection bordered"></li>
