@@ -651,7 +651,25 @@ $(function  () {
         
         }else{
             e.preventDefault();
-            console.log("else");
+            
+            
+              var url = "index.php?page=update&id="; // the script where you handle the form input.
+
+              var formData = new FormData($(this)[0]);
+
+                $.ajax({
+                       type: "POST",
+                       url: url,
+                       data: formData, 
+                     async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                       success: function(data){
+                           console.log(data);
+                       }
+                });
+            
         }
         
     }

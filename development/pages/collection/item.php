@@ -1,6 +1,6 @@
 <article class="collection_item">
 	<div class="feed">
-	<section class="detail-collection-item <?php if($item['user_id'] == $_SESSION['user']['id']){ echo "editable"; } ?>">
+	<section id="<?php echo $item['collection_id']; ?>" class="detail-collection-item <?php if($item['user_id'] == $_SESSION['user']['id']){ echo "editable"; } ?>">
 		<form action="?page=add" method="post" id="edit_collection" name="edit_collection" enctype="multipart/form-data">
 			<header id="upload">
                 <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
