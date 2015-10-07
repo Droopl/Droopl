@@ -10,8 +10,7 @@ class NotFoundController extends AppController{
 	}
 
 	public function notFound(){
-
-		echo "PAGE NOT FOUND 404 !!";
+		
 	}
 
 

@@ -21,6 +21,7 @@ $(function () {
 		
 		var coins = [];
 		var lives = 3;
+
 		var canvas = document.getElementById("cnvs");
 		canvas.width = $(canvas).parent().width();
 		canvas.height = $(canvas).parent().height();
@@ -28,7 +29,8 @@ $(function () {
 		var coinsprite = [document.getElementById("coin"), document.getElementById("coin2"), document.getElementById("coin3")];
 
 		var xpos = $(canvas).parent().width()/2;
-		var speed = $(canvas).width()/20;
+		var speed = $(canvas).width()/30;
+		var character = createCharacter(xpos,$(canvas).height(),speed,document.getElementById("basket"));
 
 		for (var i = 0; i < lives; i++) {
 			$(".notfound header nav ul").append($("<li/>").addClass("animated pulse infinite"));
@@ -39,15 +41,11 @@ $(function () {
 			if(gameStarted){
 			  switch(e.keyCode){
 			    case 37:
-			    xpos -= speed;
+			    character.xPos -= character.speed;
 			    break;
 
 			    case 39:
-			    xpos += speed;
-			    break;
-
-			    case 40:
-			    jump ++;
+			    character.xPos += character.speed;
 			    break;
 			  }
 		  }
@@ -58,13 +56,16 @@ $(function () {
 		var draw = setInterval(function () {
 
 
-		  if(xpos <= 0){
-		    xpos = 0;
-		  }else if(xpos >= canvas.width){
-		    xpos = canvas.width-40;
+		  if(character.xPos <= 0){
+		    character.xPos = 0;
+		  }else if(character.xPos >= canvas.width){
+		  	character.xPos = canvas.width-40;
 		  }
 
 		  context.clearRect(0, 0, canvas.width, canvas.height);
+		  
+			var characterImg = document.getElementById("basket");
+			context.drawImage(character.img,character.xPos,character.yPos-77);
 
 		  for (var i = coins.length - 1; i >= 0; i--) {
 		  	var coin = coins[i];
@@ -112,8 +113,6 @@ $(function () {
 
 		  };
 
-		  context.fillStyle = "#FF7F66";
-		  context.fillRect(xpos,canvas.height - 40,40,40);
 		});
 
 		var coinsInterval = setInterval(function () {
@@ -124,16 +123,29 @@ $(function () {
 
 		},3000);
 
-		function stopGame (context) {
+		function stopGame () {
+
+			$(".notfound header:first-child h1").removeClass("fadeOutUp");
+			$(".notfound header:first-child h2").removeClass("fadeOutDown");
+			$(".notfound header:first-child h3").removeClass("fadeOutDown");
+			$(".notfound header:first-child h1").addClass("fadeInDown");
+			$(".notfound header:first-child h2").addClass("fadeInUp");
+			$(".notfound header:first-child h3").text("Press any key to restart");
+			$(".notfound header:first-child h3").addClass("fadeInUp");
+
 			console.log("stopGame");
 			clearInterval(coinsInterval);
 			clearInterval(draw);
 			context.clearRect(0, 0, canvas.width, canvas.height);
+			gameStarted = false;
+
 		}
 
 	}
 
-	
+	function createCharacter (xPos,yPos,speed,img) {
+		return { xPos:xPos, yPos:yPos,speed:speed,img:img}
+	}
 
 	function createCoint (xPos,yPos,speed,frame,count) {
 		return { xPos:xPos, yPos:yPos,speed:speed,frame:frame,count:count}

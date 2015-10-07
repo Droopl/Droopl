@@ -1,5 +1,6 @@
 <section class="notfound">
 	<header>
+		<img src="images/assets/lantern.svg">
 		<h1 class="animated fadeInDown">404</h1>
 		<h2 class="animated fadeInUp">Page Not Found</h2>
 		<h3 class="animated fadeInUp">Press any key to start</h3>
@@ -16,4 +17,5 @@
 	<img src="images/assets/game/coin2.png" class="hide" id="coin1">
 	<img src="images/assets/game/coin3.png" class="hide" id="coin2">
 	<img src="images/assets/game/coin4.png" class="hide" id="coin3">
+	<img src="images/assets/game/basket.png" class="hide" id="basket">
 </section>
