@@ -38,9 +38,10 @@ class CollectionController extends AppController{
 		if(!empty($_GET['id'])){
 			if(!empty($_POST)){
 				print_r($_POST);
+				
 			}
 		}else{
-			
+
 		}
 
 	}

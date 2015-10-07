@@ -79,7 +79,8 @@ $(function () {
 
 		setInterval(function () {
 
-			coins.push(createCoint(0,0,1,0,0));
+			var x = Math.floor((Math.random() * $(canvas).width()) + 20);
+			coins.push(createCoint(x,0,1,0,0));
 
 
 		  console.log(coins);

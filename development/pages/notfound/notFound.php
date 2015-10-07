@@ -1,5 +1,9 @@
 <section class="notfound">
-	<header><h1>404 Not Found</h1></header>
+	<header>
+		<h1>404</h1>
+		<h2>Page Not Found</h2>
+		<h3>Press any key to start</h3>
+	</header>
 	<canvas id="cnvs">
 		
 	</canvas>
