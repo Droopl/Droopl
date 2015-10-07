@@ -577,7 +577,8 @@ $(function  () {
     function getCollectionDetail(e) {
       e.preventDefault();
 
-      var url = $(this).attr("href");
+      var id = $(this).attr("id");
+      var url = "?page=item&id="+id;
       $.get( url, function( data ) { 
 
         var section = $(data).find(".feed");
