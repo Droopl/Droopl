@@ -584,6 +584,7 @@ $(function  () {
     $("article div.feed section.quest header a.collection_item").on("click",getCollectionDetail);
     $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-menu ul li.edit a").on("click",getCollectionDetail);
     $("article aside#side section.collection ul li").on("click",getCollectionDetail);
+    $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-detail").on("click",getCollectionDetail);
     
     function getCollectionDetail(e) {
       e.preventDefault();
@@ -999,7 +1000,7 @@ $(function  () {
                     $("#quest input[type='text']").val("");
                     var quests = $(".feed .quest");
 	           		console.log("sent");
-					       var feed = $(data).find(".feed .quest");
+				    var feed = $(data).find(".feed .quest");
                    
                    $(feed).each(function(key,newquest){
                        
@@ -1024,6 +1025,8 @@ $(function  () {
                        
                    });
                    
+                    $("article div.feed section.quest footer a.proposal").on("click",getDetail);
+
                     var lang = $("div.js-language").html();
                     $("article div.feed section.post form div.collection ul li div.selected").removeClass("show").removeClass("bounceIn");
                     $("article div.feed section.post form div.collection ul li").removeClass("selected");

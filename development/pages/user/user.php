@@ -241,12 +241,11 @@
 
         <ul>
 
-           <?php foreach ($collection as $key => $value) {?>
+           <?php foreach ($collection as $key => $value) { if($_SESSION['user']['id'] == $user['id']){ ?>
 
             <li class="profile-collection-item">
-                <span class="collection-item-privacy <?php if($value['status'] == 0){ echo "public"; }elseif($value['status'] == 1){ echo "private"; }else{ echo "public"; } ?>"></span>
                 
-                <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $user['id']){ ?>
+                <span class="collection-item-privacy <?php if($value['status'] == 0){ echo "public"; }elseif($value['status'] == 1){ echo "private"; }else{ echo "public"; } ?>"></span>
                 
                 <span class="collection-item-menu">
                     <ul>
@@ -255,13 +254,20 @@
                     </ul>
                 </span>
                 
-                <?php } ?>
-                
                 <img src='images/collection/<?php echo $value["collection_image"]; ?>' >
-                <h1 class="profile-collection-item-name"><?php echo $value['item_name'] ?><span class="available"></span></h1>
+                <h1 class="profile-collection-item-name"><?php echo $value['item_name'] ?><span class="<?php if($value['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
+            </li>
+            
+            <?php }else{ if($value['status'] == 0){ ?>
+            
+                <li class="profile-collection-item">
+
+                <span id="<?php echo $value['collection_id']; ?>" class="collection-item-detail"></span>
+                <img src='images/collection/<?php echo $value["collection_image"]; ?>' >
+                <h1 class="profile-collection-item-name"><?php echo $value['item_name'] ?><span class="<?php if($value['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
             </li>
 
-            <?php } ?>
+            <?php } } } ?>
 
         </ul>
         
