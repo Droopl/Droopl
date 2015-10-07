@@ -1,7 +1,20 @@
 $(function () {
 
+	var gameStarted = false;
+
 	if($(".notfound").length){
-      startGame();
+		$(window).on("keydown",function () {
+			if(!gameStarted){
+				gameStarted = true;
+				$(".notfound header:first-child h1").removeClass("fadeInDown");
+				$(".notfound header:first-child h2").removeClass("fadeInUp");
+				$(".notfound header:first-child h3").removeClass("fadeInUp");
+				$(".notfound header:first-child h1").addClass("fadeOutUp");
+				$(".notfound header:first-child h2").addClass("fadeOutDown");
+				$(".notfound header:first-child h3").addClass("fadeOutDown");
+				startGame();
+			}
+		})
     }
 
 	function startGame () {
@@ -23,22 +36,24 @@ $(function () {
 
 		$(window).on("keydown",function(e){
 
+			if(gameStarted){
+			  switch(e.keyCode){
+			    case 37:
+			    xpos -= speed;
+			    break;
 
-		  switch(e.keyCode){
-		    case 37:
-		    xpos -= speed;
-		    break;
+			    case 39:
+			    xpos += speed;
+			    break;
 
-		    case 39:
-		    xpos += speed;
-		    break;
-
-		    case 40:
-		    jump ++;
-		    break;
+			    case 40:
+			    jump ++;
+			    break;
+			  }
 		  }
 
 		});
+
 
 		var draw = setInterval(function () {
 
