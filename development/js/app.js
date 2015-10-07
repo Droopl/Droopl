@@ -564,6 +564,16 @@ $(function  () {
           $("article.detail div.feed").remove();
           
         });
+          
+        $(window).on("keyup",function (e) {
+            switch(e.keyCode){
+              case 27:
+               console.log("close");
+               $("article.detail").addClass("hide");
+               $("article.detail div.feed").remove();
+              break;
+            }
+        });
 
       });
 
@@ -615,9 +625,9 @@ $(function  () {
     
     function editCollectionItem(e){
         
+        e.preventDefault();
+        
         if($(this).parent().hasClass("editable") && !$("article.collection_item div.feed section.detail-collection-item form header input[type='submit']#edit_item").hasClass("editable")){
-            
-            e.preventDefault();
         
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").addClass("editable");
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Save");
@@ -655,7 +665,6 @@ $(function  () {
             });
         
         }else{
-            e.preventDefault();
             
               var id = $("article.collection_item div.feed section.detail-collection-item").attr("id");
               var url = "index.php?page=update&id="+id; // the script where you handle the form input.
@@ -671,10 +680,24 @@ $(function  () {
                     contentType: false,
                     processData: false,
                        success: function(data){
-                           console.log(data);
+                           if(data == 1){
+                               $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").addClass("saved").attr("value","Saved !");
+                               setTimeout(function(){
+                                   $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","");
+                                   $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").removeClass("editable").removeClass("saved");
+                                   $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").blur();
+                                   $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").attr("readonly",true);
+            $("article.collection_item div.feed section.detail-collection-item form aside textarea#item_description").attr("readonly",true);
+                               },1000);
+                           }else{
+                               $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Error while saving ...");
+                               setTimeout(function(){
+                                   $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Save");
+                               },1000);
+                           }
                        }
                 });
-            
+        
         }
         
     }

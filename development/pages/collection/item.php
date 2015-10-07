@@ -23,7 +23,7 @@
                 <a class="close-collection-detail"></a>
 				<header>
 					<h1 class="hide">Info about your item</h1>
-					<input type="text" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>" readonly>
+					<input type="text" id="item_name" name="item_name" value="<?php echo $item['item_name']; ?>" required readonly>
 				</header>
 				<textarea id="item_description" name="item_description" readonly><?php if(!empty($item['description'])){ echo $item['description']; }else{ echo "this item has no description yet";} ?></textarea>
                 <div class="button-container">
