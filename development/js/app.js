@@ -13,6 +13,18 @@ $(function  () {
           checkNotification();
           
        }
+        
+        if($("article aside#side section.activity ul.progress").length){
+            $.get("index.php?page=feed", function( data ) { 
+                var $data = $(data);
+                var activityLis = $data.find("article aside#side section.activity ul.progress li");
+                $.each(activityLis,function(key,val){
+                    var activityLi = $(val);
+                    var dashOffset = activityLi.find("path").attr("stroke-dashoffset");
+                    console.log(dashOffset);
+                });
+            });
+        }
     },1000);
 
     
