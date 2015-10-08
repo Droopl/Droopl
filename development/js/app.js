@@ -15,15 +15,17 @@ $(function  () {
        }
         
         if($("article aside#side section.activity ul.progress").length){
-            $.get("index.php?page=feed", function( data ) { 
-                var $data = $(data);
-                var activityLis = $data.find("article aside#side section.activity ul.progress li");
-                $.each(activityLis,function(key,val){
+                
+                var newActivityLis = $("<div/>");
+                newActivityLis.load("index.php?page=feed article aside#side section.activity ul.progress li");
+                console.log(newActivityLis);
+                /*$.each(newActivityLis.find("li"),function(key,val){
                     var activityLi = $(val);
-                    var dashOffset = activityLi.find("path").attr("stroke-dashoffset");
-                    console.log(dashOffset);
-                });
-            });
+                    console.log(activityLi);
+                    var dashOffset = activityLi.find("path#count").attr("stroke-dashoffset");
+                    //console.log(dashOffset);
+                });*/
+            
         }
     },1000);
 
