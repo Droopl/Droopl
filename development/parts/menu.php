@@ -38,7 +38,7 @@
     
     <audio id="sounds" src="" class="hide"></audio>
 
-    <?php if($_GET['page'] != "login"){ ?>
+    <?php if($_GET['page'] != "login" && $_GET['page'] != "register"){ ?>
 <header id="menu">
 	<div>
     <h1><a href="?page=feed" class="logo"><span class="hide">Droopl</span></a></h1>
