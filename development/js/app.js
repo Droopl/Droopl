@@ -1039,7 +1039,7 @@ $(function  () {
                        
                    });
                    
-                    $("article div.feed section.quest footer a.proposal").on("click",getDetail);
+                    //$("article div.feed section.quest footer a.proposal").on("click",getDetail);
 
                     var lang = $("div.js-language").html();
                     $("article div.feed section.post form div.collection ul li div.selected").removeClass("show").removeClass("bounceIn");
