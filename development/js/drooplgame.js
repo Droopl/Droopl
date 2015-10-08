@@ -1,6 +1,8 @@
 $(function () {
 
 	var gameStarted = false;
+	$("#sounds").attr("src","sounds/coin.mp3");
+	var sound = $("#sounds")[0];
 
 	if($(".notfound").length){
 		$(window).on("keydown",function () {
@@ -32,7 +34,7 @@ $(function () {
 
 		var xpos = $(canvas).parent().width()/2;
 		var speed = $(canvas).width()/20;
-		var character = createCharacter(xpos,$(canvas).height(),speed,document.getElementById("manu"));
+		var character = createCharacter(xpos,$(canvas).height(),speed,document.getElementById("manuright"));
 
 		for (var i = 0; i < lives; i++) {
 			$(".notfound header nav ul").append($("<li/>").addClass("animated pulse infinite"));
@@ -44,10 +46,12 @@ $(function () {
 			  switch(e.keyCode){
 			    case 37:
 			    character.xPos -= character.speed;
+			    character.img = document.getElementById("manuleft");
 			    break;
 
 			    case 39:
 			    character.xPos += character.speed;
+			    character.img = document.getElementById("manuright");
 			    break;
 			  }
 		  }
@@ -57,17 +61,17 @@ $(function () {
 
 		var draw = setInterval(function () {
 
-
-		  if(character.xPos <= 0){
+			if(character.xPos <= 0){
 		    character.xPos = 0;
-		  }else if(character.xPos + 150 >= canvas.width){
-		  	character.xPos = canvas.width-150;
+		  }else if(character.xPos + 58 >= canvas.width){
+		  	character.xPos = canvas.width-58;
 		  }
+		  
 
 		  context.clearRect(0, 0, canvas.width, canvas.height);
-		  
-			var characterImg = document.getElementById("manu");
-			context.drawImage(character.img,character.xPos,character.yPos-150);
+
+			
+			context.drawImage(character.img,character.xPos,character.yPos-107);
 
 		  for (var i = coins.length - 1; i >= 0; i--) {
 		  	var coin = coins[i];
@@ -78,9 +82,10 @@ $(function () {
 		  			coin.count = 0;
 		  		}
 
-		  		if(coin.yPos >= character.yPos-140 && coin.xPos > character.xPos  && coin.xPos < character.xPos + 140){
+		  		if(coin.yPos >= character.yPos-107 && coin.xPos > character.xPos  && coin.xPos < character.xPos + 70){
 		  			points++;
 		  			console.log(points);
+		  			sound.play();
 		  			$("article section.notfound header div.points p").text(points);
 		  			if($("article section.notfound header div.points img").hasClass("animated bounce")){
 		  				$("article section.notfound header div.points img").addClass("animated bounce");
@@ -132,7 +137,7 @@ $(function () {
 			coins.push(createCoint(x,0,1,0,0));
 
 
-		},1000);
+		},1500);
 
 		function stopGame () {
 
@@ -149,6 +154,7 @@ $(function () {
 			console.log("stopGame");
 			clearInterval(coinsInterval);
 			clearInterval(draw);
+			points = 0;
 			context.clearRect(0, 0, canvas.width, canvas.height);
 			gameStarted = false;
 

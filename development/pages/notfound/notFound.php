@@ -22,5 +22,6 @@
 	<img src="images/assets/game/coin2.png" class="hide" id="coin1">
 	<img src="images/assets/game/coin3.png" class="hide" id="coin2">
 	<img src="images/assets/game/coin4.png" class="hide" id="coin3">
-	<img src="images/assets/game/character_droopl_manu.png" height="100" class="hide" id="manu">
+	<img src="images/assets/game/character_left.png" height="100" class="hide" id="manuleft">
+	<img src="images/assets/game/character_right.png" height="100" class="hide" id="manuright">
 </section>
