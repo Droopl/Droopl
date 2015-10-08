@@ -113,14 +113,13 @@ $(function () {
 			  			$(heart).removeClass("pulse infinite");
 			  			$(heart).addClass("fadeOutUp");
 			  			setTimeout(function () {
-			  				$(heart).remove();	
+			  				
 			  			},1000);
 			  		};
 		  			
 		  		}else{
 
-		  			$(".notfound header nav ul li").removeClass("pulse infinite");
-			  		$(".notfound header nav ul li").addClass("fadeOutUp");
+		  			$(".notfound header nav ul li").remove();
 		  			stopGame();
 		  		}
 
