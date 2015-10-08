@@ -23,7 +23,7 @@ $(function () {
 		
 		var coins = [];
 		var lives = 3;
-
+		var points = 0;
 		var canvas = document.getElementById("cnvs");
 		canvas.width = $(canvas).parent().width();
 		canvas.height = $(canvas).parent().height();
@@ -31,8 +31,8 @@ $(function () {
 		var coinsprite = [document.getElementById("coin"), document.getElementById("coin2"), document.getElementById("coin3")];
 
 		var xpos = $(canvas).parent().width()/2;
-		var speed = $(canvas).width()/30;
-		var character = createCharacter(xpos,$(canvas).height(),speed,document.getElementById("basket"));
+		var speed = $(canvas).width()/20;
+		var character = createCharacter(xpos,$(canvas).height(),speed,document.getElementById("manu"));
 
 		for (var i = 0; i < lives; i++) {
 			$(".notfound header nav ul").append($("<li/>").addClass("animated pulse infinite"));
@@ -60,14 +60,14 @@ $(function () {
 
 		  if(character.xPos <= 0){
 		    character.xPos = 0;
-		  }else if(character.xPos >= canvas.width){
-		  	character.xPos = canvas.width-40;
+		  }else if(character.xPos + 150 >= canvas.width){
+		  	character.xPos = canvas.width-150;
 		  }
 
 		  context.clearRect(0, 0, canvas.width, canvas.height);
 		  
-			var characterImg = document.getElementById("basket");
-			context.drawImage(character.img,character.xPos,character.yPos-77);
+			var characterImg = document.getElementById("manu");
+			context.drawImage(character.img,character.xPos,character.yPos-150);
 
 		  for (var i = coins.length - 1; i >= 0; i--) {
 		  	var coin = coins[i];
@@ -78,6 +78,15 @@ $(function () {
 		  			coin.count = 0;
 		  		}
 
+		  		if(coin.yPos >= character.yPos-140 && coin.xPos > character.xPos  && coin.xPos < character.xPos + 140){
+		  			points++;
+		  			console.log(points);
+		  			$("article section.notfound header div.points p").text(points);
+		  			if($("article section.notfound header div.points img").hasClass("animated bounce")){
+		  				$("article section.notfound header div.points img").addClass("animated bounce");
+		  			}
+		  			coins.splice(coins.indexOf(coin),1);
+		  		}
 		  		var index = parseInt(coin.count/10);
 		  		var url = "coin"+index;
 
@@ -119,11 +128,11 @@ $(function () {
 
 		var coinsInterval = setInterval(function () {
 
-			var x = Math.floor((Math.random() * $(canvas).width()) + 20);
+			var x = Math.floor((Math.random() * ($(canvas).width() - 50) ) + 50);
 			coins.push(createCoint(x,0,1,0,0));
 
 
-		},3000);
+		},1000);
 
 		function stopGame () {
 

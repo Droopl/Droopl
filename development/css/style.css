@@ -3843,6 +3843,32 @@ article section.notfound header{
     width: 100%;
     height: 100%;
 }
+article section.notfound header div.points{
+
+    position: absolute;
+    right: 25px;
+    height: 30px;
+    line-height: 30px;
+    top: 20px;
+}
+article section.notfound header div.points img{
+    float: right;
+    position:static;
+    width: auto;
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+article section.notfound header div.points p{
+    float: right;
+    position:static;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1em;
+    font-weight: normal;
+    margin-right: 10px;
+}
 article section.notfound header img{
     position: absolute;
     margin-left: -25px;
