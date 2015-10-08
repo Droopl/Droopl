@@ -63,8 +63,10 @@ class FeedDAO
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount ,SQRT(POW(69.1 *(u.latitude - :lat),2) + POW( 69.1 * (:long - u.longitude) * COS(u.latitude / 57.3),2)) AS distance , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
+		LEFT OUTER JOIN public_quests AS pq
+		ON f.friend_id = pq.user_id
 		LEFT OUTER JOIN quests AS q
-		ON f.friend_id = q.user_id
+		ON pq.quest_id = q.quest_id
 		LEFT OUTER JOIN proposals AS p
 		ON q.quest_id = p.quest_id
 		LEFT OUTER JOIN users AS u
@@ -100,8 +102,10 @@ class FeedDAO
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
+		LEFT OUTER JOIN public_quests AS pq
+		ON f.friend_id = pq.user_id
 		LEFT OUTER JOIN quests AS q
-		ON f.friend_id = q.user_id
+		ON pq.quest_id = q.quest_id
 		LEFT OUTER JOIN proposals AS p
 		ON q.quest_id = p.quest_id
 		LEFT OUTER JOIN users AS u
@@ -134,8 +138,10 @@ class FeedDAO
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
+		LEFT OUTER JOIN public_quests AS pq
+		ON f.friend_id = pq.user_id
 		LEFT OUTER JOIN quests AS q
-		ON f.friend_id = q.user_id
+		ON pq.quest_id = q.quest_id
 		LEFT OUTER JOIN proposals AS p
 		ON q.quest_id = p.quest_id
 		LEFT OUTER JOIN users AS u

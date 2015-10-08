@@ -249,7 +249,11 @@
     		<li class="profile">
                 <?php if(!empty($_SESSION['user'])){ ?>
                
-    			<img class="profile-img" src="images/profile_pictures/<?php echo $_SESSION['user']['picture']; ?>" alt="Rachouan Rejeb">
+    			<?php if(!empty($_SESSION['user']['picture'])){ ?>
+				<img class="profile-img" src="images/profile_pictures/<?php echo $_SESSION['user']['picture'];?>" alt="rachouan rejeb">
+				<?php }else{ ?>
+				<img class="profile-img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+				<?php }?>
                 
                 <ul class="scrollable">
                     <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>" class="icon-head"><span><?php 

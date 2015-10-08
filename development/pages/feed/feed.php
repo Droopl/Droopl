@@ -25,7 +25,11 @@
 			<?php foreach ($publicquests as $id => $val) { ?>
 			<li>
 				<a href="?page=detail&questid=<?php echo $val['quest_id']; ?>" alt="<?php echo $val['firstname']; ?>">
+					<?php if(!empty($val['picture'])){ ?>
 					<img src="images/profile_pictures/<?php echo $val['picture'];?>" alt="rachouan rejeb">
+					<?php }else{ ?>
+					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+					<?php }?>
 					<p><span><?php echo $val['firstname']; echo " "; echo $val['lastname'];?></span> <?php if($val['type'] == 0){ 
 
             switch ($_SESSION['language']) {
@@ -489,7 +493,11 @@
 		<section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>" data-lat="<?php echo $value['latitude']; ?>" data-lng="<?php echo $value['longitude']; ?>">
 		<header>
 
-			<img src="images/profile_pictures/<?php echo $value['picture'];?>">
+			<?php if(!empty($value['picture'])){ ?>
+					<img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+					<?php }else{ ?>
+					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+					<?php }?>
 			<h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
 				switch ($_SESSION['language']) {
 			        case 'en':

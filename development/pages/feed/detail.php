@@ -2,7 +2,11 @@
 <section class="quest" id="<?php echo $quest['quest_id']; ?>">
 <header>
 
-<img src="images/profile_pictures/<?php echo $quest['picture'];?>">
+<?php if(!empty($quest['picture'])){ ?>
+<img src="images/profile_pictures/<?php echo $quest['picture'];?>" alt="rachouan rejeb">
+<?php }else{ ?>
+<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+<?php }?>
 <h1><a href="?page=user&id=<?php echo $quest['id']; ?>"> <?php echo $quest['firstname']; echo " "; echo $quest['lastname'];?></a><?php if($quest['type'] == 0){ 
 
     switch ($_SESSION['language']) {

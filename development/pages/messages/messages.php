@@ -11,7 +11,11 @@
 			<li>
 				<a href="?page=messages&id=<?php echo $value['conversation_id']; ?>" <?php if($value['conversation_id'] == $_SESSION['conversation']['conversation_id']){ echo 'class="selected"';} ?>>
 				<header>
-					<img src="images/profile_pictures/<?php echo $value['picture']; ?>" alt="<?php echo $value['firstname'].' '.$value['lastname']; ?>">
+					<?php if(!empty($value['picture'])){ ?>
+					<img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+					<?php }else{ ?>
+					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+					<?php }?>
 					<h1><?php echo $value['firstname'].' '.$value['lastname']; ?> <span><?php $hours = date("H", strtotime($value['message_creation_date'])); $date = date("D", strtotime($value['message_creation_date'])); echo $hours.'h '.$date;?></span></h1>
 					<p><span><?php echo $value['message']; ?></span></p>
 				</header>
@@ -33,7 +37,11 @@
 					<?php if($value['user_typing'] == 1){ ?>
 					<li class="user animated bounce infinite"><img src="images/profile_pictures/<?php echo $value['picture']; ?>"></li>
 					<?php }else{ ?>
-					<li class="user"><img src="images/profile_pictures/<?php echo $value['picture']; ?>"></li>
+					<li class="user"><?php if(!empty($value['picture'])){ ?>
+			<img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+			<?php }else{ ?>
+			<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+			<?php }?></li>
 					<?php } ?>
 				<?php }
 			} ?>
@@ -53,7 +61,11 @@
 
 				?>
 
-				<li id="<?php echo $messages[$i]['message_id']; ?>" class="message"><p><img src="images/profile_pictures/<?php echo $messages[$i]['picture'];?>"><span><?php echo $messages[$i]['message']; ?></span></p></li>
+				<li id="<?php echo $messages[$i]['message_id']; ?>" class="message"><p><?php if(!empty($messages[$i]['picture'])){ ?>
+			<img src="images/profile_pictures/<?php echo $messages[$i]['picture'];?>" alt="rachouan rejeb">
+			<?php }else{ ?>
+			<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+			<?php }?><span><?php echo $messages[$i]['message']; ?></span></p></li>
 		
 			<?php 
 		}else{ ?>
