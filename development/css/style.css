@@ -766,6 +766,7 @@ article aside#side section.collection{
     margin-bottom: 20px;
     padding-bottom: 0;
 }
+
 article aside#side section.collection h1{
     padding-bottom: 1%;
 }
@@ -841,6 +842,44 @@ article aside#side section.collection ul li img{
     width: 35px;
     height: 35px;
     border-radius: 50%;
+}
+article aside#side section.communities{
+    border-top: none;
+}
+article aside#side section.communities nav ul li{
+    display: inline-block;
+    width: 100%;
+
+}
+article aside#side section.communities nav ul li a{
+    display: block;
+    width: 90%;
+    padding: 5%;
+    height: 20px;
+    font-size: .7em;
+    color: #5F6970;
+    text-decoration: none;
+    font-weight: normal;
+}
+article aside#side section.communities nav ul li a:hover{
+    background-color: rgba(0,0,0,.02);
+}
+article aside#side section.communities nav ul li a span:first-child{
+    display: block;
+    line-height: 20px;
+    margin-left: 10px;
+    float: left;
+}
+article aside#side section.communities nav ul li a span:last-child{
+    display: block;
+    float: right;
+    line-height: 20px;
+}
+article aside#side section.communities nav ul li a img{
+    float: left;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
 }
 article aside#side section.profile{
     padding: 0;
@@ -4024,7 +4063,6 @@ article aside#side section.comusers nav ul li{
     margin: 0 5%;
     overflow: hidden;
     border-radius: 50%;
-    background-color: #ffff00;
 
 }
 article aside#side section.comusers nav ul li a{

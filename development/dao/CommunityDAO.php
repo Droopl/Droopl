@@ -28,6 +28,26 @@ class CommunityDAO{
 
 		return array();
 	}
+	public function getCommunitiesByUserId($user_id){
+
+		$sql = 'SELECT cu.community_id,c.community_name FROM community_users AS cu
+		LEFT OUTER JOIN users AS u
+		on cu.user_id = u.id
+		LEFT OUTER JOIN communities AS c
+		on cu.community_id = c.id
+		WHERE cu.user_id = :user_id
+		ORDER BY cu.creation_date DESC';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':user_id',$user_id);
+
+		if($stmt->execute()){
+
+			return $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		}
+
+		return array();
+	}
 
 	public function getCommunityUsersById($community_id){
 

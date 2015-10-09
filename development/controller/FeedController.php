@@ -16,6 +16,7 @@ class FeedController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'ImagesDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'CommunityDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
 
 		$this->feedDAO = new FeedDAO();
@@ -24,6 +25,7 @@ class FeedController extends AppController{
 		$this->imagesDAO = new ImagesDAO();
 		$this->notificationsDAO = new NotificationsDAO();
 		$this->userDAO = new UserDAO();
+		$this->communityDAO = new CommunityDAO();
 		$this->collectionDAO = new CollectionDAO();
 
 	}
@@ -40,6 +42,7 @@ class FeedController extends AppController{
 
 		$proposals = [];
         $collection = [];
+        $communities = [];
 		$publicQuests;
 
 		$type = "recent";
@@ -68,6 +71,7 @@ class FeedController extends AppController{
 
 		if(isset($_SESSION['user'])){
 			$quests = $this->getQuests($type);
+			$communities =  $this->communityDAO->getCommunitiesByUserId($_SESSION['user']['id']);
             $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
 		}else{
 			$quests = $publicquests;
@@ -151,6 +155,7 @@ class FeedController extends AppController{
 		}
 
 		$this->set('quests',$quests);
+		$this->set('communities',$communities);
 		$this->set('publicquests',$publicquests);
 		$this->set('proposals',$proposals);
         $this->set('collection',$collection);

@@ -219,124 +219,16 @@
 		    </svg> </li>
  
 </ul>
-		<ul class="notifications">
-			<?php for($i = 0;$i < 3;$i++) { 
-
-                    $value = $notifications[$i];
-                    if(isset($notifications[$i])){
-    					switch ($value['notification_type']) {
-    						case '0': ?>
-    							<li <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-repeat"></span> New proposal from <?php echo $value['firstname']; ?> <span class="time"><?php 
-
-									$full = false;
-							 		$now = new DateTime;
-								    $ago = new DateTime($value['notification_creation_date']);
-								    $diff = $now->diff($ago);
-
-								    $diff->w = floor($diff->d / 7);
-								    $diff->d -= $diff->w * 7;
-
-								    $string = array(
-								        'y' => 'year',
-								        'm' => 'month',
-								        'w' => 'week',
-								        'd' => 'day',
-								        'h' => 'h',
-								        'i' => 'm',
-								        's' => 's',
-								    );
-								    foreach ($string as $k => &$v) {
-								        if ($diff->$k) {
-								            $v = $diff->$k . ' ' . $v;
-								        } else {
-								            unset($string[$k]);
-								        }
-								    }
-
-								    if (!$full) $string = array_slice($string, 0, 1);
-								    $result =  $string ? implode(', ', $string) : 'just now';
-
-								    echo $result;
-
-									?></span></li>
-    							<?php break;
-
-
-    							case '2': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you<span class="time"><?php 
-
-									$full = false;
-							 		$now = new DateTime;
-								    $ago = new DateTime($value['notification_creation_date']);
-								    $diff = $now->diff($ago);
-
-								    $diff->w = floor($diff->d / 7);
-								    $diff->d -= $diff->w * 7;
-
-								    $string = array(
-								        'y' => 'year',
-								        'm' => 'month',
-								        'w' => 'week',
-								        'd' => 'day',
-								        'h' => 'h',
-								        'i' => 'm',
-								        's' => 's',
-								    );
-								    foreach ($string as $k => &$v) {
-								        if ($diff->$k) {
-								            $v = $diff->$k . ' ' . $v;
-								        } else {
-								            unset($string[$k]);
-								        }
-								    }
-
-								    if (!$full) $string = array_slice($string, 0, 1);
-								    $result =  $string ? implode(', ', $string) : 'just now';
-
-								    echo $result;
-
-									?></span></li>
-    							<?php break;
-
-    							case '3': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you back<span class="time"><?php 
-
-									$full = false;
-							 		$now = new DateTime;
-								    $ago = new DateTime($value['notification_creation_date']);
-								    $diff = $now->diff($ago);
-
-								    $diff->w = floor($diff->d / 7);
-								    $diff->d -= $diff->w * 7;
-
-								    $string = array(
-								        'y' => 'year',
-								        'm' => 'month',
-								        'w' => 'week',
-								        'd' => 'day',
-								        'h' => 'h',
-								        'i' => 'm',
-								        's' => 's',
-								    );
-								    foreach ($string as $k => &$v) {
-								        if ($diff->$k) {
-								            $v = $diff->$k . ' ' . $v;
-								        } else {
-								            unset($string[$k]);
-								        }
-								    }
-
-								    if (!$full) $string = array_slice($string, 0, 1);
-								    $result =  $string ? implode(', ', $string) : 'just now';
-
-								    echo $result;
-
-									?></span></li>
-    							<?php break;
-    						
-    					}
-					 } } ?>
-		</ul>
+	</section>
+	<section class="communities">
+		<header><h1>Communities</h1></header>
+		<nav>
+			<ul>
+				<?php foreach ($communities as $key => $community) { ?>
+					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/profile_pictures/notfound.svg"><span><?php echo $community['community_name']; ?></span><span class="icon-head"> 203</span></a></li>
+				<?php } ?>
+			</ul>
+		</nav>
 	</section>
 </aside>
 <div class="feed">

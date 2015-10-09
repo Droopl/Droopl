@@ -19,7 +19,7 @@
         </div>
 	</section>
     <section class="comusers">
-        <header><h1>Communtiy</h1></header>
+        <header><h1>Members</h1></header>
         <nav>
             <?php if(!empty($users)){ ?>
             <ul>
@@ -52,19 +52,19 @@
                        switch($_SESSION['language']) {
                 
                             case 'en':
-                            echo "placeholder='What are you looking for ?'"; 
+                            echo "placeholder='What are you looking for ? In the ".$community['community_name']." community'"; 
                             break;
 
                             case 'fr':
-                            echo "placeholder='Qu&#39;est-ce que vous cherchez ?'";
+                            echo "placeholder='Qu&#39;est-ce que vous cherchez ? Dans le communité ".$community['community_name']."'";
                             break;
 
                             case 'nl':
-                            echo "placeholder='Wat ben je naar op zoek ?'";
+                            echo "placeholder='Wat ben je naar op zoek ? In de ".$community['community_name']." Maatschappij'";
                             break;
 
                             default:
-                            echo "placeholder='What are you looking for ?'"; 
+                            echo "placeholder='What are you looking for ? In the ".$community['community_name']." community'"; 
                             break;
                         }
                        ?> tabindex="1">
