@@ -134,6 +134,40 @@ class FeedDAO
 		}
 		return array();
 	}
+	public function getQuestsByCommunity($community_id){
+
+		$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		FROM community_quests AS cq
+        LEFT OUTER JOIN quests AS q
+		ON cq.quest_id = q.quest_id
+		LEFT OUTER JOIN proposals AS p
+		ON q.quest_id = p.quest_id
+		LEFT OUTER JOIN users AS u
+        on q.user_id = u.id
+        LEFT OUTER JOIN images AS i
+        on q.quest_id = i.quest_id
+        LEFT OUTER JOIN offers AS o
+        on q.quest_id = o.quest_id
+        LEFT OUTER JOIN collection AS c
+        on o.collection_id = c.collection_id
+        WHERE cq.community_id = :community_id
+        GROUP BY q.quest_id
+        ORDER BY q.creation_date DESC';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':community_id',$community_id);
+
+		if($stmt->execute()){
+
+			$quests = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			if(!empty($quests)){
+
+				return $quests;
+			}
+
+		}
+		return array();
+	}
 	public function getQuestsByViews($user_id){
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id

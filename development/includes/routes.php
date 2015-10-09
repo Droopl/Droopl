@@ -5,6 +5,7 @@ $routes = array(
 	'feed' => array('controller' => 'Feed', 'action' => 'feed'),
 	'search' => array('controller' => 'Feed', 'action' => 'search'),
     'detail' => array('controller' => 'Feed', 'action' => 'detail'),
+    'community' => array('controller' => 'Community', 'action' =>'community'),
 	'login' => array('controller' => 'User', 'action' => 'login'),
 	'register' => array('controller' => 'User', 'action' => 'register'),
 	'user' => array('controller' => 'User', 'action' => 'user'),
