@@ -462,12 +462,12 @@ $(function  () {
       }else{
         $("article.search ul li.preloader").hide();
       }
-      var url = "index.php?page=search"; // the script where you handle the form input.
+      var url = "index.php?page=search&search_full="+$(this).val(); // the script where you handle the form input.
 
       var formData = new FormData($(this).parent()[0]);
 
       $.ajax({
-             type: "POST",
+             type: "GET",
              url: url,
              data: formData, 
              async: false,
@@ -475,7 +475,9 @@ $(function  () {
             contentType: false,
             processData: false,
              success: function(data)
-             {  
+             {
+
+             console.log(data);  
               var items = $(data).find(".search_results li");
 
               var quests = $("article.search ul li.quest");
@@ -996,13 +998,11 @@ $(function  () {
     /*QUEST ADDING FUNCTIE*/
 	$("#quest").submit(function(e) {
       e.preventDefault();
-	    var url = "index.php?page=feed"; // the script where you handle the form input.
 
       var formData = new FormData($(this)[0]);
 
 	    $.ajax({
 	           type: "POST",
-	           url: url,
 	           data: formData, 
              async: false,
             cache: false,

@@ -3,7 +3,7 @@
 	<section class="community">
         <header>
         	<div class="profile_pic">
-        		<img src="images/profile_pictures/<?php echo $user['picture'];?>">
+        		<img src="images/communities/<?php echo $community['community_profile'];?>">
         	</div>
         	<h1><?php echo $community['community_name'];?></h1>
         	<nav> 

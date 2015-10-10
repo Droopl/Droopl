@@ -905,6 +905,9 @@ article aside#side section.profile header div.profile_pic img{
     width: 80px;
     height: 80px;
     border-radius: 50%;
+    
+    -webkit-box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
+box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
 }
 article aside#side section.profile header div.profile_pic span{
     padding: 5px;
@@ -1415,7 +1418,29 @@ article div.feed section.post form div input[type="text"]{
 }
 article div.feed section.post form div input[type="text"]#desc{
     float: left;
-    width: 390px;
+    width: 440px;
+    padding-right: 70px;
+    box-sizing:border-box;
+}
+article div.feed section.post form div select{
+    position: absolute;
+    right: 140px;
+    display: block;
+    background: none;
+    top: 50%;
+    margin-top: -10px;
+    border: none;
+    width: 40px;
+    text-align: center;
+    height: 20px;
+    color: #F47D67;
+
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+}
+article div.feed section.post form div select:focus{
+    outline: none;
 }
 article div.feed section.post form div div.switch-container{
     position: absolute;
@@ -4002,6 +4027,8 @@ article aside#side section.community header div.profile_pic img{
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    -webkit-box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
+box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
 }
 article aside#side section.community header div.profile_pic img{
     width: 80px;

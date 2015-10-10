@@ -36,24 +36,25 @@ class UserDAO{
 	}
 	
 
-	public function getUser($entry){
+	public function getSearchUsers($entry){
 
 		$sql = 'SELECT *
 		FROM `users`
-		WHERE :entry = (id OR ip)';
+		WHERE firstname LIKE :entry OR lastname LIKE :entry2 OR email LIKE :entry3';
 
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':entry',$entry);
+		$stmt->bindValue(':entry',$entry."%");
+		$stmt->bindValue(':entry2',$entry."%");
+		$stmt->bindValue(':entry3',$entry."%");
 
 		if($stmt->execute()){
 
-			return $illustrator = $stmt->fetch(PDO::FETCH_ASSOC);
+			return $illustrator = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		return array();
 
 	}
-
 
 	public function loginUser($email,$password){
 

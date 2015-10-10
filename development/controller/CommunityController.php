@@ -55,64 +55,73 @@ class CommunityController extends AppController{
 
 				$user_id = $_SESSION['user']['id'];
 
-				if(!empty($_POST['desc'])){
+				if(!empty($_POST)){
 
-	                if(!empty($_POST['type'])){
-	                    if($_POST['type'] == 0 || $_POST['type'] == 1){
-	                        $type = $_POST['type'];
-	                    }else{
-	                        $type = 0;
-	                    }
-					}
+					$checkMember = $this->communityDAO->isMemberOfCommunity($user_id,$_GET['id']);
 
-					if($type == 0){
-						if(!empty($_POST['item'])){
-							$item = mb_convert_encoding($_POST['item'], "UTF-8");
+					if(!empty($checkMember)){
+
+
+		                if(!empty($_POST['type'])){
+		                    if($_POST['type'] == 0 || $_POST['type'] == 1){
+		                        $type = $_POST['type'];
+		                    }else{
+		                        $type = 0;
+		                    }
 						}
-					}
 
-					if(!empty($_POST['desc'])){
-
-						$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
-					}
-
-					$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);		
-
-					if(!empty($submition)){
-
-						if($type == 1){
-							if(!empty($_POST['collection_item'])){
-								$this->offerDAO->addOffer($submition['quest_id'],$_POST['collection_item']);
+						if($type == 0){
+							if(!empty($_POST['item'])){
+								$item = mb_convert_encoding($_POST['item'], "UTF-8");
 							}
 						}
 
-						if(isset($_FILES['quest_upload_image']) && $_FILES['quest_upload_image']['size'] != 0){
+						if(!empty($_POST['desc'])){
 
-							$max_file_size = 1024*100000; // 200kb
-							$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
-							// thumbnail sizes
-							$sizes = array(700 => 700);
+							$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
+						}
 
-							if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['quest_upload_image'])) {
-							  if( $_FILES['quest_upload_image']['size'] < $max_file_size ){
-							    // get file extension
-							    $ext = strtolower(pathinfo($_FILES['quest_upload_image']['name'], PATHINFO_EXTENSION));
-							    if (in_array($ext, $valid_exts)) {
-							      /* resize image */
-							      foreach ($sizes as $w => $h) {
-							        $files[] = $this->resize($w, $h);
-							      }
+						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);		
 
-							      foreach ($files as $key => $value) {
-							      	$this->imagesDAO->addImage($submition['quest_id'],$value);
-							      }
+						if(!empty($submition)){
 
-							    } else {
-							      $msg = 'Unsupported file';
-							    }
-							  } else{
-							    $msg = 'Please upload image smaller than 200KB';
-							  }
+							$this->communityDAO->addCommuntyQuest($submition['quest_id'],$user_id);
+
+							if($type == 1){
+								if(!empty($_POST['collection_item'])){
+									$this->offerDAO->addOffer($submition['quest_id'],$_POST['collection_item']);
+								}
+							}
+
+							if(isset($_FILES['quest_upload_image']) && $_FILES['quest_upload_image']['size'] != 0){
+
+								$max_file_size = 1024*100000; // 200kb
+								$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+								// thumbnail sizes
+								$sizes = array(700 => 700);
+
+								if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['quest_upload_image'])) {
+								  if( $_FILES['quest_upload_image']['size'] < $max_file_size ){
+								    // get file extension
+								    $ext = strtolower(pathinfo($_FILES['quest_upload_image']['name'], PATHINFO_EXTENSION));
+								    if (in_array($ext, $valid_exts)) {
+								      /* resize image */
+								      foreach ($sizes as $w => $h) {
+								        $files[] = $this->resize($w, $h);
+								      }
+
+								      foreach ($files as $key => $value) {
+								      	$this->imagesDAO->addImage($submition['quest_id'],$value);
+								      }
+
+								    } else {
+								      $msg = 'Unsupported file';
+								    }
+								  } else{
+								    $msg = 'Please upload image smaller than 200KB';
+								  }
+								}
+
 							}
 
 						}

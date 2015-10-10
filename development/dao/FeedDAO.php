@@ -311,6 +311,22 @@ class FeedDAO
 
 		}
 
+		public function addPublicQuest($quest_id,$user_id){
+
+
+			$sql = "INSERT INTO `public_quests` (`quest_id`, `user_id`) VALUES (:quest_id, :user_id);";
+	        $stmt = $this->pdo->prepare($sql);
+	        $stmt->bindValue(":quest_id",$quest_id);
+	        $stmt->bindValue(":user_id",$user_id);
+
+	        if($stmt->execute()){
+
+				return $this->getQuestById($this->pdo->lastInsertId());
+
+			}
+	        return false;
+		}
+
 	public function addQuest($item,$user_id,$quest_description,$type,$active){
 
 

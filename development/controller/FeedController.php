@@ -82,7 +82,7 @@ class FeedController extends AppController{
 
 			$user_id = $_SESSION['user']['id'];
 
-			if(!empty($_POST['desc'])){
+			if(!empty($_POST)){
 
                 if(!empty($_POST['type'])){
                     if($_POST['type'] == 0 || $_POST['type'] == 1){
@@ -106,6 +106,15 @@ class FeedController extends AppController{
 				$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);		
 
 				if(!empty($submition)){
+
+					if(!empty($_POST['destination']) && strtolower($_POST['destination']) == "public"){
+						$this->feedDAO->addPublicQuest($submition['quest_id'],$user_id);
+					}else{
+						$checkMember = $this->communityDAO->isMemberOfCommunity($user_id,$_POST['destination']);
+						if(!empty($checkMember)){
+							$this->communityDAO->addCommuntyQuest($submition['quest_id'],$_POST['destination']);
+						}
+					}
 
 					if($type == 1){
 						if(!empty($_POST['collection_item'])){
@@ -211,12 +220,15 @@ class FeedController extends AppController{
     {	
     	$searchQuery = "";
     	$quests = array();
+    	$users = array();
 
-    	if(!empty($_POST['search_full'])){
-			$searchQuery = $_POST['search_full'];
-			$quests = $this->feedDAO->getSearchQuests($searchQuery);
+    	if(!empty($_GET['search_full'])){
+    		$searchQuery = $_GET['search_full'];
+
+    		//$users = $this->userDAO->getSearchUsers($searchQuery);
+    		$quests = $this->feedDAO->getSearchQuests($searchQuery);
     	}
-
+    	$this->set("users",$users);
     	$this->set("quests",$quests);
     	
     }

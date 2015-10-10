@@ -49,13 +49,30 @@ class CommunityDAO{
 		return array();
 	}
 
+	public function isMemberOfCommunity($user_id,$community_id){
+
+		$sql = 'SELECT id FROM community_users
+		WHERE user_id = :user_id AND community_id = :community_id';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':user_id',$user_id);
+		$stmt->bindValue(':community_id',$community_id);
+
+		if($stmt->execute()){
+
+			return $users = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		}
+
+		return array();
+	}
+
 	public function getCommunityUsersById($community_id){
 
 		$sql = 'SELECT * FROM community_users AS cu
 		LEFT OUTER JOIN users AS u
 		on cu.user_id = u.id
 		WHERE cu.community_id = :community_id
-		ORDER BY cu.creation_date DESC';
+		ORDER BY cu.creation_date ASC';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':community_id',$community_id);
 
@@ -68,16 +85,17 @@ class CommunityDAO{
 		return array();
 	}
 
-	public function addUser($ip){
+	public function addCommuntyQuest($quest_id,$community_id){
 
-		$sql = 'INSERT INTO`user` (`ip`)
-		VALUES (:ip)';
+		$sql = 'INSERT INTO`community_quests` (quest_id,community_id)
+		VALUES (:quest_id,:community_id)';
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':ip',$ip);
+		$stmt->bindValue(':quest_id',$quest_id);
+		$stmt->bindValue(':community_id',$community_id);
 
 		if($stmt->execute()){
 
-			return $this->getUserById($this->pdo->lastInsertId());
+			return true;
 
 		}
 		return false;

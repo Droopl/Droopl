@@ -369,6 +369,12 @@
             </div>-->
 			<div>
 				<input type="text" id="desc" name="desc" placeholder="Description" tabindex="2">
+				<select id="destination" name="destination">
+				  <option value="public">Public</option>
+				  <?php foreach ($communities as $key => $community) { ?>
+				  <option value="<?php echo $community['community_id']; ?>" class="public icon-globe"><?php echo $community['community_name']; ?></option>
+				  <?php  } ?>
+				</select>
 				<span class="upload_image">
 				    <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
 				</span>
