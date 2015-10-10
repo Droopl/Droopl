@@ -294,7 +294,7 @@
 			        break;
 			    }
             ?></span></a></li>
-             <li><a class="com icon icon-command"><span><?php 
+             <li><a class="com icon icon-command" href="?page=communities"><span><?php 
             switch ($_SESSION['language']) {
 			        case 'en':
 			        echo "communities";

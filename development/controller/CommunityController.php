@@ -172,6 +172,9 @@ class CommunityController extends AppController{
 
 	}
 
+	public function communities(){
+	}
+
 	private function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);

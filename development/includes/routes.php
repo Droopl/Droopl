@@ -6,6 +6,7 @@ $routes = array(
 	'search' => array('controller' => 'Feed', 'action' => 'search'),
     'detail' => array('controller' => 'Feed', 'action' => 'detail'),
     'community' => array('controller' => 'Community', 'action' =>'community'),
+    'communities' => array('controller' => 'Community', 'action' =>'communities'),
 	'login' => array('controller' => 'User', 'action' => 'login'),
 	'register' => array('controller' => 'User', 'action' => 'register'),
 	'user' => array('controller' => 'User', 'action' => 'user'),
