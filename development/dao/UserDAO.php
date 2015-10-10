@@ -78,7 +78,7 @@ class UserDAO{
 
 	public function getUserById($id){
 
-		$sql = 'SELECT u.id,u.firstname,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating  
+		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating  
 FROM users u
 LEFT OUTER JOIN user_rating as r
 ON r.user_id = u.id

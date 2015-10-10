@@ -7,6 +7,7 @@
         		<span class="badge">creator</span>
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>
+            <h2><?php echo $user['occupation'];?></h2>
         	<nav <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ echo "class='stars'"; }else{ echo "class='stars marg-bottom'"; } ?>> 
         		<ul>
                     <?php 

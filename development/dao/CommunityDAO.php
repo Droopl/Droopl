@@ -48,6 +48,21 @@ class CommunityDAO{
 
 		return array();
 	}
+	public function addCommuntyUser($user_id,$community_id){
+
+		$sql = 'INSERT INTO`community_users` (user_id,community_id)
+		VALUES (:user_id,:community_id)';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':user_id',$user_id);
+		$stmt->bindValue(':community_id',$community_id);
+
+		if($stmt->execute()){
+
+			return true;
+
+		}
+		return false;
+	}
 
 	public function isMemberOfCommunity($user_id,$community_id){
 
@@ -98,6 +113,21 @@ class CommunityDAO{
 			return true;
 
 		}
+		return false;
+	}
+
+	public function leaveMember($user_id,$community_id){
+
+		$sql ="DELETE FROM community_users WHERE user_id = :user_id AND community_id = :community_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':user_id',$user_id);
+		$stmt->bindValue(':community_id',$community_id);
+
+		if($stmt->execute()){
+
+			return true;
+		}
+
 		return false;
 	}
 

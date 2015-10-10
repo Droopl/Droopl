@@ -41,6 +41,7 @@ class CommunityController extends AppController{
 		$community = [];
 		$users = [];
         $collection = [];
+        $isMember = false;
 
         if(!empty($_GET['id'])){
         	$community = $this->communityDAO->getCommunityById($_GET['id']);
@@ -48,6 +49,31 @@ class CommunityController extends AppController{
 
 			if(isset($_SESSION['user'])){
 	            $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
+	            $checkMember = $this->communityDAO->isMemberOfCommunity($_SESSION['user']['id'],$_GET['id']);
+	            if(!empty($checkMember)){
+	            	$isMember = true;
+	            }
+			}
+
+			if(!empty($_GET['action'])){
+
+				if($_GET['action'] == "join"){
+
+					if(!$isMember){
+						if($this->communityDAO->addCommuntyUser($_SESSION['user']['id'],$_GET['id'])){
+							$this->redirect("?page=community&id=".$_GET['id']);
+						}
+					}else{
+						$this->redirect("?page=community&id=".$_GET['id']);
+					}
+				}else if($_GET['action'] == "leave"){
+					if($isMember){
+						if($this->communityDAO->leaveMember($_SESSION['user']['id'],$_GET['id'])){
+							$this->redirect("?page=community&id=".$_GET['id']);
+						}
+					}
+				}
+
 			}
 			
 
@@ -57,10 +83,7 @@ class CommunityController extends AppController{
 
 				if(!empty($_POST)){
 
-					$checkMember = $this->communityDAO->isMemberOfCommunity($user_id,$_GET['id']);
-
-					if(!empty($checkMember)){
-
+					if($isMember){
 
 		                if(!empty($_POST['type'])){
 		                    if($_POST['type'] == 0 || $_POST['type'] == 1){
@@ -81,11 +104,11 @@ class CommunityController extends AppController{
 							$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
 						}
 
-						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);		
+						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);	
 
 						if(!empty($submition)){
 
-							$this->communityDAO->addCommuntyQuest($submition['quest_id'],$user_id);
+							$this->communityDAO->addCommuntyQuest($submition['quest_id'],$_GET['id']);
 
 							if($type == 1){
 								if(!empty($_POST['collection_item'])){
@@ -142,6 +165,7 @@ class CommunityController extends AppController{
 
         
 		$this->set('community',$community);
+		$this->set('isMember',$isMember);
 		$this->set('users',$users);
 		$this->set('quests',$quests);
         $this->set('collection',$collection);

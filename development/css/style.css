@@ -943,6 +943,17 @@ article aside#side section.profile header h1{
     text-align: center;
     float: left;
 }
+article aside#side section.profile header h2{
+    display: block;
+    width: 100%;
+    margin-top: -2.5%;
+    font-size: .7em;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(0,0,0,.3);
+    float: left;
+}
 article aside#side section.profile header nav.stars{
     float: left;
     width: 90%;
@@ -4029,6 +4040,58 @@ article aside#side section.community{
 article aside#side section.community header{
     float: left;
     width: 100%;
+    position: relative;
+}
+
+article aside#side section.community header nav{
+    
+    float: left;
+    width: 100%;
+    padding: 5%;
+    box-sizing:border-box;
+    margin-bottom: 20px;
+    text-align: center;
+}
+article aside#side section.community header nav a.member{
+    display: inline-block;
+    font-size: .7em;
+    padding: 0 5%;
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background-color: #F47D67;
+    border-radius: .5em;
+
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+article aside#side section.community header nav a.member span{
+    margin-left: -10px;
+    opacity: 0;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+article aside#side section.community header nav a.member:hover span{
+    margin-left: 10px;
+    opacity: 1;
+}
+article aside#side section.community header nav a.member.leave{
+    color: rgba(0,0,0,.4);
+    background:none;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: .5em;
+    opacity: .4;
+}
+article aside#side section.community header nav a.member.leave:hover{
+    opacity: 1;
 }
 article aside#side section.community header div.profile_pic{
     width: 90%;
@@ -4064,9 +4127,19 @@ article aside#side section.community header h1{
     display: block;
     width: 90%;
     padding: 5%;
-    margin-bottom: 10px;
     font-size: .9em;
     font-weight: bold;
+    text-align: center;
+    float: left;
+}
+article aside#side section.community header h2{
+    display: block;
+    width: 100%;
+    margin-top: -2.5%;
+    margin-bottom: 30px;
+    font-size: .7em;
+    font-weight: normal;
+    color: rgba(0,0,0,.3);
     text-align: center;
     float: left;
 }

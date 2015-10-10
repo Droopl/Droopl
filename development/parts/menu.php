@@ -294,6 +294,25 @@
 			        break;
 			    }
             ?></span></a></li>
+             <li><a class="com icon icon-command"><span><?php 
+            switch ($_SESSION['language']) {
+			        case 'en':
+			        echo "communities";
+			        break;
+
+			        case 'nl':
+			        echo "Maatchappijen";
+			        break;
+
+			        case 'fr':
+			        echo "Communauter";
+			        break;
+			        
+			        default:
+			        echo "Communities";
+			        break;
+			    }
+            ?></span></a></li>
             <li><a class="bug icon icon-flag"><span><?php 
             switch ($_SESSION['language']) {
 			        case 'en':

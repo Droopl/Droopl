@@ -6,10 +6,13 @@
         		<img src="images/communities/<?php echo $community['community_profile'];?>">
         	</div>
         	<h1><?php echo $community['community_name'];?></h1>
+            <h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
         	<nav> 
-        		
-                
-                
+                <?php if(!$isMember){?>
+                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=join" class="member">Join group<span class="icon-inbox"></span></a>
+                <?php }else{ ?>
+                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=leave" class="member leave">Leave group<span class="icon-outbox"></span></a>
+                <?php } ?>
         	</nav>
         </header>
         <div class="description-container">
