@@ -30,7 +30,7 @@ class CommunityDAO{
 	}
 	public function getCommunitiesByUserId($user_id){
 
-		$sql = 'SELECT cu.community_id,c.community_name FROM community_users AS cu
+		$sql = 'SELECT cu.community_id,c.community_profile,c.community_name FROM community_users AS cu
 		LEFT OUTER JOIN users AS u
 		on cu.user_id = u.id
 		LEFT OUTER JOIN communities AS c

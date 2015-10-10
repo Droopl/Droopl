@@ -225,7 +225,7 @@
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
-					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/profile_pictures/notfound.svg"><span><?php echo $community['community_name']; ?></span><span class="icon-head"> 203</span></a></li>
+					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/communities/<?php echo $community['community_profile']; ?>"><p><span><?php echo $community['community_name']; ?></span><span class="icon-head"> 203</span></p></a></li>
 				<?php } ?>
 			</ul>
 		</nav>
@@ -473,11 +473,8 @@
 		?></h2>
 		</header>
 		<aside class="info">
-			<p>
-			<?php echo $value['quest_description'] ?></p>
-			<?php 
+			<?php if(!empty($value['quest_description'])){ echo "<p>".$value['quest_description']."</p>"; } 
 			if($value['image_url'] != NULL){ ?>
-
 				<img src="questimages/images/<?php echo $value['image_url']; ?>">
 			<?php }
 			 ?>

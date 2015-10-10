@@ -2,6 +2,7 @@ $(function  () {
 
     var typing = false;
     var saveVal = "";
+    var openConversations = [];
 
      checkNotification();
     
@@ -14,19 +15,20 @@ $(function  () {
           
        }
         
-        if($("article aside#side section.activity ul.progress").length){
+        /*if($("article aside#side section.activity ul.progress").length){
                 
                 var newActivityLis = $("<div/>");
                 newActivityLis.load("index.php?page=feed article aside#side section.activity ul.progress li");
                 console.log(newActivityLis);
-                /*$.each(newActivityLis.find("li"),function(key,val){
+                $.each(newActivityLis.find("li"),function(key,val){
                     var activityLi = $(val);
                     console.log(activityLi);
                     var dashOffset = activityLi.find("path#count").attr("stroke-dashoffset");
                     //console.log(dashOffset);
-                });*/
+                });
             
-        }
+        }*/
+
     },1000);
 
     
@@ -883,6 +885,19 @@ $(function  () {
           convo.addClass("open");
           setTimeout(function(){
               footer.slideDown(300);
+              //CONVERSTATIONS
+              console.log(convo.attr("id"));
+
+              var ul = footer.find("ul");
+              ul.load("index.php?page=messages&id="+convo.attr('id')+" .messages .chat li");
+
+              ul.stop().animate({
+                scrollTop: ul[0].scrollHeight
+              }, {
+                duration:0,
+              });
+              //
+
           },200);
           setTimeout(function(){
               form.animate({opacity:"1"},150);

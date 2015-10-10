@@ -100,7 +100,7 @@ class FeedDAO
 
 	public function getQuests($user_id){
 
-		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT pq.id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
 		LEFT OUTER JOIN public_quests AS pq
 		ON f.friend_id = pq.user_id
@@ -117,7 +117,7 @@ class FeedDAO
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
         WHERE f.user_id = :user_id
-        GROUP BY q.quest_id
+        GROUP BY pq.id
         ORDER BY q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':user_id',$user_id);
