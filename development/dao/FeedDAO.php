@@ -30,8 +30,10 @@ class FeedDAO
 	}
 	public function getPublicQuests(){
 
-		$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
-		FROM quests AS q
+		$sql = 'SELECT pq.id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		FROM public_quests AS pq
+        LEFT OUTER JOIN quests AS q
+		ON pq.quest_id = q.quest_id
 		LEFT OUTER JOIN proposals AS p
 		ON q.quest_id = p.quest_id
 		LEFT OUTER JOIN users AS u

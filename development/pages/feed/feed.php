@@ -225,7 +225,7 @@
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
-					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/communities/<?php echo $community['community_profile']; ?>"><p><span><?php echo $community['community_name']; ?></span><span class="icon-head"> 203</span></p></a></li>
+					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/communities/<?php echo $community['community_profile']; ?>"><p><span><?php echo $community['community_name']; ?></span><span class="icon-head"> <?php echo $community['usercount'] ?></span></p></a></li>
 				<?php } ?>
 			</ul>
 		</nav>
