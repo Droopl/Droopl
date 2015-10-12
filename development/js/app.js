@@ -558,7 +558,7 @@ $(function  () {
     }
     
     
-    $("article div.feed section.quest header a.collection_item").on("click",getCollectionDetail);
+    $("article div.feed section.quest header a.collection_item img").on("click",getCollectionDetail);
     $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-menu ul li.edit a").on("click",getCollectionDetail);
     $("article aside#side section.collection ul li img").on("click",getCollectionDetail);
     $("article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-detail").on("click",getCollectionDetail);
@@ -610,6 +610,7 @@ $(function  () {
         
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").addClass("editable");
             $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Save");
+            $("article.collection_item div.feed section.detail-collection-item").addClass("bordered");
 
             $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").attr("readonly",false);
             $("article.collection_item div.feed section.detail-collection-item form aside textarea#item_description").attr("readonly",false);
@@ -645,6 +646,7 @@ $(function  () {
         
         }else{
             
+              $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Saving ...");
               var id = $("article.collection_item div.feed section.detail-collection-item").attr("id");
               var url = "index.php?page=update&id="+id; // the script where you handle the form input.
 
@@ -662,14 +664,15 @@ $(function  () {
                            if(data == 1){
                                $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").addClass("saved").attr("value","Saved !");
                                setTimeout(function(){
-                                   $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","");
+                                   $("article.collection_item div.feed section.detail-collection-item").removeClass("bordered");
+                                   $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Edit");
                                    $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").removeClass("editable").removeClass("saved");
                                    $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").blur();
                                    $("article.collection_item div.feed section.detail-collection-item form aside header input[type='text']#item_name").attr("readonly",true);
             $("article.collection_item div.feed section.detail-collection-item form aside textarea#item_description").attr("readonly",true);
                                },1000);
                            }else{
-                               $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Error while saving ...");
+                               $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Please choose an item name !");
                                setTimeout(function(){
                                    $("article.collection_item div.feed section.detail-collection-item form header input[type='submit']").attr("value","Save");
                                },1000);

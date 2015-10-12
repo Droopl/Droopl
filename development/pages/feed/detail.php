@@ -50,15 +50,21 @@
 }?><span><?php echo $quest['item']; ?></span></h1>
 	<a href="?page=<?php echo $_GET['page']; ?>&questid=<?php echo $_GET['questid']; ?>" class="close"><span class="hide">close</span></a>
 </header>
-<aside class="info">
-<p>
-<?php echo $quest['quest_description'] ?></p>
-<?php 
-if($quest['image_url'] != NULL){ ?>
-	<span class="icon-paper-clip"><a href="questimages/images/<?php echo $quest['image_url']; ?>" class="attachement" target="_blank">1 image</a></span>
-<?php }
- ?>
-</aside>
+<?php if(!empty($quest['quest_description'])){ ?>
+    <aside class="info">
+    <p>
+    <?php echo $quest['quest_description'] ?></p>
+    <?php 
+    if($quest['image_url'] != NULL){ ?>
+        <span class="icon-paper-clip"><a href="questimages/images/<?php echo $quest['image_url']; ?>" class="attachement" target="_blank">1 image</a></span>
+    <?php }
+     ?>
+    </aside>
+<?php }else{ ?>
+    <aside class="info">
+        <p>No description</p>
+    </aside>
+<?php } ?>
 <footer class="detail">
     
     <?php if($_SESSION['user']['id'] != $quest['id']){ ?>

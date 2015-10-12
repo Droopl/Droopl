@@ -36,7 +36,7 @@ class CollectionController extends AppController{
 	public function update(){
 
 		if(!empty($_GET['id'])){
-			if(!empty($_POST)){
+			if(!empty($_POST) && !empty($_POST['item_name'])){
 
 				$name = "";
 				$description = "";
@@ -67,7 +67,7 @@ class CollectionController extends AppController{
 
 			}
 		}else{
-
+            echo boolval(false);
 		}
 
 	}

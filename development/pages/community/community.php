@@ -152,7 +152,7 @@
         if(!empty($value)){
         ?>
 
-        <section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>">
+        <section class="quest" id="<?php echo $value['quest_id']; ?>">
         <header>
 
             <?php if(!empty($value['picture'])){ ?>
@@ -236,6 +236,7 @@
 
         ?></h2>
         </header>
+        <?php if(!empty($value['quest_description'])){ ?>
         <aside class="info">
             <p>
             <?php echo $value['quest_description'] ?></p>
@@ -245,6 +246,7 @@
             <?php }
              ?>
         </aside>
+        <?php } ?>    
         <footer>
             <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> proposals</a>
             <a href="" class="shares icon-upload"> 15 shares</a>

@@ -1656,7 +1656,7 @@ article div.feed section.quest header{
 	width: 90%;
 	height: 40px;
     position: relative;
-	padding: 5% 5% 0 5%;
+	padding: 5%;
 	line-height: 40px;
 }
 article div.feed section.quest header h1{
@@ -1729,10 +1729,17 @@ article div.feed section.quest header a.collection_item{
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 50%;
     margin-right: 0;
-    cursor: pointer;
+    cursor: default;
 }
 article div.feed section.quest header a.collection_item img{
     margin-right: 0;
+    cursor: pointer;
+}
+article div.feed section.quest header a.collection_item span.collection_item_name::selection{
+    background-color: rgba(255,255,255,0);
+}
+article div.feed section.quest header a.collection_item span.collection_item_name::-moz-selection{
+    background-color: rgba(255,255,255,0);
 }
 article div.feed section.quest header a.collection_item span.collection_item_name{
     position: absolute;
@@ -1767,22 +1774,20 @@ article div.feed section.quest header img{
 }
 
 article div.feed section.quest aside p{
-
     float: left;
     width: 100%;
     margin-bottom: 30px;
 }
 article div.feed section.quest aside img{
-
+    margin-bottom: 5%;
     float: left;
     width: 100%;
 }
 article div.feed section.quest aside{
-
 	float: left;
 	width: 90%;
-	padding: 5%;
 	color: #5F6970;
+    padding: 0 5%;
 	font-weight: normal;
 	line-height: 1.6em;
 	font-size: .7em;
@@ -2430,16 +2435,17 @@ article.collection_item div.feed section.detail-collection-item form aside a.clo
 article.collection_item div.feed section.detail-collection-item form header input[type="submit"]{
     position: absolute;
     display: block;
-    width: 20px;
+    width: auto;
     height: 20px;
     top: 8%;
     left: 4%;
     border: none;
     font-size: .85em;
+    padding-left: 20px;
     background: none;
     color: #F47D67;
     cursor: pointer;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
     background-size: 16px;
     background-image: url(../images/assets/collection-item-edit-icon.svg);
@@ -2447,6 +2453,7 @@ article.collection_item div.feed section.detail-collection-item form header inpu
 article.collection_item div.feed section.detail-collection-item form header input[type="submit"].editable{
     width: auto;
     height: auto;
+    padding-left: 0;
     background: none;
 }
 article.collection_item div.feed section.detail-collection-item form header input[type="submit"].saved{
@@ -2498,6 +2505,7 @@ article.collection_item div.feed section.detail-collection-item form aside div.b
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    cursor: default;
 }
 article.collection_item div.feed section.detail-collection-item.editable > form aside div.button-container input[type="button"]{
     cursor: pointer;
@@ -3012,6 +3020,7 @@ article.collection_item div.feed section.detail-collection-item {
     border: none;
     position: absolute;
     top: 50% !important;
+    box-sizing: border-box;
 }
 article.detail{
     z-index: 9999;
@@ -3040,7 +3049,7 @@ article.detail div.feed section.quest header{
     float: left;
     width: 90%;
     height: 40px;
-    padding: 5% 5% 0 5%;
+    padding: 5%;
     line-height: 40px;
 }
 article.detail div.feed section.quest header a.close{
@@ -3107,10 +3116,12 @@ article.detail div.feed section.quest header img{
 }
 
 article.detail div.feed section.quest aside p{
-
     float: left;
     width: 100%;
     margin-bottom: 30px;
+}
+article.detail div.feed section.quest aside span.icon-paper-clip {
+    margin-bottom: 5%;
 }
 article.detail div.feed section.quest aside img{
 
@@ -3118,10 +3129,9 @@ article.detail div.feed section.quest aside img{
     width: 100%;
 }
 article.detail div.feed section.quest aside{
-
     float: left;
     width: 90%;
-    padding: 5%;
+    padding: 0 5%;
     color: #5F6970;
     font-weight: normal;
     line-height: 1.6em;

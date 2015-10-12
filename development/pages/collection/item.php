@@ -4,7 +4,7 @@
 		<form action="?page=add" method="post" id="edit_collection" name="edit_collection" enctype="multipart/form-data">
 			<header id="upload">
                 <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
-                    <input type="submit" id="edit_item" name="edit_item" value>
+                    <input type="submit" id="edit_item" name="edit_item" value="Edit">
                 <?php } ?>
                 <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
 				<div class="dragndrop" id="dragndrop" style="background-image: url(images/collection/<?php echo $item['collection_image']; ?>);border: none">
