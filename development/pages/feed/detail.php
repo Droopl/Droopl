@@ -74,7 +74,7 @@
 
                     <input type="text" placeholder="Propose an item from your collection" name="search_proposals" id="search_proposals">
                     <input type="submit" name="submit_search" id="submit_search" value>
-                    <input type="text" id="collection_item" name="collection_item" class="hide" value="" required>
+                    <input type="text" id="collection_item" name="collection_item" class="hide" value="">
                     <div class="added-collection-item">
                         <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                     </div>

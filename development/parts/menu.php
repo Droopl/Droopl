@@ -87,41 +87,22 @@
 			        break;
 			    }
             ?></a></li>
-    		<li><a href="" <?php if($_GET['page'] == "items"){ echo 'class="current-menu-page"'; }?> ><?php 
+    		<li><a href="?page=communities" <?php if($_GET['page'] == "people"){ echo 'class="current-menu-page"'; }?> ><?php 
             switch ($_SESSION['language']) {
 			        case 'en':
-			        echo "Find items";
+			        echo "Communities";
 			        break;
 
 			        case 'nl':
-			        echo "Vind spullen";
+			        echo "Maatschappijen";
 			        break;
 
 			        case 'fr':
-			        echo "Recherche d'objets";
+			        echo "Communautés";
 			        break;
 			        
 			        default:
-			        echo "Find items";
-			        break;
-			    }
-            ?></a></li>
-    		<li><a href="" <?php if($_GET['page'] == "people"){ echo 'class="current-menu-page"'; }?> ><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "People";
-			        break;
-
-			        case 'nl':
-			        echo "Mensen";
-			        break;
-
-			        case 'fr':
-			        echo "Personnes";
-			        break;
-			        
-			        default:
-			        echo "People";
+			        echo "Communities";
 			        break;
 			    }
             ?></a></li>

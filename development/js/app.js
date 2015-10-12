@@ -498,7 +498,7 @@ $(function  () {
               url:$(this).attr("action"),
               data:formdata,
               success:function (data) {
-
+                  console.log(data);
                 blurCollection();
 
                 var oldPropos = $("article.detail div.feed section.quest .proposals-list ul .propo");
