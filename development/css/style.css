@@ -648,8 +648,7 @@ section.chat ul li.conversation-bubble div.conversation ul li.message {
 section.chat ul li.conversation-bubble div.conversation ul li.message p.me {
     display: block;
     float: right;
-    
-    
+    padding: 0;
 }
 section.chat ul li.conversation-bubble div.conversation ul li.message p {
     float: left;
@@ -2365,6 +2364,9 @@ article.collection_item div.feed section.detail-collection-item form header#uplo
 }
 article.collection_item div.feed section.detail-collection-item.editable > form header#upload div#dragndrop input[type="file"]{
     cursor: pointer;
+}
+article.collection_item div.feed section.detail-collection-item.bordered {
+    border: 2px dashed #E5E5E5;
 }
 article.collection_item div.feed section.detail-collection-item form {
     display: block;

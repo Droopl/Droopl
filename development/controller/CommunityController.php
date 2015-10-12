@@ -174,6 +174,67 @@ class CommunityController extends AppController{
 
 	public function communities(){
 	}
+    
+    function resize($width, $height){
+		/* Get original image x y*/
+		list($w, $h) = getimagesize($_FILES['quest_upload_image']['tmp_name']);
+		/* calculate new image size with ratio */
+		$old_x          =   $w;
+	    $old_y          =   $h;
+	    $new_height = $width;
+	    $new_width = $height;
+
+	    if($old_x > $old_y) 
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $old_y*($new_height/$old_x);
+	    }
+
+	    if($old_x < $old_y) 
+	    {
+	        $thumb_w    =   $old_x*($new_width/$old_y);
+	        $thumb_h    =   $new_height;
+	    }
+
+	    if($old_x == $old_y) 
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $new_height;
+	    }
+		/* new file name */
+		$randomname = $this->generateRandomString();
+		$banner = $randomname.".jpg";
+
+		$path = WWW_ROOT . 'questimages' . DS .'images'.DS.$banner;
+		/* read binary data from image file */
+		$imgString = file_get_contents($_FILES['quest_upload_image']['tmp_name']);
+
+		/* create image from string */
+		$image = imagecreatefromstring($imgString);
+		$tmp = imagecreatetruecolor($thumb_w,$thumb_h);
+		imagecopyresampled($tmp,$image,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
+		/* Save image */
+		switch ($_FILES['quest_upload_image']['type']) {
+			case 'image/jpeg':
+			  imagejpeg($tmp, $path, 100);
+			  break;
+			case 'image/png':
+			  imagepng($tmp, $path, 0);
+			  break;
+			case 'image/gif':
+			  imagegif($tmp, $path);
+			  break;
+			default:
+			  exit;
+			  break;
+	}
+	
+	return $banner;
+	/* cleanup memory */
+	imagedestroy($image);
+	imagedestroy($tmp);
+
+	}
 
 	private function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

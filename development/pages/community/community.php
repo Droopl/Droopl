@@ -152,7 +152,7 @@
         if(!empty($value)){
         ?>
 
-        <section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>" data-lat="<?php echo $value['latitude']; ?>" data-lng="<?php echo $value['longitude']; ?>">
+        <section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>">
         <header>
 
             <?php if(!empty($value['picture'])){ ?>
@@ -200,7 +200,7 @@
 
 }?><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
         <?php if($value['type'] == 1){ ?>
-            <a id="<?php echo $value['collection_id'] ?>" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
+            <a class="collection_item"><img id="<?php echo $value['collection_id']; ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
         <h2><?php 
 
