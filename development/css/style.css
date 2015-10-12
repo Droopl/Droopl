@@ -1285,6 +1285,9 @@ article div.feed section.post form div div.added-collection-item p span.remove-c
     display: inline-block;
     cursor: pointer;
 }
+article div.feed section.post form div.collection::selection {
+    background-color: rgba(255,255,255,1);
+}
 article div.feed section.post form div.collection header h1 {
     display: block;
     float: left;
