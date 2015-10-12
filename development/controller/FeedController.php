@@ -215,7 +215,8 @@ class FeedController extends AppController{
 	                if($quest['id'] == $_SESSION['user']['id']){
 	                	if(!empty($_GET['id'])){
 	                		$acceptPropo = $this->propoDAO->acceptProposal($_GET['id'],$quest['quest_id']);
-	                		if($acceptPropo){
+	                		if(!empty($acceptPropo)){
+	                			$this->notificationsDAO->addNotification($acceptPropo['id'],$_GET['questid'],6,$_SESSION['user']['id']);
 	                			$this->redirect("?page=detail&questid=".$quest['quest_id']);
 	                		}
 	                	}

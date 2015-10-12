@@ -37,7 +37,7 @@ class PropoDAO
         $stmt->bindValue(":propo_id",$propo_id);
         if($stmt->execute()){
 
-            return true;
+            return $this->getPropoById($this->pdo->lastInsertId());;
         }
         return false;
 	}
@@ -70,7 +70,35 @@ class PropoDAO
 		return array();
 
 	}
-	
+	public function getPropoById($id){
+
+		$sql = 'SELECT p.propo_id, c.item_name, c.collection_image , u.id, u.firstname ,u.lastname,u.picture
+				FROM accepted_propos AS ap
+                LEFT OUTER JOIN proposals AS p
+                ON ap.propo_id = p.propo_id
+				LEFT OUTER JOIN collection AS c
+				ON p.collection_id = c.collection_id
+				LEFT OUTER JOIN users AS u
+						ON p.user_id = u.id	
+				        WHERE ap.id = :id
+				        GROUP BY p.propo_id
+				        ORDER BY p.propo_creation_date ASC';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id',$id);
+
+		if($stmt->execute()){
+
+			$propo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($propo)){
+
+				return $propo;
+			}
+
+		}
+		return array();
+
+	}
 	public function getProposalsByQuestId($id){
 
 		$sql = 'SELECT p.propo_id, c.item_name, c.collection_image , u.id, u.firstname ,u.lastname,u.picture

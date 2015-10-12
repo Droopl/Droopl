@@ -297,6 +297,36 @@ article div.feed section.quest footer div.proposals-list ul li ul li.options a{
 
 }
 
+article div.feed section.quest footer div.trophy{
+    float: left;
+    width: 100%;
+    padding: 5% 5% 10% 5%;
+    box-sizing:border-box;
+    text-align: center;
+}
+article div.feed section.quest footer div.trophy img{
+
+    display: inline-block;
+    height: 100px;
+    margin-bottom: 20px;
+}
+article div.feed section.quest footer div.trophy header{
+
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+article div.feed section.quest footer div.trophy header h1{
+
+    display: inline-block;
+    width: 100%;
+    font-size: 1.2em;
+    max-width: 100%;
+    color: #3E454C;
+    font-weight: bold;
+}
+
 
 
 

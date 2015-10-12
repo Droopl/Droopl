@@ -67,7 +67,7 @@
 <?php } ?>
 <footer class="detail">
     
-    <?php if($_SESSION['user']['id'] != $quest['id']){ ?>
+    <?php if($_SESSION['user']['id'] != $quest['id'] && !$accepted ){ ?>
         <div class="search-collection-container">
             <div class="search-proposal">
                 <form action="?page=detail&questid=<?php echo $_GET['questid']; ?>" method="post">
@@ -150,19 +150,11 @@
         
         <?php }else{ ?>
 
-             <li class="propo completed" id="<?php echo $acceptedProposal['propo_id']; ?>">
-            <ul>
-                <li class="profile-pic">
-                    <img src="images/profile_pictures/<?php echo $acceptedProposal['picture']; ?>">
-                </li>
-                <li class="profile-name">
-                    <p><a href="?page=user&id=<?php echo $acceptedProposal['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $acceptedProposal['lastname']; ?></a> proposed</p>
-                </li>
-                <li class="collection-pic">
-                    <img src="images/collection/<?php echo $acceptedProposal['collection_image']; ?>">
-                </li>
-            </ul>
-        </li>
+             <div class="trophy">
+                <img src="images/assets/propo_accepted_trophy.svg">
+                <header><h1><?php echo $acceptedProposal['firstname']." ".$acceptedProposal['lastname'];?></h1></header>
+                <p>Has won this! quest congratulations</p>
+             </div>
 
        <?php  }} ?>
         

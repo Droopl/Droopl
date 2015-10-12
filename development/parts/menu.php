@@ -221,6 +221,43 @@
 
 									?></span></li>
     							<?php break;
+
+
+    							case '6': ?>
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span>You won <?php echo $value['firstname']; ?>'s quest<span class="time"></a><?php 
+
+									$full = false;
+							 		$now = new DateTime;
+								    $ago = new DateTime($value['notification_creation_date']);
+								    $diff = $now->diff($ago);
+
+								    $diff->w = floor($diff->d / 7);
+								    $diff->d -= $diff->w * 7;
+
+								    $string = array(
+								        'y' => 'year',
+								        'm' => 'month',
+								        'w' => 'week',
+								        'd' => 'day',
+								        'h' => 'h',
+								        'i' => 'm',
+								        's' => 's',
+								    );
+								    foreach ($string as $k => &$v) {
+								        if ($diff->$k) {
+								            $v = $diff->$k . ' ' . $v;
+								        } else {
+								            unset($string[$k]);
+								        }
+								    }
+
+								    if (!$full) $string = array_slice($string, 0, 1);
+								    $result =  $string ? implode(', ', $string) : 'just now';
+
+								    echo $result;
+
+									?></span></li>
+    							<?php break;
     						
     					}
 					 } ?>
