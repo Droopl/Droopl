@@ -179,38 +179,64 @@ class FeedController extends AppController{
     	$quest = array();
     	$proposals = array();
         $collection = array();
+        $acceptedProposal = array();
+        $accepted = false;
 
 
     	if(isset($_GET) && !empty($_GET['questid'])){
 
     		$quest = $this->feedDAO->getQuestById($_GET['questid']);
 
-    		if(!empty($_POST)){
-	    		if(!empty($_POST['collection_item'])){
-	    			if(!empty($_GET['questid'])){
-	    				$propo = $this->propoDAO->addProposal($_GET['questid'],$_SESSION['user']['id'],$_POST['collection_item']);
-
-	    				if($propo){
-	    					$this->notificationsDAO->addNotification($quest['id'],$_GET['questid'],0,$_SESSION['user']['id']);
-	    				}
-	    			}
-	    		}
-	    	}
-            
-            if(isset($_SESSION['user'])){
-                $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
-            }
-
-    		if(!empty($quest)){
-    			$proposals = $this->propoDAO->getProposalsByQuestId($quest['quest_id']);
-    			$updateviews = $this->feedDAO->updateViewById($_GET['questid']);
-    		}else{
+    		if(empty($quest)){
     			$this->redirect("?page=feed");
     		}
+
+    		$acceptedProposal = $this->propoDAO->getAcceptedProposalByQuestId($quest['quest_id']);
+
+    		if(!empty($acceptedProposal)){
+    			$accepted = true;
+    		}
+
+    		if(!$accepted){
+	    		if(!empty($_POST)){
+		    		if(!empty($_POST['collection_item'])){
+		    			if(!empty($_GET['questid'])){
+		    				$propo = $this->propoDAO->addProposal($_GET['questid'],$_SESSION['user']['id'],$_POST['collection_item']);
+
+		    				if($propo){
+		    					$this->notificationsDAO->addNotification($quest['id'],$_GET['questid'],0,$_SESSION['user']['id']);
+		    				}
+		    			}
+		    		}
+		    	}
+	            
+	            if(isset($_SESSION['user'])){
+	                $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
+	                if($quest['id'] == $_SESSION['user']['id']){
+	                	if(!empty($_GET['id'])){
+	                		$acceptPropo = $this->propoDAO->acceptProposal($_GET['id'],$quest['quest_id']);
+	                		if($acceptPropo){
+	                			$this->redirect("?page=detail&questid=".$quest['quest_id']);
+	                		}
+	                	}
+		    		}
+	            }
+            
+
+	    		if(!empty($quest)){
+	    			$proposals = $this->propoDAO->getProposalsByQuestId($quest['quest_id']);
+	    			$updateviews = $this->feedDAO->updateViewById($_GET['questid']);
+	    		}
+
+    		}
+
+    		
     	}
 
 
     	$this->set("quest",$quest);
+    	$this->set("accepted",$accepted);
+    	$this->set("acceptedProposal",$acceptedProposal);
     	$this->set("proposals",$proposals);
         $this->set("collection",$collection);
         

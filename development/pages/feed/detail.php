@@ -129,18 +129,42 @@
                 <li class="collection-pic">
                     <img src="images/collection/<?php echo $value['collection_image']; ?>">
                 </li>
+                <li class="options">
+                    <ul>
+                        <li><a href="?page=messages&id<?php echo $value['user_id']; ?>&action=new" class="icon-speech-bubble"></a></li>
+                         <li><a href="?page=detail&questid=<?php echo $quest['quest_id']; ?>&id=<?php echo $value['propo_id']; ?>&action=confirm" class="icon-check"></a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
 
 
         <?php }}else{ ?>
 
+        <?php if(!$accepted){ ?>
+
         <div class="no-proposals-container">
             <h1 class="no-proposals-icon"></h1>
         	<p class="no-proposals-yet">There are no proposals yet</p>
         </div>
         
-        <?php } ?>
+        <?php }else{ ?>
+
+             <li class="propo completed" id="<?php echo $acceptedProposal['propo_id']; ?>">
+            <ul>
+                <li class="profile-pic">
+                    <img src="images/profile_pictures/<?php echo $acceptedProposal['picture']; ?>">
+                </li>
+                <li class="profile-name">
+                    <p><a href="?page=user&id=<?php echo $acceptedProposal['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $acceptedProposal['lastname']; ?></a> proposed</p>
+                </li>
+                <li class="collection-pic">
+                    <img src="images/collection/<?php echo $acceptedProposal['collection_image']; ?>">
+                </li>
+            </ul>
+        </li>
+
+       <?php  }} ?>
         
         
     </ul>
