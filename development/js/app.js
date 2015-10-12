@@ -213,20 +213,23 @@ $(function  () {
     if($("article div.feed section.post form div.collection").length){
 
           $("article div.feed section.post form div.collection").on("mouseover",function (e) {
-          var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
-          console.log(diff);
 
-          if(diff >= 0){
-              var mouseX = e.pageX - $(this).offset().left;
-              var percentage = mouseX/$(this).width();
-              console.log(diff*percentage);
-              var mX = diff*percentage;
-              var posX = 0;
-              var damp = 150;
-              var $th = $(this).find('ul');
-              $th.css({
-                left: -mX
-              });
+            if($(this).find('ul').outerWidth() >  $(this).outerWidth()*2){
+              var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
+              console.log(diff);
+
+              if(diff >= 0){
+                  var mouseX = e.pageX - $(this).offset().left;
+                  var percentage = mouseX/$(this).width();
+                  console.log(diff*percentage);
+                  var mX = diff*percentage;
+                  var posX = 0;
+                  var damp = 150;
+                  var $th = $(this).find('ul');
+                  $th.css({
+                    left: -mX
+                  });
+              }
           }
         });
         /*var $bl    = $("article div.feed section.post form div.collection"),
