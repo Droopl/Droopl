@@ -76,7 +76,7 @@
     foreach ($quests as $key => $value) { if(!empty($value)){
     ?>
 
-		<section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>">
+		<section class="quest" id="<?php echo $value['quest_id']; ?>">
         <header>
 
             <img src="images/profile_pictures/<?php echo $value['picture'];?>">

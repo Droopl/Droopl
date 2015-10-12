@@ -388,7 +388,7 @@
 		if(!empty($value)){
 		?>
 
-		<section class="quest <?php if($value['type'] == 0){ echo "red"; }else{ echo "blue"; } ?>" id="<?php echo $value['quest_id']; ?>" data-lat="<?php echo $value['latitude']; ?>" data-lng="<?php echo $value['longitude']; ?>">
+		<section class="quest" id="<?php echo $value['quest_id']; ?>" data-lat="<?php echo $value['latitude']; ?>" data-lng="<?php echo $value['longitude']; ?>">
 		<header>
 
 			<?php if(!empty($value['picture'])){ ?>

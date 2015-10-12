@@ -173,6 +173,13 @@ class CommunityController extends AppController{
 	}
 
 	public function communities(){
+
+		$communities = array();
+
+		if(isset($_SESSION['user'])){
+			$communities = $this->communityDAO->getAllCommunities();
+		}
+		$this->set('communities',$communities);
 	}
     
     function resize($width, $height){

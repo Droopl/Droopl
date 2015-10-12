@@ -50,6 +50,19 @@ class CommunityDAO{
 
 		return array();
 	}
+	public function getAllCommunities(){
+
+		$sql = 'SELECT * FROM communities ORDER BY creation_date DESC';
+		$stmt = $this->pdo->prepare($sql);
+
+		if($stmt->execute()){
+
+			return $communities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		}
+
+		return array();
+	}
 	public function addCommuntyUser($user_id,$community_id){
 
 		$sql = 'INSERT INTO`community_users` (user_id,community_id)
