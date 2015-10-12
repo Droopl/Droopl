@@ -212,14 +212,18 @@ $(function  () {
 
     if($("article div.feed section.post form div.collection").length){
 
+          var scrollTimer;
+
           $("article div.feed section.post form div.collection").on("mouseover",function (e) {
 
-            if($(this).find('ul').outerWidth() >  $(this).outerWidth()*2){
-              var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
-              console.log(diff);
+            var mouseX = e.pageX - $(this).offset().left;
+            var xpos = 0;
+            var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
+
+            if(diff < 400){
 
               if(diff >= 0){
-                  var mouseX = e.pageX - $(this).offset().left;
+                  
                   var percentage = mouseX/$(this).width();
                   console.log(diff*percentage);
                   var mX = diff*percentage;
@@ -230,58 +234,10 @@ $(function  () {
                     left: -mX
                   });
               }
-          }
-        });
-        /*var $bl    = $("article div.feed section.post form div.collection"),
-        $th    = $("article div.feed section.post form div.collection ul"),
-        blW    = $bl.outerWidth(),
-        blSW   = $bl[0].scrollWidth,
-        wDiff  = (blSW/blW)-1,  // widths difference ratio
-        mPadd  = 60,  // Mousemove Padding
-        damp   = 20,  // Mousemove response softness
-        mX     = 0,   // Real mouse position
-        mX2    = 0,   // Modified mouse position
-        posX   = 0,
-        mmAA   = blW-(mPadd*2), // The mousemove available area
-        mmAAr  = (blW/mmAA);    // get available mousemove fidderence ratio
-
-
-
-        $bl.on("mousemove",function(e) {
-              mX = e.pageX - $(this).offset().left;
-              mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
-              console.log(mX2);
-        });
-
-
-        setInterval(function(){
-          posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"  
-          $th.css({marginLeft: +posX*wDiff });
-          console.log(posX);
-        }, 10);*/
-        //var leftVar = 0;
-        /*$("article div.feed section.post form div.collection").on("mouseover",function (e) {
-          var mouseX = e.pageX - $(this).offset().left;
-          var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
-          var $ul = $(this).find('ul');
-          if(mouseX < $(this).outerWidth()/2){
-              if(diff >= 0){
-                  setInterval(function(){
-                      if(leftVar <= diff){
-                          $ul.animate({left: leftVar});
-                          leftVar++;
-                      }
-                  }); 
-              }
           }else{
-              if(diff >= 0){
-                  setInterval(function(){
-                      $ul.animate({left: leftVar});
-                      leftVar-=10;
-                  },10);
-              }
+            console.log("move left");
           }
-        });*/
+        });
 
     }
     
