@@ -43,6 +43,7 @@ article.register div.register-box div.container section {
     padding: 0;
     width: 800px;
     height: 100%;
+    position: relative;
 }
 
 article.register div.register-box div.container section aside.left {
@@ -50,6 +51,7 @@ article.register div.register-box div.container section aside.left {
     width: 55%;
     height: 100%;
     box-sizing: border-box;
+    border-right: 1px solid #E8E8EA;
 }
 
 article.register div.register-box div.container section aside.right {
@@ -57,6 +59,78 @@ article.register div.register-box div.container section aside.right {
     width: 45%;
     height: 100%;
     box-sizing: border-box;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form input {
+    display: block;
+    float: left;
+    width: 95%;
+    padding: 20px;
+    border: none;
+    font-size: .8em;
+    border-bottom: 1px solid #E8E8EA;
+    box-sizing: border-box;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form input[type="submit"] {
+    position: absolute;
+    z-index: 9999;
+    width: auto;
+    bottom: 26px;
+    right: 26px;
+    padding: 13px 20px;
+    background-color: #F47D67;
+    color: #ffffff;
+    border-radius: .4em;
+    cursor: pointer;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form select {
+    display: block;
+    float: left;
+    border: none;
+    background: none;
+    outline: none;
+    color: #F47D67;
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+}
+
+article.register div.register-box div.container section.step_1 aside.left form label {
+    display: block;
+    float: left;
+    width: 2%;
+    color: #F47D67;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form label:last-of-type {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: .8em;
+    color: #A9A9A9;
+}
+
+article.register div.register-box div.container section.step_1 aside.right img {
+    display: block;
+    width: 200px;
+    margin: 80px auto 0 auto;
+}
+
+article.register div.register-box div.container section aside h1{
+    display: block;
+    width: 100%;
+    float: left;
+    color: #F47D67;
+    font-size: 1.1em;
+    margin-bottom: 30px;
 }
 
 article.register div.register-box nav.pages {
@@ -75,13 +149,22 @@ article.register div.register-box nav.pages ul {
 
 article.register div.register-box nav.pages ul li {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background-color: #ffffff;
     border: 1px solid #F47D67;
-    margin: 0 10px;
+    margin: 0 5px;
     cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.register div.register-box nav.pages ul li:hover {
+    margin: 0 10px;
 }
 
 article.register div.register-box nav.pages ul li.current {
