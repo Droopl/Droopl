@@ -218,11 +218,19 @@ header#menu div nav ul li.notifications ul.show{
 header#menu div nav ul li.notifications ul li{
 	display: block;
     float: left;
-	width: 90%;
+	width: 100%;
+
+}
+header#menu div nav ul li.notifications ul li a{
+    display: block;
+    float: left;
+    width: 90%;
     padding: 8% 5%;
-	font-size: .7em;
-	color: #5F6970;
-	font-weight: normal;
+    font-size: .7em;
+    height: auto;
+    line-height: inherit;
+    color: #5F6970;
+    font-weight: normal;
 
 
     -webkit-transition: all .1s ease-in-out;
@@ -232,18 +240,18 @@ header#menu div nav ul li.notifications ul li{
     transition: all .1s ease-in-out;
 
 }
-header#menu div nav ul li.notifications ul li.notseen{
+header#menu div nav ul li.notifications ul li.notseen a{
     color: #F47D67;
 
 }
-header#menu div nav ul li.notifications ul li span.icon{
+header#menu div nav ul li.notifications ul li a span.icon{
 	font-size: 1.1em;
 	margin-right: 10px;
 }
-header#menu div nav ul li.notifications ul li span.time{
+header#menu div nav ul li.notifications ul li a span.time{
 	float: right;
 }
-header#menu div nav ul li.notifications ul li:hover{
+header#menu div nav ul li.notifications ul li a:hover{
 	background-color:  #F9F9F9;
 }
 header#menu div nav ul li.profile{
@@ -1928,9 +1936,7 @@ article div.feed section.quest footer div.search-proposal form input[type="submi
 }
 article div.feed section.quest footer div.proposals-list{
     width: 100%;
-    height: 310px;
-    overflow: hidden;
-    overflow-y: scroll;
+    height: auto;
     float: left;
 }
 article div.feed section.quest footer div.proposals-list ul{

@@ -115,7 +115,7 @@
 
     					switch ($value['notification_type']) {
     						case '0': ?>
-    							<li <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-repeat"></span> New proposal from <?php echo $value['firstname']; ?> <span class="time"><?php 
+    							<li <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-repeat"></span> New proposal from <?php echo $value['firstname']; ?> <span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -147,12 +147,12 @@
 
 								    echo $result;
 
-									?></span></li>
+									?></a></span></li>
     							<?php break;
 
 
     							case '2': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you<span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['user_id']; ?>"><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you<span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -184,11 +184,11 @@
 
 								    echo $result;
 
-									?></span></li>
+									?></a></span></li>
     							<?php break;
 
     							case '3': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you back<span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['user_id']; ?>"><span class="icon icon-circle-plus"></span><?php echo $value['firstname']; ?> followed you back<span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -220,12 +220,12 @@
 
 								    echo $result;
 
-									?></span></li>
+									?></a></span></li>
     							<?php break;
 
 
     							case '6': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span>You won <?php echo $value['firstname']; ?>'s quest<span class="time"></a><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span>You won <?php echo $value['firstname']; ?>'s quest<span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -257,7 +257,7 @@
 
 								    echo $result;
 
-									?></span></li>
+									?></a></span></li>
     							<?php break;
     						
     					}

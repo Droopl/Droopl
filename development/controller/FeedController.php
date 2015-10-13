@@ -180,12 +180,19 @@ class FeedController extends AppController{
     	$proposals = array();
         $collection = array();
         $acceptedProposal = array();
+        $publicQuests = array();
         $accepted = false;
 
+        $questcount =  $this->feedDAO->getQuestCount();
+		$propocount =  $this->propoDAO->getPropoCount();
+		$usercount = $this->userDAO->getUserCount();
 
     	if(isset($_GET) && !empty($_GET['questid'])){
 
     		$quest = $this->feedDAO->getQuestById($_GET['questid']);
+    		$publicquests = $this->feedDAO->getPublicQuests();
+    		$communities =  $this->communityDAO->getCommunitiesByUserId($_SESSION['user']['id']);
+    		$collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
 
     		if(empty($quest)){
     			$this->redirect("?page=feed");
@@ -211,7 +218,6 @@ class FeedController extends AppController{
 		    	}
 	            
 	            if(isset($_SESSION['user'])){
-	                $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
 	                if($quest['id'] == $_SESSION['user']['id']){
 	                	if(!empty($_GET['id'])){
 	                		$acceptPropo = $this->propoDAO->acceptProposal($_GET['id'],$quest['quest_id']);
@@ -236,10 +242,15 @@ class FeedController extends AppController{
 
 
     	$this->set("quest",$quest);
+    	$this->set("publicquests",$publicquests);
+    	$this->set("communities",$communities);
     	$this->set("accepted",$accepted);
     	$this->set("acceptedProposal",$acceptedProposal);
     	$this->set("proposals",$proposals);
         $this->set("collection",$collection);
+        $this->set('questcount',$questcount);
+		$this->set('propocount',$propocount);
+		$this->set('usercount',$usercount);
         
     }
 
