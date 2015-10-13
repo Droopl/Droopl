@@ -9,15 +9,15 @@
                     <h1>Registration</h1>
                     <form id="registration_form_step_1" name="registration_form_step_1" method="post">
                         <input type="text" id="first" name="first" placeholder="Firstname" required>
-                        <label for="first">*</label>
+
                         <input type="text" id="last" name="last" placeholder="Last name" required>
-                        <label for="last">*</label>
+
                         <input type="email" id="mail" name="mail" placeholder="Email" required>
-                        <label for="mail">*</label>
+
                         <input type="password" id="pass" name="pass" placeholder="Password" required>
-                        <label for="pass">*</label>
+
                         <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password" required>
-                        <label for="repeat_pass">*</label>
+
                         <label for="select_language">Language: </label>
                         <select id="select_language">
                             <option value="en">English</option>
