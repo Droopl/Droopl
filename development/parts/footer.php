@@ -118,6 +118,20 @@
 
 <?php } ?>
 
+<?php if($_GET['page'] == "messages" && isset($_GET['action']) && $_GET['action'] == "new"){ ?>
+<article class="newconvo">
+    <section class="animated slideInUp">
+        <header class="hide"><h1>new conversation</h1></header>
+        <form action="" method="post" >
+            <input type="text" id="search_people" name="search_people" placeholder="Search for people" autofocus>
+            <div>
+                <textarea placeholder="New message" id="message" name="message"></textarea>
+                <input type="submit" id="create_new" name="create_new" value="submit">
+            </div>
+        </form>
+    </section>
+</article>
+<?php } ?>
 <article class="detail hide scrollable">
     <header class="hide detail"><h1>Detail</h1></header>
 </article>

@@ -339,3 +339,92 @@ article div.feed section.quest footer div.trophy header h1{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/*NEW CONVERSATION*/
+article.newconvo{
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,.5);
+}
+
+article.newconvo section{
+
+    position: fixed;
+    left: 50%;
+    margin-left: -275px;
+    width: 550px;
+    height: 320px;
+    top: 40%;
+    margin-top: -150px;
+    box-sizing:border-box;
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px -5px rgba(0,0,0,.3)
+}
+article.newconvo section div{
+    position: relative;
+}
+
+article.newconvo section form input[type="text"]{
+    display: inline-block;
+    width: 100%;
+    padding: 0 5%;
+    height: 65px;
+    line-height: 65px;
+    border: none;
+    box-sizing:border-box;
+    border-bottom: 1px solid #E8E8EA;
+    background-image: url(../images/assets/search_btn.svg);
+    background-size: 15px;
+    background-position: right 5% center;
+    background-repeat: no-repeat;
+}
+article.newconvo section form input[type="submit"]{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75px;
+    height: 75px;
+    background: none;
+    border: none;
+    text-indent: -99em;
+    background-image: url(../images/assets/send_btn.svg);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+article.newconvo section form textarea{
+    display: inline-block;
+    width: 100%;
+    padding: 5%;
+    border: none;
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom:1px solid #E8E8EA;
+    border: none;
+}
+
+
+
