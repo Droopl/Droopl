@@ -6,7 +6,8 @@
         
             <section class="step_1">
                 <aside class="left">
-                    step1
+                    <form>
+                    </form>
                 </aside>
                 <aside class="right">
                 </aside>
@@ -20,6 +21,14 @@
             </section>
             <section class="step_3">
                 <aside class="left">
+                    step3
+                </aside>
+                <aside class="right">
+                </aside>
+            </section>
+            <section class="step_4">
+                <aside class="left">
+                    step4
                 </aside>
                 <aside class="right">
                 </aside>
@@ -29,6 +38,7 @@
         
         <nav class="pages">
             <ul>
+                <li class="current"></li>
                 <li></li>
                 <li></li>
                 <li></li>

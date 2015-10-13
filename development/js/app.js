@@ -869,6 +869,14 @@ $(function  () {
 
     });
     
+    $("article.register div.register-box nav.pages ul li").on("click",function(){
+        var thisIndex = $(this).index();
+        var sectionWidth = $("article.register div.register-box div.container section").width();
+        $("article.register div.register-box div.container").animate({left: thisIndex*-sectionWidth});
+        $("article.register div.register-box nav.pages ul li").removeClass("current");
+        $(this).addClass("current");
+    });
+    
     $("section.chat ul li.new-conversation span.new-icon").on("click",function(){
         var thisConvo = $(this);
         var bubbles = $("section.chat ul li.conversation-bubble");
