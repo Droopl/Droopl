@@ -118,12 +118,24 @@
 
 <?php } ?>
 
-<?php if($_GET['page'] == "messages" && isset($_GET['action']) && $_GET['action'] == "new"){ ?>
+<?php if($_GET['page'] == "messages" && isset($_GET['action']) && $_GET['action'] == "create"){ ?>
 <article class="newconvo">
     <section class="animated slideInUp">
         <header class="hide"><h1>new conversation</h1></header>
         <form action="" method="post" >
             <input type="text" id="search_people" name="search_people" placeholder="Search for people" autofocus>
+            <div class="search_users">
+                <?php if(!empty($users)){ ?>
+                <ul>
+                    <?php foreach ($users as $key => $user) { ?>
+                         <li><img src="images/profile_pictures/<?php echo $user['picture']; ?>"></li>
+                   <?php  } ?>
+                   
+                </ul>
+                <?php }else{ ?>
+                <p>No user found</p>
+                <?php } ?>
+            </div>
             <div>
                 <textarea placeholder="New message" id="message" name="message"></textarea>
                 <input type="submit" id="create_new" name="create_new" value="submit">

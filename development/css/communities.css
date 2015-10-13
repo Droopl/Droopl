@@ -382,6 +382,38 @@ article.newconvo section{
 article.newconvo section div{
     position: relative;
 }
+article.newconvo section div.search_users{
+    overflow:hidden; 
+    height: 65px;
+    border-bottom: 1px solid #E8E8EA;
+}
+article.newconvo section div.search_users ul{
+
+    display: block;
+    height: 65px;
+    float: left;
+}
+article.newconvo section div.search_users ul li{
+
+    display: inline-block;
+    width: 65px;
+    box-sizing:border-box;
+    padding: 12.5px 0;
+    text-align: center;
+    line-height: 65px;
+}
+article.newconvo section div.search_users ul li img{
+
+    display: inline-block;
+    height: 40px;
+
+    border-radius: 50%;
+
+}
+article.newconvo section div.search_users ul li:first-child{
+
+    margin-left: 5%;
+}
 
 article.newconvo section form input[type="text"]{
     display: inline-block;

@@ -10,10 +10,12 @@ class MessagesController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'ConversationsDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'ConvoUsersDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'MessagesDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
 
 		$this->conversationDAO = new ConversationsDAO();
 		$this->convoUsersDAO = new ConvoUsersDAO();
 		$this->messagesDAO = new MessagesDAO();
+		$this->userDAO = new UserDAO();
 
 	}
 
@@ -23,6 +25,7 @@ class MessagesController extends AppController{
 		$conversation = array();
 		$messages = array();
 		$convo_users = array();
+		$users = array();
 
 		if(isset($_GET) &&!empty($_GET['typing'])){
 			if(isset($_SESSION['conversation'])){
@@ -37,6 +40,10 @@ class MessagesController extends AppController{
 		if(isset($_SESSION['user'])){
 
 			if(!empty($_SESSION['user']['id'])){
+
+				if(!empty($_GET['action']) == "create"){
+					$users = $this->userDAO->getSearchUsers("b");
+				}
 
 				if(!empty($_GET['userid']) && !empty($_GET['action']) && $_GET['action'] == 'new'){
 					$found = false;
@@ -134,6 +141,7 @@ class MessagesController extends AppController{
 		$this->set('conversation',$conversation);
 		$this->set('convo_users',$convo_users);
 		$this->set('messages',$messages);
+		$this->set('users',$users);
 
 	}
 
