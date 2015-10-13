@@ -132,7 +132,7 @@
                 <?php if($quest['id'] == $_SESSION['user']['id']){ ?>
                 <li class="options">
                     <ul>
-                        <li><a href="?page=messages&id<?php echo $value['id']; ?>&action=new" class="icon-speech-bubble"></a></li>
+                        <li><a href="?page=messages&userid=<?php echo $value['id']; ?>&action=new" class="icon-speech-bubble"></a></li>
                          <li><a href="?page=detail&questid=<?php echo $quest['quest_id']; ?>&id=<?php echo $value['propo_id']; ?>&action=confirm" class="icon-check"></a></li>
                     </ul>
                 </li>

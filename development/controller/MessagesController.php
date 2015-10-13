@@ -38,6 +38,36 @@ class MessagesController extends AppController{
 
 			if(!empty($_SESSION['user']['id'])){
 
+				if(!empty($_GET['userid']) && !empty($_GET['action']) && $_GET['action'] == 'new'){
+					$found = false;
+					$user1 = $this->convoUsersDAO->getConversationByUserId($_GET['userid']);
+					$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
+					$convoid = 0;
+
+					foreach ($user1 as $key => $val) {
+						foreach ($user2 as $key => $value) {
+							if($value['conversation_id'] == $val['conversation_id']){
+								$found = true;
+								$convoid = $value['conversation_id'];
+							}
+						}
+					}
+					if(!$found){
+						$convoId = $this->conversationDAO->addConversation();
+						if($convoId > 0){
+							$newUsers = [$_SESSION['user']['id'],$_GET['userid']];
+							foreach ($newUsers as $key => $user) {
+								$this->convoUsersDAO->addConversationUser($convoId,$user);
+								echo $user;
+							}
+
+							$this->redirect("?page=messages&id=".$convoId);
+						}
+					}else{
+						$this->redirect("?page=messages&id=".$convoid);
+					}
+				}
+
 				if(!empty($_GET['check']) && $_GET['check'] == "update"){
 					if(isset($_SESSION['conversation'])){
 						echo $this->conversationDAO->checkConversation($_SESSION['conversation']['conversation_id']);

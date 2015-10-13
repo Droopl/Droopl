@@ -49,7 +49,7 @@ GROUP BY x.conversation_id
 		}
 		return array();
 	}
-
+	
 	public function getUserByConversationId($conversation_id){
 
 		$sql = 'SELECT cu.user_id ,u.firstname,u.lastname,u.picture,cu.user_typing
