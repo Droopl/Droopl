@@ -273,11 +273,20 @@ article div.communities section.community .progress svg:nth-child(2) path {
 
 
 /*DETAIL*/
+article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.options ul li{
+    width: 100%;
+}
+article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.options{
+    display: block;
+    float: right;
+    width: 90px;
+    padding: 18px 0px;
+}
 
 article div.feed section.quest footer div.proposals-list ul li ul li.options{
     display: block;
     float: left;
-    width: 170px;
+    width: 150px;
     padding: 25px 0px;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.options ul li{

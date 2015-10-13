@@ -1936,7 +1936,7 @@ article div.feed section.quest footer div.proposals-list{
 article div.feed section.quest footer div.proposals-list ul{
     display: block;
     float: left;
-    width: 110%;
+    width: 100%;
     height: auto;
 }
 article div.feed section.quest footer div.proposals-list ul li{
@@ -1950,16 +1950,53 @@ article div.feed section.quest footer div.proposals-list ul li.propo{
 article div.feed section.quest footer div.proposals-list ul li:last-child{
     border: none;
 }
-article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic{
+article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.profile-name{
+    display: block;
+    float: left;
+    width: 200px;
+    text-align: center;
+}
+article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.profile-pic{
     display: block;
     float: left;
     width: 100px;
     padding: 25px 0 25px 25px;
 }
+article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.collection-pic{
+    display: block;
+    float: left;
+    width: 120px;
+    padding: 25px 0px 25px 0;
+}
+article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.profile-name{
+    display: block;
+    float: left;
+    width: 250px;
+    text-align: center;
+}
+article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.profile-pic{
+    display: block;
+    float: left;
+    width: 100px;
+    padding: 25px 0 25px 25px;
+}
+article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.collection-pic{
+    display: block;
+    float: left;
+    width: 120px;
+    padding: 25px 0px 25px 0;
+}
+article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic{
+    display: block;
+    float: left;
+    width: 150px;
+    text-align: center;
+    padding: 25px 0 25px 25px;
+}
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-name{
     display: block;
     float: left;
-    width: 200px;
+    width: 260px;
     text-align: center;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-name p{
@@ -1969,6 +2006,7 @@ article div.feed section.quest footer div.proposals-list ul li ul li.profile-nam
     line-height: 100px;
     text-align: center;
     font-size: 1.2em;
+    word-spacing: 4px;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-name p a{
     text-decoration: none;
@@ -1979,11 +2017,11 @@ article div.feed section.quest footer div.proposals-list ul li ul li.profile-nam
 article div.feed section.quest footer div.proposals-list ul li ul li.collection-pic{
     display: block;
     float: left;
-    width: 100px;
+    width: 150px;
     padding: 25px 0px 25px 0;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic img{
-    display: block;
+    display: inline-block;
     width: 50px;
     height: 50px;
     border-radius: 50%;

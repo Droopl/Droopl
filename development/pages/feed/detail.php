@@ -118,7 +118,7 @@
         if(!empty($proposals)){
 
         foreach ($proposals as $key => $value) {?>
-            <li class="propo" id="<?php echo $value['propo_id']; ?>">
+            <li class="propo <?php if($quest['id'] == $_SESSION['user']['id']){ echo 'myquest'; }elseif ($value['id'] == $_SESSION['user']['id']) { echo 'mypropo'; }?>" id="<?php echo $value['propo_id']; ?>">
             <ul>
                 <li class="profile-pic">
                     <img src="images/profile_pictures/<?php echo $value['picture']; ?>">
@@ -129,12 +129,20 @@
                 <li class="collection-pic">
                     <img src="images/collection/<?php echo $value['collection_image']; ?>">
                 </li>
+                <?php if($quest['id'] == $_SESSION['user']['id']){ ?>
                 <li class="options">
                     <ul>
-                        <li><a href="?page=messages&id<?php echo $value['user_id']; ?>&action=new" class="icon-speech-bubble"></a></li>
+                        <li><a href="?page=messages&id<?php echo $value['id']; ?>&action=new" class="icon-speech-bubble"></a></li>
                          <li><a href="?page=detail&questid=<?php echo $quest['quest_id']; ?>&id=<?php echo $value['propo_id']; ?>&action=confirm" class="icon-check"></a></li>
                     </ul>
                 </li>
+                <?php }elseif ($value['id'] == $_SESSION['user']['id']) {?>
+                 <li class="options">
+                    <ul>
+                         <li><a href="?page=detail&questid=<?php echo $quest['quest_id']; ?>&id=<?php echo $value['propo_id']; ?>&action=delete" class="icon-cross"></a></li>
+                    </ul>
+                </li>
+                <?php } ?>
             </ul>
         </li>
 

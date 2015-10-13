@@ -73,6 +73,20 @@ ORDER BY cu.user_typing DESC';
 		}
 		return array();
 	}
+
+	public function addConversationUser($conversation_id,$user_id){
+
+
+		$sql = "INSERT INTO conversation_users (conversation_id, user_id) VALUES (:conversation_id, :user_id);";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":conversation_id",$conversation_id);
+        $stmt->bindValue(":user_id",$user_id);
+        if($stmt->execute()){
+
+            return true;
+        }
+        return false;
+	}
 	
 
 	public function typingConversation($conversation_id,$user_id,$typing){

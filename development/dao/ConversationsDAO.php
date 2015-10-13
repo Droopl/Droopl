@@ -43,4 +43,18 @@ GROUP BY x.conversation_id
 	}
 	
 
+	public function addConversation(){
+
+
+		$sql = "INSERT INTO conversation (conversation_name) VALUES ("");";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":conversation_id",$conversation_id);
+        $stmt->bindValue(":user_id",$user_id);
+        if($stmt->execute()){
+
+            return true;
+        }
+        return false;
+	}
+
 }
