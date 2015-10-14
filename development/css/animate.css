@@ -27,6 +27,41 @@ Copyright (c) 2015 Daniel Eden
   animation-fill-mode: both;
 }
 
+.delay1 {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+
+.delay2 {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+
+.delay3 {
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+
+.delay4 {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+
+.delay5 {
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
+}
+
+.delay6 {
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s;
+}
+
+.delay7 {
+    -webkit-animation-delay: .8s;
+    animation-delay: .8s;
+}
+
 .infinite {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;

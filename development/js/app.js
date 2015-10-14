@@ -869,6 +869,28 @@ $(function  () {
 
     });
     
+    if($("article.register").length){
+        
+        $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").on("click",function(){
+            if(!$("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").hasClass("show")){
+                $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").addClass("show");
+            }else{
+                $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+            }
+        });
+        
+        $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li").on("click",function(){
+            
+            var thisClass = $(this).attr("class");
+            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language input#selected_lang").attr("value",thisClass);
+            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").removeClass("en nl fr");
+            
+            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").addClass(thisClass);
+            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+        });
+        
+    }
+    
     $("article.register div.register-box nav.pages ul li").on("click",function(){
         var thisIndex = $(this).index();
         var sectionWidth = $("article.register div.register-box div.container section").width();

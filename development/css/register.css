@@ -51,7 +51,6 @@ article.register div.register-box div.container section aside.left {
     width: 55%;
     height: 100%;
     box-sizing: border-box;
-    border-right: 1px solid #E8E8EA;
 }
 
 article.register div.register-box div.container section aside.right {
@@ -59,6 +58,10 @@ article.register div.register-box div.container section aside.right {
     width: 45%;
     height: 100%;
     box-sizing: border-box;
+}
+
+article.register div.register-box div.container section.step_1 aside.left {
+    border-right: 1px solid #E8E8EA;
 }
 
 article.register div.register-box div.container section.step_1 aside.left form {
@@ -83,9 +86,9 @@ article.register div.register-box div.container section.step_1 aside.left form i
     position: absolute;
     z-index: 9999;
     width: auto;
-    bottom: 26px;
-    right: 26px;
-    padding: 13px 20px;
+    bottom: 8px;
+    right: 8px;
+    padding: 11px 13px;
     background-color: #F47D67;
     color: #ffffff;
     border-radius: .4em;
@@ -111,21 +114,13 @@ article.register div.register-box div.container section.step_1 aside.left form l
     color: #F47D67;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form label:last-of-type {
-    width: 100%;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    font-size: .8em;
-    color: #A9A9A9;
-}
-
 article.register div.register-box div.container section.step_1 aside.right img {
     display: block;
     width: 200px;
-    margin: 80px auto 0 auto;
+    margin: 200px auto 0 auto;
 }
 
-article.register div.register-box div.container section aside h1{
+article.register div.register-box div.container section aside h1.title {
     display: block;
     width: 100%;
     float: left;
@@ -139,8 +134,10 @@ article.register div.register-box div.container section aside h1{
 article.register div.register-box nav.pages {
     position: absolute;
     width: 100%;
-    padding: 15px 0;
+    padding: 18px 0;
     bottom: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #E8E8EA;
 }
 
 article.register div.register-box nav.pages ul {
@@ -173,3 +170,131 @@ article.register div.register-box nav.pages ul li:hover {
 article.register div.register-box nav.pages ul li.current {
     background-color: #F47D67;
 }
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language {
+    float: left;
+    width: 100%;
+    padding: 7%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language h1 {
+    display: block;
+    float: left;
+    color: #A9A9A9;
+    line-height: 20px;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag {
+    float: left;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.en {
+    background-image: url(../images/register/flags/United-States-of-America.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.nl {
+    background-image: url(../images/register/flags/Netherlands.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.fr {
+    background-image: url(../images/register/flags/France.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language input#selected_lang{
+    display: none;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list {
+    display: block;
+    list-style: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #E8E8EA;
+    border-radius: .5em;
+    border-top-left-radius: 0;
+    left: 31%;
+    top: 23px;
+    overflow: hidden;
+    z-index: 9999;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list.show {
+    width: auto;
+    height: auto;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li {
+    display: block;
+    width: 100%;
+    font-size: .8em;
+    padding: 8px 15px;
+    line-height: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span {
+    display: block;
+    float: left;
+    width: 22px;
+    height: 18px;
+    margin-right: 13px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.en-flag {
+    background-image: url(../images/register/flags/United-States-of-America.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.nl-flag {
+    background-image: url(../images/register/flags/Netherlands.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.fr-flag {
+    background-image: url(../images/register/flags/France.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li:hover {
+    background-color: #F9F9F9;
+}
+
+
+
