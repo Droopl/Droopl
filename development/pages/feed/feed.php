@@ -440,6 +440,12 @@
 		<?php } ?>
 		<h2><?php 
 
+		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
+			echo $value['views']." views";
+		}else if(!empty($_GET['filter']) && $_GET['filter'] == "nearby"){
+			echo intval($value['distance'])." km";
+		}else{
+
 		$full = false;
  		$now = new DateTime;
 	    $ago = new DateTime($value['creation_date']);
@@ -469,6 +475,8 @@
 	    $result =  $string ? implode(', ', $string) . ' ago' : 'just now';
 
 	    echo $result;
+
+	    }
 
 		?></h2>
 		</header>

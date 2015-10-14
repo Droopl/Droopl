@@ -30,7 +30,7 @@ class FeedDAO
 	}
 	public function getPublicQuests(){
 
-		$sql = 'SELECT pq.id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT pq.id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM public_quests AS pq
         LEFT OUTER JOIN quests AS q
 		ON pq.quest_id = q.quest_id
@@ -63,7 +63,7 @@ class FeedDAO
 
 	public function getQuestFromDistance($user_id,$lat,$long){
 
-		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount ,SQRT(POW(69.1 *(u.latitude - :lat),2) + POW( 69.1 * (:long - u.longitude) * COS(u.latitude / 57.3),2)) AS distance , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT f.follow_id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount ,SQRT(POW(69.1 *(u.latitude - :lat),2) + POW( 69.1 * (:long - u.longitude) * COS(u.latitude / 57.3),2)) AS distance , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
 		LEFT OUTER JOIN public_quests AS pq
 		ON f.friend_id = pq.user_id
@@ -102,7 +102,7 @@ class FeedDAO
 
 	public function getQuests($user_id){
 
-		$sql = 'SELECT pq.id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT pq.id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
 		LEFT OUTER JOIN public_quests AS pq
 		ON f.friend_id = pq.user_id
@@ -138,7 +138,7 @@ class FeedDAO
 	}
 	public function getQuestsByCommunity($community_id){
 
-		$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT q.quest_id,q.item,q.views,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM community_quests AS cq
         LEFT OUTER JOIN quests AS q
 		ON cq.quest_id = q.quest_id
@@ -172,7 +172,7 @@ class FeedDAO
 	}
 	public function getQuestsByViews($user_id){
 
-		$sql = 'SELECT f.follow_id,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT f.follow_id,q.views,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
 		LEFT OUTER JOIN public_quests AS pq
 		ON f.friend_id = pq.user_id
