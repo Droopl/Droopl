@@ -124,7 +124,7 @@
         <header class="hide"><h1>new conversation</h1></header>
         <form action="" method="post" >
             <input type="text" id="search_people" name="search_people" placeholder="Search for people" autofocus>
-            <input type="text" id="user_id" name="user_id" value="4" class="hide">
+            <input type="text" id="user_id" name="user_id" value="6" class="hide">
             <div class="search_users">
                 <?php if(!empty($users)){ ?>
                 <ul>

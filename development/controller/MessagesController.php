@@ -47,12 +47,12 @@ class MessagesController extends AppController{
 						$found = false;					
 						$user1 = $this->convoUsersDAO->getConversationByUserId($_POST['user_id']);
 						$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
-						$convoid = 0;
+						$convoId = 0;
 						foreach ($user1 as $key => $val) {
 							foreach ($user2 as $key => $value) {
 								if($value['conversation_id'] == $val['conversation_id']){
 									$found = true;
-									$convoid = $value['conversation_id'];
+									$convoId = $value['conversation_id'];
 								}
 							}
 						}
@@ -67,11 +67,19 @@ class MessagesController extends AppController{
 							}
 						}
 
+
 						if(!empty($_POST['message'])){
-							$this->messagesDAO->addMessage($convoid,$_SESSION['user']['id'],$_POST['message']);
+							$messageSent = $this->messagesDAO->addMessage($convoId,$_SESSION['user']['id'],$_POST['message']);
+
+							if($messageSent){
+								$this->redirect("?page=messages&id=".$convoId);
+							}
+
+						}else{
+							$this->redirect("?page=messages&id=".$convoId);
 						}
 
-						$this->redirect("?page=messages&id=".$convoId);
+						//
 					}
 
 
@@ -82,13 +90,13 @@ class MessagesController extends AppController{
 					$found = false;
 					$user1 = $this->convoUsersDAO->getConversationByUserId($_GET['userid']);
 					$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
-					$convoid = 0;
+					$convoId = 0;
 
 					foreach ($user1 as $key => $val) {
 						foreach ($user2 as $key => $value) {
 							if($value['conversation_id'] == $val['conversation_id']){
 								$found = true;
-								$convoid = $value['conversation_id'];
+								$convoId = $value['conversation_id'];
 							}
 						}
 					}
@@ -104,7 +112,7 @@ class MessagesController extends AppController{
 							$this->redirect("?page=messages&id=".$convoId);
 						}
 					}else{
-						$this->redirect("?page=messages&id=".$convoid);
+						$this->redirect("?page=messages&id=".$convoId);
 					}
 				}
 
