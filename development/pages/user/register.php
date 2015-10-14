@@ -57,10 +57,10 @@
         
         <nav class="pages">
             <ul>
-                <li class="animated-fast fadeInUp current"></li>
-                <li class="animated-fast delay1 fadeInUp"></li>
-                <li class="animated-fast delay2 fadeInUp"></li>
-                <li class="animated-fast delay3 fadeInUp"></li>
+                <li class="current"></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </nav>
         

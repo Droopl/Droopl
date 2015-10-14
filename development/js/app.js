@@ -871,6 +871,17 @@ $(function  () {
     
     if($("article.register").length){
         
+        var navPagesLis = $("article.register div.register-box nav.pages ul li");
+        navPagesLis.css("opacity","0");
+        var time = 0;
+        $.each(navPagesLis,function(key,val){
+            var navPagesLi = $(val);
+            setTimeout(function(){
+                navPagesLi.addClass("animated fadeInUp");
+            },time);
+            time+=150;
+        });
+        
         $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").on("click",function(){
             if(!$("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").hasClass("show")){
                 $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").addClass("show");
