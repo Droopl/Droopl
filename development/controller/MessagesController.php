@@ -43,6 +43,39 @@ class MessagesController extends AppController{
 
 				if(!empty($_GET['action']) == "create"){
 					$users = $this->userDAO->getSearchUsers("b");
+					if(!empty($_POST) && !empty($_POST['user_id'])){
+						$found = false;					
+						$user1 = $this->convoUsersDAO->getConversationByUserId($_POST['user_id']);
+						$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
+						$convoid = 0;
+						foreach ($user1 as $key => $val) {
+							foreach ($user2 as $key => $value) {
+								if($value['conversation_id'] == $val['conversation_id']){
+									$found = true;
+									$convoid = $value['conversation_id'];
+								}
+							}
+						}
+						if(!$found){
+						$convoId = $this->conversationDAO->addConversation();
+						if($convoId > 0){
+							$newUsers = [$_SESSION['user']['id'],$_POST['user_id']];
+							foreach ($newUsers as $key => $user) {
+								$this->convoUsersDAO->addConversationUser($convoId,$user);
+							}
+
+							}
+						}
+
+						if(!empty($_POST['message'])){
+							$this->messagesDAO->addMessage($convoid,$_SESSION['user']['id'],$_POST['message']);
+						}
+
+						$this->redirect("?page=messages&id=".$convoId);
+					}
+
+
+					
 				}
 
 				if(!empty($_GET['userid']) && !empty($_GET['action']) && $_GET['action'] == 'new'){
@@ -112,7 +145,7 @@ class MessagesController extends AppController{
 
 					$message = ""; 
 
-					if(!empty($_POST['message'])){
+					if(!empty($_POST['message']) && empty($_GET['action'])){
 						$message = $_POST['message'];
 					}
 

@@ -429,6 +429,9 @@ article.newconvo section form input[type="text"]{
     background-position: right 5% center;
     background-repeat: no-repeat;
 }
+article.newconvo section form input[type="text"].hide{
+    display: none;
+}
 article.newconvo section form input[type="submit"]{
     display: block;
     position: absolute;
