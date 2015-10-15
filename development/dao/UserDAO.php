@@ -78,10 +78,24 @@ class UserDAO{
 
 	public function getUserById($id){
 
-		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating  
+		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating ,(
+        SELECT COUNT(*)
+        FROM   followers AS f
+    	WHERE f.user_id = u.id
+        ) AS followers,
+        (
+        SELECT COUNT(*)
+        FROM   quests AS q
+            WHERE q.user_id = u.id
+        ) AS quests,
+        (
+        SELECT COUNT(*)
+        FROM   proposals AS p
+            WHERE p.user_id = u.id
+        ) AS proposals
 FROM users u
 LEFT OUTER JOIN user_rating as r
-ON r.user_id = u.id
+ON u.id = r.user_id
 WHERE u.id = :id';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id',$id);

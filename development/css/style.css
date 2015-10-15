@@ -1020,14 +1020,42 @@ article aside#side section.profile header nav.stars a.followed{
     text-decoration: none;
     text-transform: capitalize;
 }
-article aside#side section.profile div.description-container p{
+article aside#side section.profile div.description-container{
     display: block;
     border-top: 1px solid #E8E8EA;
     width: 75%;
     padding: 12.5%;
     font-size: .8em;
     float: left;
-    color: #5F6970;
+    text-transform: capitalize;
+}
+article aside#side section.profile div.description-container ul{
+    display: block;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    text-align: center;
+}
+article aside#side section.profile div.description-container ul li{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+article aside#side section.profile div.description-container ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: .8em;
+    color: rgba(0,0,0,.3);
+}
+/*article aside#side section.profile div.description-container ul li span.bluetxt{ color: #2BBCAF; }
+article aside#side section.profile div.description-container ul li span.orangetxt{ color: #F5896E; }
+article aside#side section.profile div.description-container ul li span.purpletxt{ color: #44587A; }*/
+
+article aside#side section.profile div.description-container ul li p{
+    display: inline-block;
+    width: 100%;
+    
 }
 
 article aside#side section.profile div.map-container{

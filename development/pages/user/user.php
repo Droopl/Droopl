@@ -42,16 +42,16 @@
         <div class="description-container">
             <ul>
                 <li>
-                    <span>Quests</span>
-                    <p>30994</p>
+                    <span class="bluetxt">Quests</span>
+                    <p><?php echo $user['quests']; ?></p>
                 </li>
                 <li>
-                    <span>proposals</span>
-                    <p>21234</p>
+                    <span class="orangetxt">propos</span>
+                    <p><?php echo $user['proposals']; ?></p>
                 </li>
                 <li>
-                    <span>Followers</span>
-                    <p>234</p>
+                    <span class="purpletxt">Followers</span>
+                    <p><?php echo $user['followers']; ?></p>
                 </li>
             </ul>
         </div>
