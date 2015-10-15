@@ -2787,7 +2787,10 @@ article.login form{
     margin-top: 50px;
     width: 400px;
     background-color: #ffffff;
-    border: 1px solid #E8E8EA; 
+    border: 1px solid #E8E8EA;
+    -webkit-box-shadow: 0 0 30px -15px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px -15px rgba(0,0,0,.3);
+    border-radius: .3em;
 }
 article.login form header h1{
     color: #3E454C;
@@ -2853,14 +2856,15 @@ article.login form input[type="submit"]{
     color: white;
     margin: 15px;
 }
-article.login form p.create-account a{
+article.login footer p.create-account a{
     text-decoration: none;
     color: #F27D6B;
 }
-article.login form p.create-account{
+article.login footer p.create-account{
     font-size: .8em;
-    height: 75px;
-    line-height: 75px;
+    height: 80px;
+    line-height: 80px;
+    color: rgba(0,0,0,.3);
 }
 footer{
 	float: left;

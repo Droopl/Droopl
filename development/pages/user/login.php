@@ -25,8 +25,10 @@
 			 <input type="text" id="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
 			 <input type="password" id="pass" name="pass" placeholder="Password" value="<?php echo $password; ?>">
 			 <input type="submit" id="submit_btn" name="submit_btn" value="sign in">
-            <p class="create-account hide">or <a href="">click here</a> to create an account</p>
             </div>
 		</form>
+        <footer class="delay3 animated fadeInUp">
+            <p class="create-account">or <a href="?page=register">click here</a> to create an account</p>
+        </footer>
 	</section>
 </article>

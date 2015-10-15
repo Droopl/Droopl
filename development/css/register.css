@@ -236,6 +236,7 @@ article.register div.register-box div.container section.step_1 aside.left form d
     top: 23px;
     overflow: hidden;
     z-index: 9999;
+    opacity: 0;
     
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
@@ -247,6 +248,7 @@ article.register div.register-box div.container section.step_1 aside.left form d
 article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list.show {
     width: auto;
     height: auto;
+    opacity: 1;
 }
 
 article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li {

@@ -1,13 +1,13 @@
 <article class="register">
     
-    <div class="register-box">
+    <div class="register-box animated fadeInUp">
         
         <div class="container">
         
             <section class="step_1">
                 <aside class="left">
                     <h1 class="title">Registration</h1>
-                    <form id="registration_form_step_1" name="registration_form_step_1" method="post">
+                    <form id="registration_form_step_1" method="post">
                         <input type="text" id="first" name="first" placeholder="Firstname" required>
                         <input type="text" id="last" name="last" placeholder="Last name" required>
                         <input type="email" id="mail" name="mail" placeholder="Email" required>
@@ -33,9 +33,11 @@
             </section>
             <section class="step_2">
                 <aside class="left">
-                    step2
-                </aside>
-                <aside class="right">
+                    <form id="search_location_form" method="post">
+                        <input type="text" id="search_location" name="search_location">
+                        <div id="maps-api-container">
+                        </div>
+                    </form>
                 </aside>
             </section>
             <section class="step_3">
