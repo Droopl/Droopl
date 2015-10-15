@@ -425,37 +425,7 @@ $(function  () {
       }
       var url = "index.php?page=search&search_full="+$(this).val(); // the script where you handle the form input.
 
-      var formData = new FormData($(this).parent()[0]);
-
-      $.ajax({
-             type: "GET",
-             url: url,
-             data: formData, 
-             async: false,
-            cache: false,
-            contentType: false,
-            processData: false,
-             success: function(data)
-             {
-
-             console.log(data);  
-              var items = $(data).find(".search_results li");
-
-              var quests = $("article.search ul li.quest");
-
-              items.each(function (key,newquest) {
-
-                  console.log("adding");
-
-                  $(newquest).addClass("animated fadeIn").insertAfter("article.search ul li.preloader");
-
-              });
-
-              if($("article.search ul li.quest").length > 0){
-                $("article.search ul li.preloader").hide();
-              }
-            }
-           });
+      $( "article.search ul" ).load( url +" article.search_full ul.search_results");
 
 
 

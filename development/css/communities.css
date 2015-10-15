@@ -491,9 +491,16 @@ article.search_full div.search ul.search_results{
     text-align: center;
 }
 article.search_full div.search ul.search_results li.part{
-    display: inline-block;
-    width: 30%;
+    display: block;
+    float: left;
+    width: 33%;
+    box-sizing:border-box;
+    padding: 0.5%;
     text-align: left;
+}
+article.search_full div.search ul.search_results li.part ul{
+    display: inline-block;
+    width: 100%;
 }
 article.search_full div.search ul.search_results li.quest{
 
@@ -589,6 +596,120 @@ article.search_full div.search ul.search_results li.quest aside p{
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+}
+article.search_full div.search ul.search_results li.user{
+
+    display: inline-block;
+    width: 100%;
+    margin: 1% 0;
+    background-color: #ffffff;
+    border: 1px solid #E8E8EA; 
+
+}
+article.search_full div.search ul.search_results li.user header{
+
+    float: left;
+    width: 40%;
+    height: 50px;
+    padding: 2.5% 0;
+}
+article.search_full div.search ul.search_results li.user aside{
+    float: right;
+    width: 60%;
+    height: 50px;
+    padding: 2.5% 0;
+    text-align: right;
+}
+article.search_full div.search ul.search_results li.user aside ul li{
+
+    display: block;
+    width: 30%;
+    text-align: center;
+}
+article.search_full div.search ul.search_results li.user aside ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: .7em;
+    color: rgba(0,0,0,.3);
+}
+
+article.search_full div.search ul.search_results li.user aside ul li p{
+    display: inline-block;
+    width: 100%;
+    font-size: .9em
+    
+}
+article.search_full div.search ul.search_results li.user header h1{
+    float: left;
+    font-size: .7em;
+    font-weight: 600;
+    width: 40%;
+    margin: 5% 0 2.5% 0;
+    margin-left: 20px;
+}
+article.search_full div.search ul.search_results li.user header h2{
+
+    float: left;
+    font-size: .7em;
+    font-weight: normal;
+    width: 40%;
+    margin-left: 20px;
+    color: rgba(0,0,0,.3);
+    
+}
+article.search_full div.search ul.search_results li.user a{
+    float: left;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #3E454C;
+    padding: 5%;
+    box-sizing:border-box;
+}
+article.search_full div.search ul.search_results li.user header img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+article.search_full div.search ul.search_results li.item{
+    display: block;
+    float: left;
+    width: 50%;
+    height: 180px;
+    border: 1px solid #E8E8EA;
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+    margin: 1% 0;
+}
+
+article.search_full div.search ul.search_results li.item img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 45px auto 10px auto;
+    border-radius: 50%;
+}
+article.search_full div.search ul.search_results li.item h1.profile-collection-item-name {
+    display: block;
+    width: 100%;
+    font-size: .85em;
+    float: left;
+}
+article.search_full div.search ul.search_results li.item h1.profile-collection-item-name span{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+article.search_full div.search ul.search_results li.item h1.profile-collection-item-name span.not-available {
+    background-color: #F47D67;
+}
+article.search_full div.search ul.search_results li.item h1.profile-collection-item-name span.available {
+    background-color: #4EB982;
 }
 
 

@@ -3065,46 +3065,32 @@ article.search.show{
     opacity: 1;
     height: 100vh;
 }
-
-article.search ul{
-    float: left;
+article.search ul.search_results{
     display: block;
-    width: 95%;
-    padding: 0 2.5%;
+    width: 100%;
+    float: left;
     text-align: center;
 }
-article.search ul li.part{
-    display: inline-block;
-    width: 30%;
+article.search ul.search_results li.part{
+    display: block;
+    float: left;
+    width: 33%;
+    box-sizing:border-box;
+    padding: 0.5%;
+    text-align: left;
 }
-article.search ul li.part header{
+article.search ul.search_results li.part ul{
     display: inline-block;
     width: 100%;
-    padding: 5% 0;
-    box-sizing:border-box;
-    
 }
-
-
-article.search li.preloader{
-
-    display: inline-block;
-    width: 70px;
-    height: 70px;
-    text-align: center;
-    line-height: 70px;
-
-}
-
-
-article.search li.quest{
+article.search ul.search_results li.quest{
 
     float: left;
     display: block;
-    width: 29%;
-    margin: 1%;
+    width: 100%;
+    margin: 1% 0;
 }
-article.search li.quest a.quest{
+article.search ul.search_results li.quest a.quest{
 
     float: left;
     display: block;
@@ -3122,10 +3108,10 @@ article.search li.quest a.quest{
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
-article.search li.quest a.quest:hover{
+article.search ul.search_results li.quest a.quest:hover{
     border: 1px solid rgba(242,125,107,.4); 
 }
-article.search li.quest header{
+article.search ul.search_results li.quest header{
 
     float: left;
     width: 90%;
@@ -3133,7 +3119,7 @@ article.search li.quest header{
     padding: 5% 5% 0 5%;
     line-height: 40px;
 }
-article.search ul li.quest header h1{
+article.search ul.search_results li.quest header h1{
 
     float: left;
     display: inline-block;
@@ -3144,7 +3130,7 @@ article.search ul li.quest header h1{
     text-overflow:ellipsis;
     white-space: nowrap;
 }
-article.search ul li.quest header h1 a{
+article.search ul.search_results li.quest header h1 a{
 
     text-decoration: none;
     font-weight: bolder;
@@ -3157,23 +3143,23 @@ article.search ul li.quest header h1 a{
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
-article.search ul li.quest header h1 a:hover{
+article.search ul.search_results li.quest header h1 a:hover{
     color: #F47D67; 
 }
-article.search ul li.quest header h1 span{
+article.search ul.search_results li.quest header h1 span{
 
     font-weight: bolder;
     color: #3E454C;
 }
 
-article.search ul li.quest header img{
+article.search ul.search_results li.quest header img{
 
     float: left;
     height: 40px;
     margin-right: 20px;
     border-radius: 50%; 
 }
-article.search ul li.quest aside{
+article.search ul.search_results li.quest aside{
 
     float: left;
     width: 90%;
@@ -3183,7 +3169,7 @@ article.search ul li.quest aside{
     line-height: 1.6em;
     font-size: .7em;
 }
-article.search ul li.quest aside p{
+article.search ul.search_results li.quest aside p{
 
     float: left;
     display: block;
@@ -3192,10 +3178,120 @@ article.search ul li.quest aside p{
     text-overflow:ellipsis;
     white-space: nowrap;
 }
+article.search ul.search_results li.user{
 
+    display: inline-block;
+    width: 100%;
+    margin: 1% 0;
+    background-color: #ffffff;
+    border: 1px solid #E8E8EA; 
 
+}
+article.search ul.search_results li.user header{
 
+    float: left;
+    width: 40%;
+    height: 50px;
+    padding: 2.5% 0;
+}
+article.search ul.search_results li.user aside{
+    float: left;
+    width: 60%;
+    height: 50px;
+    padding: 2.5% 0;
+    text-align: right;
+}
+article.search_full div.search ul.search_results li.user aside ul li{
 
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+article.search ul.search_results li.user aside ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: .7em;
+    color: rgba(0,0,0,.3);
+}
+
+article.search ul.search_results li.user aside ul li p{
+    display: inline-block;
+    width: 100%;
+    font-size: .9em
+    
+}
+article.search ul.search_results li.user header h1{
+    float: left;
+    font-size: .7em;
+    font-weight: 600;
+    width: 40%;
+    margin: 5% 0 2.5% 0;
+    margin-left: 20px;
+}
+article.search ul.search_results li.user header h2{
+
+    float: left;
+    font-size: .7em;
+    font-weight: normal;
+    width: 40%;
+    margin-left: 20px;
+    color: rgba(0,0,0,.3);
+    
+}
+article.search ul.search_results li.user a{
+    float: left;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: #3E454C;
+    padding: 5%;
+    box-sizing:border-box;
+}
+article.search ul.search_results li.user header img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+article.search ul.search_results li.item{
+    display: block;
+    float: left;
+    width: 50%;
+    height: 180px;
+    border: 1px solid #E8E8EA;
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+    margin: 1% 0;
+}
+
+article.search ul.search_results li.item img {
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 45px auto 10px auto;
+    border-radius: 50%;
+}
+article.search ul.search_results li.item h1.profile-collection-item-name {
+    display: block;
+    width: 100%;
+    font-size: .85em;
+    float: left;
+}
+article.search ul.search_results li.item h1.profile-collection-item-name span{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+article.search ul.search_results li.item h1.profile-collection-item-name span.not-available {
+    background-color: #F47D67;
+}
+article.search ul.search_results li.item h1.profile-collection-item-name span.available {
+    background-color: #4EB982;
+}
 
 
 

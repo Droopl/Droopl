@@ -36,18 +36,34 @@
 		<?php if(!empty($users)){ ?>
 <?php foreach ($users as $id => $user) { ?>
 
-<li class="user" id="<?php echo $user['id']; ?>">
-	<a href="?page=user&id=<?php echo $user['id']; ?>" class="user">
-    <header>
-        <?php if(!empty($value['picture'])){ ?>
-		<img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
-		<?php }else{ ?>
-		<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-		<?php }?>
-        <h1><b><?php echo $user['firstname']; echo " "; echo $user['lastname'];?></b></h1>
-    </header>
-    </a>
-</li>
+<li class="user">
+            <a href="?page=user&id=<?php echo $user['id']; ?>">
+            <header>
+                <img src="images/profile_pictures/<?php echo $user['picture'] ?>">
+                <h1><?php echo $user['firstname'] ?></h1>
+                <h2><?php echo $user['occupation'] ?></h2>
+            </header>
+            <aside>
+                <header class="hide"><h1>User stats</h1></header>
+                <nav>
+                    <ul>
+                         <li>
+                            <span>Quests</span>
+                            <p><?php echo $user['quests']; ?></p>
+                        </li>
+                        <li>
+                            <span>propos</span>
+                            <p><?php echo $user['proposals']; ?></p>
+                        </li>
+                        <li>
+                            <span>Followers</span>
+                            <p><?php echo $user['followers']; ?></p>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            </a>
+        </li>
 	
 <?php }
 }else{ ?>
@@ -65,14 +81,12 @@
 
 <?php foreach ($items as $id => $item) { ?>
 
-<li class="item" id="1">
-	<a href="?page=item&id=1" class="user">
-    <header>
-        <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-        <h1><b></b></h1>
-    </header>
-    </a>
-</li>
+  <li class="item">
+
+        <span id="<?php echo $item['collection_id']; ?>" class="collection-item-detail"></span>
+        <img src='images/collection/<?php echo $item["collection_image"]; ?>' >
+        <h1 class="profile-collection-item-name"><?php echo $item['item_name'] ?><span class="<?php if($item['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
+    </li>
 	
 <?php } ?>
 </ul>

@@ -38,9 +38,25 @@ class UserDAO{
 
 	public function getSearchUsers($entry){
 
-		$sql = 'SELECT *
-		FROM `users`
-		WHERE firstname LIKE :entry OR lastname LIKE :entry2 OR email LIKE :entry3 LIMIT 30';
+		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating ,(
+        SELECT COUNT(*)
+        FROM   followers AS f
+    	WHERE f.user_id = u.id
+        ) AS followers,
+        (
+        SELECT COUNT(*)
+        FROM   quests AS q
+            WHERE q.user_id = u.id
+        ) AS quests,
+        (
+        SELECT COUNT(*)
+        FROM   proposals AS p
+            WHERE p.user_id = u.id
+        ) AS proposals
+FROM users u
+LEFT OUTER JOIN user_rating as r
+ON u.id = r.user_id
+WHERE u.firstname LIKE :entry OR u.lastname LIKE :entry2 OR u.email LIKE :entry3 LIMIT 30';
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':entry',"%".$entry."%");
