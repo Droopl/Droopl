@@ -27,7 +27,7 @@
 			 <input type="submit" id="submit_btn" name="submit_btn" value="sign in">
             </div>
 		</form>
-        <footer class="delay3 animated fadeInUp">
+        <footer id="create-account" class="delay3 animated fadeInUp">
             <p class="create-account">or <a href="?page=register">click here</a> to create an account</p>
         </footer>
 	</section>

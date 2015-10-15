@@ -882,6 +882,45 @@ $(function  () {
             time+=150;
         });
         
+        $(document).on("keyup",function(e){
+            var currentPage = $("article.register div.register-box nav.pages ul li.current").index();
+            var sectionWidth = $("article.register div.register-box div.container section").width();
+            var thisSection = $("article.register div.register-box div.container section")[currentPage];
+            console.log(thisSection);
+            var navPages = $("article.register div.register-box nav.pages ul li");
+            console.log(navPages.length);
+            switch(e.keyCode){
+                    case 39:
+                    if(!$(thisSection).hasClass("completed")){
+                        $("article.register div.register-box nav.pages ul li.current").addClass("shake");
+                    }
+                    if(currentPage != navPages.length-1 && $(thisSection).hasClass("completed")){
+                        $("article.register div.register-box nav.pages ul li").removeClass("current");
+                        $.each(navPages,function(key,val){
+                            var thisPage = $(val);
+                            if(key == currentPage+1){
+                                thisPage.addClass("current");
+                            }
+                        });
+                        $("article.register div.register-box div.container").stop().animate({left: (currentPage+1)*-sectionWidth});
+                    }
+                    break;
+                    
+                    case 37:
+                    if(currentPage != 0){
+                        $("article.register div.register-box nav.pages ul li").removeClass("current");
+                        $.each(navPages,function(key,val){
+                            var thisPage = $(val);
+                            if(key == currentPage-1){
+                                thisPage.addClass("current");
+                            }
+                        });
+                        $("article.register div.register-box div.container").stop().animate({left: (currentPage-1)*-sectionWidth});
+                    }
+                    break;
+            }
+        });
+        
         $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").on("click",function(){
             if(!$("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").hasClass("show")){
                 $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").addClass("show");
@@ -1162,6 +1201,7 @@ $(function  () {
                     }, 1000);
                 } else {
                     $(".inner-form-container input").animate({opacity:"0"});
+                    $("footer p.create-account").animate({opacity:"0"});
                     setTimeout(function(){
                         $(".inner-form-container").slideUp(500);
                         $("#preloader").animate({opacity:"1"});
@@ -1859,4 +1899,75 @@ $(function  () {
           var link = $("div.map-container").find("a.google-maps-link").attr("href");
           window.open(link, '_blank');
       }
+    
+        
+      function initAutocomplete() {
+          var map = new google.maps.Map(document.getElementById('maps-api-container'), {
+            center: {lat: -33.8688, lng: 151.2195},
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          // Create the search box and link it to the UI element.
+          var input = document.getElementById('search_location');
+          var searchBox = new google.maps.places.SearchBox(input);
+          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+          // Bias the SearchBox results towards current map's viewport.
+          map.addListener('bounds_changed', function() {
+            searchBox.setBounds(map.getBounds());
+          });
+
+          var markers = [];
+          // [START region_getplaces]
+          // Listen for the event fired when the user selects a prediction and retrieve
+          // more details for that place.
+          searchBox.addListener('places_changed', function() {
+            var places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+              return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach(function(marker) {
+              marker.setMap(null);
+            });
+            markers = [];
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function(place) {
+              var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+              };
+
+              // Create a marker for each place.
+              markers.push(new google.maps.Marker({
+                map: map,
+                icon: icon,
+                title: place.name,
+                position: place.geometry.location
+              }));
+
+              if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+              } else {
+                bounds.extend(place.geometry.location);
+              }
+            });
+            map.fitBounds(bounds);
+          });
+          // [END region_getplaces]
+        }
+    
+      if($("div#maps-api-container").length){
+          google.maps.event.addDomListener(window, 'load', initAutocomplete);
+      }
+    
 });

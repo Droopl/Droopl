@@ -4,7 +4,7 @@
         
         <div class="container">
         
-            <section class="step_1">
+            <section class="step_1 completed">
                 <aside class="left">
                     <h1 class="title">Registration</h1>
                     <form id="registration_form_step_1" method="post">
@@ -34,7 +34,7 @@
             <section class="step_2">
                 <aside class="left">
                     <form id="search_location_form" method="post">
-                        <input type="text" id="search_location" name="search_location">
+                        <input class="controls" type="text" id="search_location" name="search_location" placeholder="Search location ...">
                         <div id="maps-api-container">
                         </div>
                     </form>

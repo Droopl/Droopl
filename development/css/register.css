@@ -62,6 +62,8 @@ article.register div.register-box div.container section aside.right {
     box-sizing: border-box;
 }
 
+/* STEP 1 */
+
 article.register div.register-box div.container section.step_1 aside.left {
     border-right: 1px solid #E8E8EA;
 }
@@ -301,4 +303,44 @@ article.register div.register-box div.container section.step_1 aside.left form d
 }
 
 
+/* STEP 2 */
+
+
+article.register div.register-box div.container section.step_2 aside.left {
+    width: 100%;
+}
+
+article.register div.register-box div.container section.step_2 aside.left form {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+article.register div.register-box div.container section.step_2 aside.left form input[type='text']{
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 4% 3%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #E8E8EA;
+}
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 367px;
+}
 
