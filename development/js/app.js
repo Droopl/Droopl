@@ -888,6 +888,12 @@ $(function  () {
             }else{
                 $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
             }
+            
+            $(document).on('click', function (e) {
+                if ($(e.target).closest("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").length === 0) {
+                    $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+                }
+            });
         });
         
         $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li").on("click",function(){
