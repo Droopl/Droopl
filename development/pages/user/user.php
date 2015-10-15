@@ -231,7 +231,7 @@
 
         <?php foreach ($followers as $key => $value) { if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $value['id']){}else{ ?>
 
-        <li>
+        <li class="follower">
             
             <header>
                 <img src="images/profile_pictures/<?php echo $value['picture'] ?>">
@@ -244,15 +244,15 @@
                     <ul>
                          <li>
                             <span>Quests</span>
-                            <p>30994</p>
+                            <p><?php echo $value['quests']; ?></p>
                         </li>
                         <li>
-                            <span>proposals</span>
-                            <p>21234</p>
+                            <span>propos</span>
+                            <p><?php echo $value['proposals']; ?></p>
                         </li>
                         <li>
                             <span>Followers</span>
-                            <p>234</p>
+                            <p><?php echo $value['followers']; ?></p>
                         </li>
                     </ul>
                 </nav>
@@ -271,6 +271,11 @@
     <section class="profile-collection">
 
         <ul>
+
+            <?php if($_SESSION['user']['id'] == $user['id']){ ?>
+            <li class="template">
+            </li>
+            <?php } ?>
 
            <?php foreach ($collection as $key => $value) { if($_SESSION['user']['id'] == $user['id']){ ?>
 

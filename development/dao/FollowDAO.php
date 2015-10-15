@@ -33,7 +33,21 @@ class FollowDAO
 	}
 	public function getFollowersByUserId($user_id)
 	{
-        $sql = 'SELECT f.follow_id , u.id, u.firstname ,u.lastname,u.picture
+        $sql = 'SELECT f.follow_id , u.id, u.firstname ,u.lastname,u.picture,u.occupation,(
+        SELECT COUNT(*)
+        FROM   followers AS f
+    	WHERE f.user_id = u.id
+        ) AS followers,
+        (
+        SELECT COUNT(*)
+        FROM   quests AS q
+            WHERE q.user_id = u.id
+        ) AS quests,
+        (
+        SELECT COUNT(*)
+        FROM   proposals AS p
+            WHERE p.user_id = u.id
+        ) AS proposals
 		FROM followers AS f
 		LEFT OUTER JOIN users AS u
         on f.user_id = u.id

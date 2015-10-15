@@ -1245,26 +1245,81 @@ article div.feed{
 
 }
 
-article div.feed ul.followers li{
+article div.feed ul.followers li.follower{
 
     display: inline-block;
-    width: 20%;
+    width: 100%;
     padding: 5%;
-    margin: 1%;
+    box-sizing:border-box;
+    margin: 1% 0;
     background-color: #ffffff;
     border: 1px solid #E8E8EA; 
-    text-align: center;
 
 }
-article div.feed ul.followers li header{
+article div.feed ul.followers li.follower{
 
+    display: inline-block;
     width: 100%;
+    padding: 5%;
+    box-sizing:border-box;
+    margin: 1% 0;
+    background-color: #ffffff;
+    border: 1px solid #E8E8EA; 
+
+}
+article div.feed ul.followers li.follower header{
+
+    float: left;
+    width: 40%;
+    height: 50px;
+    padding: 2.5% 0;
+}
+article div.feed ul.followers li.follower aside{
+    float: left;
+    width: 60%;
+    height: 50px;
+    padding: 2.5% 0;
+    text-align: right;
+}
+article div.feed ul.followers li.follower aside ul li{
+
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+article div.feed ul.followers li.follower aside ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: .7em;
+    color: rgba(0,0,0,.3);
+}
+
+article div.feed ul.followers li.follower aside ul li p{
+    display: inline-block;
+    width: 100%;
+    font-size: .9em
+    
+}
+article div.feed ul.followers li.follower header h1{
     float: left;
     font-size: .7em;
     font-weight: 600;
+    width: 50%;
+    margin: 5% 0 2.5% 0;
+    margin-left: 20px;
+}
+article div.feed ul.followers li.follower header h2{
+
+    float: left;
+    font-size: .7em;
+    font-weight: normal;
+    width: 50%;
+    margin-left: 20px;
+    color: rgba(0,0,0,.3);
     
 }
-article div.feed ul.followers li a{
+article div.feed ul.followers li.follower a{
 
     display: inline-block;
     padding: 15px 20px;
@@ -1277,12 +1332,11 @@ article div.feed ul.followers li a{
     text-transform: capitalize;
     
 }
-article div.feed ul.followers li header img{
+article div.feed ul.followers li.follower header img{
+    float: left;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 article div.feed section.post form div{
     position: relative;
@@ -2086,6 +2140,20 @@ article div.feed section.profile-collection ul {
     width: 100%;
     float: left;
     list-style: none;
+}
+article div.feed section.profile-collection ul li.template{
+   display: block;
+    float: left;
+    width: 31.3%;
+    height: 180px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid #E8E8EA;
+    background-color: #ffffff;
+    text-align: center;
+    margin-bottom: 3.5%;
+    position: relative;
+    opacity: 0;
 }
 article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-privacy {
     position: absolute;
