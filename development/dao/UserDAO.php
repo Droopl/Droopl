@@ -43,9 +43,9 @@ class UserDAO{
 		WHERE firstname LIKE :entry OR lastname LIKE :entry2 OR email LIKE :entry3 LIMIT 30';
 
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':entry',$entry."%");
-		$stmt->bindValue(':entry2',$entry."%");
-		$stmt->bindValue(':entry3',$entry."%");
+		$stmt->bindValue(':entry',"%".$entry."%");
+		$stmt->bindValue(':entry2',"%".$entry."%");
+		$stmt->bindValue(':entry3',"%".$entry."%");
 
 		if($stmt->execute()){
 

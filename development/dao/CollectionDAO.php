@@ -51,6 +51,24 @@ class CollectionDAO
 
 	}
 
+	public function getSearchCollection($entry){
+
+		$sql = 'SELECT *
+		FROM `collection`
+		WHERE item_name LIKE :entry LIMIT 30';
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':entry',"%".$entry."%");
+
+		if($stmt->execute()){
+
+			return $illustrator = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+
+		return array();
+
+	}
+
 	public function getCollectionByUserId($user_id){
 
 			$sql = 'SELECT * FROM `collection` WHERE user_id =:user_id ORDER BY `collection_creation_date` DESC';

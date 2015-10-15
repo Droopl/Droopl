@@ -2142,18 +2142,69 @@ article div.feed section.profile-collection ul {
     list-style: none;
 }
 article div.feed section.profile-collection ul li.template{
-   display: block;
+    background:none !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
+
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+article div.feed section.profile-collection ul li.template:hover{
+    background:none !important;
+    border: 1px solid rgba(0,0,0,.3) !important;
+}
+article div.feed section.profile-collection ul li.template:hover a header h1{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,.3);
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+article div.feed section.profile-collection ul li.template:hover a{
     float: left;
-    width: 31.3%;
-    height: 180px;
-    box-sizing: border-box;
-    overflow: hidden;
-    border: 1px solid #E8E8EA;
-    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: rgba(0,0,0,.3);
+
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+article div.feed section.profile-collection ul li.template a{
+    float: left;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: rgba(0,0,0,.2);
+}
+article div.feed section.profile-collection ul li.template a header{
+    float: left;
+    width: 100%;
+    display: block;
+    box-sizing:border-box;
+    padding: 20%;
     text-align: center;
-    margin-bottom: 3.5%;
-    position: relative;
-    opacity: 0;
+}
+article div.feed section.profile-collection ul li.template a header h1{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,.1);
+}
+article div.feed section.profile-collection ul li.template a header h2{
+    margin-top: 10px;
+    font-size: .8em;
 }
 article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-privacy {
     position: absolute;
@@ -3022,6 +3073,18 @@ article.search ul{
     padding: 0 2.5%;
     text-align: center;
 }
+article.search ul li.part{
+    display: inline-block;
+    width: 30%;
+}
+article.search ul li.part header{
+    display: inline-block;
+    width: 100%;
+    padding: 5% 0;
+    box-sizing:border-box;
+    
+}
+
 
 article.search li.preloader{
 
@@ -3032,6 +3095,7 @@ article.search li.preloader{
     line-height: 70px;
 
 }
+
 
 article.search li.quest{
 

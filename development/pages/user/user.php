@@ -273,7 +273,13 @@
         <ul>
 
             <?php if($_SESSION['user']['id'] == $user['id']){ ?>
-            <li class="template">
+            <li class="profile-collection-item template">
+                <a href="?page=add" class="add">
+                    <header>
+                        <h1></h1>
+                        <h2>New item</h2>
+                    </header>
+                </a>
             </li>
             <?php } ?>
 

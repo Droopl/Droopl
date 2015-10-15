@@ -227,6 +227,14 @@ class FeedController extends AppController{
 	                		}
 	                	}
 		    		}
+
+		    		if(!empty($_GET['action']) && $_GET['action'] == "delete" && !empty($_GET['id'])){
+		    			$currentPropo = $this->propoDAO->getProposalById($_GET['id']);
+		    			if($currentPropo['user_id'] == $_SESSION['user']['id']){
+		    				$this->propoDAO->removePropo($currentPropo['propo_id']);
+		    				$this->redirect("?page=detail&questid=".$quest['quest_id']);
+		    			}
+		    		}
 	            }
             
 
@@ -259,14 +267,17 @@ class FeedController extends AppController{
     	$searchQuery = "";
     	$quests = array();
     	$users = array();
+    	$items = array();
 
     	if(!empty($_GET['search_full'])){
     		$searchQuery = $_GET['search_full'];
 
-    		//$users = $this->userDAO->getSearchUsers($searchQuery);
+    		$users = $this->userDAO->getSearchUsers($searchQuery);
+    		$items = $this->collectionDAO->getSearchCollection($searchQuery);
     		$quests = $this->feedDAO->getSearchQuests($searchQuery);
     	}
     	$this->set("users",$users);
+    	$this->set("items",$items);
     	$this->set("quests",$quests);
     	
     }

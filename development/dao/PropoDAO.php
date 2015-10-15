@@ -70,6 +70,27 @@ class PropoDAO
 		return array();
 
 	}
+	public function getProposalById($id){
+
+		$sql = 'SELECT *
+				FROM proposals 
+                WHERE propo_id = :id';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id',$id);
+
+		if($stmt->execute()){
+
+			$propo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($propo)){
+
+				return $propo;
+			}
+
+		}
+		return array();
+
+	}
 	public function getPropoById($id){
 
 		$sql = 'SELECT p.propo_id, c.item_name, c.collection_image , u.id, u.firstname ,u.lastname,u.picture
@@ -143,9 +164,9 @@ class PropoDAO
         return false;
 	}
 
-	public function removeEvent($id){
+	public function removePropo($id){
 
-		$sql ="DELETE FROM `rsvp_events` WHERE `id` = :id";
+		$sql ="DELETE FROM `proposals` WHERE `propo_id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id',$id);
 
