@@ -40,9 +40,20 @@
         	</nav>
         </header>
         <div class="description-container">
-            <p>
-        	   <?php echo $user['description'];?>
-            </p>
+            <ul>
+                <li>
+                    <span>Quests</span>
+                    <p>30994</p>
+                </li>
+                <li>
+                    <span>proposals</span>
+                    <p>21234</p>
+                </li>
+                <li>
+                    <span>Followers</span>
+                    <p>234</p>
+                </li>
+            </ul>
         </div>
         <div class="user-coordinates hide"><?php echo $user['latitude']; echo " "; echo $user['longitude']; ?></div>
         <div class="map-container">
@@ -225,8 +236,27 @@
             <header>
                 <img src="images/profile_pictures/<?php echo $value['picture'] ?>">
                 <h1><?php echo $value['firstname'] ?></h1>
+                <h2><?php echo $value['occupation'] ?></h2>
             </header>
-            <a href="?page=user&id=<?php echo $value['id']; ?>&action=unfollow">Following</a>
+            <aside>
+                <header class="hide"><h1>User stats</h1></header>
+                <nav>
+                    <ul>
+                         <li>
+                            <span>Quests</span>
+                            <p>30994</p>
+                        </li>
+                        <li>
+                            <span>proposals</span>
+                            <p>21234</p>
+                        </li>
+                        <li>
+                            <span>Followers</span>
+                            <p>234</p>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
         </li>
 
         <?php }} ?>
