@@ -26,7 +26,7 @@
 	
 <?php } ?>
 <li class="quest">
-    <p>No more users</p>
+    <p>No more quests</p>
 </li>
 </ul>
 
@@ -90,7 +90,7 @@
 	
 <?php } ?>
 <li class="item">
-    <p>No more users</p>
+    <p>No more items</p>
 </li>
 </ul>
 </li>

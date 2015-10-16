@@ -76,13 +76,17 @@ class CollectionController extends AppController{
 
 		$item = array();
 
-		if(!empty($_GET['id'])){
-			$item = $this->collectionDAO->getCollectionById($_GET['id']);
-			if(empty($item)){
+		if(!empty($_GET['action']) && $_GET['action'] == "box"){
+			if(!empty($_GET['id'])){
+				$item = $this->collectionDAO->getCollectionById($_GET['id']);
+				if(empty($item)){
+					$this->redirect("?page=feed");
+				}
+			}else{
+
 				$this->redirect("?page=feed");
 			}
 		}else{
-
 			$this->redirect("?page=feed");
 		}
 

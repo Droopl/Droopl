@@ -498,6 +498,14 @@ article.search_full div.search ul.search_results li.part{
     padding: 0.5%;
     text-align: left;
 }
+article.search_full div.search ul.search_results li.part header{
+    float: left;
+    margin-bottom: 20px;
+}
+article.search_full div.search ul.search_results li.part header h1{
+    font-size: 1.2em;
+    font-weight: normal;
+}
 article.search_full div.search ul.search_results li.part ul{
     display: inline-block;
     width: 100%;
@@ -702,7 +710,7 @@ article.search_full div.search ul.search_results li.user header img{
 article.search_full div.search ul.search_results li.item{
     display: block;
     float: left;
-    width: 45%;
+    width: 49%;
     height: 180px;
     border: 1px solid #E8E8EA;
     background-color: #ffffff;
@@ -714,7 +722,7 @@ article.search_full div.search ul.search_results li.item:last-child{
 
     display: block;
     float: left;
-    width: 45%;
+    width: 49%;
     background:none;
     margin: 1% 2%;
     line-height: 180px;

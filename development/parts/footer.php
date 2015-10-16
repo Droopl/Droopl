@@ -63,7 +63,7 @@
 <article class="search">
 
         <form>
-            <input type="text" id="search_full" name="search_full" value="" placeholder="What are you looking for ?">
+            <input type="text" id="search_full" name="search_full" value="" placeholder="What are you looking for ?" autocomplete="off">
             <a href="?page=home" class="close"><span class="hide">close</span></a>
         </form>
         

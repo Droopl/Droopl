@@ -536,7 +536,7 @@ $(function  () {
       e.preventDefault();
 
       var id = $(this).attr("id");
-      var url = "?page=item&id="+id;
+      var url = "?page=item&id="+id+"&action=box";
       $.get( url, function( data ) { 
 
         var section = $(data).find(".feed");
