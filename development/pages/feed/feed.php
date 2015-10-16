@@ -479,6 +479,20 @@
 	    }
 
 		?></h2>
+		<nav>
+			<ul>
+				<li class="options">
+					<span class="hide">Options</span>
+				</li>
+
+				<li>
+					<ul class="options show">
+						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
+						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 		</header>
 		<aside class="info">
 			<?php if(!empty($value['quest_description'])){ echo "<p>".$value['quest_description']."</p>"; } 

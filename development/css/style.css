@@ -1752,6 +1752,70 @@ article div.feed section.quest header{
 	padding: 5%;
 	line-height: 40px;
 }
+article div.feed section.quest header nav{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 100%;
+    position: relative;
+}
+article div.feed section.quest header nav ul{
+    display: block;
+    float: right;
+    width: 20px;
+    height: 100%;
+}
+article div.feed section.quest header nav ul li.options{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url(../images/assets/collection-item-menu-icon.svg);
+    background-size: 5px;
+    background-position: center;
+    cursor: pointer;
+}
+article div.feed section.quest header nav ul li ul.options{
+    display: block;
+    position: absolute;
+    width: 0px;
+    right: 90%;
+    height: auto;
+    top: 0;
+    background-color: #ffffff;
+    border-radius: .3em;
+    border-top-right-radius: 0;
+    border: 1px solid #E8E8EA;
+    box-shadow: 0 0 25px -13px #000000;
+}
+article div.feed section.quest header nav ul li ul.options li{
+    display: block;
+    float: left;
+    width: 100%;
+}
+article div.feed section.quest header nav ul li ul.options li a{
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+    font-size: .7em;
+    text-decoration: none;
+    color: #5F6970;
+    font-weight: normal;
+    box-sizing:border-box;
+}
+article div.feed section.quest header nav ul li ul.options li a:hover{
+    background-color:  #F9F9F9;
+}
+article div.feed section.quest header nav ul li ul.options li a span{
+    margin-left: 10px;
+}
+article div.feed section.quest header nav li ul.options.show{
+    width: 120px;
+    right: 150%;
+}
 article div.feed section.quest header h1{
 
 	float: left;
@@ -1798,7 +1862,7 @@ article div.feed section.quest header h1 a:hover{
 article div.feed section.quest header h2{
     position: absolute;
     display: block;
-    right: 5%;
+    right: 10%;
     padding-top: 5%;
     top: 5%;
     color: rgba(0,0,0,.2); 

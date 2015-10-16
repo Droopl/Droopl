@@ -182,6 +182,7 @@ class FeedController extends AppController{
         $acceptedProposal = array();
         $publicQuests = array();
         $accepted = false;
+        $completed = false;
 
         $questcount =  $this->feedDAO->getQuestCount();
 		$propocount =  $this->propoDAO->getPropoCount();
@@ -203,6 +204,8 @@ class FeedController extends AppController{
     		if(!empty($acceptedProposal)){
     			$accepted = true;
     		}
+
+    		$completedQuest = 
 
     		if(!$accepted){
 	    		if(!empty($_POST)){
