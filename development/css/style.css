@@ -3203,8 +3203,9 @@ article.search ul.search_results li.user aside{
 }
 article.search_full div.search ul.search_results li.user aside ul li{
 
-    display: inline-block;
-    width: 30%;
+    display: block;
+    width: 30% !important;
+    list-style: none;
     text-align: center;
 }
 article.search ul.search_results li.user aside ul li span{

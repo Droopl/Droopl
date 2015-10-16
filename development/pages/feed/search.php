@@ -25,7 +25,9 @@
 
 	
 <?php } ?>
-
+<li class="quest">
+    <p>No more users</p>
+</li>
 </ul>
 
 </li>
@@ -33,7 +35,6 @@
 <li class="part">
 	<header><h1>Users</h1></header>
 	<ul class="user_search">
-		<?php if(!empty($users)){ ?>
 <?php foreach ($users as $id => $user) { ?>
 
 <li class="user">
@@ -65,12 +66,11 @@
             </a>
         </li>
 	
-<?php }
-}else{ ?>
+<?php }?>
 
-<li>No users found</li>
-
-<?php } ?>
+<li class="user">
+    <p>No more users</p>
+</li>
 </ul>
 </li>
 
@@ -89,6 +89,9 @@
     </li>
 	
 <?php } ?>
+<li class="item">
+    <p>No more users</p>
+</li>
 </ul>
 </li>
 

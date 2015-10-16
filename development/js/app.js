@@ -403,7 +403,7 @@ $(function  () {
           
           
          $("article.search").removeClass("show");
-          
+         $( "article.search ul" ).html("");
           $("article.search form").removeClass("animated fadeInUp");
           return false;
       });
@@ -419,13 +419,12 @@ $(function  () {
 
       $("article.search ul li.quest").remove();
       if($(this).val().length > 0){
-        $("article.search ul li.preloader").show();
+        var url = "index.php?page=search&search_full="+$(this).val(); // the script where you handle the form input.
+        $( "article.search ul" ).load( url +" article.search_full ul.search_results");
       }else{
-        $("article.search ul li.preloader").hide();
+        $( "article.search ul" ).html("");
       }
-      var url = "index.php?page=search&search_full="+$(this).val(); // the script where you handle the form input.
-
-      $( "article.search ul" ).load( url +" article.search_full ul.search_results");
+      
 
 
 

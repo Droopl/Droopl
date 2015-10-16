@@ -509,15 +509,28 @@ article.search_full div.search ul.search_results li.quest{
     width: 100%;
     margin: 1% 0;
 }
+article.search_full div.search ul.search_results li.quest:last-child{
+
+    display: inline-block;
+    width: 100%;
+    margin: 1% 0;
+    background:none;
+    padding: 5%;
+    text-align: center;
+    box-sizing:border-box;
+    color: rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.1); 
+
+}
 article.search_full div.search ul.search_results li.quest a.quest{
 
     float: left;
     display: block;
-    width: 90%;
+    width: 95%;
     background-color: #ffffff;
     border: 1px solid #E8E8EA; 
     color: #3E454C;
-    padding: 5%;
+    padding: 2.5%;
     text-align: left;
     display: block;
 
@@ -606,6 +619,19 @@ article.search_full div.search ul.search_results li.user{
     border: 1px solid #E8E8EA; 
 
 }
+article.search_full div.search ul.search_results li.user:last-child{
+
+    display: inline-block;
+    width: 100%;
+    margin: 1% 0;
+    background:none;
+    padding: 5%;
+    text-align: center;
+    box-sizing:border-box;
+    color: rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.1); 
+
+}
 article.search_full div.search ul.search_results li.user header{
 
     float: left;
@@ -622,7 +648,7 @@ article.search_full div.search ul.search_results li.user aside{
 }
 article.search_full div.search ul.search_results li.user aside ul li{
 
-    display: block;
+    display: inline-block;
     width: 30%;
     text-align: center;
 }
@@ -676,15 +702,27 @@ article.search_full div.search ul.search_results li.user header img{
 article.search_full div.search ul.search_results li.item{
     display: block;
     float: left;
-    width: 50%;
+    width: 45%;
     height: 180px;
     border: 1px solid #E8E8EA;
     background-color: #ffffff;
     text-align: center;
     position: relative;
-    margin: 1% 0;
+    margin: 1% 2%;
 }
+article.search_full div.search ul.search_results li.item:last-child{
 
+    display: block;
+    float: left;
+    width: 45%;
+    background:none;
+    margin: 1% 2%;
+    line-height: 180px;
+    text-align: center;
+    color: rgba(0,0,0,.2);
+    border: 1px solid rgba(0,0,0,.1); 
+
+}
 article.search_full div.search ul.search_results li.item img {
     display: block;
     width: 60px;
