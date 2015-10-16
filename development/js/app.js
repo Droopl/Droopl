@@ -840,6 +840,10 @@ $(function  () {
     
     if($("article.register").length){
         
+        $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
+            e.preventDefault();
+        });
+        
         var navPagesLis = $("article.register div.register-box nav.pages ul li");
         navPagesLis.css("opacity","0");
         var time = 0;
@@ -848,7 +852,7 @@ $(function  () {
             setTimeout(function(){
                 navPagesLi.addClass("animated fadeInUp");
             },time);
-            time+=150;
+            time+=250;
         });
         
         $(document).on("keyup",function(e){
@@ -1871,11 +1875,29 @@ $(function  () {
     
         
       function initAutocomplete() {
-          var map = new google.maps.Map(document.getElementById('maps-api-container'), {
-            center: {lat: -33.8688, lng: 151.2195},
-            zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          });
+          var mapOptions = {
+          center: { lat: 50.850340, lng: 4.351710},
+          scrollwheel: false,
+          zoom: 12,
+          maxZoom: 15,
+          disableDoubleClickZoom: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          disableDefaultUI: false,
+          draggable: true,
+          panControl: true,
+          zoomControl:false,
+          mapTypeControl: false,
+          scaleControl:false,
+          streetViewControl: false,
+          overviewMapControl: false,
+          rotateControl: false,
+          styles: 
+        
+          [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}]
+            
+        };
+          var map = new google.maps.Map(document.getElementById('maps-api-container'), mapOptions);
+          
 
           // Create the search box and link it to the UI element.
           var input = document.getElementById('search_location');
@@ -1908,7 +1930,7 @@ $(function  () {
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
               var icon = {
-                url: place.icon,
+                url: "images/assets/close-icon.svg",
                 size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),

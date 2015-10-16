@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="css/register.css">
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&sensor=false&types=(cities)"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&libraries=places&sensor=false&types=(cities)"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/drooplgame.js"></script>
 </head>
