@@ -1873,10 +1873,13 @@ $(function  () {
           window.open(link, '_blank');
       }
     
-        
+      var latitude = 50.850340;
+      var longitude = 4.351710;
+      var map;
+      var icon;
       function initAutocomplete() {
           var mapOptions = {
-          center: { lat: 50.850340, lng: 4.351710},
+          center: { lat: latitude+.006, lng: longitude},
           scrollwheel: false,
           zoom: 12,
           maxZoom: 15,
@@ -1896,8 +1899,28 @@ $(function  () {
           [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}]
             
         };
-          var map = new google.maps.Map(document.getElementById('maps-api-container'), mapOptions);
+          map = new google.maps.Map(document.getElementById('maps-api-container'), mapOptions);
           
+          var infoWindow = new google.maps.InfoWindow({map: map});
+
+          
+          /*if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+
+              infoWindow.setPosition(pos);
+              infoWindow.setContent('Location found.');
+              map.setCenter(pos);
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+          } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }*/
 
           // Create the search box and link it to the UI element.
           var input = document.getElementById('search_location');
@@ -1929,8 +1952,8 @@ $(function  () {
             // For each place, get the icon, name and location.
             var bounds = new google.maps.LatLngBounds();
             places.forEach(function(place) {
-              var icon = {
-                url: "images/assets/close-icon.svg",
+              icon = {
+                url: place.icon,
                 size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
@@ -1957,8 +1980,87 @@ $(function  () {
           // [END region_getplaces]
         }
     
+        /*function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+        }*/
+    
+    
+        function setCenter(){
+            map.setCenter(new google.maps.LatLng(latitude+.006,longitude));
+            var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude,longitude),
+                    animation: google.maps.Animation.DROP,
+                    icon: icon,
+                    map: map,
+            });
+            $("#sounds").attr("src","sounds/notification.mp3");
+            $("#sounds")[0].play();
+            clearInterval(interval);
+            $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container").fadeOut();
+            $("article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container").animate({opacity: "1"});
+            //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container").fadeOut();
+            //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container").addClass("hide");
+            $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
+        }
+    
+     
+        var interval;
+        function findMe(){
+            $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container").fadeIn();
+            $("article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container").animate({opacity: ".2"});
+            var locate = ["locating ","locating .","locating ..","locating ..."];
+            var locIndex = 0;
+            interval = setInterval(function(){
+                if(locIndex == locate.length-1){
+                    $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container p.location-loader").text(locate[locIndex]);
+                    locIndex = 0;
+                }else{
+                    $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container p.location-loader").text(locate[locIndex]);
+                    locIndex++;
+                }
+            },300);
+            
+            $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").addClass("locating");
+            //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container").removeClass("hide").fadeIn();
+            //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container span.location-scanner").addClass("scanning");
+            
+            
+            if (!navigator.geolocation){
+                alert("not supported by browser");
+                $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
+            }
+            
+            function success(position){
+                
+                latitude  = position.coords.latitude;
+                longitude = position.coords.longitude;
+
+                coordinates = [latitude,longitude];
+                
+                console.log(latitude,longitude);
+                
+                setCenter();
+                
+            }
+            
+            function error(){
+                $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
+                alert("error");
+            }
+            
+            navigator.geolocation.getCurrentPosition(success, error);
+            
+        }
+    
       if($("div#maps-api-container").length){
           google.maps.event.addDomListener(window, 'load', initAutocomplete);
+          
+          $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").on("click",function(){
+              findMe();
+          });
       }
     
 });

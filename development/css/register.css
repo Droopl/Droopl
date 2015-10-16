@@ -338,7 +338,7 @@ article.register div.register-box div.container section.step_2 aside.left form {
 
 article.register div.register-box div.container section.step_2 aside.left form input[type='text']{
     display: block;
-    width: 90%;
+    width: 100%;
     float: left;
     padding: 4% 3%;
     box-sizing: border-box;
@@ -350,10 +350,107 @@ article.register div.register-box div.container section.step_2 aside.left form i
     font-size: 1.2em;
 }
 
+article.register div.register-box div.container section.step_2 aside.left form input[type='button']{
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    top: 20px;
+    right: 15px;
+    border: none;
+    background-color: #ffffff;
+    background-image: url(../images/assets/location-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    cursor: pointer;
+    opacity: .7;
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
 article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container {
     display: block;
     float: left;
     width: 100%;
     height: 444px;
+    opacity: 1;
 }
 
+article.register div.register-box div.container section.step_2 aside.left form div.loader-container {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    z-index: 9999;
+    width: 100%;
+    height: 363px;
+    top: 81px;
+    left: 0;
+}
+
+article.register div.register-box div.container section.step_2 aside.left form div.loader-container p.location-loader {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 363px;
+    line-height: 363px;
+    text-align: center;
+    color: #F47D67;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .9em;
+}
+
+.locating {
+    -webkit-animation-duration: .5s;
+      animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+    -webkit-animation-name: locating;
+  animation-name: locating;
+    opacity: 1 !important;
+}
+
+.scanning {
+    -webkit-animation-duration: 1.7s;
+      animation-duration: 1.7s;
+    -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+    -webkit-animation-name: scanning;
+  animation-name: scanning;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes locating {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(90deg);}
+}
+
+@-webkit-keyframes locating {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(90deg);}
+}
+
+@keyframes scanning {
+    0% {top: 0%;}
+    50% {top: 100%;}
+    100% {top: 0%;}
+}
+
+@-webkit-keyframes scanning {
+    0% {top: 0%;}
+    50% {top: 100%;}
+    100% {top: 0%;}
+}

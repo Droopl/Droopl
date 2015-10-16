@@ -35,6 +35,10 @@
                 <aside class="left">
                     <form id="search_location_form" method="post">
                         <input class="controls" type="text" id="search_location" name="search_location" placeholder="Search location ...">
+                        <input type="button" id="find_me_btn" name="find_me_btn">
+                        <div class="loader-container">
+                            <p class="location-loader">Locating</p>
+                        </div>
                         <div id="maps-api-container">
                         </div>
                     </form>
