@@ -338,7 +338,7 @@ article.register div.register-box div.container section.step_2 aside.left form {
 
 article.register div.register-box div.container section.step_2 aside.left form input[type='text']{
     display: block;
-    width: 100%;
+    width: 90%;
     float: left;
     padding: 4% 3%;
     box-sizing: border-box;
@@ -346,6 +346,8 @@ article.register div.register-box div.container section.step_2 aside.left form i
     border-bottom: 1px solid #E8E8EA;
     position: inherit !important;
     left: 0 !important;
+    color: #3E454C;
+    font-size: 1.2em;
 }
 
 article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container {

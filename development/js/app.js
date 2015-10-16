@@ -1884,7 +1884,7 @@ $(function  () {
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: false,
           draggable: true,
-          panControl: true,
+          panControl: false,
           zoomControl:false,
           mapTypeControl: false,
           scaleControl:false,
