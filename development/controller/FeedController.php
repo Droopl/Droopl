@@ -197,6 +197,8 @@ class FeedController extends AppController{
 
     		if(empty($quest)){
     			$this->redirect("?page=feed");
+    		}else if($quest['active'] == 0){
+    			$this->redirect("?page=feed");
     		}
 
     		$acceptedProposal = $this->propoDAO->getAcceptedProposalByQuestId($quest['quest_id']);
@@ -205,8 +207,37 @@ class FeedController extends AppController{
     			$accepted = true;
     		}
 
-    		$completedQuest = 
+    		$completedQuest = $this->feedDAO->checkCompletedByQuestId($_GET['questid']);
 
+    		if(!empty($completedQuest)){
+    			$completed = true;
+    		}
+
+    		if(isset($_SESSION['user'])){
+    			if(!empty($_GET['action']) && $_GET['action'] == "remove"){
+	    			if($quest['id'] == $_SESSION['user']['id']){
+	    				$removed = $this->feedDAO->removeQuest($quest['quest_id']);
+	    				if($removed){
+	    					$this->redirect("?page=user&id="+$_SESSION['user']['id']);
+	    				}
+	    			}
+	    		}
+
+    		}
+
+    		if(!$completed){
+    			if(isset($_SESSION['user'])){
+	    			if(!empty($_GET['action']) && $_GET['action'] == "complete"){
+		    			if($quest['id'] == $_SESSION['user']['id']){
+		    				$completeQuest = $this->feedDAO->completeQuest($quest['quest_id']);
+		    				if($completeQuest){
+		    					$this->redirect("?page=detail&questid=".$quest['quest_id']);
+		    				}
+		    			}
+		    		}
+
+	    		}
+    		}
     		if(!$accepted){
 	    		if(!empty($_POST)){
 		    		if(!empty($_POST['collection_item'])){
@@ -230,6 +261,8 @@ class FeedController extends AppController{
 	                		}
 	                	}
 		    		}
+
+		    		
 
 		    		if(!empty($_GET['action']) && $_GET['action'] == "delete" && !empty($_GET['id'])){
 		    			$currentPropo = $this->propoDAO->getProposalById($_GET['id']);
@@ -255,6 +288,7 @@ class FeedController extends AppController{
     	$this->set("quest",$quest);
     	$this->set("publicquests",$publicquests);
     	$this->set("communities",$communities);
+    	$this->set("completed",$completed);
     	$this->set("accepted",$accepted);
     	$this->set("acceptedProposal",$acceptedProposal);
     	$this->set("proposals",$proposals);

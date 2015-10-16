@@ -390,7 +390,7 @@
         	<p class="no-proposals-yet">There are no proposals yet</p>
         </div>
         
-        <?php }else{ ?>
+        <?php }else if(!$completed && $accepted){ ?>
 
              <div class="trophy">
                 <img src="images/assets/propo_accepted_trophy.svg">
@@ -398,7 +398,15 @@
                 <p>Has won this! quest congratulations</p>
              </div>
 
-       <?php  }} ?>
+       <?php  }else if($completed){ ?>
+
+       <div class="trophy">
+        <img src="images/assets/quest_completed.svg">
+        <header><h1>Quest completed</h1></header>
+        <p>This quest is closed by the user</p>
+     </div>
+
+       <?php }} ?>
         
         
     </ul>

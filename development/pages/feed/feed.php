@@ -479,6 +479,10 @@
 	    }
 
 		?></h2>
+		<?php 
+		if (isset($_SESSION['user'])) {
+			
+		if($value['id'] == $_SESSION['user']['id']){?>
 		<nav>
 			<ul>
 				<li class="options">
@@ -493,6 +497,7 @@
 				</li>
 			</ul>
 		</nav>
+		<?php }} ?>
 		</header>
 		<aside class="info">
 			<?php if(!empty($value['quest_description'])){ echo "<p>".$value['quest_description']."</p>"; } 

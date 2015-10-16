@@ -44,6 +44,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
+        WHERE q.active = 1
         GROUP BY q.quest_id
         ORDER BY q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
@@ -79,7 +80,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE f.user_id = :user_id
+        WHERE f.user_id = :user_id AND q.active = 1
         GROUP BY q.quest_id
         ORDER BY  distance ASC , q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
@@ -118,7 +119,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE f.user_id = :user_id
+        WHERE f.user_id = :user_id AND q.active = 1
         GROUP BY pq.id
         ORDER BY q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
@@ -152,7 +153,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE cq.community_id = :community_id
+        WHERE cq.community_id = :community_id AND q.active = 1
         GROUP BY q.quest_id
         ORDER BY q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
@@ -210,7 +211,7 @@ class FeedDAO
 	
 	public function getQuestById($quest_id){
 
-		$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id,c.collection_id,c.collection_image,c.item_name,c.user_id
+		$sql = 'SELECT q.quest_id,q.active,q.item,q.quest_description,q.creation_date ,q.type, u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM quests AS q
 		LEFT OUTER JOIN users AS u
         on q.user_id = u.id
@@ -312,6 +313,39 @@ class FeedDAO
 			return array();
 
 		}
+		public function checkCompletedByQuestId($quest_id){
+
+			$sql = 'SELECT id FROM completed_quests WHERE quest_id = :quest_id';
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindValue(':quest_id',$quest_id);
+
+			if($stmt->execute()){
+
+				$quest = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if(!empty($quest)){
+
+					return $quest;
+				}
+
+			}
+			return array();
+
+		}
+		public function removeQuest($quest_id){
+
+
+			$sql = "UPDATE `quests` SET active = 0  WHERE quest_id = :quest_id;";
+	        $stmt = $this->pdo->prepare($sql);
+	        $stmt->bindValue(":quest_id",$quest_id);
+
+	        if($stmt->execute()){
+
+	            return true;
+	        }
+	        return false;
+		}
+
 
 		public function addPublicQuest($quest_id,$user_id){
 
@@ -327,6 +361,19 @@ class FeedDAO
 
 			}
 	        return false;
+		}
+
+		public function completeQuest($quest_id){
+
+
+			$sql = "INSERT INTO completed_quests (quest_id) VALUES (:quest_id);";
+		    $stmt = $this->pdo->prepare($sql);
+		    $stmt->bindValue(":quest_id",$quest_id);
+
+		    if($stmt->execute()){
+				return true;
+			}
+		    return false;
 		}
 
 	public function addQuest($item,$user_id,$quest_description,$type,$active){
