@@ -345,6 +345,8 @@
 </div>
     <?php } } ?>
 <div class="proposals-list">
+
+    <?php if(!$accepted && !$completed){ ?>
     <ul class="list">
 
         <?php 
@@ -383,33 +385,32 @@
 
         <?php }}else{ ?>
 
-        <?php if(!$accepted){ ?>
-
         <div class="no-proposals-container">
             <h1 class="no-proposals-icon"></h1>
-        	<p class="no-proposals-yet">There are no proposals yet</p>
+            <p class="no-proposals-yet">There are no proposals yet</p>
         </div>
-        
-        <?php }else if(!$completed && $accepted){ ?>
 
-             <div class="trophy">
-                <img src="images/assets/propo_accepted_trophy.svg">
-                <header><h1><?php echo $acceptedProposal['firstname']." ".$acceptedProposal['lastname'];?></h1></header>
-                <p>Has won this! quest congratulations</p>
-             </div>
-
-       <?php  }else if($completed){ ?>
-
-       <div class="trophy">
-        <img src="images/assets/quest_completed.svg">
-        <header><h1>Quest completed</h1></header>
-        <p>This quest is closed by the user</p>
-     </div>
-
-       <?php }} ?>
+    <?php } ?>
         
         
     </ul>
+
+    <?php }else if($accepted && !$completed){ ?>
+
+    <div class="trophy">
+        <img src="images/assets/propo_accepted_trophy.svg">
+        <header><h1><?php echo $acceptedProposal['firstname']." ".$acceptedProposal['lastname'];?></h1></header>
+        <p>Has won this! quest congratulations</p>
+     </div>
+
+   <?php }else if($completed){ ?>
+    <div class="trophy">
+        <img src="images/assets/quest_completed.svg">
+        <header><h1>Quest Completed</header>
+        <p>Your quest is completed</p>
+    </div>
+
+   <?php  } ?>
 </div>
 </footer>
 </section>
