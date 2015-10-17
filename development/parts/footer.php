@@ -118,6 +118,45 @@
 
 <?php } ?>
 
+
+<?php if($_GET['page'] == "communities" && !empty($_GET['action']) && $_GET['action'] == "create"){ ?>
+<article class="create_community">
+    <div class="feed">
+    <section class="create_community">
+        <form action="?page=communities" method="post" id="add_collection" name="add_collection" enctype="multipart/form-data">
+            <header id="upload">
+                <div class="dragndrop" id="dragndrop">
+                    <div class="preloader">
+                        <ul class="progress">
+                        </ul>
+                        <span class="remove-file"><p class="icon-cross"></p></span>
+                        <input type="file" id="community_image" name="community_image" accept="image/*">
+                    </div>
+                </div>
+                <h1>Drag and drop</h1>
+                <p>Or press to browse</p>
+            </header>
+            <aside>
+                <header>
+                    <h1 class="hide">Info about your community</h1>
+                    <input type="text" id="community_name" name="community_name" placeholder="Community name">
+                </header>
+                <textarea placeholder="Description" id="community_description" name="community_description"></textarea>
+                <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
+                <input type="submit" id="add_item" name="add_item" value="Add Item">
+                <div class="privacy_slider">
+                    <div class="bar">
+                        <div class="slider"><span class="icon-unlock"></span></div>
+                        <span></span>
+                    </div>
+                </div>
+            </aside>
+        </form>
+    </section>
+    </div>
+</article>
+<?php } ?>
+
 <?php if($_GET['page'] == "messages" && isset($_GET['action']) && $_GET['action'] == "create"){ ?>
 <article class="newconvo">
     <section class="animated slideInUp">

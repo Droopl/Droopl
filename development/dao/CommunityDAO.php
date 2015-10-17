@@ -79,6 +79,25 @@ class CommunityDAO{
 		return false;
 	}
 
+	public function addCommunity($community_name,$community_profile,$creator_id,$description,$privacy){
+
+		$sql = 'INSERT INTO`communities` (community_name,community_profile,genre,creator_id,description,privacy)
+		VALUES (:community_name,:community_profile,0,:creator_id,:description,:privacy)';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':community_name',$community_name);
+		$stmt->bindValue(':community_profile',$community_profile);
+		$stmt->bindValue(':creator_id',$creator_id);
+		$stmt->bindValue(':description',$description);
+		$stmt->bindValue(':privacy',$privacy);
+
+		if($stmt->execute()){
+
+			return $this->getCommunityById($this->pdo->lastInsertId());
+
+		}
+		return array();
+	}
+
 	public function isMemberOfCommunity($user_id,$community_id){
 
 		$sql = 'SELECT id FROM community_users

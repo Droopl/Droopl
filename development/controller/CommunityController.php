@@ -179,12 +179,83 @@ class CommunityController extends AppController{
 		if(isset($_SESSION['user'])){
 			$communities = $this->communityDAO->getAllCommunities();
 		}
+
+		if(!empty($_POST)){
+			$this->createCommunity();
+		}
 		$this->set('communities',$communities);
+	}
+
+	function createCommunity(){
+
+		$community_name = "";
+		$community_description = "";
+		$privacy = 1;
+
+		if(!empty($_SESSION['user'])){
+
+			$user_id = $_SESSION['user']['id'];
+
+			if(!empty($_POST)){
+
+				if(!empty($_POST['commmunity_privacy'])){
+	                    if($_POST['commmunity_privacy'] == 0 || $_POST['commmunity_privacy'] == 1){
+	                        $privacy = $_POST['commmunity_privacy'];
+	                    }else{
+	                        $privacy = 1;
+	                    }
+					}
+
+					if(!empty($_POST['community_name'])){
+						$community_name = mb_convert_encoding($_POST['community_name'], "UTF-8");
+					}
+
+					if(!empty($_POST['community_description'])){
+
+						$community_description = mb_convert_encoding($_POST['community_description'], "UTF-8");
+					}
+
+					if(isset($_FILES['community_image']) && $_FILES['community_image']['size'] != 0){
+
+						$max_file_size = 1024*100000; // 200kb
+						$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+						// thumbnail sizes
+						$sizes = array(200 => 200);
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['community_image'])) {
+						  if( $_FILES['community_image']['size'] < $max_file_size ){
+						    // get file extension
+						    $ext = strtolower(pathinfo($_FILES['community_image']['name'], PATHINFO_EXTENSION));
+						    if (in_array($ext, $valid_exts)) {
+						      /* resize image */
+						      foreach ($sizes as $w => $h) {
+						        $files[] = $this->resize($w, $h);
+						      }
+
+						    } else {
+						      $msg = 'Unsupported file';
+						    }
+						  } else{
+						    $msg = 'Please upload image smaller than 200KB';
+						  }
+						}
+
+					}
+
+					$addedCommunity = $this->communityDAO->addCommunity($community_name,$files[0],$_SESSION['user']['id'],$community_description,$privacy);	
+
+					if(!empty($addedCommunity)){
+						$this->communityDAO->addCommuntyUser($_SESSION['user']['id'],$addedCommunity['id']);
+						$this->redirect("index.php?page=community&id=".$addedCommunity['id']);
+					}
+					
+			}
+		}
 	}
     
     function resize($width, $height){
 		/* Get original image x y*/
-		list($w, $h) = getimagesize($_FILES['quest_upload_image']['tmp_name']);
+		list($w, $h) = getimagesize($_FILES['community_image']['tmp_name']);
 		/* calculate new image size with ratio */
 		$old_x          =   $w;
 	    $old_y          =   $h;
@@ -212,16 +283,16 @@ class CommunityController extends AppController{
 		$randomname = $this->generateRandomString();
 		$banner = $randomname.".jpg";
 
-		$path = WWW_ROOT . 'questimages' . DS .'images'.DS.$banner;
+		$path = WWW_ROOT . 'images' . DS .'communities'.DS.$banner;
 		/* read binary data from image file */
-		$imgString = file_get_contents($_FILES['quest_upload_image']['tmp_name']);
+		$imgString = file_get_contents($_FILES['community_image']['tmp_name']);
 
 		/* create image from string */
 		$image = imagecreatefromstring($imgString);
 		$tmp = imagecreatetruecolor($thumb_w,$thumb_h);
 		imagecopyresampled($tmp,$image,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
 		/* Save image */
-		switch ($_FILES['quest_upload_image']['type']) {
+		switch ($_FILES['community_image']['type']) {
 			case 'image/jpeg':
 			  imagejpeg($tmp, $path, 100);
 			  break;
