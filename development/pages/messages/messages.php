@@ -29,7 +29,7 @@
 
 <section class="messages">
 	<header>
-		<h1><?php echo $value['firstname'].' '.$value['lastname']; ?><span class="status"></span></h1>
+		<h1><?php echo $convo_users[1]['firstname'].' '.$convo_users[1]['lastname']; ?><span class="status"></span></h1>
 		<nav>
 			<ul>
 				<?php foreach ($convo_users as $key => $value) { ?>

@@ -125,7 +125,7 @@ class MessagesController extends AppController{
 
 				$conversations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
 				$id = 0;
-				if(isset($_GET) && !empty($_GET['id'])){
+				if(!empty($_GET['id'])){
 					$id = $_GET['id'];
 					if($_SESSION["conversation"]["conversation_id"] != $id){
 						unset($_SESSION["conversation"]);
@@ -137,11 +137,11 @@ class MessagesController extends AppController{
 					}
 				}
 
-				$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
+				$conversation = $this->conversationDAO->getConversationByIdAndUserId($id,$_SESSION['user']['id']);
 
 				if(empty($conversation)){
 					$id = $conversations[0]['conversation_id'];
-					$conversation = $this->conversationDAO->getConversationById($id);
+					$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
 					
 				}
 				if(!isset($_SESSION['conversation'])){
@@ -149,7 +149,7 @@ class MessagesController extends AppController{
 				}
 				
 
-				if(isset($_POST)){
+				if(!empty($_POST)){
 
 					$message = ""; 
 
@@ -158,7 +158,7 @@ class MessagesController extends AppController{
 					}
 
 					if(!empty($message)){
-						$this->messagesDAO->addMessage($_SESSION['conversation']['conversation_id'],$_SESSION['user']['id'],$message);
+						$this->messagesDAO->addMessage($conversation['conversation_id'],$_SESSION['user']['id'],$message);
 					}
 
 				}

@@ -41,7 +41,7 @@
                 <img class="profile_img" src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
                 <?php }else{ ?>
                 <img class="profile_img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-                <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul></ul><form id="chat-form" method="post"><input placeholder="What's up ?" type="text" id="sent_msg" name="sent_msg"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><span class="new-msg animated-slow infinite pulse"></span></li>
+                <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><span class="new-msg animated-slow infinite pulse"></span></li>
             <?php } ?>
         
         <?php } ?>

@@ -41,6 +41,28 @@ GROUP BY x.conversation_id
 		}
 		return array();
 	}
+
+	public function getConversationByIdAndUserId($conversation_id,$user_id){
+
+		$sql = 'SELECT cu.conversation_id
+            FROM conversation_users AS cu
+            WHERE cu.conversation_id = :conversation_id AND cu.user_id = :user_id';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':conversation_id',$conversation_id);
+		$stmt->bindValue(':user_id',$user_id);
+
+		if($stmt->execute()){
+
+			$conversation = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($conversation)){
+
+				return $conversation;
+			}
+
+		}
+		return array();
+	}
 	
 
 	public function addConversation(){
