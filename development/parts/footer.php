@@ -35,15 +35,26 @@
         </li>
 
         <?php if(!empty($dynamicConvos)){ ?>
-
+            <?php if(count($dynamicConvos) < 4){ ?>
             <?php foreach ($dynamicConvos as $key => $value) { ?>
-                  <li class="conversation-bubble"><?php if(!empty($value['picture'])){ ?>
+                  <li class="conversation-bubble" id="<?php echo $value['conversation_id']; ?>"><?php if(!empty($value['picture'])){ ?>
                 <img class="profile_img" src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
                 <?php }else{ ?>
                 <img class="profile_img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-                <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message" autocomplete="off"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><?php if($value['seen'] == 0){ ?><span class="new-msg animated-slow infinite pulse"></span><?php } ?></li>
+                <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message" autocomplete="off"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><?php  if($value['seen'] == 1){ ?><span class="new-msg animated-slow infinite pulse"></span><?php } ?></li>
             <?php } ?>
         
+        <?php }else{ ?>
+            <?php for ($i=0; $i < 4; $i++) { 
+                $value = $dynamicConvos[$i];
+                ?> 
+            <li class="conversation-bubble" id="<?php echo $value['conversation_id']; ?>"><?php if(!empty($value['picture'])){ ?>
+                <img class="profile_img" src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+                <?php }else{ ?>
+                <img class="profile_img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+                <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message" autocomplete="off"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><?php if($value['seen'] == 1){ ?><span class="new-msg animated-slow infinite pulse"></span><?php } ?></li>
+            
+            <?php }?>
         <?php } ?>
         <li class="animated fadeIn more-conversations">
             <a href="?page=messages">
@@ -54,7 +65,7 @@
         </li>
     </ul>
 </section>
-<?php } ?>
+<?php }} ?>
 
 </article>
 

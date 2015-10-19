@@ -4,50 +4,99 @@ $(function  () {
 
 	setInterval(function () {
 
-		if($("section.chat ul li.conversation-bubble div.conversation.open").length){
+		if($("section.chat ul li.conversation-bubble div.conversation").length){
 
-			$("section.chat ul li.conversation-bubble div.conversation.open").each(function () {
-				var conversation = $(this);
-				var id = $(this).attr("id");
-				var url = "?page=messages&id="+id
-				 $.ajax({
-	             type: "GET",
-	             url: url,
-	             success: function(data)
-	             {
+			if($("section.chat ul li.conversation-bubble div.conversation.open ul li.notseen").length){
+				$("section.chat ul li.conversation-bubble div.conversation.open ul li.notseen").each(function () {
 
-	                    var messages = conversation.find("ul li");
-	                    var loadedMessages = $(data).find("div.messages section.messages aside ul li");
+					var id = $(this).attr("id");
+					console.log(id);
+					$.get( "?page=messages&action=seen&messageid="+id, function( data ) {
+						console.log(data);
+					});
+				});
+				
+			}
 
-	                   $(loadedMessages).each(function(key,newMessages){
-	                       
-	                       var found = false;
-	                    
-	                       $(messages).each(function(id,message){
-	                           
-	                           if($(newMessages).attr("id") == $(message).attr("id")){
-	                                found = true;
-	                           }
-	                       
-	                       });
+			$("section.chat ul li.conversation-bubble div.conversation").each(function () {
 
-	                       if(!found){
-	                        var ul = conversation.find("ul");
+				if($(this).hasClass("open")){
 
-	                        ul.append($(newMessages).addClass("animated slideInUp"));
-	                         
-	                        ul.stop().animate({
-	                          scrollTop: ul[0].scrollHeight
-	                        }, {
-	                          duration:1500,
-	                        });
+					var conversation = $(this);
+					var id = $(this).attr("id");
+					var url = "?page=messages&id="+id
+					 $.ajax({
+		             type: "GET",
+		             url: url,
+		             success: function(data)
+		             {
 
-	                       }
-	                  });
-	                }
-	              });
+		                    var messages = conversation.find("ul li");
+		                    var loadedMessages = $(data).find("div.messages section.messages aside ul li");
+
+		                   $(loadedMessages).each(function(key,newMessages){
+		                       
+		                       var found = false;
+		                    
+		                       $(messages).each(function(id,message){
+		                           
+		                           if($(newMessages).attr("id") == $(message).attr("id")){
+		                                found = true;
+		                           }
+		                       
+		                       });
+
+		                       if(!found){
+		                        var ul = conversation.find("ul");
+
+		                        ul.append($(newMessages).addClass("animated slideInUp"));
+		                         
+		                        ul.stop().animate({
+		                          scrollTop: ul[0].scrollHeight
+		                        }, {
+		                          duration:1500,
+		                        });
+
+		                       }
+		                  });
+		                }
+		              });
+
+				}else{
+
+					var currentConvo = $(this).parent();
+
+					$.get("?page=add", {}, function(data){
+					  var loadedConvos = $(data).find(".chat .conversation-bubble");
+					  loadedConvos.each(function  (key,val) {
+					  	var currentBubble = $(val);
+
+					  	if(currentConvo.attr("id") == currentBubble.attr("id")){
+					  		//<span class="new-msg animated-slow infinite pulse"></span>
+					  		if(currentBubble.find("span.new-msg").length){
+					  			console.log("new message");
+
+					  			if(currentConvo.find("span.new-msg").length){
+					  				console.log("already");
+					  			}else{
+					  				var pulse = $("<span/>").addClass("new-msg animated-slow infinite pulse");
+					  				currentConvo.append(pulse);
+					  				 $("#sounds").attr("src","sounds/notification.mp3");
+                        			$("#sounds")[0].play();
+					  			}
+					  		}
+					  	}
+
+					  })
+					});
+				}
 			});
+
+
+
+
 		}
+
 
 		console.log("interval");
 	},1000);
