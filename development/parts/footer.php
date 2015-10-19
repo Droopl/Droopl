@@ -244,12 +244,12 @@
                     <h1>Keep droopl fun by giving us some feedback to improve your experience</h1>
                     <div class="type">
                         <div>
-                            <input type="radio" id="type" name="feedback" checked="checked">
+                            <input type="radio" id="type" name="type" checked="checked" value="0">
                             <label id="type"><p>Feedback</p></label>
                         </div>
 
                         <div>
-                            <input type="radio" id="type" name="bug">
+                            <input type="radio" id="type" name="type" value="1">
                             <label id="type"><p>Bug</p></label>
                         </div>
                         

@@ -16,7 +16,8 @@ class FeedbackController extends AppController{
 	public function feedback(){
 
 		$feedback = "";
-		$type=0;
+		$type = 0;
+		$feedbackSent = false;
 
 		if(isset($_SESSION['user'])){
 
@@ -28,7 +29,8 @@ class FeedbackController extends AppController{
 				if(!empty($_POST['feedback'])){
 					$feedback = $_POST['feedback'];
 
-					$this->feedbackDAO->addFeedback($_SESSION['user']['id'],$feedback,$type);
+					$feedbackSent = $this->feedbackDAO->addFeedback($_SESSION['user']['id'],$feedback,$type);
+
 				}
 			}
 
@@ -36,8 +38,10 @@ class FeedbackController extends AppController{
 		}else{
 			$this->redirect("?page=login");
 		}
-
-		echo "type = ".$type." &  feedback = ".$feedback;
+		
+		echo $feedbackSent;
+		
+		exit();
 	}
 
 }
