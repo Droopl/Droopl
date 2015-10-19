@@ -24,6 +24,7 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&libraries=places&sensor=false&types=(cities)"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/drooplgame.js"></script>
+	<script type="text/javascript" src="js/chat.js"></script>
 </head>
 
 <body>
