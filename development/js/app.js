@@ -1877,6 +1877,7 @@ $(function  () {
       var longitude = 4.351710;
       var map;
       var icon;
+    var markers;
       function initAutocomplete() {
           var mapOptions = {
           center: { lat: latitude+.006, lng: longitude},
@@ -1932,7 +1933,7 @@ $(function  () {
             searchBox.setBounds(map.getBounds());
           });
 
-          var markers = [];
+          markers = [];
           // [START region_getplaces]
           // Listen for the event fired when the user selects a prediction and retrieve
           // more details for that place.
@@ -1943,11 +1944,12 @@ $(function  () {
               return;
             }
 
+            
+              
             // Clear out the old markers.
             markers.forEach(function(marker) {
               marker.setMap(null);
             });
-            markers = [];
 
             // For each place, get the icon, name and location.
             var bounds = new google.maps.LatLngBounds();
@@ -1968,6 +1970,10 @@ $(function  () {
                 position: place.geometry.location
               }));
 
+                latitude = place.geometry.location.lat();
+                longitude = place.geometry.location.lng();
+                getAdress();
+                
               if (place.geometry.viewport) {
                 // Only geocodes have viewport.
                 bounds.union(place.geometry.viewport);
@@ -1987,19 +1993,34 @@ $(function  () {
                                 'Error: Your browser doesn\'t support geolocation.');
         }*/
     
-        function clearMarkers() {
-          map.setMapOnAll(null);
+    
+        function getAdress(){
+            
+            var thisUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true";
+            $.ajax({
+                type:"POST",
+                url: thisUrl,
+                data:$(this).serialize(),
+                success:function (data) {
+                  var components = data['results'][0]['address_components'];
+                  console.log(data['results'][0]['address_components']);
+                    
+                  $.each(components,function(key,val){
+                      var component = $(val);
+                      
+                      console.log(component);
+                  });
+                }
+            });
+            
         }
 
     
     
         function setCenter(){
-            google.maps.Map.prototype.clearMarkers = function() {
-                for(var i=0; i < this.markers.length; i++){
-                    this.markers[i].setMap(null);
-                }
-                this.markers = new Array();
-            };
+             markers.forEach(function(marker) {
+              marker.setMap(null);
+            });
             map.setCenter(new google.maps.LatLng(latitude+.006,longitude));
             var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(latitude,longitude),
@@ -2038,12 +2059,6 @@ $(function  () {
             //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container").removeClass("hide").fadeIn();
             //$("article.register div.register-box div.container section.step_2 aside.left form div.scan-container span.location-scanner").addClass("scanning");
             
-            
-            if (!navigator.geolocation){
-                alert("not supported by browser");
-                $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
-            }
-            
             function success(position){
                 
                 latitude  = position.coords.latitude;
@@ -2053,16 +2068,32 @@ $(function  () {
                 
                 console.log(latitude,longitude);
                 
+                getAdress();
                 setCenter();
                 
             }
             
             function error(){
                 $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
-                alert("error");
+                
+                
+                clearInterval(interval);
+                $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container p.location-loader").text("Something went wrong ...");
+                
+                setTimeout(function(){
+                    $("article.register div.register-box div.container section.step_2 aside.left form div.loader-container").fadeOut();
+                $("article.register div.register-box div.container section.step_2 aside.left form div#maps-api-container").animate({opacity: "1"});
+                $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
+                },2000);
             }
             
-            navigator.geolocation.getCurrentPosition(success, error);
+            if (!navigator.geolocation){
+                alert("not supported by browser");
+                $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").removeClass("locating");
+            }else{
+                navigator.geolocation.getCurrentPosition(success, error); 
+            }
+            
             
         }
     
