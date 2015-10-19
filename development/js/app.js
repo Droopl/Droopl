@@ -1877,7 +1877,12 @@ $(function  () {
       var longitude = 4.351710;
       var map;
       var icon;
-    var markers;
+      var markers;
+      var street;
+      var zipcode;
+      var city;
+      var country;
+      var number;
       function initAutocomplete() {
           var mapOptions = {
           center: { lat: latitude+.006, lng: longitude},
@@ -1972,7 +1977,7 @@ $(function  () {
 
                 latitude = place.geometry.location.lat();
                 longitude = place.geometry.location.lng();
-                getAdress();
+                setAdress();
                 
               if (place.geometry.viewport) {
                 // Only geocodes have viewport.
@@ -1994,9 +1999,10 @@ $(function  () {
         }*/
     
     
-        function getAdress(){
+        function setAdress(){
             
             var thisUrl = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true";
+            var address = "";
             $.ajax({
                 type:"POST",
                 url: thisUrl,
@@ -2006,15 +2012,53 @@ $(function  () {
                   console.log(data['results'][0]['address_components']);
                     
                   $.each(components,function(key,val){
-                      var component = $(val);
+                      var component = val;
+                      var componentType = val['types'][0];
+                      //console.log(componentType);
                       
-                      console.log(component);
+                      switch(componentType){
+                              
+                        case "route":
+                        street = component['long_name'];
+                        console.log(street);
+                        break;
+                              
+                        case "street_number":
+                        number = component['long_name'];
+                        console.log(number);
+                        break;
+                              
+                        case "postal_code":
+                        zipcode = component['long_name'];
+                        console.log(zipcode);
+                        break;
+                              
+                        case "locality":
+                        city = component['long_name'];
+                        console.log(city);
+                        break;
+                              
+                        case "country":
+                        country = component['long_name'];
+                        console.log(country);
+                        break;
+                              
+                      }
                   });
                 }
+            }).done(function(){
+                address = "Address: " + street + " " + number + ", " + zipcode + " " + city + ", " + country;
+                $("article.register div.register-box div.container section.step_2 aside.left form p.resulting-address").fadeIn().text(address);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#street").attr("value",street);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#number").attr("value",number);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#zipcode").attr("value",zipcode);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#city").attr("value",city);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#country").attr("value",country);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#longitude").attr("value",longitude);
+                $("article.register div.register-box div.container section.step_2 aside.left form input#latitude").attr("value",latitude);
             });
             
         }
-
     
     
         function setCenter(){
@@ -2068,7 +2112,7 @@ $(function  () {
                 
                 console.log(latitude,longitude);
                 
-                getAdress();
+                setAdress();
                 setCenter();
                 
             }

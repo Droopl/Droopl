@@ -41,6 +41,14 @@
                         </div>
                         <div id="maps-api-container">
                         </div>
+                        <p class="resulting-address">Address:</p>
+                        <input class="hide" type="text" id="street" name="street" value="">
+                        <input class="hide" type="text" id="number" name="number" value="">
+                        <input class="hide" type="text" id="zipcode" name="zipcode" value="">
+                        <input class="hide" type="text" id="city" name="city" value="">
+                        <input class="hide" type="text" id="country" name="country" value="">
+                        <input class="hide" type="text" id="latitude" name="latitude" value="">
+                        <input class="hide" type="text" id="longitude" name="longitude" value="">
                     </form>
                 </aside>
             </section>
