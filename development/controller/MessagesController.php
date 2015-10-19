@@ -39,6 +39,21 @@ class MessagesController extends AppController{
 
 		if(isset($_SESSION['user'])){
 
+			if(!empty($_GET['action']) && $_GET['action'] == 'seen' && !empty($_GET['messageid'])){
+
+				$checkMessage = $this->messagesDAO->getMessageById($_GET['messageid']);
+
+				if(!empty($checkMessage)){
+					
+					if($seenMessage['id'] != $_SESSION['user']['id']){
+						$seenMessage = $this->messagesDAO->setMessageSeen($_GET['messageid']);
+						echo $seenMessage;
+					}
+					exit();
+				}
+				
+			}
+
 			if(!empty($_SESSION['user']['id'])){
 
 				if(!empty($_GET['action']) == "create"){
@@ -158,7 +173,7 @@ class MessagesController extends AppController{
 					}
 
 					if(!empty($message)){
-						$this->messagesDAO->addMessage($conversation['conversation_id'],$_SESSION['user']['id'],$message);
+						$this->messagesDAO->addMessage($conversation['conversation_id'],$_SESSION['user']['id'],$message,"1");
 					}
 
 				}
