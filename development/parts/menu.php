@@ -333,22 +333,22 @@
 			        break;
 			    }
             ?></span></a></li>
-            <li><a class="bug icon icon-flag"><span><?php 
+            <li><a href="?page=<?php if(!empty($_GET['page'])){ echo $_GET['page'];}else{ echo '?page=feed';} ?>&action=feedback"class="bug icon icon-flag"><span><?php 
             switch ($_SESSION['language']) {
 			        case 'en':
-			        echo "Report Bug";
+			        echo "Feedback";
 			        break;
 
 			        case 'nl':
-			        echo "Fout rapporteren";
+			        echo "Feedback";
 			        break;
 
 			        case 'fr':
-			        echo "Raporté une bug";
+			        echo "Feedback";
 			        break;
 			        
 			        default:
-			        echo "Report Bug";
+			        echo "Feedback";
 			        break;
 			    }
             ?></span></a></li>

@@ -17,7 +17,7 @@ if(empty($_GET['page'])){
 	$_GET['page'] = 'feed';
 }
 if(empty($routes[$_GET['page']])){
-	header('location:index.php?page=404');
+	header('location:?page=404');
 	exit();
 }
 

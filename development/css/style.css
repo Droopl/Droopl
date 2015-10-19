@@ -2208,7 +2208,8 @@ article div.feed section.profile-collection ul {
 }
 article div.feed section.profile-collection ul li.template{
     background:none !important;
-    border: 1px solid rgba(0,0,0,.1) !important;
+    border-radius: .5em;
+    border: 1px dashed rgba(0,0,0,.1) !important;
 
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -2218,7 +2219,7 @@ article div.feed section.profile-collection ul li.template{
 }
 article div.feed section.profile-collection ul li.template:hover{
     background:none !important;
-    border: 1px solid rgba(0,0,0,.3) !important;
+    border: 1px dashed rgba(0,0,0,.2) !important;
 }
 article div.feed section.profile-collection ul li.template:hover a header h1{
     display: inline-block;

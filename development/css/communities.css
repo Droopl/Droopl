@@ -949,3 +949,165 @@ article.search_full div.search ul.search_results li.item h1.profile-collection-i
 
 
 
+
+
+
+
+
+
+
+
+
+/*FEEDBACK*/
+article.feedback{
+
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    top: 0;
+    margin: 0;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,.5);
+}
+
+article.feedback div.feed{
+    float: none;
+    margin: 70px auto 0 auto;
+}
+
+article.feedback div.feed section.feedback{
+    border-radius: .5em;
+    -webkit-box-shadow: 0 0 30px -15px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px -15px rgba(0,0,0,.3);
+    border: none;
+}
+
+article.feedback div.feed section.feedback header{
+    float: left;
+    width: 100%;
+    box-sizing:border-box;
+    text-align: center;
+    background-image: url(../images/assets/droopl_clouds.svg);
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+article.feedback div.feed section.feedback header img{
+
+    display: inline-block;
+    height: 70px;
+    margin-bottom: 40px;
+    margin-top: 70px;
+}
+
+article.feedback div.feed section.feedback header h1{
+    display: inline-block;
+    width: 70%;
+    font-size: .9em;
+    line-height: 30px;
+    font-weight: normal;
+    margin-bottom: 50px;
+    color: rgba(0,0,0,.4);
+}
+
+article.feedback div.feed section.feedback  header div.type{
+    float: left;
+    width: 100%;
+    border-top: 1px solid #E8E8EA;
+    text-align: left;
+}
+
+article.feedback div.feed section.feedback  header div.type input{
+    float: left;
+    display: block;
+}
+article.feedback div.feed section.feedback  header div.type input[type="radio"]{
+
+     -webkit-appearance: none;
+     margin-top: 5px;
+      width:20px;
+      height:20px;
+      border:1px solid #E8E8EA;
+      border-radius:50%;
+      outline:none;
+      box-shadow:0;
+      cursor: pointer;
+      position: relative;
+}
+article.feedback div.feed section.feedback  header div.type input[type='radio']:before {
+  content:'';
+  position: absolute;
+  width:10px;
+  height:10px;
+  left: 50%;
+  top: 50%;
+  margin-top: -5px;
+  margin-left: -5px; 
+  border-radius:50%;    
+}
+article.feedback div.feed section.feedback  header div.type input[type="radio"]:hover{
+     
+      border:1px solid #DBDBDB;
+}
+
+article.feedback div.feed section.feedback  header div.type input[type='radio']:checked:before {
+  background:#F47D67;
+}
+article.feedback div.feed section.feedback  header div.type label{
+    display: block;
+    float: left;
+    margin-left: 6%;
+    height: 30px;
+    font-size: .9em;
+}
+article.feedback div.feed section.feedback  header div.type label p{
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    background-position: center;
+}
+article.feedback div.feed section.feedback  header div.type div{
+    float: left;
+    width: 50%;
+    padding: 3%;
+    box-sizing:border-box;
+}
+article.feedback div.feed section.feedback  header div.type div:last-child{
+   border-left: 1px solid #E8E8EA;
+}
+article.feedback div.feed section.feedback textarea{
+    width: 100%;
+    padding: 5% 5%;
+    height: 200px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height:200px;
+    max-height:200px;
+    border: none;
+    color: #3E454C;
+    border-top: 1px solid #E8E8EA;
+    box-sizing:border-box;
+    font-size: .8em;
+    resize: none;
+}
+article.feedback div.feed section.feedback input[type="submit"]{
+    position: absolute;
+    bottom: 1%;
+    right: 2.5%;
+    padding: 3% 5%;
+    border: none;
+    background-color: #F47D67;
+    border-radius: .4em;
+    box-sizing:border-box;
+    font-size: .8em;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+

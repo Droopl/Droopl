@@ -291,7 +291,7 @@
                 <a href="?page=add" class="add">
                     <header>
                         <h1></h1>
-                        <h2>New item</h2>
+                        <h2>Add a new item</h2>
                     </header>
                 </a>
             </li>
