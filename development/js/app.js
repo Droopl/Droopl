@@ -1987,8 +1987,19 @@ $(function  () {
                                 'Error: Your browser doesn\'t support geolocation.');
         }*/
     
+        function clearMarkers() {
+          map.setMapOnAll(null);
+        }
+
+    
     
         function setCenter(){
+            google.maps.Map.prototype.clearMarkers = function() {
+                for(var i=0; i < this.markers.length; i++){
+                    this.markers[i].setMap(null);
+                }
+                this.markers = new Array();
+            };
             map.setCenter(new google.maps.LatLng(latitude+.006,longitude));
             var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(latitude,longitude),
