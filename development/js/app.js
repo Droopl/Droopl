@@ -918,6 +918,28 @@ $(function  () {
             $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
         });
         
+        $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
+            if($(this).hasClass("male")){
+                $(this).removeClass("male").addClass("female");
+                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.male").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.female").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 aside.right form input[type='text']#gender").attr("value","f");
+            }else{
+                $(this).removeClass("female").addClass("male");
+                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.female").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.male").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 aside.right form input[type='text']#gender").attr("value","m");
+            }
+        });
+        
+        $("article.register div.register-box div.container section.step_3 aside.left ul li input[type='text']").on("keyup",function(){
+            
+        if($(this).val()){
+            $(this).addClass("filled");
+            $(this).parent().next().find("input[type='text']").select();
+        }
+        });
+        
     }
     
     $("article.register div.register-box nav.pages ul li").on("click",function(){
