@@ -78,7 +78,6 @@
                 <aside class="left">
                     <form id="validation_form">
                         <h1>One more step ...</h1>
-                        
                         <p>Insert the 4-digit code we just sent you per email to validate your account</p>
                         <span class="icon-unlock"></span>
                         <ul class="code-ul">
