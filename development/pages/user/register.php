@@ -34,7 +34,7 @@
             <section class="step_2">
                 <aside class="left">
                     <form id="search_location_form" method="post">
-                        <input class="controls" type="text" id="search_location" name="search_location" placeholder="Search location ...">
+                        <input class="controls" type="text" id="search_location" name="search_location" placeholder="Search location ..." required>
                         <input type="button" id="find_me_btn" name="find_me_btn">
                         <div class="loader-container">
                             <p class="location-loader">Locating</p>
@@ -49,6 +49,7 @@
                         <input class="hide" type="text" id="country" name="country" value="">
                         <input class="hide" type="text" id="latitude" name="latitude" value="">
                         <input class="hide" type="text" id="longitude" name="longitude" value="">
+                        <input type="submit" id="submit_step_2" name="submit_step_2" value="Step 3">
                     </form>
                 </aside>
             </section>

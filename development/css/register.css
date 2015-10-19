@@ -86,7 +86,7 @@ article.register div.register-box div.container section.step_1 aside.left form i
     box-sizing: border-box;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form input[type="submit"] {
+article.register div.register-box div.container section aside.left form input[type="submit"] {
     position: absolute;
     z-index: 9999;
     width: auto;
@@ -96,7 +96,9 @@ article.register div.register-box div.container section.step_1 aside.left form i
     background-color: #F47D67;
     color: #ffffff;
     border-radius: .4em;
+    font-size: .8em;
     cursor: pointer;
+    border: none;
 }
 
 article.register div.register-box div.container section.step_1 aside.left form select {
