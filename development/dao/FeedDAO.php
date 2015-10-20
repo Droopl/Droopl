@@ -28,7 +28,7 @@ class FeedDAO
 		}
 		return array();
 	}
-	public function getPublicQuests(){
+	public function getPublicQuests($offset){
 
 		$sql = 'SELECT pq.id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM public_quests AS pq
@@ -46,8 +46,10 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE q.active = 1
         GROUP BY q.quest_id
-        ORDER BY q.creation_date DESC';
+        ORDER BY q.creation_date DESC
+        LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -62,7 +64,7 @@ class FeedDAO
 		return array();
 	}
 
-	public function getQuestFromDistance($user_id,$lat,$long){
+	public function getQuestFromDistance($user_id,$lat,$long,$offset){
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount ,SQRT(POW(69.1 *(u.latitude - :lat),2) + POW( 69.1 * (:long - u.longitude) * COS(u.latitude / 57.3),2)) AS distance , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
@@ -82,11 +84,12 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE f.user_id = :user_id AND q.active = 1
         GROUP BY q.quest_id
-        ORDER BY  distance ASC , q.creation_date DESC';
+        ORDER BY  distance ASC , q.creation_date DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':user_id',$user_id);
 		$stmt->bindValue(':lat',$lat);
 		$stmt->bindValue(':long',$long);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -101,7 +104,7 @@ class FeedDAO
 		return array();
 	}
 
-	public function getQuests($user_id){
+	public function getQuests($user_id,$offset){
 
 		$sql = 'SELECT pq.id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
@@ -121,9 +124,10 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE f.user_id = :user_id AND q.active = 1
         GROUP BY pq.id
-        ORDER BY q.creation_date DESC';
+        ORDER BY q.creation_date DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':user_id',$user_id);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -137,7 +141,7 @@ class FeedDAO
 		}
 		return array();
 	}
-	public function getQuestsByCommunity($community_id){
+	public function getQuestsByCommunity($community_id,$offset){
 
 		$sql = 'SELECT q.quest_id,q.item,q.views,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM community_quests AS cq
@@ -155,9 +159,10 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE cq.community_id = :community_id AND q.active = 1
         GROUP BY q.quest_id
-        ORDER BY q.creation_date DESC';
+        ORDER BY q.creation_date DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':community_id',$community_id);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -171,7 +176,7 @@ class FeedDAO
 		}
 		return array();
 	}
-	public function getQuestsByViews($user_id){
+	public function getQuestsByViews($user_id,$offset){
 
 		$sql = 'SELECT f.follow_id,q.views,q.quest_id,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM followers AS f
@@ -191,9 +196,10 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE f.user_id = :user_id
         GROUP BY q.quest_id
-        ORDER BY q.views DESC';
+        ORDER BY q.views DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':user_id',$user_id);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -209,7 +215,7 @@ class FeedDAO
 
 	}
 	
-	public function getQuestById($quest_id){
+	public function getQuestById($quest_id,$offset){
 
 		$sql = 'SELECT q.quest_id,q.active,q.item,q.quest_description,q.creation_date ,q.type, u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM quests AS q
@@ -223,9 +229,10 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE q.quest_id = :quest_id
         GROUP BY q.quest_id
-        ORDER BY q.creation_date DESC';
+        ORDER BY q.creation_date DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':quest_id',$quest_id);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 

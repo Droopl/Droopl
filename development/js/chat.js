@@ -10,6 +10,9 @@ $(function  () {
       var form = $(this);
       var formData = new FormData($(this)[0]);
 
+
+     form.parent().parent().find("ul").addClass("loading");
+
       $.ajax({
              type: "POST",
              url: url,
@@ -40,7 +43,7 @@ $(function  () {
                        if(!found){
 
                         var ul = form.parent().parent().find("ul");
-
+                        ul.removeClass("loading");
                         ul.append($(newMessages).addClass("animated slideInUp"));
 
                          var objDiv = form.parent().parent().find("ul");

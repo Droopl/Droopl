@@ -3,6 +3,7 @@ $(function  () {
     var typing = false;
     var saveVal = "";
     var openConversations = [];
+    var part = 1;
 
      checkNotification();
     
@@ -74,7 +75,7 @@ $(function  () {
 
                            if(!found){
                             var ul = conversation.find("ul");
-
+                            ul.removeClass("loading");
                             ul.append($(newMessages).addClass("animated slideInUp"));
                              
                             ul.stop().animate({
@@ -1338,8 +1339,6 @@ $(function  () {
 
 	$(window).scroll(function  () {
 
-      console.log("scroll")
-
       if($("#side .activity").length > 0){
       		var check = isScrolledIntoView($("#side .activity"));
 
@@ -1353,6 +1352,40 @@ $(function  () {
       			$(".feed").removeClass("fixed");
       		}
         
+      }
+
+      if($(".feed .quest").length){
+        console.log($(".feed").innerHeight());
+        if($(this).scrollTop() >= $(".feed").height()){
+          var url = $(location).attr('href');
+          $.get( url+"&part="+part, function( data ) {
+
+            console.log(part);
+
+          var quests = $(".feed .quest");
+          var loadedQuest = $(data).find(".feed .quest");
+
+            $(loadedQuest).each(function(key,newquest){
+             
+               var found = false;
+            
+               $(quests).each(function(id,quest){
+                   
+                     if($(newquest).attr("id") == $(quest).attr("id")){
+                          found = true;
+                     }
+               });
+
+               if(!found){
+                var feed = $(".feed");
+                feed.append($(newquest));
+               }
+            });
+          });
+
+          part++;
+
+        }
       }
             
     });

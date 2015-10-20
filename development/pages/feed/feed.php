@@ -514,7 +514,7 @@
     
 	<?php }} ?>
 
-	<section class="last_quest">
+	<section class="last_quest hide">
 
 		<header>
 			<h1 class="quest"><span class="hide">no more quests</span></h1>

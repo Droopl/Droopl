@@ -44,6 +44,7 @@ class FeedController extends AppController{
         $collection = [];
         $communities = [];
 		$publicQuests;
+		$page = 10;
 
 		$type = "recent";
 
@@ -67,10 +68,16 @@ class FeedController extends AppController{
 			}
 		}
 
-		$publicquests = $this->feedDAO->getPublicQuests();
+		if(!empty($_GET['part'])){
+			$page *= intval($_GET['part']);
+		}else{
+			$page *=0;
+		}
+
+		$publicquests = $this->feedDAO->getPublicQuests($page);
 
 		if(isset($_SESSION['user'])){
-			$quests = $this->getQuests($type);
+			$quests = $this->getQuests($type,$page);
 			$communities =  $this->communityDAO->getCommunitiesByUserId($_SESSION['user']['id']);
             $collection = $this->collectionDAO->getCollectionByUserId($_SESSION['user']['id']);
 		}else{
@@ -319,21 +326,21 @@ class FeedController extends AppController{
     	
     }
 
-	private function getQuests($type){
+	private function getQuests($type,$page){
 
 		$quests = array();
 
 		switch ($type) {
 			case 'popular':
-				$quests = $this->feedDAO->getQuestsByViews($_SESSION['user']['id']);
+				$quests = $this->feedDAO->getQuestsByViews($_SESSION['user']['id'],$page);
 				break;
 
 			case 'nearby':
-			$quests = $this->feedDAO->getQuestFromDistance($_SESSION['user']['id'],$_SESSION['user']['latitude'],$_SESSION['user']['longitude']);
+			$quests = $this->feedDAO->getQuestFromDistance($_SESSION['user']['id'],$_SESSION['user']['latitude'],$_SESSION['user']['longitude'],$page);
 			break;
 			
 			default:
-				$quests = $this->feedDAO->getQuests($_SESSION['user']['id']);
+				$quests = $this->feedDAO->getQuests($_SESSION['user']['id'],$page);
 				break;
 		}
 
