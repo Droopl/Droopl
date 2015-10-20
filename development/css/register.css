@@ -520,6 +520,7 @@ article.register div.register-box div.container section.step_1 form aside.right 
 
 article.register div.register-box div.container section.step_2 aside.left {
     width: 100%;
+    float: left;
 }
 
 article.register div.register-box div.container section.step_2 aside.left form {
@@ -549,7 +550,11 @@ article.register div.register-box div.container section.step_2 aside.left form {
 }
 
 article.register div.register-box div.container section.step_2 aside.left form input[type='text']{
-    display: block;
+    display: none !important;
+}
+
+article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location{
+    display: block !important;
     width: 100%;
     float: left;
     padding: 4% 3%;

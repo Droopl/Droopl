@@ -924,6 +924,21 @@ $(function  () {
         
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             e.preventDefault();
+            //$(this).find("#search_location").blur();
+        });
+        
+        $("article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location").on("keyup",function(e){
+            switch(e.keyCode){
+                
+                case 37:
+                e.preventDefault();
+                break;
+                    
+                case 39:
+                e.preventDefault();
+                break;
+                
+            }
         });
         
         var navPagesLis = $("article.register div.register-box nav.pages ul li");
