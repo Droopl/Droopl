@@ -46,16 +46,17 @@ article.register div.register-box div.container section {
     width: 800px;
     height: 100%;
     position: relative;
+    box-sizing: border-box;
 }
 
-article.register div.register-box div.container section aside.left {
+article.register div.register-box div.container section form aside.left {
     float: left;
     width: 55%;
     height: 100%;
     box-sizing: border-box;
 }
 
-article.register div.register-box div.container section aside.right {
+article.register div.register-box div.container section form aside.right {
     float: left;
     width: 45%;
     height: 100%;
@@ -64,17 +65,22 @@ article.register div.register-box div.container section aside.right {
 
 /* STEP 1 */
 
-article.register div.register-box div.container section.step_1 aside.left {
-    border-right: 1px solid #E8E8EA;
-}
-
-article.register div.register-box div.container section.step_1 aside.left form {
+article.register div.register-box div.container section.step_1 form {
     display: block;
     float: left;
     width: 100%;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form input {
+article.register div.register-box div.container section.step_1 form aside.left {
+    border-right: 1px solid #E8E8EA;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left {
+    display: block;
+    float: left;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left input {
     display: block;
     float: left;
     width: 100%;
@@ -101,7 +107,22 @@ article.register div.register-box div.container section aside.left form input[ty
     border: none;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form select {
+article.register div.register-box div.container section.step_1 form input[type="submit"] {
+    position: absolute;
+    z-index: 9999;
+    width: auto;
+    bottom: 8px;
+    right: 8px;
+    padding: 11px 13px;
+    background-color: #F47D67;
+    color: #ffffff;
+    border-radius: .4em;
+    font-size: .8em;
+    cursor: pointer;
+    border: none;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left select {
     display: block;
     float: left;
     border: none;
@@ -113,20 +134,20 @@ article.register div.register-box div.container section.step_1 aside.left form s
     -webkit-appearance:none; /* Safari and Chrome */
 }
 
-article.register div.register-box div.container section.step_1 aside.left form label {
+article.register div.register-box div.container section.step_1 form aside.left label {
     display: block;
     float: left;
     width: 2%;
     color: #F47D67;
 }
 
-article.register div.register-box div.container section.step_1 aside.right img {
+article.register div.register-box div.container section.step_1 form aside.right img {
     display: block;
     width: 200px;
     margin: 200px auto 0 auto;
 }
 
-article.register div.register-box div.container section aside h1.title {
+article.register div.register-box div.container section form aside h1.title {
     display: block;
     width: 100%;
     float: left;
@@ -177,7 +198,7 @@ article.register div.register-box nav.pages ul li.current {
     background-color: #F47D67;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language {
     float: left;
     width: 50%;
     padding: 7.5%;
@@ -186,7 +207,7 @@ article.register div.register-box div.container section.step_1 aside.left form d
     border-left: 1px solid #E5E5E5;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language h1 {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language h1 {
     display: block;
     float: left;
     color: #A9A9A9;
@@ -195,39 +216,39 @@ article.register div.register-box div.container section.step_1 aside.left form d
     margin-right: 5px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag {
     float: left;
     width: 25px;
     height: 20px;
     cursor: pointer;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.en {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag.en {
     background-image: url(../images/register/flags/United-States-of-America.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.nl {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag.nl {
     background-image: url(../images/register/flags/Netherlands.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag.fr {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag.fr {
     background-image: url(../images/register/flags/France.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language input#selected_lang{
+article.register div.register-box div.container section.step_1 form aside.left div.select-language input#selected_lang{
     display: none;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list {
     display: block;
     list-style: none;
     width: 0;
@@ -251,13 +272,13 @@ article.register div.register-box div.container section.step_1 aside.left form d
     transition: all .2s ease-in-out;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list.show {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list.show {
     width: 135px;
     height: 107px;
     opacity: 1;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li {
     display: block;
     width: 100%;
     font-size: .8em;
@@ -273,7 +294,7 @@ article.register div.register-box div.container section.step_1 aside.left form d
     transition: all .2s ease-in-out;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li span {
     display: block;
     float: left;
     width: 22px;
@@ -281,32 +302,32 @@ article.register div.register-box div.container section.step_1 aside.left form d
     margin-right: 13px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.en-flag {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li span.en-flag {
     background-image: url(../images/register/flags/United-States-of-America.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.nl-flag {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li span.nl-flag {
     background-image: url(../images/register/flags/Netherlands.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li span.fr-flag {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li span.fr-flag {
     background-image: url(../images/register/flags/France.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li:hover {
+article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li:hover {
     background-color: #F9F9F9;
 }
 
-article.register div.register-box div.container section.step_1 aside.left form input[type='text']#birth_date {
+article.register div.register-box div.container section.step_1 form aside.left input[type='text']#birth_date {
     display: block;
     float: left;
     width: 50%;
@@ -314,22 +335,21 @@ article.register div.register-box div.container section.step_1 aside.left form i
     border: none;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form {
+article.register div.register-box div.container section.step_1 form aside.right {
     display: block;
     float: left;
-    width: 100%;
-    padding: 10%;
-    margin-top: 26px;
+    width: 45%;
+    padding: 7%;
     box-sizing: border-box;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload {
+article.register div.register-box div.container section.step_1 form aside.right header#upload {
     display: block;
     float: left;
     width: 100%;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop {
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop {
     width: 150px;
     height: 150px;
     margin: 0 auto 30px auto;
@@ -353,7 +373,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     transition: all .2s ease-out;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop input[type="file"]{
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop input[type="file"]{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -365,7 +385,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     cursor: pointer;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload h1 {
+article.register div.register-box div.container section.step_1 form aside.right header#upload h1 {
     display: block;
     float: left;
     width: 100%;
@@ -377,7 +397,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     margin-bottom: 5px;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload p {
+article.register div.register-box div.container section.step_1 form aside.right header#upload p {
     display: block;
     float: left;
     width: 100%;
@@ -386,7 +406,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     color: #5F6970;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop span.remove-file {
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop span.remove-file {
     position: absolute;
     display: none;
     z-index: 9999;
@@ -399,15 +419,15 @@ article.register div.register-box div.container section.step_1 aside.right form 
     background-color: rgba(255,255,255,.6);
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop span.remove-file.show {
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop span.remove-file.show {
     display: block;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop span.remove-file:hover {
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop span.remove-file:hover {
     opacity: 1;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form header#upload div#dragndrop span.remove-file p.icon-cross {
+article.register div.register-box div.container section.step_1 form aside.right header#upload div#dragndrop span.remove-file p.icon-cross {
     display: block;
     float: left;
     width: 100%;
@@ -418,13 +438,13 @@ article.register div.register-box div.container section.step_1 aside.right form 
     color: #ffffff;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender {
     width: 100%;
     float: left;
     margin-top: 80px;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container {
     margin: 0 auto;
     width: 105px;
     height: 24px;
@@ -435,7 +455,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     transform: scale(1.2);
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit {
     width: 38px;
     height: 12px;
     float: left;
@@ -446,7 +466,7 @@ article.register div.register-box div.container section.step_1 aside.right form 
     margin-top: -6px;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p {
     display: block;
     float: left;
     font-size: .8em;
@@ -461,11 +481,11 @@ article.register div.register-box div.container section.step_1 aside.right form 
     transition: all .2s ease-in-out;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.selected {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.selected {
     color: #F47D67;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit div.switch-btn {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -486,11 +506,11 @@ article.register div.register-box div.container section.step_1 aside.right form 
         transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit div.switch-btn.male {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn.male {
     left: 0;
 }
 
-article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit div.switch-btn.female {
+article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn.female {
     left: 100%;
     margin-left: -20px;
 }
@@ -672,6 +692,8 @@ article.register div.register-box div.container section.step_2 aside.left form d
 article.register div.register-box div.container section.step_3 aside.left {
     width: 100%;
     padding: 7%;
+    box-sizing: border-box;
+    float: left;
 }
 
 article.register div.register-box div.container section.step_3 aside.left h1 {
@@ -680,7 +702,7 @@ article.register div.register-box div.container section.step_3 aside.left h1 {
     float: left;
     text-align: center;
     text-transform: uppercase;
-    font-size: 2em;
+    font-size: 1.8em;
     color: #F47D67;
     margin-bottom: 15px;
     letter-spacing: 2px;

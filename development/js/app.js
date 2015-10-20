@@ -976,41 +976,41 @@ $(function  () {
             }
         });
         
-        $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").on("click",function(){
-            if(!$("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").hasClass("show")){
-                $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").addClass("show");
+        $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").on("click",function(){
+            if(!$("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").hasClass("show")){
+                $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").addClass("show");
             }else{
-                $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+                $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").removeClass("show");
             }
             
             $(document).on('click', function (e) {
-                if ($(e.target).closest("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").length === 0) {
-                    $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+                if ($(e.target).closest("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").length === 0) {
+                    $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").removeClass("show");
                 }
             });
         });
         
-        $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list li").on("click",function(){
+        $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list li").on("click",function(){
             
             var thisClass = $(this).attr("class");
-            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language input#selected_lang").attr("value",thisClass);
-            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").removeClass("en nl fr");
+            $("article.register div.register-box div.container section.step_1 form aside.left div.select-language input#selected_lang").attr("value",thisClass);
+            $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").removeClass("en nl fr");
             
-            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language div.flag").addClass(thisClass);
-            $("article.register div.register-box div.container section.step_1 aside.left form div.select-language ul.lang-list").removeClass("show");
+            $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").addClass(thisClass);
+            $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").removeClass("show");
         });
         
-        $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
+        $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
             if($(this).hasClass("male")){
                 $(this).removeClass("male").addClass("female");
-                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.male").removeClass("selected");
-                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.female").addClass("selected");
-                $("article.register div.register-box div.container section.step_1 aside.right form input[type='text']#gender").attr("value","f");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","f");
             }else{
                 $(this).removeClass("female").addClass("male");
-                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.female").removeClass("selected");
-                $("article.register div.register-box div.container section.step_1 aside.right form div.switch-gender div.switch-container p.male").addClass("selected");
-                $("article.register div.register-box div.container section.step_1 aside.right form input[type='text']#gender").attr("value","m");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","m");
             }
         });
         

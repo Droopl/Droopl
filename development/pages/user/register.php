@@ -5,52 +5,50 @@
         <div class="container">
         
             <section class="step_1 completed">
-                <aside class="left">
-                    <h1 class="title">Registration</h1>
-                    <form id="registration_form_step_1_left" method="post">
-                        <input type="text" id="first" name="first" placeholder="Firstname" required>
-                        <input type="text" id="last" name="last" placeholder="Last name" required>
-                        <input type="email" id="mail" name="mail" placeholder="Email" required>
-                        <input type="password" id="pass" name="pass" placeholder="Password" required>
-                        <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password" required>
-                        <input type="text" id="birth_date" name="birth_date" placeholder="DD/MM/YYYY">
-                        <div class="select-language">
-                            <h1>Language: </h1>
-                            <div class="flag en"></div>
-                            <ul class="lang-list">
-                                <li class="en"><span class="en-flag"></span>English</li>
-                                <li class="nl"><span class="nl-flag"></span>Nederlands</li>
-                                <li class="fr"><span class="fr-flag"></span>Français</li>
-                            </ul>
-                            <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
-                        </div>
-                        <input type="submit" id="submit_step_1" name="submit_step_1" value="Step 2">
-                    </form>
-                </aside>
-                <aside class="right">
-                    <form id="registration_form_step_1_right">
-                        <header id="upload">
-                            <div class="dragndrop" id="dragndrop">
-                                <div class="preloader">
-                                    <span class="remove-file"><p class="icon-cross hide"></p></span>
-                                    <input type="file" id="collection_image" name="collection_image" accept="image/*">
+                <form id="registration_form_step_1" method="post">
+                    <aside class="left">
+                        <h1 class="title">Registration</h1>
+                            <input type="text" id="first" name="first" placeholder="Firstname" required>
+                            <input type="text" id="last" name="last" placeholder="Last name" required>
+                            <input type="email" id="mail" name="mail" placeholder="Email" required>
+                            <input type="password" id="pass" name="pass" placeholder="Password" required>
+                            <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password" required>
+                            <input type="text" id="birth_date" name="birth_date" placeholder="DD/MM/YYYY">
+                            <div class="select-language">
+                                <h1>Language: </h1>
+                                <div class="flag en"></div>
+                                <ul class="lang-list">
+                                    <li class="en"><span class="en-flag"></span>English</li>
+                                    <li class="nl"><span class="nl-flag"></span>Nederlands</li>
+                                    <li class="fr"><span class="fr-flag"></span>Français</li>
+                                </ul>
+                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
+                            </div>
+                    </aside>
+                    <aside class="right">
+                            <header id="upload">
+                                <div class="dragndrop" id="dragndrop">
+                                    <div class="preloader">
+                                        <span class="remove-file"><p class="icon-cross hide"></p></span>
+                                        <input type="file" id="collection_image" name="collection_image" accept="image/*">
+                                    </div>
+                                </div>
+                                <h1>Drag and drop</h1>
+                                <p>Or press to browse</p>
+                            </header>
+                            <div class="switch-gender">
+                                <div class="switch-container">
+                                    <p class="male selected">&#9794;</p>
+                                    <div class="switch-limit">
+                                        <div class="switch-btn male"></div>
+                                    </div>
+                                    <p class="female">&#9792;</p>
                                 </div>
                             </div>
-                            <h1>Drag and drop</h1>
-                            <p>Or press to browse</p>
-                        </header>
-                        <div class="switch-gender">
-                            <div class="switch-container">
-                                <p class="male selected">&#9794;</p>
-                                <div class="switch-limit">
-                                    <div class="switch-btn male"></div>
-                                </div>
-                                <p class="female">&#9792;</p>
-                            </div>
-                        </div>
-                        <input class="hide" type="text" id="gender" name="gender" value="m">
-                    </form>
-                </aside>
+                            <input class="hide" type="text" id="gender" name="gender" value="m">
+                    </aside>
+                    <input type="submit" id="submit_step_1" name="submit_step_1" value="Step 2">
+                </form>
             </section>
             <section class="step_2">
                 <aside class="left">
@@ -77,8 +75,8 @@
             <section class="step_3">
                 <aside class="left">
                     <form id="validation_form">
-                        <h1>One more step ...</h1>
-                        <p>Insert the 4-digit code we just sent you per email to validate your account</p>
+                        <h1>One more step</h1>
+                        <p>Insert the 4-digit code we just sent you by email to validate your account</p>
                         <span class="icon-unlock"></span>
                         <ul class="code-ul">
                             <li>
