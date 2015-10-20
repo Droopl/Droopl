@@ -190,11 +190,20 @@ article.register div.register-box nav.pages ul li {
     transition: all .2s ease-in-out;
 }
 
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
 article.register div.register-box nav.pages ul li:hover {
     margin: 0 10px;
 }
 
 article.register div.register-box nav.pages ul li.current {
+    background-color: #F47D67;
+}
+
+article.register div.register-box nav.pages ul li.filled {
     background-color: #F47D67;
 }
 
@@ -327,12 +336,30 @@ article.register div.register-box div.container section.step_1 form aside.left d
     background-color: #F9F9F9;
 }
 
-article.register div.register-box div.container section.step_1 form aside.left input[type='text']#birth_date {
+article.register div.register-box div.container section.step_1 form aside.left input[type='date'] {
     display: block;
     float: left;
     width: 50%;
     height: 85px;
     border: none;
+    font-family: Roboto;
+    color: #A9A9A9;
+    cursor: pointer;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left input[type='date']:hover:before{
+    width: 0%;
+    content: "" !important;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left input[type='date']:focus:before{
+    width: 0%;
+    content: "" !important;
+}
+
+article.register div.register-box div.container section.step_1 form aside.left input[type='date']:before {
+    width:100%;
+    content: attr(placeholder) !important;
 }
 
 article.register div.register-box div.container section.step_1 form aside.right {

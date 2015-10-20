@@ -951,28 +951,32 @@ $(function  () {
             console.log(filled);
             
             
-            
-            
-            $.ajax({
-                type: "POST",
-                url: "?page=register&step=1",
-	            data: formData,
-                async: false,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success:function (data) {
-                    console.log(data);
+            if(filled){
+
+                $.ajax({
+                    type: "POST",
+                    url: "?page=register&step=1",
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success:function (data) {
+                        console.log(data);
+
+                        $("article.register div.register-box div.container section.step_1").addClass("completed");
+                        $("article.register div.register-box nav.pages ul li.current").addClass("filled");
+                        $("article.register div.register-box div.container").stop().animate({left: -800});
+                        var current = $("article.register div.register-box nav.pages ul li.current").next();
+                        $("article.register div.register-box nav.pages ul li").removeClass("current");
+                        current.addClass("current");
+
+
+
+                    }
+                });
                 
-                    $("article.register div.register-box div.container").stop().animate({left: -800});
-                    var current = $("article.register div.register-box nav.pages ul li.current").next();
-                    $("article.register div.register-box nav.pages ul li").removeClass("current");
-                    current.addClass("current");
-                    
-                    
-                    
-                }
-            });
+            }
             
         });
         
@@ -1005,9 +1009,9 @@ $(function  () {
             var currentPage = $("article.register div.register-box nav.pages ul li.current").index();
             var sectionWidth = $("article.register div.register-box div.container section").width();
             var thisSection = $("article.register div.register-box div.container section")[currentPage];
-            console.log(thisSection);
+            //console.log(thisSection);
             var navPages = $("article.register div.register-box nav.pages ul li");
-            console.log(navPages.length);
+            //console.log(navPages.length);
             switch(e.keyCode){
                     case 39:
                     if(!$(thisSection).hasClass("completed")){

@@ -4,7 +4,7 @@
         
         <div class="container">
         
-            <section class="step_1 completed">
+            <section class="step_1">
                 <form action="" id="registration_form_step_1" method="post" enctype="multipart/form-data">
                     <aside class="left">
                         <h1 class="title">Registration</h1>
@@ -13,7 +13,7 @@
                             <input type="email" id="mail" name="mail" placeholder="Email">
                             <input type="password" id="pass" name="pass" placeholder="Password">
                             <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password">
-                            <input type="text" id="birth_date" name="birth_date" placeholder="Birthdate">
+                            <input type="date" id="birth_date" name="birth_date" placeholder="Date of birth">
                             <div class="select-language">
                                 <h1>Language: </h1>
                                 <div class="flag en"></div>
