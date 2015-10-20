@@ -2128,7 +2128,13 @@ $(function  () {
                 data:$(this).serialize(),
                 success:function (data) {
                   var components = data['results'][0]['address_components'];
-                  console.log(data['results'][0]['address_components']);
+                  var thisCity = data['results'][1]['address_components'];
+                  console.log(data['results'][1]['address_components']);
+                    
+                  $.each(thisCity,function(key,val){
+                      var componentType = val['types'][0];
+                      console.log(componentType);
+                  });
                     
                   $.each(components,function(key,val){
                       var component = val;
