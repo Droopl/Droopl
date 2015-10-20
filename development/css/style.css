@@ -834,7 +834,7 @@ article aside#side section.collection ul li.more-collection-items{
     position: relative;
     cursor: pointer;
 }
-article aside#side section.collection ul li.more-collection-items:hover > div{
+article aside#side section.collection ul li.more-collection-items:hover > a.more-collection-items-link div{
     opacity: 1;
     top: -20px;
 }
