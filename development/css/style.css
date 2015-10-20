@@ -653,6 +653,13 @@ section.chat ul li.conversation-bubble div.conversation ul li.message {
     float: left;
     margin-bottom: 13px;
 }
+section.chat ul li.conversation-bubble div.conversation ul.loading{
+    background-image: url(../images/assets/LoadigChat.gif);
+    background-position: center top 10px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
 section.chat ul li.conversation-bubble div.conversation ul li.message p.me {
     display: block;
     float: right;

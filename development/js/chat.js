@@ -1,7 +1,6 @@
 $(function  () {
 	
 	/*CHAT BUBBLES*/
-
 	if($("section.chat ul li.conversation-bubble div.conversation form").length){
 
 	$("section.chat ul li.conversation-bubble div.conversation form").on("submit",function (e) {
@@ -39,7 +38,6 @@ $(function  () {
                        });
 
                        if(!found){
-                        console.log("adding");
 
                         var ul = form.parent().parent().find("ul");
 
@@ -61,7 +59,44 @@ $(function  () {
             });
 		
 		$("section.chat ul li.conversation-bubble div.conversation ul").on("scroll",function (e) {
-			console.log($(this).scrollTop());
+			if($(this).scrollTop()<= 0){
+
+				var conversation = $(this).parent().parent();
+				var id = conversation.attr("id");
+				var part = parseInt(conversation.find("ul").attr("id")) + 1;
+				$.get( "?page=messages&id="+id+"&part="+part, function( data ) {
+
+					var messages = conversation.find("ul li");
+                    var loadedMessages = $(data).find("div.messages section.messages aside ul li");
+
+                   $(loadedMessages).each(function(key,newMessages){
+                       
+                       var found = false;
+                    
+                       $(messages).each(function(id,message){
+                           
+                           if($(newMessages).attr("id") == $(message).attr("id")){
+                                found = true;
+                           }
+                       
+                       });
+
+                       if(!found){
+
+                        var ul = conversation.find("ul");
+                        ul.attr("id",part);
+                        ul.prepend($(newMessages).addClass("animated slideInUp"));
+
+                       }
+                  });
+
+
+
+
+
+				});
+
+			}
 		});
 		
 	

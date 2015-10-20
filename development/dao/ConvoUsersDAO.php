@@ -14,7 +14,7 @@ class ConvoUsersDAO
 
 	public function getConversationByUserId($user_id){
 
-		$sql = 'SELECT c.conversation_id,c.conversation_name,u.id,u.firstname ,m.message,m.seen,m.message_creation_date,u.lastname,u.picture
+		$sql = 'SELECT c.conversation_id,c.conversation_name,u.id,u.firstname ,m.message,m.user_id,m.seen,m.message_creation_date,u.lastname,u.picture
 		FROM conversation_users AS cu
         LEFT OUTER JOIN conversation AS c
         on cu.conversation_id = c.conversation_id

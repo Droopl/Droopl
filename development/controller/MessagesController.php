@@ -26,6 +26,7 @@ class MessagesController extends AppController{
 		$messages = array();
 		$convo_users = array();
 		$users = array();
+		$page = 10;
 
 		if(isset($_GET) &&!empty($_GET['typing'])){
 			if(isset($_SESSION['conversation'])){
@@ -42,13 +43,16 @@ class MessagesController extends AppController{
 			if(!empty($_GET['action']) && $_GET['action'] == 'seen' && !empty($_GET['messageid'])){
 
 				$checkMessage = $this->messagesDAO->getMessageById($_GET['messageid']);
+				$seenMessage = false;
 
 				if(!empty($checkMessage)){
 					
-					if($seenMessage['id'] != $_SESSION['user']['id']){
+					if($checkMessage['id'] != $_SESSION['user']['id']){
 						$seenMessage = $this->messagesDAO->setMessageSeen($_GET['messageid']);
-						echo $seenMessage;
+						
 					}
+
+					echo $seenMessage;
 					exit();
 				}
 				
@@ -181,7 +185,14 @@ class MessagesController extends AppController{
 				if(isset($_SESSION['conversation'])){
 
 					$convo_users = $this->convoUsersDAO->getUserByConversationId($conversation['conversation_id']);
-					$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id']);
+
+					if(!empty($_GET['part'])){
+						$offset = intval($_GET['part']);
+						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*$offset);
+					}else{
+						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
+					}
+					
 				}
 
 			}

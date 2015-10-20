@@ -12,7 +12,7 @@ class MessagesDAO
 
 	}
 
-	public function getMessagesByConversationId($conversation_id){
+	public function getMessagesByConversationId($conversation_id,$offset){
 
 		$sql = 'SELECT m.message_id,m.message,m.seen,u.id, u.firstname ,u.lastname,u.picture
 		FROM messages AS m
@@ -20,9 +20,10 @@ class MessagesDAO
         on m.user_id = u.id
         WHERE m.conversation_id = :conversation_id
         GROUP BY m.message_id
-        ORDER BY m.message_creation_date DESC LIMIT 10 OFFSET 0';
+        ORDER BY m.message_creation_date DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':conversation_id',$conversation_id);
+		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
