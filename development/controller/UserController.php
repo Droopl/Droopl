@@ -143,10 +143,8 @@ class UserController extends AppController{
 	}
 
 	public function register(){
-
 		if(!empty($_POST)){
-			
-
+            
 			if(!empty($_GET['step']) && $_GET['step'] == "1"){
 				echo "step 1";
 				print_r($_POST);

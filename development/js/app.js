@@ -931,7 +931,7 @@ $(function  () {
         $("article.register div.register-box div.container section.step_1 form").on("submit",function(e){
             e.preventDefault();
             
-            var formData = new FormData();
+            var formData = new FormData($(this)[0]);
             var inputs = $("article.register div.register-box div.container section.step_1 form aside.left input");
             var filled = true;
             
@@ -952,15 +952,17 @@ $(function  () {
             
             
             
+            
             $.ajax({
                 type: "POST",
-	            data: formData, 
+                url: "?page=register&step=1",
+	            data: formData,
                 async: false,
                 cache: false,
                 contentType: false,
                 processData: false,
                 success:function (data) {
-                    //console.log(data);
+                    console.log(data);
                 
                     $("article.register div.register-box div.container").stop().animate({left: -800});
                     var current = $("article.register div.register-box nav.pages ul li.current").next();

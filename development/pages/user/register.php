@@ -5,7 +5,7 @@
         <div class="container">
         
             <section class="step_1 completed">
-                <form id="registration_form_step_1" method="post">
+                <form action="" id="registration_form_step_1" method="post" enctype="multipart/form-data">
                     <aside class="left">
                         <h1 class="title">Registration</h1>
                             <input type="text" id="first" name="first" placeholder="Firstname">
