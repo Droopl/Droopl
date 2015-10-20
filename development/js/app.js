@@ -1355,8 +1355,7 @@ $(function  () {
       }
 
       if($(".feed .quest").length){
-        console.log($(".feed").innerHeight());
-        if($(this).scrollTop() >= $(".feed").height()){
+        if($(this).scrollTop() >= $(".feed").height() - $(window).height()){
           var url = $(location).attr('href');
           $.get( url+"&part="+part, function( data ) {
 
@@ -1365,25 +1364,57 @@ $(function  () {
           var quests = $(".feed .quest");
           var loadedQuest = $(data).find(".feed .quest");
 
-            $(loadedQuest).each(function(key,newquest){
+          console.log(loadedQuest.length);
+          if(loadedQuest.length > 1){
+
+             $(loadedQuest).each(function(key,newquest){
              
                var found = false;
             
-               $(quests).each(function(id,quest){
-                   
-                     if($(newquest).attr("id") == $(quest).attr("id")){
-                          found = true;
-                     }
-               });
+                 $(quests).each(function(id,quest){
+                     
+                       if($(newquest).attr("id") == $(quest).attr("id")){
+                            found = true;
+                       }
+                 });
 
-               if(!found){
-                var feed = $(".feed");
-                feed.append($(newquest));
-               }
-            });
+                 if(!found){
+                  var feed = $(".feed");
+                  feed.append($(newquest));
+                 }
+              });
+
+            part++;
+          }else{
+
+            if($(".feed .last_quest").length ){
+                console.log("exists");
+            }else{
+              var lastQuest = $("<section/>").addClass("last_quest").html('<header><h1 class="quest"><span class="hide">no more quests</span></h1> <h2>Youre out of quests</h2></header><p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>');
+              $(".feed").append($(lastQuest).addClass("animated fadeIn"));
+            }
+            
+
+            /*<section class="last_quest hide">
+
+    <header>
+      <h1 class="quest"><span class="hide">no more quests</span></h1>
+      <h2>You're out of quests</h2>
+    </header>
+
+    <p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>
+
+    <a href="?page=people">find people</a>
+
+  </section>*/
+
+          }
+
+           
+
+
           });
 
-          part++;
 
         }
       }

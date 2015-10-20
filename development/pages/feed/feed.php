@@ -513,18 +513,5 @@
 	</section>
     
 	<?php }} ?>
-
-	<section class="last_quest hide">
-
-		<header>
-			<h1 class="quest"><span class="hide">no more quests</span></h1>
-			<h2>You're out of quests</h2>
-		</header>
-
-		<p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>
-
-		<a href="?page=people">find people</a>
-
-	</section>
     
 </div>
