@@ -1298,6 +1298,8 @@ $(function  () {
                        
                    });
                    
+                   $("article div.feed section.quest header nav ul li.options").on("click",editPost);
+                   
                     //$("article div.feed section.quest footer a.proposal").on("click",getDetail);
 
                     var lang = $("div.js-language").html();
@@ -1377,6 +1379,18 @@ $(function  () {
 
 	    //return false;  avoid to execute the actual submit of the form.
 	});
+    
+    $("article div.feed section.quest header nav ul li.options").on("click",editPost);
+    
+    function editPost(){
+        
+        if(!$(this).next().find("ul.options").hasClass("show")){
+            $(this).next().find("ul.options").addClass("show");
+        }else{
+            $(this).next().find("ul.options").removeClass("show");
+        }
+        
+    }
     
     $("#login").submit(function(e) {
         var url = "index.php?page=login"; // the script where you handle the form input.

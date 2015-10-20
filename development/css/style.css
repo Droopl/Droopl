@@ -1772,29 +1772,44 @@ article div.feed section.quest header nav ul{
     float: right;
     width: 20px;
     height: 100%;
+    list-style: none;
 }
 article div.feed section.quest header nav ul li.options{
-    display: inline-block;
-    width: 100%;
+    display: block;
+    float: right;
+    width: 20px;
     height: 100%;
     background-repeat: no-repeat;
     background-image: url(../images/assets/collection-item-menu-icon.svg);
     background-size: 5px;
-    background-position: center;
+    background-position: right center;
     cursor: pointer;
 }
 article div.feed section.quest header nav ul li ul.options{
-    display: none;
     position: absolute;
-    width: 0px;
-    right: 90%;
-    height: auto;
+    list-style: none;
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    right: 150%;
     top: 0;
     background-color: #ffffff;
     border-radius: .3em;
     border-top-right-radius: 0;
     border: 1px solid #E8E8EA;
     box-shadow: 0 0 25px -13px #000000;
+    
+    -webkit-transition: all .2s ease-out;
+	-moz-transition: all .2s ease-out;
+	-ms-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+}
+article div.feed section.quest header nav ul li ul.options.show{
+    opacity: 1;
+    width: 120px;
+    height: 100px;
 }
 article div.feed section.quest header nav ul li ul.options li{
     display: block;
@@ -1819,11 +1834,6 @@ article div.feed section.quest header nav ul li ul.options li a:hover{
 }
 article div.feed section.quest header nav ul li ul.options li a span{
     margin-left: 10px;
-}
-article div.feed section.quest header nav li ul.options.show{
-    display: block;
-    width: 120px;
-    right: 150%;
 }
 article div.feed section.quest header h1{
 
@@ -1871,12 +1881,15 @@ article div.feed section.quest header h1 a:hover{
 article div.feed section.quest header h2{
     position: absolute;
     display: block;
-    right: 10%;
-    padding-top: 5%;
+    right: 5%;
+    padding-top: 25px;
     top: 5%;
     color: rgba(0,0,0,.2); 
     font-weight: normal;
     font-size: .8em;
+}
+article div.feed section.quest header h2.editable-post{
+    right: 10%;
 }
 article div.feed section.quest header h1 span{
 

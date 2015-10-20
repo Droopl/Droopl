@@ -438,7 +438,7 @@
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
 		<?php } ?>
-		<h2><?php 
+		<h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
 
 		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
 			echo $value['views']." views";
@@ -490,7 +490,7 @@
 				</li>
 
 				<li>
-					<ul class="options show">
+					<ul class="options">
 						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
 						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
 					</ul>
