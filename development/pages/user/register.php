@@ -30,7 +30,7 @@
                                 <div class="dragndrop" id="dragndrop">
                                     <div class="preloader">
                                         <span class="remove-file"><p class="icon-cross hide"></p></span>
-                                        <input type="file" id="collection_image" name="collection_image" accept="image/*">
+                                        <input type="file" id="profile_image" name="profile_image" accept="image/*">
                                     </div>
                                 </div>
                                 <h1>Drag and drop</h1>

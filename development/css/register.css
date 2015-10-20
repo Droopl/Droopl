@@ -49,6 +49,10 @@ article.register div.register-box div.container section {
     box-sizing: border-box;
 }
 
+article.register div.register-box div.container section input{
+    color: #3E454C;
+}
+
 article.register div.register-box div.container section form aside.left {
     float: left;
     width: 55%;

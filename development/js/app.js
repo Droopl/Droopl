@@ -937,7 +937,7 @@ $(function  () {
             
             $.each(inputs,function(key,val){
                 if($(this).val().length == 0){
-                    console.log($(this));
+                    //console.log($(this));
                     filled = false;
                 }
             });
@@ -946,6 +946,16 @@ $(function  () {
             
             if(!pattern.test($("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").val())){
                 filled = false;
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").css("color","#F47D67");
+            }else{
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").css("color","#3E454C");
+            }
+            
+            if($("article.register div.register-box div.container section.step_1 form aside.left input[type='password']#pass").val() != $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']#repeat_pass").val()){
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").css("color","#F47D67");
+                filled = false;
+            }else{
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").css("color","#3E454C");
             }
             
             console.log(filled);
