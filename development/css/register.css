@@ -636,24 +636,6 @@ article.register div.register-box div.container section.step_2 aside.left form d
     opacity: 1;
 }
 
-article.register div.register-box div.container section.step_2 aside.left form p.resulting-address {
-    display: none;
-    position: absolute;
-    z-index: 9999;
-    background-color: #ffffff;
-    color: #A9A9A9;
-    height: 30px;
-    line-height: 30px;
-    font-size: .7em;
-    padding: 0 3%;
-    left: 0;
-    bottom: 56px;
-    border: 1px solid #E8E8EA;
-    border-left: 0;
-    border-bottom: 0;
-    border-top-right-radius: .3em;
-}
-
 article.register div.register-box div.container section.step_2 aside.left form div.loader-container {
     position: absolute;
     overflow: hidden;

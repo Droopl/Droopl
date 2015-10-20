@@ -990,6 +990,47 @@ $(function  () {
             
         });
         
+        $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
+            var filled = true;
+            var inputs = $("article.register div.register-box div.container section.step_2 aside.left form input[type='text'].hide");
+            $.each(inputs,function(key,val){
+                if($(val).attr("value").length == 0){
+                    filled = false;
+                    //console.log($(val));
+                }
+            });
+            
+            if(filled){
+                
+                var formData = new FormData($(this)[0]);
+                
+                $.ajax({
+                    type: "POST",
+                    url: "?page=register&step=2",
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success:function (data) {
+                        console.log(data);
+
+                        $("article.register div.register-box div.container section.step_2").addClass("completed");
+                        $("article.register div.register-box nav.pages ul li.current").addClass("filled");
+                        $("article.register div.register-box div.container").stop().animate({left: -1600});
+                        var current = $("article.register div.register-box nav.pages ul li.current").next();
+                        $("article.register div.register-box nav.pages ul li").removeClass("current");
+                        current.addClass("current");
+
+
+
+                    }
+                });
+                
+            }
+            
+        });
+        
         $("article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location").on("keyup",function(e){
             switch(e.keyCode){
                 
@@ -2294,8 +2335,8 @@ $(function  () {
                   });
                 }
             }).done(function(){
-                address = "Address: " + street + " " + number + ", " + zipcode + " " + city + ", " + country;
-                $("article.register div.register-box div.container section.step_2 aside.left form p.resulting-address").fadeIn().text(address);
+                address = street + " " + number + ", " + zipcode + " " + city + ", " + country;
+                $("article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location").val(address);
                 $("article.register div.register-box div.container section.step_2 aside.left form input#street").attr("value",street);
                 $("article.register div.register-box div.container section.step_2 aside.left form input#number").attr("value",number);
                 $("article.register div.register-box div.container section.step_2 aside.left form input#zipcode").attr("value",zipcode);

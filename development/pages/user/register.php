@@ -60,7 +60,6 @@
                         </div>
                         <div id="maps-api-container">
                         </div>
-                        <p class="resulting-address">Address:</p>
                         <input class="hide" type="text" id="street" name="street" value="">
                         <input class="hide" type="text" id="number" name="number" value="">
                         <input class="hide" type="text" id="zipcode" name="zipcode" value="">
