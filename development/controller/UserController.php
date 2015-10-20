@@ -143,10 +143,51 @@ class UserController extends AppController{
 	}
 
 	public function register(){
+
+		$first = "";
+		$last = "";
+		$mail = "";
+		$pass = "";
+		$birth = "";
+		$selected_lang = "";
+		$gender = "";
+
 		if(!empty($_POST)){
-            
+			
 			if(!empty($_GET['step']) && $_GET['step'] == "1"){
-				echo "step 1";
+
+				$step1 = array();
+
+				if(!isset($_SESSION['register_step1'])){
+					if(!empty($_POST['first'])){
+						$step1["first"] = $_POST['first'];
+					}
+					if(!empty($_POST['last'])){
+						$step1["last"] = $_POST['last'];
+					}
+					if(!empty($_POST['mail'])){
+						$step1["mail"] = $_POST['mail'];
+					}
+
+					if(!empty($_POST['pass']) && $_POST['pass'] == $_POST['repeat_pass']){
+						$step1["pass"] = $_POST['pass'];
+					}
+
+					if(!empty($_POST['birth_date'])){
+						$step1["birth"] = $_POST['birth_date'];
+					}
+					if(!empty($_POST['selected-lang'])){
+						$step1["lang"] = $_POST['selected-lang'];
+					}
+					if(!empty($_POST['gender'])){
+						$step1["gender"] = $_POST['gender'];
+					}
+					if(!empty($step1)){
+						$_SESSION['register_step1'] = $step1;
+						print_r($_SESSION['register_step1']);
+					}
+				}
+				
 				print_r($_POST);
 			}
 
