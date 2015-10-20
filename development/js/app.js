@@ -928,6 +928,52 @@ $(function  () {
             //$(this).find("#search_location").blur();
         });
         
+        $("article.register div.register-box div.container section.step_1 form").on("submit",function(e){
+            e.preventDefault();
+            
+            var formData = new FormData();
+            var inputs = $("article.register div.register-box div.container section.step_1 form aside.left input");
+            var filled = true;
+            
+            $.each(inputs,function(key,val){
+                if($(this).val().length == 0){
+                    console.log($(this));
+                    filled = false;
+                }
+            });
+            
+            var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+            
+            if(!pattern.test($("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").val())){
+                filled = false;
+            }
+            
+            console.log(filled);
+            
+            
+            
+            $.ajax({
+                type: "POST",
+	            data: formData, 
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function (data) {
+                    //console.log(data);
+                
+                    $("article.register div.register-box div.container").stop().animate({left: -800});
+                    var current = $("article.register div.register-box nav.pages ul li.current").next();
+                    $("article.register div.register-box nav.pages ul li").removeClass("current");
+                    current.addClass("current");
+                    
+                    
+                    
+                }
+            });
+            
+        });
+        
         $("article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location").on("keyup",function(e){
             switch(e.keyCode){
                 
@@ -2192,13 +2238,9 @@ $(function  () {
                 data:$(this).serialize(),
                 success:function (data) {
                   var components = data['results'][0]['address_components'];
-                  var thisCity = data['results'][1]['address_components'];
-                  console.log(data['results'][1]['address_components']);
                     
-                  $.each(thisCity,function(key,val){
-                      var componentType = val['types'][0];
-                      console.log(componentType);
-                  });
+                  latitude = data['results'][1]['geometry']['location']['lat'];
+                  longitude = data['results'][1]['geometry']['location']['lng'];
                     
                   $.each(components,function(key,val){
                       var component = val;

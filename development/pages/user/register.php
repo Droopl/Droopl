@@ -8,12 +8,12 @@
                 <form id="registration_form_step_1" method="post">
                     <aside class="left">
                         <h1 class="title">Registration</h1>
-                            <input type="text" id="first" name="first" placeholder="Firstname" required>
-                            <input type="text" id="last" name="last" placeholder="Last name" required>
-                            <input type="email" id="mail" name="mail" placeholder="Email" required>
-                            <input type="password" id="pass" name="pass" placeholder="Password" required>
-                            <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password" required>
-                            <input type="text" id="birth_date" name="birth_date" placeholder="DD/MM/YYYY">
+                            <input type="text" id="first" name="first" placeholder="Firstname">
+                            <input type="text" id="last" name="last" placeholder="Last name">
+                            <input type="email" id="mail" name="mail" placeholder="Email">
+                            <input type="password" id="pass" name="pass" placeholder="Password">
+                            <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password">
+                            <input type="text" id="birth_date" name="birth_date" placeholder="Birthdate">
                             <div class="select-language">
                                 <h1>Language: </h1>
                                 <div class="flag en"></div>
