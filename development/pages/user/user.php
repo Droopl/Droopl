@@ -133,7 +133,7 @@
         <?php if($value['type'] == 1){ ?>
             <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
-        <h2><?php 
+        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
         
         $full = false;
         $now = new DateTime;
@@ -173,7 +173,7 @@
                 </li>
 
                 <li>
-                    <ul class="options show">
+                    <ul class="options">
                         <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
                         <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
                     </ul>
