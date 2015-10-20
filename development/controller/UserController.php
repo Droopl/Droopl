@@ -143,6 +143,10 @@ class UserController extends AppController{
 	}
 
 	public function register(){
+
+		if(!empty($_POST)){
+			print_r($_POST);
+		}
 	}
 	
 

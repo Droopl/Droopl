@@ -61,7 +61,7 @@
 
 				?>
 
-				<li id="<?php echo $messages[$i]['message_id']; ?>" class="message"><p><?php if(!empty($messages[$i]['picture'])){ ?>
+				<li id="<?php echo $messages[$i]['message_id']; ?>" class="message <?php if($messages[$i]['seen'] == 1){ echo "notseen"; } ?>"><p><?php if(!empty($messages[$i]['picture'])){ ?>
 			<img src="images/profile_pictures/<?php echo $messages[$i]['picture'];?>" alt="rachouan rejeb">
 			<?php }else{ ?>
 			<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">

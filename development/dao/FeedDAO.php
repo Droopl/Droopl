@@ -28,7 +28,7 @@ class FeedDAO
 		}
 		return array();
 	}
-	public function getPublicQuests($offset){
+	public function getPublicQuests(){
 
 		$sql = 'SELECT pq.id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM public_quests AS pq
@@ -46,10 +46,8 @@ class FeedDAO
         on o.collection_id = c.collection_id
         WHERE q.active = 1
         GROUP BY q.quest_id
-        ORDER BY q.creation_date DESC
-        LIMIT 10 OFFSET :offset';
+        ORDER BY q.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 
@@ -215,7 +213,7 @@ class FeedDAO
 
 	}
 	
-	public function getQuestById($quest_id,$offset){
+	public function getQuestById($quest_id){
 
 		$sql = 'SELECT q.quest_id,q.active,q.item,q.quest_description,q.creation_date ,q.type, u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM quests AS q
@@ -227,12 +225,9 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE q.quest_id = :quest_id
-        GROUP BY q.quest_id
-        ORDER BY q.creation_date DESC LIMIT 10 OFFSET :offset';
+        WHERE q.quest_id = :quest_id';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':quest_id',$quest_id);
-		$stmt->bindValue(':offset',$offset);
 
 		if($stmt->execute()){
 

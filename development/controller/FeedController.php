@@ -74,7 +74,7 @@ class FeedController extends AppController{
 			$page *=0;
 		}
 
-		$publicquests = $this->feedDAO->getPublicQuests($page);
+		$publicquests = $this->feedDAO->getPublicQuests();
 
 		if(isset($_SESSION['user'])){
 			$quests = $this->getQuests($type,$page);

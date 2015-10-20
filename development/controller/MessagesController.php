@@ -46,12 +46,12 @@ class MessagesController extends AppController{
 				$seenMessage = false;
 
 				if(!empty($checkMessage)){
-					
+					print_r($checkMessage);
 					if($checkMessage['id'] != $_SESSION['user']['id']){
+						echo "your message not";
 						$seenMessage = $this->messagesDAO->setMessageSeen($_GET['messageid']);
 						
 					}
-
 					echo $seenMessage;
 					exit();
 				}
