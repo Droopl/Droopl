@@ -15,11 +15,13 @@ class UserController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'FollowDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'VerificationDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
 
 		$this->feedDAO = new FeedDAO();
 		$this->followDAO = new FollowDAO();
 		$this->notificationsDAO = new NotificationsDAO();
+		$this->verifDAO = new VerificationDAO();
 		$this->collectionDAO = new CollectionDAO();
 		$this->propoDAO = new PropoDAO();
 		$this->userDAO = new UserDAO();
@@ -152,7 +154,8 @@ class UserController extends AppController{
 		$selected_lang = "";
 		$gender = "";
 
-		unset($_SESSION['register_step1']);
+		$code = $this->generateValidationCode();
+		$this->verifDAO->addVerification("1",$code);
 
 		if(!empty($_POST)){
 			
@@ -188,7 +191,9 @@ class UserController extends AppController{
 						$step1["gender"] = $_POST['gender'];
 					}
 
-					print_r($_FILES);
+					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
+						$step1["profile_image"] = $_FILES['profile_image'];
+					}
 
 					if(!empty($step1)){
 						$_SESSION['register_step1'] = $step1;
@@ -254,6 +259,17 @@ class UserController extends AppController{
 		$this->set('password',$password);
         $this->set('isloggedin',$isloggedin);
 
+	}
+
+
+	private function generateValidationCode($length = 4) {
+	    $characters = '0123456789';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
 	}
 
 
