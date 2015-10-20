@@ -640,6 +640,7 @@ section.chat ul li.conversation-bubble div.conversation footer ul {
     height: 250px;
     padding: 5%;
     box-sizing: border-box;
+    background:none;
     overflow-y: scroll;
     border-bottom: 1px solid #E8E8EA;
     opacity: 0;
