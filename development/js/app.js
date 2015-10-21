@@ -1026,6 +1026,9 @@ $(function  () {
             
         });
         
+        var validationCodeId;
+        var validationCode;
+        
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             var filled = true;
             var inputs = $("article.register div.register-box div.container section.step_2 aside.left form input[type='text'].hide");
@@ -1050,12 +1053,18 @@ $(function  () {
                     processData: false,
                     success:function (data) {
                         console.log(data);
-                        
+                        validationCodeId = data.split(" ")[1];
+                            validationCode = data.split(" ")[2];
+                            console.log(validationCode, validationCodeId);
                         if(data == 1){
+                            
+                            
 
                             $("article.register div.register-box div.container section.step_2").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");
-                            $("article.register div.register-box div.container").stop().animate({left: -1600});
+                            $("article.register div.register-box div.container").stop().animate({left: -1600},function(){
+                                console.log();
+                            });
                             var current = $("article.register div.register-box nav.pages ul li.current").next();
                             $("article.register div.register-box nav.pages ul li").removeClass("current");
                             current.addClass("current");
