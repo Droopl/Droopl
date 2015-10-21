@@ -332,7 +332,7 @@ class UserController extends AppController{
 				if(!empty($register)){
 					$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
 
-					$message "true ".$code["id"]." ".$code["code"];
+					$message = "true ".$code["id"]." ".$code["code"];
 				}
 			}
 
