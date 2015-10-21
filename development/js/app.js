@@ -1061,7 +1061,7 @@ $(function  () {
                             
                             validationCodeId = data.split(" ")[1];
                             validationCode = data.split(" ")[2];
-                            console.log(validationCode, validationCodeId);
+                            console.log(validationCodeId);
 
                             $("article.register div.register-box div.container section.step_2").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");
@@ -1093,7 +1093,7 @@ $(function  () {
             $.each(inputs,function(key,input){
                 typedCode += $(input).val();
             });
-            console.log(typedCode);
+            console.log(validationCodeId);
             
             $.get("?page=verification&code="+typedCode+"&id="+validationCodeId,function(data){
                 console.log(data);
