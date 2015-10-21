@@ -337,6 +337,8 @@ class UserController extends AppController{
 			}
 
 			echo $message;
+
+			exit();
 		}
 	}
 	
