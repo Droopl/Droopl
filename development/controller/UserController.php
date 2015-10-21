@@ -17,6 +17,8 @@ class UserController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'VerificationDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
+		require_once WWW_ROOT . 'PHPMailer-master' .DS. 'PHPMailerAutoload.php';
+
 
 		$this->feedDAO = new FeedDAO();
 		$this->followDAO = new FollowDAO();
@@ -25,6 +27,7 @@ class UserController extends AppController{
 		$this->collectionDAO = new CollectionDAO();
 		$this->propoDAO = new PropoDAO();
 		$this->userDAO = new UserDAO();
+		$this->mail = new PHPMailer();
 
 	}
 
@@ -145,6 +148,7 @@ class UserController extends AppController{
 	}
 
 	public function register(){
+
 
 		$first = "";
 		$last = "";
@@ -334,6 +338,9 @@ class UserController extends AppController{
 							if(!empty($loginUser)){
 								$_SESSION['user'] = $loginUser;
 							}
+
+
+							$this->sendValidationCode($code["code"],$register['email']);
 							$message = "true ".$code["id"]." ".$code["code"];
 
 							unset($_SESSION['register_step1']);
@@ -350,30 +357,24 @@ class UserController extends AppController{
 	public function sendValidationCode($code,$email){
 
 		$this->mail->isSMTP();                                      // Set mailer to use SMTP
-		$this->mail->Host = 'smtp.live.com';  // Specify main and backup SMTP servers
+		$this->mail->Host = 'smtpout.europe.secureserver.net';  // Specify main and backup SMTP servers
 		$this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$this->mail->Username = 'rachouan_15@hotmail.fr';                 // SMTP username
-		$this->mail->Password = 'Shaneoneill20';                           // SMTP password
-		$this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-		$this->mail->Port = 25;                                    // TCP port to connect to
+		$this->mail->Username = 'info@droopl.com';                 // SMTP username
+		$this->mail->Password = 'Droopl543';                           // SMTP password
+		$this->mail->SMTPSecure = 'ssl';                      // Enable TLS encryption, `ssl` also accepted
+		$this->mail->Port = 465;     
 
-		$this->mail->setFrom('rachouan_15@hotmail.fr', 'Mailer');
+		$this->mail->setFrom('info@droopl.com', 'Droopl');
 		$this->mail->addAddress($email);     // Add a recipient 
-		$this->mail->addReplyTo('info@sportvital.com', 'Information');
+		$this->mail->addReplyTo('info@droopl.com', 'Droopl');
 
-		//$this->mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-		//$this->mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 		$this->mail->isHTML(true);                                  // Set email format to HTML
 
 		$this->mail->Subject = 'Heey this is a subject';
-		$this->mail->Body    = '<h1>Your validationcode is:</h1><h2></h2>';
+		$this->mail->Body    = '<header style="width:100%;float:left;text-align:center;"><img src="http://droopl.com/images/droopl_mail.png" style="display:inline-block;height:100px;"><br/><h1 style="width:100%;box-sizing:border-box;padding:5%;font-size:2em;color:#5F6970;text-align:center">You have been succesfully registered <br/> Your validationcode is:</h1><h2 style="width:100%;box-sizing:border-box;padding:5%;font-size:4em;letter-spacing:2px;color:#3E454C;text-align:center">'.$code.'</h2></header>';
 
-		if(!$this->mail->send()) {
-		    echo 'Message could not be sent.';
-		    echo 'Mailer Error: ' . $this->mail->ErrorInfo;
-		} else {
-		    echo 'Message has been sent';
-		}
+		$this->mail->send();
+
 	}
 	
 
