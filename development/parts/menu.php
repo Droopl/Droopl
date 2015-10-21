@@ -280,7 +280,7 @@
                 <ul class="scrollable">
                     <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>" class="icon-head"><span><?php echo $_SESSION['lang']['menuprofile']; ?></span></a></li>
                      <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&action=edit" class="icon icon-cog"> <span><?php echo $_SESSION['lang']['menusettings']; ?></span></a></li>
-            <li><a class="about icon icon-command" href="?page=about"><span><span><?php echo $_SESSION['lang']['menuabout']; ?></span></a></li>
+            <li><a class="about icon icon-command" href="?page=about"><span><?php echo $_SESSION['lang']['menuabout']; ?></span></a></li>
             <li><a href="?page=<?php if(!empty($_GET['page'])){ echo $_GET['page'];}else{ echo '?page=feed';} ?>&action=feedback"class="bug icon icon-flag"><span><?php echo $_SESSION['lang']['menufeedback'];?></span></a></li>
                      <li><a class="logout icon icon-lock"><span><?php echo $_SESSION['lang']['menulogout']; ?></span></a></li>
                 </ul>
