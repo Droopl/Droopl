@@ -335,12 +335,44 @@ class UserController extends AppController{
 								$_SESSION['user'] = $loginUser;
 							}
 							$message = "true ".$code["id"]." ".$code["code"];
+
+							unset($_SESSION['register_step1']);
+							unset($_SESSION['register_step2']);
 						}
 					}
 			}
 			echo $message;
 
 			exit();
+		}
+	}
+
+	public function sendValidationCode($code,$email){
+
+		$this->mail->isSMTP();                                      // Set mailer to use SMTP
+		$this->mail->Host = 'smtp.live.com';  // Specify main and backup SMTP servers
+		$this->mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$this->mail->Username = 'rachouan_15@hotmail.fr';                 // SMTP username
+		$this->mail->Password = 'Shaneoneill20';                           // SMTP password
+		$this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+		$this->mail->Port = 25;                                    // TCP port to connect to
+
+		$this->mail->setFrom('rachouan_15@hotmail.fr', 'Mailer');
+		$this->mail->addAddress($email);     // Add a recipient 
+		$this->mail->addReplyTo('info@sportvital.com', 'Information');
+
+		//$this->mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+		//$this->mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+		$this->mail->isHTML(true);                                  // Set email format to HTML
+
+		$this->mail->Subject = 'Heey this is a subject';
+		$this->mail->Body    = '<h1>Your validationcode is:</h1><h2></h2>';
+
+		if(!$this->mail->send()) {
+		    echo 'Message could not be sent.';
+		    echo 'Mailer Error: ' . $this->mail->ErrorInfo;
+		} else {
+		    echo 'Message has been sent';
 		}
 	}
 	
