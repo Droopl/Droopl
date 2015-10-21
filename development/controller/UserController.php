@@ -244,6 +244,8 @@ class UserController extends AppController{
 							    $msg = 'Please upload image smaller than 200KB';
 						  	}
 					  	}
+					}else{
+						$step1["profile_image"] = "";
 					}
 
 					if(!empty($step1)){

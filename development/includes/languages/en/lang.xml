@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
 <lang>
-   <looking>What are you looking for?</looking>
+	<menuprofile>My profile</menuprofile>
+	<menusettings>Settings</menusettings>
+	<menuabout>About</menuabout>
+	<menufeedback>Feedback</menufeedback>
+	<menulogout>Logout</menulogout>
+   <formlooking>What are you looking for?</formlooking>
+   <formoffering>What are you looking for?</formoffering>
+   <formdescription>Description</formdescription>
 </lang>

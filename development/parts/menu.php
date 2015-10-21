@@ -278,101 +278,11 @@
 				<?php }?>
                 
                 <ul class="scrollable">
-                    <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>" class="icon-head"><span><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "My profile";
-			        break;
-
-			        case 'nl':
-			        echo "Mijn profiel";
-			        break;
-
-			        case 'fr':
-			        echo "Mon profil";
-			        break;
-			        
-			        default:
-			        echo "My profile";
-			        break;
-			    }
-            ?></span></a></li>
-                     <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&action=edit" class="icon icon-cog"> <span><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Settings";
-			        break;
-
-			        case 'nl':
-			        echo "Instellingen";
-			        break;
-
-			        case 'fr':
-			        echo "Paramètres";
-			        break;
-			        
-			        default:
-			        echo "Settings";
-			        break;
-			    }
-            ?></span></a></li>
-            <li><a class="about icon icon-command" href="?page=about"><span><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "About";
-			        break;
-
-			        case 'nl':
-			        echo "Over ons";
-			        break;
-
-			        case 'fr':
-			        echo "About";
-			        break;
-			        
-			        default:
-			        echo "About";
-			        break;
-			    }
-            ?></span></a></li>
-            <li><a href="?page=<?php if(!empty($_GET['page'])){ echo $_GET['page'];}else{ echo '?page=feed';} ?>&action=feedback"class="bug icon icon-flag"><span><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Feedback";
-			        break;
-
-			        case 'nl':
-			        echo "Feedback";
-			        break;
-
-			        case 'fr':
-			        echo "Feedback";
-			        break;
-			        
-			        default:
-			        echo "Feedback";
-			        break;
-			    }
-            ?></span></a></li>
-                     <li><a class="logout icon icon-lock"><span><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Logout";
-			        break;
-
-			        case 'nl':
-			        echo "uitloggen";
-			        break;
-
-			        case 'fr':
-			        echo "Déconnexion";
-			        break;
-			        
-			        default:
-			        echo "Logout";
-			        break;
-			    }
-            ?></span></a></li>
+                    <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>" class="icon-head"><span><?php echo $_SESSION['lang']['menuprofile']; ?></span></a></li>
+                     <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&action=edit" class="icon icon-cog"> <span><?php echo $_SESSION['lang']['menusettings']; ?></span></a></li>
+            <li><a class="about icon icon-command" href="?page=about"><span><span><?php echo $_SESSION['lang']['menuabout']; ?></span></a></li>
+            <li><a href="?page=<?php if(!empty($_GET['page'])){ echo $_GET['page'];}else{ echo '?page=feed';} ?>&action=feedback"class="bug icon icon-flag"><span><?php echo $_SESSION['lang']['menufeedback'];?></span></a></li>
+                     <li><a class="logout icon icon-lock"><span><?php echo $_SESSION['lang']['menulogout']; ?></span></a></li>
                 </ul>
                 <?php }else{ ?>
 

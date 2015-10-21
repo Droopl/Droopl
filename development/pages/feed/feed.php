@@ -281,26 +281,7 @@
 		<form action="" method="post" name="quest" id="quest" enctype="multipart/form-data">
 			<div>
                 <input type="text" id="type" name="type" class="hide" value="0">
-				<input type="text" id="item" name="item" <?php
-                       switch($_SESSION['language']) {
-                
-                            case 'en':
-                            echo "placeholder='What are you looking for ?'"; 
-                            break;
-
-                            case 'fr':
-                            echo "placeholder='Qu&#39;est-ce que vous cherchez ?'";
-                            break;
-
-                            case 'nl':
-                            echo "placeholder='Wat ben je naar op zoek ?'";
-                            break;
-
-                            default:
-                            echo "placeholder='What are you looking for ?'"; 
-                            break;
-                        }
-                       ?> tabindex="1">
+				<input type="text" id="item" name="item" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" tabindex="1">
                 <div class="added-collection-item">
                     <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                 </div>
@@ -368,7 +349,7 @@
                 	</ul>
             </div>-->
 			<div>
-				<input type="text" id="desc" name="desc" placeholder="Description" tabindex="2">
+				<input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
 				<select id="destination" name="destination">
 				  <option value="public">Public</option>
 				  <?php foreach ($communities as $key => $community) { ?>
