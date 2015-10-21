@@ -52,63 +52,9 @@
 
     <nav>
     	<ul>
-    		<li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Dashboard";
-			        break;
-
-			        case 'nl':
-			        echo "Dashboard";
-			        break;
-
-			        case 'fr':
-			        echo "Dashboard";
-			        break;
-			        
-			        default:
-			        echo "Dashboard";
-			        break;
-			    }
-            ?></a></li>
-            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Messages";
-			        break;
-
-			        case 'nl':
-			        echo "Berichten";
-			        break;
-
-			        case 'fr':
-			        echo "Messages";
-			        break;
-			        
-			        default:
-			        echo "Messages";
-			        break;
-			    }
-            ?></a></li>
-    		<li><a href="?page=communities" <?php if($_GET['page'] == "people"){ echo 'class="current-menu-page"'; }?> ><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Communities";
-			        break;
-
-			        case 'nl':
-			        echo "Maatschappijen";
-			        break;
-
-			        case 'fr':
-			        echo "Communautés";
-			        break;
-			        
-			        default:
-			        echo "Communities";
-			        break;
-			    }
-            ?></a></li>
+    		<li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menudash']; ?></a></li>
+            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menumessages']; ?></a></li>
+    		<li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
     		<li id="notif" class="notifications">
     			<span class="icon-bell"></span>
     			<ul>
