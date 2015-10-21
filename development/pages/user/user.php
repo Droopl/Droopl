@@ -3,7 +3,11 @@
 	<section class="profile">
         <header>
         	<div class="profile_pic">
-        		<img src="images/profile_pictures/<?php echo $user['picture'];?>">
+        		<?php if(!empty($user['picture'])){ ?>
+                <img class="profile-img" src="images/profile_pictures/<?php echo $user['picture'];?>" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
+                <?php }else{ ?>
+                <img class="profile-img" src="images/profile_pictures/notfound.svg" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
+                <?php }?>
         		<span class="badge">creator</span>
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>

@@ -75,7 +75,7 @@ class VerificationDAO
 
         if($stmt->execute()){
 
-            return true;
+            return $this->getVerificationById($this->pdo->lastInsertId());
         }
         return false;
 	}

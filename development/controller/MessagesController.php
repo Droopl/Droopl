@@ -146,7 +146,7 @@ class MessagesController extends AppController{
 				$id = 0;
 				if(!empty($_GET['id'])){
 					$id = $_GET['id'];
-					if($_SESSION["conversation"]["conversation_id"] != $id){
+					if(isset($_SESSION['conversation']) && $_SESSION["conversation"]["conversation_id"] != $id){
 						unset($_SESSION["conversation"]);
 					}
 				}else{
@@ -158,13 +158,15 @@ class MessagesController extends AppController{
 
 				$conversation = $this->conversationDAO->getConversationByIdAndUserId($id,$_SESSION['user']['id']);
 
-				if(empty($conversation)){
-					$id = $conversations[0]['conversation_id'];
-					$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
-					
-				}
-				if(!isset($_SESSION['conversation'])){
-					$_SESSION['conversation'] = $conversation;
+				if(!empty($conversations)){
+					if(empty($conversation)){
+						$id = $conversations[0]['conversation_id'];
+						$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
+						
+					}
+					if(!isset($_SESSION['conversation'])){
+						$_SESSION['conversation'] = $conversation;
+					}
 				}
 				
 
@@ -184,13 +186,19 @@ class MessagesController extends AppController{
 
 				if(isset($_SESSION['conversation'])){
 
-					$convo_users = $this->convoUsersDAO->getUserByConversationId($conversation['conversation_id']);
+					if(!empty($conversation)){
+						$convo_users = $this->convoUsersDAO->getUserByConversationId($conversation['conversation_id']);
+					}
 
 					if(!empty($_GET['part'])){
 						$offset = intval($_GET['part']);
-						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*$offset);
+						if(!empty($conversation)){
+							$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*$offset);
+						}
 					}else{
-						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
+						if(!empty($conversation)){
+							$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
+						}
 					}
 					
 				}

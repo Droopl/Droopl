@@ -329,15 +329,15 @@ class UserController extends AppController{
 
 						if(!empty($register)){
 							$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
-
+							$followed = $this->followDAO->addFollow($register['id'],$register['id']);
+							$loginUser = $this->userDAO->loginUser($register['email'],$register['password']);
+							if(!empty($loginUser)){
+								$_SESSION['user'] = $loginUser;
+							}
 							$message = "true ".$code["id"]." ".$code["code"];
 						}
 					}
 			}
-
-
-			
-
 			echo $message;
 
 			exit();
