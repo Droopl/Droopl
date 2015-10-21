@@ -158,7 +158,7 @@ WHERE u.id = :id';
 		$stmt->bindValue(':password',$pass);
 		$stmt->bindValue(':lang',$selected_lang);
 		$stmt->bindValue(':latitude',$latitude);
-		$stmt->bindValue(':longitude',$latitude);
+		$stmt->bindValue(':longitude',$longitude);
 
 
 		if($stmt->execute()){
