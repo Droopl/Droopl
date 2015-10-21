@@ -102,7 +102,6 @@
             <ul>
                 <li class="current"></li>
                 <li></li>
-                <li></li>
             </ul>
         </nav>
         

@@ -69,6 +69,14 @@ article.register div.register-box div.container section form aside.right {
 
 /* STEP 1 */
 
+article.register div.register-box div.container section.step_1 {
+    display: none;
+}
+
+article.register div.register-box div.container section.step_2 {
+    display: none;
+}
+
 article.register div.register-box div.container section.step_1 form {
     display: block;
     float: left;
@@ -723,6 +731,7 @@ article.register div.register-box div.container section.step_3 aside.left h1 {
     font-size: 1.8em;
     color: #F47D67;
     margin-bottom: 15px;
+    margin-top: 50px;
     letter-spacing: 2px;
     opacity: .9;
 }
