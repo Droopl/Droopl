@@ -438,7 +438,7 @@
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
 		<?php } ?>
-		<h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
+		<h2 <?php if(isset($_SESSION['user']) && $value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
 
 		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
 			echo $value['views']." views";
