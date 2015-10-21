@@ -162,7 +162,7 @@ class UserController extends AppController{
 		$latitude = "";
 		$longitude = "";
 
-		$message = true;
+		$message = 1;
 
 		if(!empty($_POST)){
 
@@ -173,49 +173,49 @@ class UserController extends AppController{
 
 				if(!empty($_POST['first'])){
 						$step1["first"] = $_POST['first'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['last'])){
 						$step1["last"] = $_POST['last'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['mail'])){
 						$step1["mail"] = $_POST['mail'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 
 					if(!empty($_POST['pass']) && $_POST['pass'] == $_POST['repeat_pass']){
 						$step1["pass"] = $_POST['pass'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 
 					if(!empty($_POST['birth_date'])){
 						$step1["birth"] = $_POST['birth_date'];
-						$message = true;
+						$message = 1;
 						//$date = DateTime::createFromFormat('Y-M-j', $_POST['birth_date']);
 
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['selected-lang'])){
 						$step1["lang"] = $_POST['selected-lang'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['gender'])){
 						$step1["gender"] = $_POST['gender'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					$step1["profile_image"] = "";
 					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
@@ -249,62 +249,62 @@ class UserController extends AppController{
 					if(!empty($step1)){
 						$_SESSION['register_step1'] = $step1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 			}else{
 				$step2 = array();
 
 				if(!empty($_POST['street'])){
 						$step2["street"] = $_POST['street'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['number'])){
 						$step2["number"] = $_POST['number'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['zipcode'])){
 						$step2["zipcode"] = $_POST['zipcode'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 
 					if(!empty($_POST['city']) ){
 						$step2["city"] = $_POST['city'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 
 					if(!empty($_POST['country'])){
 						$step2["country"] = $_POST['country'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['latitude'])){
 						$step2["latitude"] = $_POST['latitude'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 					if(!empty($_POST['longitude'])){
 						$step2["longitude"] = $_POST['longitude'];
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 
 					if(!empty($step2)){
 
 						$_SESSION['register_step2'] = $step2;
-						$message = true;
+						$message = 1;
 					}else{
-						$message = false;
+						$message = 0;
 					}
 			}
 
