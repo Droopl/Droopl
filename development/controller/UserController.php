@@ -306,35 +306,37 @@ class UserController extends AppController{
 					}else{
 						$message = 0;
 					}
+
+					if(isset($_SESSION['register_step1']) && isset($_SESSION['register_step2'])){
+
+						$first = $_SESSION['register_step1']['first'];
+						$last = $_SESSION['register_step1']['last'];
+						$mail = $_SESSION['register_step1']['mail'];
+						$pass = $_SESSION['register_step1']['pass'];
+						$birth = $_SESSION['register_step1']['birth'];
+						$selected_lang = $_SESSION['register_step1']['lang'];
+						$gender = $_SESSION['register_step1']['gender'];
+						$picture = $_SESSION['register_step1']['profile_image'];
+						$street = $_SESSION['register_step2']['street'];
+						$number = $_SESSION['register_step2']['number'];
+						$zipcode = $_SESSION['register_step2']['zipcode'];
+						$city = $_SESSION['register_step2']['city'];
+						$country = $_SESSION['register_step2']['country'];
+						$latitude = $_SESSION['register_step2']['latitude'];
+						$longitude = $_SESSION['register_step2']['longitude'];
+
+						$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
+
+						if(!empty($register)){
+							$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
+
+							$message = "true ".$code["id"]." ".$code["code"];
+						}
+					}
 			}
 
 
-			if(isset($_SESSION['register_step1']) && isset($_SESSION['register_step2'])){
-
-				$first = $_SESSION['register_step1']['first'];
-				$last = $_SESSION['register_step1']['last'];
-				$mail = $_SESSION['register_step1']['mail'];
-				$pass = $_SESSION['register_step1']['pass'];
-				$birth = $_SESSION['register_step1']['birth'];
-				$selected_lang = $_SESSION['register_step1']['lang'];
-				$gender = $_SESSION['register_step1']['gender'];
-				$picture = $_SESSION['register_step1']['profile_image'];
-				$street = $_SESSION['register_step2']['street'];
-				$number = $_SESSION['register_step2']['number'];
-				$zipcode = $_SESSION['register_step2']['zipcode'];
-				$city = $_SESSION['register_step2']['city'];
-				$country = $_SESSION['register_step2']['country'];
-				$latitude = $_SESSION['register_step2']['latitude'];
-				$longitude = $_SESSION['register_step2']['longitude'];
-
-				$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
-
-				if(!empty($register)){
-					$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
-
-					$message = "true ".$code["id"]." ".$code["code"];
-				}
-			}
+			
 
 			echo $message;
 
