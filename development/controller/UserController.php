@@ -162,7 +162,7 @@ class UserController extends AppController{
 		$latitude = "";
 		$longitude = "";
 
-		$message = 1;
+		$message = 0;
 
 		if(!empty($_POST)){
 
