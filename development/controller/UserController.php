@@ -217,7 +217,7 @@ class UserController extends AppController{
 					}else{
 						$message = false;
 					}
-
+					$step1["profile_image"] = "";
 					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
 
 						$max_file_size = 1024*100000; // 200kb
@@ -244,8 +244,6 @@ class UserController extends AppController{
 							    $msg = 'Please upload image smaller than 200KB';
 						  	}
 					  	}
-					}else{
-						$step1["profile_image"] = "";
 					}
 
 					if(!empty($step1)){

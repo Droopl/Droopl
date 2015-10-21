@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <lang>
+	<menudash>Dashboard</menudash>
+	<menudash>Messages</menudash>
+	<menudash>Communities</menudash>
 	<menuprofile>My profile</menuprofile>
 	<menusettings>Settings</menusettings>
 	<menuabout>About</menuabout>
