@@ -316,22 +316,22 @@
 			        break;
 			    }
             ?></span></a></li>
-             <li><a class="com icon icon-command" href="?page=communities"><span><?php 
+            <li><a class="about icon icon-command" href="?page=about"><span><?php 
             switch ($_SESSION['language']) {
 			        case 'en':
-			        echo "communities";
+			        echo "About";
 			        break;
 
 			        case 'nl':
-			        echo "Maatchappijen";
+			        echo "Over ons";
 			        break;
 
 			        case 'fr':
-			        echo "Communauter";
+			        echo "About";
 			        break;
 			        
 			        default:
-			        echo "Communities";
+			        echo "About";
 			        break;
 			    }
             ?></span></a></li>
@@ -410,3 +410,6 @@
 	<header class="hide">
 		<h1>Droopl <?php echo $_GET["page"];?></h1>
 	</header>
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']['verification'] == "0"){ ?>
+	<section class="verif animated fadeInDown"><span class="icon-circle-check"></span>Your account hasn't been verified yes click <a href="?page=verification">here</a> to resend verification code</section>
+	<?php } ?>

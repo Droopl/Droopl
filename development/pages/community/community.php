@@ -1,4 +1,4 @@
-<aside id="side" class="profile fixed">
+<aside id="side" class="profile">
     
 	<section class="community">
         <header>
@@ -46,7 +46,7 @@
 
 
 
-<div class="feed fixed">
+<div class="feed">
     <section class="post">
         <form action="" method="post" name="quest" id="quest" enctype="multipart/form-data">
             <div>

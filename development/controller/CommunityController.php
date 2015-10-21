@@ -37,6 +37,8 @@ class CommunityController extends AppController{
 		$active = true;
 		$quests = [];
 		$image = "";
+		$page = 10;
+		$part = 0;
 
 		$community = [];
 		$users = [];
@@ -156,7 +158,12 @@ class CommunityController extends AppController{
 
 
 			}
-			$quests = $this->feedDAO->getQuestsByCommunity($_GET['id']);
+
+			if(!empty($_GET['part'])){
+				$part = intval($_GET['part']);
+			}
+
+			$quests = $this->feedDAO->getQuestsByCommunity($_GET['id'],$page*$part);
 
 		}else{
 

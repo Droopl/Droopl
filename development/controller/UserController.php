@@ -153,11 +153,17 @@ class UserController extends AppController{
 		$birth = "";
 		$selected_lang = "";
 		$gender = "";
-
-		$code = $this->generateValidationCode();
-		$this->verifDAO->addVerification("1",$code);
+		$picture = "";
+		$street = "";
+		$number = "";
+		$zipcode = "";
+		$city = "";
+		$country = "";
+		$latitude = "";
+		$longitude = "";
 
 		if(!empty($_POST)){
+
 			
 			if(!empty($_GET['step']) && $_GET['step'] == "1"){
 
@@ -192,21 +198,100 @@ class UserController extends AppController{
 					}
 
 					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
-						$step1["profile_image"] = $_FILES['profile_image'];
+
+						$max_file_size = 1024*100000; // 200kb
+						$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+						// thumbnail sizes
+						$sizes = array(700 => 700);
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['profile_image'])) {
+						  if( $_FILES['profile_image']['size'] < $max_file_size ){
+						    // get file extension
+						    $ext = strtolower(pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION));
+						    if(in_array($ext, $valid_exts)) {
+						      /* resize image */
+						      foreach ($sizes as $w => $h) {
+						        $files[] = $this->resize($w, $h);
+						      }
+						      $step1["profile_image"] = $files[0];
+
+						    } else {
+						      $msg = 'Unsupported file';
+						    }
+
+						  	}else{
+							    $msg = 'Please upload image smaller than 200KB';
+						  	}
+					  	}
 					}
 
 					if(!empty($step1)){
 						$_SESSION['register_step1'] = $step1;
-						print_r($_SESSION['register_step1']);
 					}
 				}
-				
+			}else{
+				$step2 = array();
+
+				if(!isset($_SESSION['register_step2'])){
+					if(!empty($_POST['street'])){
+						$step2["street"] = $_POST['street'];
+					}
+					if(!empty($_POST['number'])){
+						$step2["number"] = $_POST['number'];
+					}
+					if(!empty($_POST['zipcode'])){
+						$step2["zipcode"] = $_POST['zipcode'];
+					}
+
+					if(!empty($_POST['city']) ){
+						$step2["city"] = $_POST['city'];
+					}
+
+					if(!empty($_POST['country'])){
+						$step2["country"] = $_POST['country'];
+					}
+					if(!empty($_POST['latitude'])){
+						$step2["latitude"] = $_POST['latitude'];
+					}
+					if(!empty($_POST['longitude'])){
+						$step2["longitude"] = $_POST['longitude'];
+					}
+
+					if(!empty($step2)){
+
+						$_SESSION['register_step2'] = $step2;
+					}
+				}
 			}
 
-			if(!empty($_GET['step']) && $_GET['step'] == "2"){
-				echo "step 2";
-				print_r($_POST);
+
+			if(isset($_SESSION['register_step1']) && isset($_SESSION['register_step2'])){
+
+				$first = $_SESSION['register_step1']['first'];
+				$last = $_SESSION['register_step1']['last'];
+				$mail = $_SESSION['register_step1']['mail'];
+				$pass = $_SESSION['register_step1']['pass'];
+				$birth = $_SESSION['register_step1']['birth'];
+				$selected_lang = $_SESSION['register_step1']['lang'];
+				$gender = $_SESSION['register_step1']['gender'];
+				$picture = $_SESSION['register_step1']['profile_image'];
+				$street = $_SESSION['register_step2']['street'];
+				$number = $_SESSION['register_step2']['number'];
+				$zipcode = $_SESSION['register_step2']['zipcode'];
+				$city = $_SESSION['register_step2']['city'];
+				$country = $_SESSION['register_step2']['country'];
+				$latitude = $_SESSION['register_step2']['latitude'];
+				$longitude = $_SESSION['register_step2']['longitude'];
+
+				$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
+
+				if(!empty($register)){
+					$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
+
+					echo "Your registration is complete her is your code = ".$code;
+				}
 			}
+			
 		}
 	}
 	
@@ -264,6 +349,79 @@ class UserController extends AppController{
 
 	private function generateValidationCode($length = 4) {
 	    $characters = '0123456789';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
+
+
+	function resize($width, $height){
+		/* Get original image x y*/
+		list($w, $h) = getimagesize($_FILES['profile_image']['tmp_name']);
+		/* calculate new image size with ratio */
+		$old_x          =   $w;
+	    $old_y          =   $h;
+	    $new_height = $width;
+	    $new_width = $height;
+
+	    if($old_x > $old_y) 
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $old_y*($new_height/$old_x);
+	    }
+
+	    if($old_x < $old_y) 
+	    {
+	        $thumb_w    =   $old_x*($new_width/$old_y);
+	        $thumb_h    =   $new_height;
+	    }
+
+	    if($old_x == $old_y) 
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $new_height;
+	    }
+		/* new file name */
+		$randomname = $this->generateRandomString();
+		$banner = $randomname.".jpg";
+
+		$path = WWW_ROOT . 'images' . DS .'profile_pictures'.DS.$banner;
+		/* read binary data from image file */
+		$imgString = file_get_contents($_FILES['profile_image']['tmp_name']);
+
+		/* create image from string */
+		$image = imagecreatefromstring($imgString);
+		$tmp = imagecreatetruecolor($thumb_w,$thumb_h);
+		imagecopyresampled($tmp,$image,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
+		/* Save image */
+		switch ($_FILES['profile_image']['type']) {
+			case 'image/jpeg':
+			  imagejpeg($tmp, $path, 100);
+			  break;
+			case 'image/png':
+			  imagepng($tmp, $path, 0);
+			  break;
+			case 'image/gif':
+			  imagegif($tmp, $path);
+			  break;
+			default:
+			  exit;
+			  break;
+	}
+	
+	return $banner;
+	/* cleanup memory */
+	imagedestroy($image);
+	imagedestroy($tmp);
+
+	}
+
+
+	private function generateRandomString($length = 10) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	    $charactersLength = strlen($characters);
 	    $randomString = '';
 	    for ($i = 0; $i < $length; $i++) {

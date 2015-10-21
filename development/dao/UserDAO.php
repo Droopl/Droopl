@@ -12,9 +12,9 @@ class UserDAO{
 
 	}
 
-	public function register($lastName,$name,$email,$password,$picture){
+	public function register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
 
-		return $this->addUser($lastName,$name,$email,$password,$picture);
+		return $this->addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
 
 	}
 	public function getUserCount()
@@ -125,13 +125,41 @@ WHERE u.id = :id';
 		return array();
 	}
 
+	public function verifyUser($id){
 
-	public function addUser($ip){
 
-		$sql = 'INSERT INTO`user` (`ip`)
-		VALUES (:ip)';
+		$sql = "UPDATE `users` SET verification = '1' WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":id",$id);
+
+        if($stmt->execute()){
+
+            return true;
+        }
+        return false;
+	}
+
+
+	public function addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
+
+		$sql = 'INSERT INTO `users` (`firstname`, `lastname`, `email`, `picture`, `age`, `gender`, `street`, `nr`, `zipcode`, `city`, `country`, `password`, `occupation`, `number`, `status`, `verification`, `description`, `lang`, `latitude`, `longitude`) VALUES (:firstname, :lastname, :email, :picture, :age, :gender, :street, :nr, :zipcode, :city, :country, :password, "No occupation", "No Number", "0", "0", "No Desciption", :lang, :latitude, :longitude);';
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':ip',$ip);
+		$stmt->bindValue(':firstname',$first);
+		$stmt->bindValue(':lastname',$last);
+		$stmt->bindValue(':email',$mail);
+		$stmt->bindValue(':picture',$picture);
+		$stmt->bindValue(':age',$birth);
+		$stmt->bindValue(':gender',$gender);
+		$stmt->bindValue(':street',$street);
+		$stmt->bindValue(':nr',$number);
+		$stmt->bindValue(':zipcode',$zipcode);
+		$stmt->bindValue(':city',$city);
+		$stmt->bindValue(':country',$country);
+		$stmt->bindValue(':password',$pass);
+		$stmt->bindValue(':lang',$selected_lang);
+		$stmt->bindValue(':latitude',$latitude);
+		$stmt->bindValue(':longitude',$latitude);
+
 
 		if($stmt->execute()){
 

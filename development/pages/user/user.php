@@ -1,4 +1,4 @@
-<aside id="side" class="profile fixed">
+<aside id="side" class="profile">
     
 	<section class="profile">
         <header>
@@ -71,7 +71,7 @@
 
 
 
-<div class="feed fixed">
+<div class="feed">
     
     <section class="filter">
         <ul class="filter-ul">

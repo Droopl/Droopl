@@ -21,7 +21,7 @@ class VerificationDAO
 
 		if($stmt->execute()){
 
-			$verification = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$verification = $stmt->fetch(PDO::FETCH_ASSOC);
 
 			if(!empty($verification)){
 
@@ -30,6 +30,39 @@ class VerificationDAO
 
 		}
 		return array();
+	}
+
+	public function getVerificationById($id){
+
+		$sql = 'SELECT * FROM `verification` WHERE id = :id';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(":id",$id);
+
+		if($stmt->execute()){
+
+			$verification = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($verification)){
+
+				return $verification;
+			}
+
+		}
+		return array();
+	}
+
+	public function verifyUser($id){
+
+
+		$sql = "UPDATE `verification` SET verified = '1' WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":id",$id);
+
+        if($stmt->execute()){
+
+            return true;
+        }
+        return false;
 	}
 
 
