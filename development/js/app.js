@@ -931,6 +931,8 @@ $(function  () {
         $("article.register div.register-box div.container section.step_1 form").on("submit",function(e){
             e.preventDefault();
             
+
+            
             var formData = new FormData($(this)[0]);
             var inputs = $("article.register div.register-box div.container section.step_1 form aside.left input");
             var filled = true;
@@ -947,18 +949,50 @@ $(function  () {
             if(!pattern.test($("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").val())){
                 filled = false;
                 $("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").css("color","#F47D67");
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").on("focus",focusMail);
             }else{
                 $("article.register div.register-box div.container section.step_1 form aside.left input[type='email']").css("color","#3E454C");
             }
             
+            function focusMail(){
+                $(this).css("color","#3E454C");
+            }
+            
             if($("article.register div.register-box div.container section.step_1 form aside.left input[type='password']#pass").val() != $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']#repeat_pass").val()){
                 $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").css("color","#F47D67");
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").on("focus",focusPass);
                 filled = false;
             }else{
                 $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").css("color","#3E454C");
             }
             
-            console.log(filled);
+            function focusPass(){
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='password']").css("color","#3E454C");
+            }
+            
+            var dateValue = $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").val();
+            dateValue = dateValue.split("-");
+            var day = dateValue[2];
+            var month = dateValue[1];
+            var year = dateValue[0];
+            var clickedDate = day + "/" + month + "/" + year;
+            $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").attr("placeholder",clickedDate);
+            
+            var selectedDate = new Date();
+            selectedDate.setFullYear(year, month - 1, day);
+            
+            var maxDate = new Date();
+            maxDate.setYear(maxDate.getYear() - 16);
+            
+            if (maxDate < selectedDate) {
+                filled = false;
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").attr("placeholder","Must be older than 16");
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").css("color","#F47D67");
+                $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").focus(function(){
+                    $(this).css("color","#A9A9A9");
+                    $(this).attr("placeholder","Date of birth");
+                });
+            }
             
             
             if(filled){
@@ -973,15 +1007,17 @@ $(function  () {
                     processData: false,
                     success:function (data) {
                         console.log(data);
+                        
+                        if(data == 1){
 
-                        $("article.register div.register-box div.container section.step_1").addClass("completed");
-                        $("article.register div.register-box nav.pages ul li.current").addClass("filled");
-                        $("article.register div.register-box div.container").stop().animate({left: -800});
-                        var current = $("article.register div.register-box nav.pages ul li.current").next();
-                        $("article.register div.register-box nav.pages ul li").removeClass("current");
-                        current.addClass("current");
-
-
+                            $("article.register div.register-box div.container section.step_1").addClass("completed");
+                            $("article.register div.register-box nav.pages ul li.current").addClass("filled");
+                            $("article.register div.register-box div.container").stop().animate({left: -800});
+                            var current = $("article.register div.register-box nav.pages ul li.current").next();
+                            $("article.register div.register-box nav.pages ul li").removeClass("current");
+                            current.addClass("current");
+                            
+                        }
 
                     }
                 });
@@ -1014,15 +1050,17 @@ $(function  () {
                     processData: false,
                     success:function (data) {
                         console.log(data);
+                        
+                        if(data == 1){
 
-                        $("article.register div.register-box div.container section.step_2").addClass("completed");
-                        $("article.register div.register-box nav.pages ul li.current").addClass("filled");
-                        $("article.register div.register-box div.container").stop().animate({left: -1600});
-                        var current = $("article.register div.register-box nav.pages ul li.current").next();
-                        $("article.register div.register-box nav.pages ul li").removeClass("current");
-                        current.addClass("current");
+                            $("article.register div.register-box div.container section.step_2").addClass("completed");
+                            $("article.register div.register-box nav.pages ul li.current").addClass("filled");
+                            $("article.register div.register-box div.container").stop().animate({left: -1600});
+                            var current = $("article.register div.register-box nav.pages ul li.current").next();
+                            $("article.register div.register-box nav.pages ul li").removeClass("current");
+                            current.addClass("current");
 
-
+                        }
 
                     }
                 });
