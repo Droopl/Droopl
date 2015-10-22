@@ -73,7 +73,7 @@
             </section>
             <section class="step_3">
                 <aside class="left">
-                    <form id="validation_form">
+                    <form action="?page=verification" id="validation_form" method="post">
                         <h1>One more step</h1>
                         <p>Insert the 4-digit code we just sent you by email to validate your account</p>
                         <span class="icon-unlock"></span>

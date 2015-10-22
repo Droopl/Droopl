@@ -8,9 +8,10 @@
 
 	<div>
 		<p class="animated fadeInUp">
-			Our communities will help bring people who have the same intrests closer than ever.
-			Trade with your friends, neigbours or colleges even goats ? We give you the freedom to
-			create your own community and give it a life of its own. 
+			Bij Droopl bestaan we uit een team van 5 personen. Binnen ons team is er geen sprake van hiërarchie. 
+			Alle belangrijke beslissingen (ongeacht welk aspect) worden in groep genomen, met unanimiteit als streefdoel. 
+			Het droopl-team bestaat uit een diverse studie-achtergrond.  Ieders bijdrage bestaat hierdoor uit raadgevingen 
+			die in het verlengde van zijn gedane studies liggen. We lichten hieronder elk teammember voor.
 		</p>
 	</div>
 	</div>
@@ -26,11 +27,12 @@
 					<h2>Co-owner</h2>
 				</header>
 				<p>
-					Aliquam commodo, leo at congue molestie, lectus arcu vulputate lacus, 
-					ut feugiat est eros eu ex. Pellentesque ut lorem urna. Donec risus 
-					lorem, ornare vel egestas id, mollis quis metus. Aenean in placerat 
-					neque, id semper nibh. Sed vitae nisi tellus. Vivamus vitae sem 
-					at ante pretium rhoncus.
+					Student aan de Hub te Brussel. Mourad is bezig aan zijn laatste jaar 
+					handelswetenschappen. Binnen droopl is hij een medeoprichter en heeft 
+					hij de nodige financiële kennis. Zo is hij verantwoordelijk voor een 
+					betrouwbare, volledige vastlegging en opvolging van de 
+					bedrijfsadministratie en adviseert hij overige teammembers 
+					bij administratieve beslissingen.
 				</p>
 				<footer>
 				</footer>
@@ -43,11 +45,11 @@
 					<h2>Co-owner</h2>
 				</header>
 				<p>
-					Aliquam commodo, leo at congue molestie, lectus arcu vulputate lacus, 
-					ut feugiat est eros eu ex. Pellentesque ut lorem urna. Donec risus 
-					lorem, ornare vel egestas id, mollis quis metus. Aenean in placerat 
-					neque, id semper nibh. Sed vitae nisi tellus. Vivamus vitae sem 
-					at ante pretium rhoncus.
+					Afgestudeerd aan de Thomas More te Antwerpen als psychologisch consulent. 
+					Binnen droopl is hij een medeoprichter en staat hij in voor de externe 
+					woordvoerdingen en rekruteringen binnen het bedrijf. Als Spokesman 
+					functioneert Manu als schakel tussen droopl en externe mediakanalen 
+					met de nodige informatieverstrekkingen. 
 				</p>
 				<footer>
 				</footer>
@@ -60,11 +62,12 @@
 					<h2>Co-owner</h2>
 				</header>
 				<p>
-					Aliquam commodo, leo at congue molestie, lectus arcu vulputate lacus, 
-					ut feugiat est eros eu ex. Pellentesque ut lorem urna. Donec risus 
-					lorem, ornare vel egestas id, mollis quis metus. Aenean in placerat 
-					neque, id semper nibh. Sed vitae nisi tellus. Vivamus vitae sem 
-					at ante pretium rhoncus.
+					Student aan de Thomas More te Mechelen. Daniël is bezig aan zijn laatste 
+					jaar bedrijfsmanagement marketing. Binnen droopl is Daniël een medeoprichter 
+					en staat hij in voor de marketingstrategieën van het bedrijf. Zo houdt Daniël 
+					zich bezig met het marketingbeleid (opstellen van de marketingplannen, 
+					marktpositionering &amp; strategie) van onze organisatie. 
+
 				</p>
 				<footer>
 				</footer>
@@ -77,11 +80,11 @@
 					<h2>Co-owner / Designer / Developer</h2>
 				</header>
 				<p>
-					Aliquam commodo, leo at congue molestie, lectus arcu vulputate lacus, 
-					ut feugiat est eros eu ex. Pellentesque ut lorem urna. Donec risus 
-					lorem, ornare vel egestas id, mollis quis metus. Aenean in placerat 
-					neque, id semper nibh. Sed vitae nisi tellus. Vivamus vitae sem 
-					at ante pretium rhoncus.
+					Student aan de EhB te Brussel waar Boris de richting ‘Multec’ studeert. 
+					Binnen droopl is hij een medeoprichter en functioneert hij als IT’r. 
+					Zo is Boris mee verantwoordelijk voor het sturen, ontwikkelen, implementeren 
+					en onderhouden van onze site, APP en computersystemen. 
+
 				</p>
 				<footer>
 				</footer>
@@ -94,11 +97,10 @@
 					<h2>Co-owner / Designer / Developer</h2>
 				</header>
 				<p>
-					Aliquam commodo, leo at congue molestie, lectus arcu vulputate lacus, 
-					ut feugiat est eros eu ex. Pellentesque ut lorem urna. Donec risus 
-					lorem, ornare vel egestas id, mollis quis metus. Aenean in placerat 
-					neque, id semper nibh. Sed vitae nisi tellus. Vivamus vitae sem 
-					at ante pretium rhoncus.
+					Student aan de EhB te Brussel waar Rachouan de richting ‘Multec’ studeert. 
+					Binnen droopl is hij een medeoprichter en functioneert hij als IT’r. Zo is 
+					Rachouan verantwoordelijk voor het sturen, ontwikkelen, implementeren en 
+					onderhouden van onze site, APP en computersystemen. 
 				</p>
 				<footer>
 				</footer>

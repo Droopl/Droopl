@@ -170,6 +170,7 @@
         echo $result;
 
         ?></h2>
+        <?php if($value['id'] == $_SESSION['user']['id']){?>
         <nav>
             <ul>
                 <li class="options">
@@ -184,6 +185,7 @@
                 </li>
             </ul>
         </nav>
+        <?php } ?>
         </header>
         <aside class="info">
             <p>

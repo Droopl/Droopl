@@ -225,7 +225,7 @@ class FeedController extends AppController{
 	    			if($quest['id'] == $_SESSION['user']['id']){
 	    				$removed = $this->feedDAO->removeQuest($quest['quest_id']);
 	    				if($removed){
-	    					$this->redirect("?page=user&id="+$_SESSION['user']['id']);
+	    					$this->redirect("?page=user&id=".$_SESSION['user']['id']);
 	    				}
 	    			}
 	    		}

@@ -1,4 +1,4 @@
-<?php if($_GET['page'] != "login" && $_GET['page'] != "search" && $_GET['page'] != "about" && $_GET['page'] != "messages" && $_GET['page'] != "404" && $_GET['page'] != "register" && $_GET['page'] != "communities"){ ?>
+<?php if($_GET['page'] != "login" && $_GET['page'] != "search" && $_GET['page'] != "verification" && $_GET['page'] != "about" && $_GET['page'] != "messages" && $_GET['page'] != "404" && $_GET['page'] != "register" && $_GET['page'] != "communities"){ ?>
 <section class="chat">
     <ul>
         <li class="animated fadeIn new-conversation">

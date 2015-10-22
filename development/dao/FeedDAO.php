@@ -13,7 +13,7 @@ class FeedDAO
 	}
 	public function getQuestCount()
 	{
-		$sql = 'SELECT COUNT(q.quest_id) AS quest_count FROM quests q WHERE q.quest_id > 0';
+		$sql = 'SELECT COUNT(q.quest_id) AS quest_count FROM quests q WHERE q.quest_id > 0 AND q.active != 0';
 		$stmt = $this->pdo->prepare($sql);
 
 		if($stmt->execute()){

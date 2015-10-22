@@ -1085,20 +1085,30 @@ $(function  () {
             
         });
         
-        $("article.register div.register-box div.container section.step_3 aside.left form").on("submit",function(e){
-            e.preventDefault();
-            
+        /*$("article.register div.register-box div.container section.step_3 aside.left form").on("submit",function(e){
+
+          e.preventDefault();
+
+          var valid = true;
+
             var inputs = $("article.register div.register-box div.container section.step_3 aside.left ul li input[type='text']");
             var typedCode = "";
             $.each(inputs,function(key,input){
                 typedCode += $(input).val();
             });
             console.log(validationCodeId);
+
+            if(typedCode.length < 4){
+              valid = false;
+            }else{
+              var url = "?page=verification&code="+typedCode+"&id="+validationCodeId;
+              $(this).attr("action",url);
+            }
             
-            $.get("?page=verification&code="+typedCode+"&id="+validationCodeId,function(data){
-                console.log(data);
-            });
-        });
+
+            if (valid) this.submit();
+            
+        });*/
         
         $("article.register div.register-box div.container section.step_2 aside.left form input[type='text']#search_location").on("keyup",function(e){
             switch(e.keyCode){
