@@ -23,15 +23,14 @@ class AppController {
 
 		if(isset($_SESSION['user'])){
 			$lang = $_SESSION['user']['lang'];
-		}
+			$file = WWW_ROOT . 'includes' .DS.'languages' .DS.$lang.DS. 'lang.xml';
 
-		if(!isset($_SESSION['lang'])){
-			$file = WWW_ROOT . 'includes' .DS.'languages' .DS. $lang.DS. 'lang.xml';
 			$sxe = new SimpleXMLElement($file, NULL, TRUE);
 
 			 $xml = (array) $sxe;
 			 $_SESSION['lang'] = $xml;
 		}
+
 	}
 	public function notifications(){
 		require_once WWW_ROOT . 'dao' .DS. 'NotificationsDAO.php';
@@ -85,8 +84,7 @@ class AppController {
 	{
 		if(isset($_GET["action"]) && $_GET['action'] == 'logout'){
 
-			unset($_SESSION['user']);
-			unset($_SESSION['lang']);
+			session_unset();
 			header("location:?page=login");
 		}
 	}

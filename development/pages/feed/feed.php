@@ -1,26 +1,6 @@
 <aside id="side">
 	<section class="quest">
-		<h1><?php 
-
-		switch ($_SESSION['language']) {
-	        case 'en':
-	        echo "Quests";
-	        break;
-
-	        case 'nl':
-	        echo "Zoekers";
-	        break;
-
-	        case 'fr':
-	        echo "Quêtes";
-	        break;
-	        
-	        default:
-	        echo "Quests";
-	        break;
-	    } 
-	    ?>
-		</h1>
+		<h1><?php  echo $_SESSION['lang']['sidequest']; ?></h1>
 		<ul>
 			<?php foreach ($publicquests as $id => $val) { ?>
 			<li>
@@ -30,43 +10,7 @@
 					<?php }else{ ?>
 					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 					<?php }?>
-					<p><span><?php echo $val['firstname']; echo " "; echo $val['lastname'];?></span> <?php if($val['type'] == 0){ 
-
-            switch ($_SESSION['language']) {
-                case 'en':
-                echo "is looking for ";
-                break;
-
-                case 'nl':
-                echo "zoekt ";
-                break;
-
-                case 'fr':
-                echo "cherche ";
-                break;
-
-                default:
-                echo "is looking for ";
-                break;
-            } 
-	    }else{ switch ($_SESSION['language']) {
-                case 'en':
-                echo "is offering ";
-                break;
-
-                case 'nl':
-                echo "biedt aan ";
-                break;
-
-                case 'fr':
-                echo "propose ";
-                break;
-
-                default:
-                echo "is offering ";
-                break;
-            }
-            }?> <span>
+					<p><span><?php echo $val['firstname']; echo " "; echo $val['lastname'];?></span> <?php if($val['type'] == 0){ echo $_SESSION['lang']['questlooking'];  }else{  echo $_SESSION['lang']['questoffering'];}?> <span>
             <?php if($val['type'] == 0){  echo $val['item']; }else{ echo $val['item_name']; } ?>
              </span></p>
 				</a>
@@ -77,26 +21,7 @@
 		</ul>
 	</section>
     <section class="collection">
-        <h1><?php 
-
-		switch ($_SESSION['language']) {
-	        case 'en':
-	        echo "My collection";
-	        break;
-
-	        case 'nl':
-	        echo "Mijn collectie";
-	        break;
-
-	        case 'fr':
-	        echo "Ma collection";
-	        break;
-	        
-	        default:
-	        echo "My collection";
-	        break;
-	    } 
-	    ?></h1>
+        <h1><?php  echo $_SESSION['lang']['sidecollection']; ?></h1>
         
         <?php if(!empty($collection)){ ?>
             
@@ -141,26 +66,7 @@
         </ul>-->
     </section>
 	<section class="activity">
-		<h1><?php 
-
-		switch ($_SESSION['language']) {
-	        case 'en':
-	        echo "Activity";
-	        break;
-
-	        case 'nl':
-	        echo "Activiteit";
-	        break;
-
-	        case 'fr':
-	        echo "Activité";
-	        break;
-	        
-	        default:
-	        echo "Activity";
-	        break;
-	    } 
-	    ?></h1>
+		<h1><?php  echo $_SESSION['lang']['sideactivity']; ?></h1>
 		<ul class="progress">
 		  <!--  Item  -->
 		  <li data-name="<?php if(!($propocount['propocount'] >= 1000)){ echo $propocount['propocount']; }else{ echo round($propocount['propocount'],1) . "K"; } ?> propos" data-percent="30%"> <svg viewBox="-10 -10 220 220">
@@ -221,7 +127,7 @@
 </ul>
 	</section>
 	<section class="communities">
-		<header><h1>Communities</h1></header>
+		<header><h1><?php  echo $_SESSION['lang']['sidecommunities']; ?></h1></header>
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
@@ -235,45 +141,9 @@
     
     <section class="filter">
         <ul class="filter-ul">
-            <li><a href="?filter=recent" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'recent'){ echo 'class="current-filter"';} ?>>Recent</a></li>
-            <li><a href="?filter=popular" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'popular'){ echo 'class="current-filter"';} ?>><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Popular";
-			        break;
-
-			        case 'nl':
-			        echo "Populair";
-			        break;
-
-			        case 'fr':
-			        echo "Populaire ";
-			        break;
-			        
-			        default:
-			        echo "Popular";
-			        break;
-			    }
-            ?></a></li>
-            <li><a href="?filter=nearby" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'nearby'){ echo 'class="current-filter"';} ?>><?php 
-            switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "Nearby";
-			        break;
-
-			        case 'nl':
-			        echo "Dichtbij";
-			        break;
-
-			        case 'fr':
-			        echo "À proximité ";
-			        break;
-			        
-			        default:
-			        echo "Nearby";
-			        break;
-			    }
-            ?></a></li>
+            <li><a href="?filter=recent" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'recent'){ echo 'class="current-filter"';} ?>><?php  echo $_SESSION['lang']['filterrecent']; ?></a></li>
+            <li><a href="?filter=popular" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'popular'){ echo 'class="current-filter"';} ?>><?php  echo $_SESSION['lang']['filterpopu']; ?></a></li>
+            <li><a href="?filter=nearby" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'nearby'){ echo 'class="current-filter"';} ?>><?php  echo $_SESSION['lang']['filternearby']; ?></a></li>
         </ul>
     </section>
 
@@ -378,44 +248,12 @@
 					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 					<?php }?>
 			<h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
-				switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "is looking for ";
-			        break;
-
-			        case 'nl':
-			        echo "zoekt een ";
-			        break;
-
-			        case 'fr':
-			        echo "cherche ";
-			        break;
-			        
-			        default:
-			        echo "is offering ";
-			        break;
-    			} 
+				echo $_SESSION['lang']['questlooking'];
 			}else{ 
 
-				switch ($_SESSION['language']) {
-			        case 'en':
-			        echo "is offering ";
-			        break;
+				echo $_SESSION['lang']['questoffering'];
 
-			        case 'nl':
-			        echo "biedt aan ";
-			        break;
-
-			        case 'fr':
-			        echo "propose ";
-			        break;
-			        
-			        default:
-			        echo "is offering ";
-			        break;
-			    }
-
-}?><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
+}?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
 		<?php } ?>
@@ -488,8 +326,8 @@
 			 ?>
 		</aside>
 		<footer>
-			<a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> proposals</a>
-			<a href="" class="shares icon-upload"> 15 shares</a>
+			<a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropo']; ?></a>
+			<a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
 		</footer>
 	</section>
     

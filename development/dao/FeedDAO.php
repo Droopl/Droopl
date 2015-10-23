@@ -192,7 +192,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE f.user_id = :user_id
+        WHERE f.user_id = :user_id AND q.active = 1
         GROUP BY q.quest_id
         ORDER BY q.views DESC LIMIT 10 OFFSET :offset';
 		$stmt = $this->pdo->prepare($sql);
@@ -225,7 +225,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE q.quest_id = :quest_id';
+        WHERE q.quest_id = :quest_id AND q.active = 1';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':quest_id',$quest_id);
 
@@ -262,9 +262,9 @@ class FeedDAO
 			FROM quests AS q
 			LEFT OUTER JOIN users AS u
 	        on q.user_id = u.id
-	        WHERE q.item LIKE :item
+	        WHERE q.item LIKE :item AND q.active = 1
 	        GROUP BY q.quest_id
-	        ORDER BY q.creation_date DESC";
+	        ORDER BY q.creation_date DESC ";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':item',$item."%");
 			if($stmt->execute()){
@@ -296,7 +296,7 @@ class FeedDAO
         on q.quest_id = o.quest_id
         LEFT OUTER JOIN collection AS c
         on o.collection_id = c.collection_id
-        WHERE q.user_id = :user_id
+        WHERE q.user_id = :user_id AND q.active = 1
         GROUP BY q.quest_id
         ORDER BY q.creation_date DESC';
 			$stmt = $this->pdo->prepare($sql);

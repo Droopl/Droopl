@@ -74,7 +74,7 @@
 <article class="search">
 
         <form>
-            <input type="text" id="search_full" name="search_full" value="" placeholder="What are you looking for ?" autocomplete="off">
+            <input type="text" id="search_full" name="search_full" value="" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" autocomplete="off">
             <a href="?page=home" class="close"><span class="hide">close</span></a>
         </form>
         
@@ -252,21 +252,21 @@
             <form action="?page=feedback" method="post">
                 <header>
                     <img src="images/assets/droopl_logo.svg">
-                    <h1>Keep droopl fun by giving us some feedback to improve your experience</h1>
+                    <h1><?php echo $_SESSION['lang']['feedbacktitle']; ?></h1>
                     <div class="type">
                         <div>
                             <input type="radio" id="type" name="type" checked="checked" value="0">
-                            <label id="type"><p>Feedback</p></label>
+                            <label id="type"><p><?php echo $_SESSION['lang']['feedback']; ?></p></label>
                         </div>
 
                         <div>
                             <input type="radio" id="type" name="type" value="1">
-                            <label id="type"><p>Bug</p></label>
+                            <label id="type"><p><?php echo $_SESSION['lang']['feedbackbug']; ?></p></label>
                         </div>
                         
                     </div>
                 </header>
-                <textarea placeholder="I wish I cloud ..." required id="feedback" name="feedback"></textarea>
+                <textarea placeholder="<?php echo $_SESSION['lang']['feedbackText']; ?>" required id="feedback" name="feedback"></textarea>
                 <input type="submit" id="feedback_btn" name="feedback_btn" value="send feedback">
             </form>
         </section>

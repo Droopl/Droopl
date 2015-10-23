@@ -79,9 +79,9 @@
     
     <section class="filter">
         <ul class="filter-ul">
-            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=quests" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'quests'){ echo 'class="current-filter"';} ?>>Quests</a></li>
-            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=collection" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'collection'){ echo 'class="current-filter"';} ?>>Collection</a></li>
-            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=followers" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'followers'){ echo 'class="current-filter"';} ?>>Followers</a></li>
+            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=quests" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'quests'){ echo 'class="current-filter"';} ?>><?php echo $_SESSION['lang']['filterquests']; ?></a></li>
+            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=collection" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'collection'){ echo 'class="current-filter"';} ?>><?php echo $_SESSION['lang']['filtercollection']; ?></a></li>
+            <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=followers" <?php if(isset($_GET['filter']) &&  $_GET['filter'] == 'followers'){ echo 'class="current-filter"';} ?>><?php echo $_SESSION['lang']['filterfollowers']; ?></a></li>
         </ul>
     </section>
 
@@ -96,44 +96,12 @@
 
             <img src="images/profile_pictures/<?php echo $value['picture'];?>">
             <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
-                switch ($_SESSION['language']) {
-                    case 'en':
-                    echo "is looking for ";
-                    break;
-
-                    case 'nl':
-                    echo "zoekt een ";
-                    break;
-
-                    case 'fr':
-                    echo "cherche ";
-                    break;
-                    
-                    default:
-                    echo "is offering ";
-                    break;
-                } 
+                echo $_SESSION['lang']['questlooking'];
             }else{ 
 
-                switch ($_SESSION['language']) {
-                    case 'en':
-                    echo "is offering ";
-                    break;
+                echo $_SESSION['lang']['questoffering'];
 
-                    case 'nl':
-                    echo "biedt aan ";
-                    break;
-
-                    case 'fr':
-                    echo "propose ";
-                    break;
-                    
-                    default:
-                    echo "is offering ";
-                    break;
-                }
-
-}?><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
+}?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
         <?php if($value['type'] == 1){ ?>
             <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
@@ -179,8 +147,8 @@
 
                 <li>
                     <ul class="options">
-                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
-                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
+                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span><?php echo $_SESSION['lang']['questfootercomplete']; ?></span></a></li>
+                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span><?php echo $_SESSION['lang']['questfooterremove']; ?></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -198,8 +166,8 @@
              ?>
         </aside>
         <footer>
-            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> proposals</a>
-            <a href="" class="shares icon-upload"> 15 shares</a>
+            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropo']; ?></a>
+            <a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
         </footer>
     </section>
     
@@ -263,7 +231,7 @@
                 <nav>
                     <ul>
                          <li>
-                            <span>Quests</span>
+                            <span><?php echo $_SESSION['lang']['filterquests']; ?></span>
                             <p><?php echo $value['quests']; ?></p>
                         </li>
                         <li>
@@ -272,7 +240,7 @@
                         </li>
                         <li>
                             <span>Followers</span>
-                            <p><?php echo $value['followers']; ?></p>
+                            <p><?php echo $_SESSION['lang']['filterfollowers']; ?></p>
                         </li>
                     </ul>
                 </nav>

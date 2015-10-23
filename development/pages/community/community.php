@@ -9,9 +9,9 @@
             <h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
         	<nav> 
                 <?php if(!$isMember){?>
-                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=join" class="member">Join group<span class="icon-inbox"></span></a>
+                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityjoin']; ?><span class="icon-inbox"></span></a>
                 <?php }else{ ?>
-                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=leave" class="member leave">Leave group<span class="icon-outbox"></span></a>
+                <a href="?page=community&id=<?php echo $_GET['id'];?>&action=leave" class="member leave"><?php echo $_SESSION['lang']['communityleave']; ?><span class="icon-outbox"></span></a>
                 <?php } ?>
         	</nav>
         </header>
@@ -22,7 +22,7 @@
         </div>
 	</section>
     <section class="comusers">
-        <header><h1>Members</h1></header>
+        <header><h1><?php echo $_SESSION['lang']['sidemembers']; ?></h1></header>
         <nav>
             <?php if(!empty($users)){ ?>
             <ul>
@@ -51,26 +51,7 @@
         <form action="" method="post" name="quest" id="quest" enctype="multipart/form-data">
             <div>
                 <input type="text" id="type" name="type" class="hide" value="0">
-                <input type="text" id="item" name="item" <?php
-                       switch($_SESSION['language']) {
-                
-                            case 'en':
-                            echo "placeholder='What are you looking for ? In the ".$community['community_name']." community'"; 
-                            break;
-
-                            case 'fr':
-                            echo "placeholder='Qu&#39;est-ce que vous cherchez ? Dans le communité ".$community['community_name']."'";
-                            break;
-
-                            case 'nl':
-                            echo "placeholder='Wat ben je naar op zoek ? In de ".$community['community_name']." Maatschappij'";
-                            break;
-
-                            default:
-                            echo "placeholder='What are you looking for ? In the ".$community['community_name']." community'"; 
-                            break;
-                        }
-                       ?> tabindex="1">
+                <input type="text" id="item" name="item" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" tabindex="1">
                 <div class="added-collection-item">
                     <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                 </div>
@@ -138,7 +119,7 @@
                     </ul>
             </div>-->
             <div>
-                <input type="text" id="desc" name="desc" placeholder="Description" tabindex="2">
+                <input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
                 <span class="upload_image">
                     <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
                 </span>
@@ -243,8 +224,8 @@
 
                 <li>
                     <ul class="options show">
-                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
-                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
+                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span><?php echo $_SESSION['lang']['questfootercomplete']; ?></span></a></li>
+                        <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span><?php echo $_SESSION['lang']['questfooterremove']; ?></span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -262,8 +243,8 @@
         </aside>
         <?php } ?>    
         <footer>
-            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> proposals</a>
-            <a href="" class="shares icon-upload"> 15 shares</a>
+            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropos']; ?></a>
+            <a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
         </footer>
     </section>
     
