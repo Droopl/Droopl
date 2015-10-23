@@ -2,35 +2,35 @@
 <lang>
 	<menudash>Dashboard</menudash>
 	<menumessages>Messages</menumessages>
-	<menucommunities>Communities</menucommunities>
-	<menuprofile>My profile</menuprofile>
-	<menusettings>Settings</menusettings>
-	<menuabout>About</menuabout>
+	<menucommunities>Communautés</menucommunities>
+	<menuprofile>Mon profile</menuprofile>
+	<menusettings>Paramètres</menusettings>
+	<menuabout>&#192; propos</menuabout>
 	<menufeedback>Feedback</menufeedback>
-	<menulogout>Logout</menulogout>
+	<menulogout>Déconnexion</menulogout>
 
-   <formlooking>What are you looking for?</formlooking>
-   <formoffering>What are you looking for?</formoffering>
+   <formlooking>Que cherchez-vous ?</formlooking>
+   <formoffering>Que cherchez-vous ?</formoffering>
    <formdescription>Description</formdescription>
 
-   <questlooking>is looking for</questlooking>
-   <questoffering>is offering</questoffering>
+   <questlooking>cherche</questlooking>
+   <questoffering>propose</questoffering>
 
-   <questfooterpropo>Proposals</questfooterpropo>
-   <questfootershares>Shares</questfootershares>
-   <questfootercomplete>Complete</questfootercomplete>
-   <questfooterremove>Remove</questfooterremove>
+   <questfooterpropo>Propositions</questfooterpropo>
+   <questfootershares>Partages</questfootershares>
+   <questfootercomplete>Terminer</questfootercomplete>
+   <questfooterremove>Supprimer</questfooterremove>
 
-   <sidequest>Quests</sidequest>
-   <sidecollection>My collection</sidecollection>
-   <sideactivity>Activity</sideactivity>
-   <sidecommunities>Communities</sidecommunities>
-   <sidemembers>Members</sidemembers>
+   <sidequest>Quêtes</sidequest>
+   <sidecollection>Ma collection</sidecollection>
+   <sideactivity>Activité</sideactivity>
+   <sidecommunities>Communautés</sidecommunities>
+   <sidemembers>Membres</sidemembers>
 
-   <filterpopu>Popular</filterpopu>
-   <filterrecent>Recent</filterrecent>
-   <filternearby>Nearby</filternearby>
-   <filterquests>Quests</filterquests>
+   <filterpopu>Populaire</filterpopu>
+   <filterrecent>R&#233;cent</filterrecent>
+   <filternearby>&#192; proximité</filternearby>
+   <filterquests>Quêtes</filterquests>
    <filterpropos>Propos</filterpropos>
    <filtercollection>Collection</filtercollection>
    <filterfollowers>Followers</filterfollowers>
@@ -40,8 +40,8 @@
    <feedbackbug>Bug</feedbackbug>
    <feedbackText>I wish I could</feedbackText>
 
-   <communityjoin>Join group</communityjoin>
-   <communityleave>Leave group</communityleave>
+   <communityjoin>Rejoindre le groupe</communityjoin>
+   <communityleave>Quitter le groupe</communityleave>
 
     <abouttitle>Bij Droopl bestaan we uit een team van 5 personen. Binnen ons team is er geen sprake van hiërarchie. Alle belangrijke beslissingen (ongeacht welk aspect) worden in groep genomen, met unanimiteit als streefdoel. Het droopl-team bestaat uit een diverse studie-achtergrond. Ieders bijdrage bestaat hierdoor uit raadgevingen die in het verlengde van zijn gedane studies liggen. We lichten hieronder elk teammember voor.</abouttitle>
    <aboutmourad>Student aan de Hub te Brussel. Mourad is bezig aan zijn laatste jaar handelswetenschappen. Binnen droopl is hij een medeoprichter en heeft hij de nodige financiële kennis. Zo is hij verantwoordelijk voor een betrouwbare, volledige vastlegging en opvolging van de bedrijfsadministratie en adviseert hij overige teammembers bij administratieve beslissingen.</aboutmourad>
