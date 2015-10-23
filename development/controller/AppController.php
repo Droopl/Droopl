@@ -21,15 +21,16 @@ class AppController {
 
 		$lang = "en";
 
-		if(isset($_SESSION['user'])){
+		if(isset($_SESSION['lang'])){
 			$lang = $_SESSION['user']['lang'];
-			$file = WWW_ROOT . 'includes' .DS.'languages' .DS.$lang.DS. 'lang.xml';
-
-			$sxe = new SimpleXMLElement($file, NULL, TRUE);
-
-			 $xml = (array) $sxe;
-			 $_SESSION['lang'] = $xml;
 		}
+		
+		$file = WWW_ROOT . 'includes' .DS.'languages' .DS.$lang.DS. 'lang.xml';
+
+		$sxe = new SimpleXMLElement($file, NULL, TRUE);
+
+		 $xml = (array) $sxe;
+		 $_SESSION['lang'] = $xml;
 
 	}
 	public function notifications(){

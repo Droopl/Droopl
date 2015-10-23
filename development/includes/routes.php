@@ -2,6 +2,7 @@
 
 $routes = array(
 
+	'timer' => array('controller' => 'Timer', 'action' => 'timer'),
 	'feed' => array('controller' => 'Feed', 'action' => 'feed'),
 	'search' => array('controller' => 'Feed', 'action' => 'search'),
     'detail' => array('controller' => 'Feed', 'action' => 'detail'),

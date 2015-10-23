@@ -1416,3 +1416,149 @@ article.verification div.register-box div.container section.step_3 aside.left ul
     opacity: .7;
 }
 
+
+
+
+
+
+
+
+/*TIMER*/
+
+article div.timer{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    background-image: url(../images/assets/login_background.svg);
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+article div.timer div.center{
+    margin: 0 auto;
+    width: 1024px;
+}
+article div.timer header.intro{
+    width: 100%;
+    float: left;
+    box-sizing:border-box;
+    padding: 5%;
+}
+article div.timer header.intro div{
+    width: 900px;
+}
+article div.timer header.intro div.intro{
+    float: left;
+    width: 100%;
+    box-sizing:border-box;
+    padding: 5%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+article div.timer header.intro div.intro img{
+    height: 150px;
+}
+article div.timer header.intro h1{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: rgba(0,0,0,.6);
+    font-size: 1.2em;
+}
+
+article div.timer header.intro nav{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+article div.timer header.intro ul{
+    display: inline-block;
+    text-align: center;
+}
+article div.timer header.intro ul li{
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border: 2px solid rgba(0,0,0,.4);
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+article div.timer section.timer {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+article div.timer section.timer .progress {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+article div.timer section.timer .progress>li {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #93A2AC;
+  font-weight: 100;
+  margin: 30px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+article div.timer section.timer .progress>li:before {
+  content: attr(data-name);
+  position: absolute;
+  width: 65px;
+  left: 50%;
+  margin-left: -32.5px;
+  height: 20px;
+  line-height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  text-overflow:inherit;
+  white-space:pre-wrap;
+  text-align: center;
+  font-weight: 400;
+}
+
+article div.timer section.timer .progress svg {
+  width: 120px;
+  height: 120px;
+}
+
+article div.timer section.timer .progress svg:nth-child(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+}
+
+article div.timer section.timer .progress svg:nth-child(2) path {
+  fill: none;
+  stroke-width: 15;
+  stroke-dasharray: 629;
+  stroke: rgba(255, 255, 255, 0.7);
+  -webkit-animation: load 2s;
+  -moz-animation: load 2s;
+  -o-animation: load 2s;
+  animation: load 2s;
+}
+
+
+
+
+
+
+
+
+
