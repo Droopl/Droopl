@@ -1,4 +1,53 @@
 <?xml version="1.0"?>
 <lang>
-   <looking>What are you looking for?</looking>
+	<menudash>Dashboard</menudash>
+	<menumessages>Messages</menumessages>
+	<menucommunities>Communities</menucommunities>
+	<menuprofile>My profile</menuprofile>
+	<menusettings>Settings</menusettings>
+	<menuabout>About</menuabout>
+	<menufeedback>Feedback</menufeedback>
+	<menulogout>Logout</menulogout>
+
+   <formlooking>What are you looking for?</formlooking>
+   <formoffering>What are you looking for?</formoffering>
+   <formdescription>Description</formdescription>
+
+   <questlooking>is looking for</questlooking>
+   <questoffering>is offering</questoffering>
+
+   <questfooterpropo>Proposals</questfooterpropo>
+   <questfootershares>Shares</questfootershares>
+   <questfootercomplete>Complete</questfootercomplete>
+   <questfooterremove>Remove</questfooterremove>
+
+   <sidequest>Quests</sidequest>
+   <sidecollection>My collection</sidecollection>
+   <sideactivity>Activity</sideactivity>
+   <sidecommunities>Communities</sidecommunities>
+   <sidemembers>Members</sidemembers>
+
+   <filterpopu>Popular</filterpopu>
+   <filterrecent>Recent</filterrecent>
+   <filternearby>Nearby</filternearby>
+   <filterquests>Quests</filterquests>
+   <filterpropos>Propos</filterpropos>
+   <filtercollection>Collection</filtercollection>
+   <filterfollowers>Followers</filterfollowers>
+
+   <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
+   <feedback>Feedback</feedback>
+   <feedbackbug>Bug</feedbackbug>
+   <feedbackText>I wish I could</feedbackText>
+
+   <communityjoin>Join group</communityjoin>
+   <communityleave>Leave group</communityleave>
+
+    <abouttitle>Bij Droopl bestaan we uit een team van 5 personen. Binnen ons team is er geen sprake van hiërarchie. Alle belangrijke beslissingen (ongeacht welk aspect) worden in groep genomen, met unanimiteit als streefdoel. Het droopl-team bestaat uit een diverse studie-achtergrond. Ieders bijdrage bestaat hierdoor uit raadgevingen die in het verlengde van zijn gedane studies liggen. We lichten hieronder elk teammember voor.</abouttitle>
+   <aboutmourad>Student aan de Hub te Brussel. Mourad is bezig aan zijn laatste jaar handelswetenschappen. Binnen droopl is hij een medeoprichter en heeft hij de nodige financiële kennis. Zo is hij verantwoordelijk voor een betrouwbare, volledige vastlegging en opvolging van de bedrijfsadministratie en adviseert hij overige teammembers bij administratieve beslissingen.</aboutmourad>
+   <aboutmanu>Afgestudeerd aan de Thomas More te Antwerpen als psychologisch consulent. Binnen droopl is hij een medeoprichter en staat hij in voor de externe woordvoerdingen en rekruteringen binnen het bedrijf. Als Spokesman functioneert Manu als schakel tussen droopl en externe mediakanalen met de nodige informatieverstrekkingen.</aboutmanu>
+   <aboutdaniel>Student aan de Thomas More te Mechelen. Daniël is bezig aan zijn laatste jaar bedrijfsmanagement marketing. Binnen droopl is Daniël een medeoprichter en staat hij in voor de marketingstrategieën van het bedrijf. Zo houdt Daniël zich bezig met het marketingbeleid (opstellen van de marketingplannen, marktpositionering &amp; strategie) van onze organisatie.</aboutdaniel>
+   <aboutboris>Student aan de EhB te Brussel waar Boris de richting ‘Multec’ studeert. Binnen droopl is hij een medeoprichter en functioneert hij als IT’r. Zo is Boris mee verantwoordelijk voor het sturen, ontwikkelen, implementeren en onderhouden van onze site, APP en computersystemen.</aboutboris>
+   <aboutrachouan>Student aan de EhB te Brussel waar Rachouan de richting ‘Multec’ studeert. Binnen droopl is hij een medeoprichter en functioneert hij als IT’r. Zo is Rachouan verantwoordelijk voor het sturen, ontwikkelen, implementeren en onderhouden van onze site, APP en computersystemen.</aboutrachouan>
+
 </lang>
