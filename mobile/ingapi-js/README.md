@@ -1,0 +1,1 @@
+This SDK was generated using a modified version of the [swagger-codegen project](https://github.com/swagger-api/swagger-codegen), licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).

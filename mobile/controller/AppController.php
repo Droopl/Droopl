@@ -15,16 +15,15 @@ class AppController {
 		$this->language();
 		$this->notifications();
 		$this->languageCheck();
-		$this->converstations();
 	}
 	public function languageCheck(){
 
 		$lang = "en";
 
-		if(isset($_SESSION['user'])){
+		if(isset($_SESSION['lang'])){
 			$lang = $_SESSION['user']['lang'];
 		}
-
+		
 		$file = WWW_ROOT . 'includes' .DS.'languages' .DS.$lang.DS. 'lang.xml';
 
 		$sxe = new SimpleXMLElement($file, NULL, TRUE);
@@ -59,6 +58,7 @@ class AppController {
 
 		$this->set("notifications",$notifications);
 	}
+
 	public function converstations(){
 		require_once WWW_ROOT . 'dao' .DS. 'ConvoUsersDAO.php';
 
