@@ -1537,6 +1537,7 @@ article div.feed section{
     margin-bottom: 20px;
 }
 article div.feed section.add-collection-item{
+    margin-top: 20px;
     -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
 }
@@ -2230,19 +2231,16 @@ article div.feed section.profile-collection ul li.profile-collection-item span.c
 article div.feed section.profile-collection ul li.profile-collection-item {
     display: block;
     float: left;
-    width: 31.3%;
+    width: 45%;
     height: 180px;
     box-sizing: border-box;
     overflow: hidden;
     border: 1px solid #E8E8EA;
     background-color: #ffffff;
     text-align: center;
-    margin-bottom: 3.5%;
+    margin: 0 2.5% 5% 2.5%;
     position: relative;
     opacity: 0;
-}
-article div.feed section.profile-collection ul li.profile-collection-item:nth-child(3n+2) {
-    margin: 0 3%;
 }
 article div.feed section.profile-collection ul li.profile-collection-item img {
     display: block;
@@ -2769,8 +2767,8 @@ article.add_collection #dragndrop span.remove-file p.icon-cross {
     color: #ffffff;
 }
 article.add_collection .feed {
-    float: none;
-    width: 500px;
+    float: left;
+    width: 100%;
     margin: 50px auto;
 }
 article.add_collection section {
@@ -3291,7 +3289,7 @@ article.collection_item{
 }
 article.collection_item div.feed{
     float: none;
-    margin: 70px auto 0 auto;
+    margin: 75px auto 0 auto;
 }
 article.collection_item div.feed section.detail-collection-item {
     border-radius: .3em;
