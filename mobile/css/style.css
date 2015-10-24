@@ -739,7 +739,6 @@ article{
     box-sizing:border-box;
     float: left;
     margin-top: 75px;
-    padding: 10px;
     position: relative;
 
 }
@@ -751,6 +750,7 @@ article aside#side{
     border-radius: .5em .5em 0 0;
     overflow: hidden;
     background-color: #ffffff;
+    margin-bottom: 20px;
 
     -webkit-box-shadow: 0 -10px 30px -10px rgba(0,0,0,.1);
     box-shadow: 0 -10px 30px -10px rgba(0,0,0,.1);
@@ -904,7 +904,7 @@ article aside#side section.profile div.description-container ul li span{
     display: inline-block;
     width: 100%;
     margin-bottom: 20px;
-    font-size: .8em;
+    font-size: 1.2em;
     color: rgba(0,0,0,.3);
 }
 /*article aside#side section.profile div.description-container ul li span.bluetxt{ color: #2BBCAF; }
@@ -914,6 +914,7 @@ article aside#side section.profile div.description-container ul li span.purpletx
 article aside#side section.profile div.description-container ul li p{
     display: inline-block;
     width: 100%;
+    font-size: 1.7em;
     
 }
 
@@ -1352,28 +1353,26 @@ article div.feed section.post form div:first-child{
 }
 article div.feed section.post form div input[type="text"]{
     float: left;
-    width: 445px;
+    width: 100%;
     padding: 5%;
+    box-sizing:border-box;
     background: none;
     border: none;
 }
 article div.feed section.post form div input[type="text"]#desc{
     float: left;
-    width: 440px;
-    padding-right: 70px;
+    width: 100%;
+    padding-right: 40%;
     box-sizing:border-box;
 }
 article div.feed section.post form div select{
-    position: absolute;
-    right: 140px;
+    
+    float: left;
     display: block;
     background: none;
-    top: 50%;
-    margin-top: -10px;
     border: none;
-    width: 40px;
     text-align: center;
-    height: 20px;
+    height: 100%;
     color: #F47D67;
 
     appearance:none;
@@ -1441,8 +1440,8 @@ article div.feed section.post form div div.switch-container div.contain-button d
 article div.feed section.post form div input[type="submit"]{
 
     float: left;
-    width: 30px;
-    padding: 5%;
+    width: 50px;
+    height: 100%;
     border: none;
     background-image: url(../images/assets/send_btn.svg);
     background-size: 15px;
@@ -1453,11 +1452,12 @@ article div.feed section.post form div input[type="submit"]{
 article div.feed section.post form div span.uploaded_image{
 
     position: absolute;
-    right: 70px;
+    right: 50%;
     top: 50%;
-    margin-top: -25px;
-    width: 50px;
-    height: 50px;
+    margin-top: -20px;
+    margin-right: -20px;
+    width: 40px;
+    height: 40px;
     overflow: hidden;
     border-radius: 50%;
     background-size: cover;
@@ -1497,14 +1497,19 @@ article div.feed section.post form div span.uploaded_image p{
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
-article div.feed section.post form div span.upload_image{
+article div.feed section.post form div nav{
+    position: absolute;
+    height: 100%;   
+    right: 10px;
+    width: auto;
+}
+article div.feed section.post form div nav span.upload_image{
 
     float: left;
     display: block;
     position: relative;
-    width: 30px;
-    height: 70px;
-    padding: 5%;
+    width: 50px;
+    height: 100%;
     box-sizing:border-box;
     overflow: hidden;
     background-image: url(../images/assets/upload_image.svg);
@@ -1538,7 +1543,7 @@ article div.feed section.add-collection-item{
 article div.feed section.filter{
     float: left;
     border: 0;
-    margin-top: 20px;
+    margin-top: 10px;
     background: none;
     background-color: #ffffff;
 
@@ -1669,7 +1674,7 @@ article div.feed section.quest header h1{
     font-weight: normal;
     width: auto;
     position: relative;
-    max-width: 250px;
+    max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2814,13 +2819,12 @@ article.login{
     background-repeat: repeat-y;
 }
 article.login section{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 500px;
+    float: left;
+    width: 100%;
+    padding: 2.5%;
+    margin-top: 100px;
+    box-sizing:border-box;
     text-align: center;
-    margin-left: -250px;
-    margin-top: -225px;
 }
 article.login section header h1.logo{
 
@@ -2836,6 +2840,9 @@ article.login section header h1.logo{
 article.login section header p{
 
     font-size: .9em;
+    width: 100%;
+    padding: 5% 10%;
+    box-sizing:border-box;
     color: #3E454C;
     margin-top: 20px;
     line-height: 30px;
@@ -2846,7 +2853,7 @@ article.login form{
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    width: 400px;
+    width: 100%;
     background-color: #ffffff;
     border: 1px solid #E8E8EA;
     -webkit-box-shadow: 0 0 30px -15px rgba(0,0,0,.3);
@@ -3687,11 +3694,10 @@ article.detail div.feed section.quest footer.detail div.collection ul li img.sel
 
 /*MESSAGES CSS*/
 article div.messages{
-    float: left;
+    position: fixed;
     width: 100%;
     overflow: hidden;
-    margin-top: -85px;
-    height: 100vh;
+    height: 100%;
     background-color: #ffffff;
     border: 1px solid #E8E8EA;
 }
@@ -3699,7 +3705,6 @@ article div.messages{
 article div.messages aside.conversations{
     float: left;
     width: 100%;
-    margin-top: 75px;
     height: calc(100% - 75px);
     box-sizing:border-box;
     border-right: 1px solid #E8E8EA;
@@ -3838,7 +3843,6 @@ article div.messages aside.conversations nav ul li p{
 article div.messages section.messages{
     float: left;
     width: 100%;
-    margin-top: 75px;
     height: calc(100% - 75px);
     position: relative;
     overflow: hidden;
@@ -3847,8 +3851,9 @@ article div.messages section.messages header{
     left: 0;
     top: 0;
     z-index: 3;
-    width: 95%;
-    padding: 0 2.5%;
+    width: 100%;
+    padding: 0 5%;
+    box-sizing:border-box;
     height: 80px;
     line-height: 80px;
     position: relative;
@@ -3920,9 +3925,15 @@ article div.messages section.messages aside{
     width: 100%;
     height: 100%;
     padding: 5% 5% 5% 5%;
-    height: 85%;
+    height: 82.5%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 50px;
     overflow: scroll;
     box-sizing: border-box;
+}
+article div.messages section.messages aside.loading{
+    background-image: url(../images/assets/LoadigChat.gif);
 }
 article div.messages section.messages aside ul {
     display: block;
@@ -3962,10 +3973,10 @@ article div.messages section.messages aside ul li p span{
     display: block;
     float: left;
     width: auto;
-    padding: 4% 5%;
+    padding: 6% 8%;
     background-color: #ffffff;
     border-radius: .5em;
-    font-size: .7em;
+    font-size: 1em;
     border: 1px solid #E8E8EA;
     box-sizing: border-box;
     color: #5F6970;
@@ -3989,7 +4000,7 @@ article div.messages section.messages aside ul li p.me img{
     display: none;
 }
 article div.messages section.messages form{
-    height: 50px;
+    height: 60px;
     width: 100%;
     border-top: 1px solid #E8E8EA;
     position: absolute;
@@ -4001,17 +4012,19 @@ article div.messages section.messages form textarea{
     display: block;
     border: none;
     width: 80%;
+    box-sizing:border-box;
     min-height: 50px;
     max-height: 200px;
     max-width: 80%;
     min-width: 80%;
-    padding: 20px 2.5%;
+    font-size: 1em;
+    padding: 20px 5%;
     height: 75px;
 }
 article div.messages section.messages form div{
     float: left;
     width: 7.5%;
-    height: 50px;
+    height: 60px;
     position: relative;
     overflow: hidden;
     background-image: url(../images/assets/upload_image.svg);
@@ -4033,10 +4046,10 @@ article div.messages section.messages form div input{
 
 article div.messages section.messages form input[type="submit"]{
     float: left;
-    width: 7.5%;
+    width: 10%;
     background: none;
     border: none;
-    height: 50px;
+    height: 60px;
     position: relative;
     overflow: hidden;
     background-image: url(../images/assets/send_btn.svg);
@@ -4428,6 +4441,7 @@ article aside#side section.community header h2{
 }
 article aside#side section.community div.description-container{
     float: left;
+    border-bottom: 1px solid #E8E8EA;
 }
 article aside#side section.community div.description-container p{
     display: block;
@@ -4440,6 +4454,7 @@ article aside#side section.community div.description-container p{
 }
 article aside#side section.comusers{
     border-top: none;
+    width: 100%;
 }
 article aside#side section.comusers nav{
     float: left;
@@ -4449,16 +4464,17 @@ article aside#side section.comusers nav{
 article aside#side section.comusers nav ul{
     float: left;
     display: block;
-    width: 90%;
+    width: 100%;
     padding: 2.5%;
+    box-sizing:border-box;
 }
 article aside#side section.comusers nav ul li{
 
     float: left;
     display: block;
-    width: 45px;
-    height: 45px;
-    margin: 0 5%;
+    width: 55px;
+    height: 55px;
+    margin: 0 5% 5% 5%;
     overflow: hidden;
     border-radius: 50%;
 
@@ -4474,7 +4490,7 @@ article aside#side section.comusers nav ul li a{
 article aside#side section.comusers nav ul li a img{
 
     float: left;
-    height: 100%;
+    width: 100%;
 
 }
 

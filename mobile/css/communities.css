@@ -1281,11 +1281,12 @@ article div.about section.contributors aside.droopl ul li p{
 article.verification {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 90%;
     position: fixed;
     top: 0;
     left: 0;
     padding: 0;
+    overflow-y: scroll; 
     background-image: url(../images/assets/login_background.svg);
     background-size: cover;
     background-repeat: repeat-y;
@@ -1293,7 +1294,7 @@ article.verification {
 article.verification div.register-box div.container header{
     float: left;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
 }
 article.verification div.register-box div.container header span.icon-cirlce-check{
@@ -1301,14 +1302,17 @@ article.verification div.register-box div.container header span.icon-cirlce-chec
     margin-bottom: 20px;
 }
 article.verification div.register-box div.container header h1{
-    font-size: 1.6em;
+    font-size: 1em;
     margin-bottom: 10px;
 }
 article.verification div.register-box div.container header h2{
-    font-size: 1.2em;
+    font-size: .9em;
     font-weight: 300;
     margin-bottom: 40px;
-    color: rgba(0,0,0,.3);
+    width: 100%;
+    box-sizing:border-box;
+    line-height: 25px;
+    color: rgba(0,0,0,.5);
 }
 article.verification div.register-box div.container header nav a{
     display: inline-block;
@@ -1362,7 +1366,7 @@ article.verification div.register-box div.container section.step_3 aside.left h1
     float: left;
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.8em;
+    font-size: 1.2em;
     color: #F47D67;
     margin-bottom: 15px;
     margin-top: 50px;
@@ -1386,6 +1390,8 @@ article.verification div.register-box div.container section.step_3 aside.left p 
     width: 100%;
     text-align: center;
     color: #A9A9A9;
+    font-weight: 300;
+    line-height: 25px;
     margin-bottom: 70px;
 }
 
@@ -1400,18 +1406,18 @@ article.verification div.register-box div.container section.step_3 aside.left ul
 
 article.verification div.register-box div.container section.step_3 aside.left ul li {
     display: inline-block;
-    width: 50px;
-    height: 60px;
-    margin: 0 20px;
+    width: 40px;
+    height: 50px;
+    margin: 0 10px;
 }
 
 article.verification div.register-box div.container section.step_3 aside.left ul li input[type='text'] {
     display: block;
     float: left;
-    width: 50px;
-    height: 60px;
+    width: 40px;
+    height: 50px;
     text-align: center;
-    font-size: 1.8em;
+    font-size: 1.4em;
     border: 2px solid #E8E8EA;
     border-radius: .4em;
 }

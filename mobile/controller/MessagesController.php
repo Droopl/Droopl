@@ -222,8 +222,6 @@ class MessagesController extends AppController{
 
 	public function message(){
 
-
-		$conversations = array();
 		$conversation = array();
 		$messages = array();
 		$convo_users = array();
@@ -344,7 +342,6 @@ class MessagesController extends AppController{
 					}
 				}
 
-				$conversations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
 				$id = 0;
 				if(!empty($_GET['id'])){
 					$id = $_GET['id'];
@@ -353,25 +350,12 @@ class MessagesController extends AppController{
 					}
 				}else{
 
-					if(!empty($conversations)){
-						$id = $conversations[0]['conversation_id'];
-					}
+					$this->redirect("?page=messages");
 				}
 
 				$conversation = $this->conversationDAO->getConversationByIdAndUserId($id,$_SESSION['user']['id']);
 
-				if(!empty($conversations)){
-					if(empty($conversation)){
-						$id = $conversations[0]['conversation_id'];
-						$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
-						
-					}
-					if(!isset($_SESSION['conversation'])){
-						$_SESSION['conversation'] = $conversation;
-					}
-				}
 				
-
 				if(!empty($_POST)){
 
 					$message = ""; 
@@ -386,23 +370,21 @@ class MessagesController extends AppController{
 
 				}
 
-				if(isset($_SESSION['conversation'])){
-
-					if(!empty($conversation)){
+				if(!empty($conversation)){
 						$convo_users = $this->convoUsersDAO->getUserByConversationId($conversation['conversation_id']);
-					}
+				}else{
+					$this->redirect("?page=messages");
+				}
 
-					if(!empty($_GET['part'])){
-						$offset = intval($_GET['part']);
-						if(!empty($conversation)){
-							$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*$offset);
-						}
-					}else{
-						if(!empty($conversation)){
-							$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
-						}
+				if(!empty($_GET['part'])){
+					$offset = intval($_GET['part']);
+					if(!empty($conversation)){
+						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*$offset);
 					}
-					
+				}else{
+					if(!empty($conversation)){
+						$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
+					}
 				}
 
 			}
@@ -414,7 +396,6 @@ class MessagesController extends AppController{
 
 
 
-		$this->set('conversations',$conversations);
 		$this->set('conversation',$conversation);
 		$this->set('convo_users',$convo_users);
 		$this->set('messages',$messages);

@@ -21,7 +21,7 @@
 			</ul>
 		</nav>
 	</header>
-	<aside class="chat">
+	<aside class="chat" id="1">
 		<ul>
 			<?php 
 			

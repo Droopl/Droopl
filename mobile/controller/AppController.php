@@ -20,7 +20,7 @@ class AppController {
 
 		$lang = "en";
 
-		if(isset($_SESSION['lang'])){
+		if(isset($_SESSION['user'])){
 			$lang = $_SESSION['user']['lang'];
 		}
 		

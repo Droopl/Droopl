@@ -9,7 +9,7 @@
 		<ul>
 			<?php foreach ($conversations as $key => $value) { ?>
 			<li>
-				<a href="?page=messages&id=<?php echo $value['conversation_id']; ?>" <?php if($value['conversation_id'] == $_SESSION['conversation']['conversation_id']){ echo 'class="selected"';} ?>>
+				<a href="?page=message&id=<?php echo $value['conversation_id']; ?>">
 				<header>
 					<?php if(!empty($value['picture'])){ ?>
 					<img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">

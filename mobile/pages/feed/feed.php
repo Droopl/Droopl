@@ -12,7 +12,7 @@
 		<form action="" method="post" name="quest" id="quest" enctype="multipart/form-data">
 			<div>
                 <input type="text" id="type" name="type" class="hide" value="0">
-				<input type="text" id="item" name="item" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" tabindex="1">
+				<input type="text" id="item" name="item" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" tabindex="1" autocomplete="off">
                 <div class="added-collection-item">
                     <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                 </div>
@@ -80,18 +80,20 @@
                 	</ul>
             </div>-->
 			<div>
-				<input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
-				<select id="destination" name="destination">
-				  <option value="public">Public</option>
-				  <?php foreach ($communities as $key => $community) { ?>
-				  <option value="<?php echo $community['community_id']; ?>" class="public icon-globe"><?php echo $community['community_name']; ?></option>
-				  <?php  } ?>
-				</select>
-				<span class="upload_image">
-				    <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
-				</span>
-				<span class="hide uploaded_image"><img src=""><p class="icon-cross"></p></span>
-				<input type="submit" id="quest_submit" name="quest_submit" value="" tabindex="4">
+				<input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2" autocomplete="off">
+				<nav>
+					<select id="destination" name="destination">
+					  <option value="public">Public</option>
+					  <?php foreach ($communities as $key => $community) { ?>
+					  <option value="<?php echo $community['community_id']; ?>" class="public icon-globe"><?php echo $community['community_name']; ?></option>
+					  <?php  } ?>
+					</select>
+					<span class="upload_image">
+					    <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
+					</span>
+					<span class="hide uploaded_image"><img src=""><p class="icon-cross"></p></span>
+					<input type="submit" id="quest_submit" name="quest_submit" value="" tabindex="4">
+				</nav>
 			</div>
 		</form>
 	</section>

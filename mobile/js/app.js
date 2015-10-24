@@ -241,6 +241,7 @@ $(function  () {
 
     if( $('article div.messages section.messages aside').length){
 
+
       
 
       $('article div.messages section.messages aside').stop().animate({
@@ -259,6 +260,58 @@ $(function  () {
             },time);
             time+=35;
         });
+
+
+      $('article div.messages section.messages aside').scroll(function (e) {
+
+          if($(this).scrollTop() <= 0){
+
+               $('article div.messages section.messages aside').addClass("loading");
+              var id = parseInt($(this).attr("id"));
+
+             var url = $(location).attr("href")+"&part="+id;
+              $.ajax({
+              type: "GET",
+              url:url,
+              success:function (data) {
+
+                $('article div.messages section.messages aside').removeClass("loading");
+
+                
+                var messages = $("article div.messages section.messages aside ul li.message");
+                var loadedMessages = $(data).find("div.messages section.messages aside ul li.message");
+                var typing = $(data).find("div.messages section.messages header nav ul li.user");
+
+                if(loadedMessages.length > 0){
+                  id ++;
+                  $('article div.messages section.messages aside').attr("id",id);
+                }
+
+               $(loadedMessages).each(function(key,newMessages){
+                   
+                     var found = false;
+                  
+                     $(messages).each(function(id,message){
+                         
+                         if($(newMessages).attr("id") == $(message).attr("id")){
+                              found = true;
+                         }
+                     
+                     });
+
+                     if(!found){
+                        $("article div.messages section.messages aside ul").prepend($(newMessages));
+                        scrollChat();
+                     }
+                });
+               $("article div.messages section.messages header nav ul li.user").remove();
+               typing.insertBefore("article div.messages section.messages header nav ul li.add");
+
+              }
+            });
+
+          }
+      });
 
       setInterval(function () {
 
@@ -454,7 +507,7 @@ $(function  () {
             });
 
     function scrollChat () {
-      if($("article div.messages section.messages aside")[0].scrollTop + $("article div.messages section.messages aside")[0].scrollHeight > $("article div.messages section.messages aside")[0].scrollHeight - 10){
+      if($("article div.messages section.messages aside").scrollTop() + $("article div.messages section.messages aside").scrollHeight > $("article div.messages section.messages aside").scrollHeight - 10){
 
           console.log('scroll');
           var objDiv = $("article div.messages section.messages aside");
@@ -1539,21 +1592,6 @@ $(function  () {
   })
 
 	$(window).scroll(function  () {
-
-      if($("#side .activity").length > 0){
-      		var check = isScrolledIntoView($("#side .activity"));
-
-      		if(check){
-      			$("#side").addClass("fixed");
-      			$(".feed").addClass("fixed");
-      		}
-
-      		if($(window).scrollTop() <= 320){
-      			$("#side").removeClass("fixed");
-      			$(".feed").removeClass("fixed");
-      		}
-        
-      }
 
       if($(".feed .quest").length){
         if($(this).scrollTop() >= $(".feed").height() - $(window).height()){

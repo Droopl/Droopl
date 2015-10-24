@@ -235,12 +235,12 @@
                             <p><?php echo $value['quests']; ?></p>
                         </li>
                         <li>
-                            <span>propos</span>
+                            <span><?php echo $_SESSION['lang']['filterpropos']; ?></span>
                             <p><?php echo $value['proposals']; ?></p>
                         </li>
                         <li>
-                            <span>Followers</span>
-                            <p><?php echo $_SESSION['lang']['filterfollowers']; ?></p>
+                            <span><?php echo $_SESSION['lang']['filterfollowers']; ?></span>
+                            <p><?php echo $value['followers']; ?></p>
                         </li>
                     </ul>
                 </nav>

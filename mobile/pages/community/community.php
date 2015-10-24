@@ -120,11 +120,13 @@
             </div>-->
             <div>
                 <input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
+                <nav>
                 <span class="upload_image">
                     <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
                 </span>
                 <span class="hide uploaded_image"><img src=""><p class="icon-cross"></p></span>
                 <input type="submit" id="quest_submit" name="quest_submit" value="" tabindex="4">
+                </nav>
             </div>
         </form>
     </section>
