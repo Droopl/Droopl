@@ -37,7 +37,7 @@ article.countdown header.intro{
     width: 100%;
     float: left;
     box-sizing:border-box;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 article.countdown header.intro div{
     width: 100%;
@@ -78,13 +78,13 @@ article.countdown header.intro ul li{
     display: inline-block;
     width: 10px;
     height: 10px;
-    border: 2px solid #F47D67;
-    box-sizing: border-box;
+    border: 2px solid rgba(0,0,0,.4);
+    box-sizing:border-box;
     border-radius: 50%;
     margin: 0 5px;
 }
 article.countdown header.intro ul li.selected{
-    background-color: #F47D67;
+    background-color: rgba(0,0,0,.4);
 }
 
 article.countdown section.timer {
@@ -129,8 +129,8 @@ article.countdown section.timer .progress>li:before {
 }
 
 article.countdown section.timer .progress svg {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
 }
 
 article.countdown section.timer .progress svg:nth-child(2) {
@@ -160,8 +160,11 @@ transition: all .2s ease-out;
 }
 
 
+/* MOBILE CSS */
 
 
+@media screen and (min-width: 480px) {
+}
 
 
 @-webkit-keyframes 
