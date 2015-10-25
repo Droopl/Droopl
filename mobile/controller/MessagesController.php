@@ -61,7 +61,12 @@ class MessagesController extends AppController{
 			if(!empty($_SESSION['user']['id'])){
 
 				if(!empty($_GET['action']) == "create"){
-					$users = $this->userDAO->getSearchUsers("b");
+
+					if(!empty($_GET['search_users'])){
+						$users = $this->userDAO->getSearchUsers($_GET['search_users']);
+					}else{
+						$users = $this->userDAO->getUsers();
+					}
 					if(!empty($_POST) && !empty($_POST['user_id'])){
 						$found = false;					
 						$user1 = $this->convoUsersDAO->getConversationByUserId($_POST['user_id']);
@@ -88,14 +93,15 @@ class MessagesController extends AppController{
 
 
 						if(!empty($_POST['message'])){
-							$messageSent = $this->messagesDAO->addMessage($convoId,$_SESSION['user']['id'],$_POST['message']);
+
+							$messageSent = $this->messagesDAO->addMessage($convoId,$_SESSION['user']['id'],$_POST['message'],"1");
 
 							if($messageSent){
-								$this->redirect("?page=messages&id=".$convoId);
+								$this->redirect("?page=message&id=".$convoId);
 							}
 
 						}else{
-							$this->redirect("?page=messages&id=".$convoId);
+							$this->redirect("?page=message&id=".$convoId);
 						}
 
 						//
@@ -288,14 +294,14 @@ class MessagesController extends AppController{
 
 
 						if(!empty($_POST['message'])){
-							$messageSent = $this->messagesDAO->addMessage($convoId,$_SESSION['user']['id'],$_POST['message']);
+							$messageSent = $this->messagesDAO->addMessage($convoId,$_SESSION['user']['id'],$_POST['message'],"1");
 
 							if($messageSent){
-								$this->redirect("?page=messages&id=".$convoId);
+								$this->redirect("?page=message&id=".$convoId);
 							}
 
 						}else{
-							$this->redirect("?page=messages&id=".$convoId);
+							$this->redirect("?page=message&id=".$convoId);
 						}
 
 						//
@@ -328,10 +334,10 @@ class MessagesController extends AppController{
 								echo $user;
 							}
 
-							$this->redirect("?page=messages&id=".$convoId);
+							$this->redirect("?page=message&id=".$convoId);
 						}
 					}else{
-						$this->redirect("?page=messages&id=".$convoId);
+						$this->redirect("?page=message&id=".$convoId);
 					}
 				}
 

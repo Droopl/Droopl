@@ -40,7 +40,11 @@
 <li class="user">
             <a href="?page=user&id=<?php echo $user['id']; ?>">
             <header>
-                <img src="images/profile_pictures/<?php echo $user['picture'] ?>">
+                <?php if(!empty($value['picture'])){ ?>
+                <img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+                <?php }else{ ?>
+                <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+                <?php }?>
                 <h1><?php echo $user['firstname'] ?></h1>
                 <h2><?php echo $user['occupation'] ?></h2>
             </header>

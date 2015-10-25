@@ -109,8 +109,14 @@
             <div class="search_users">
                 <?php if(!empty($users)){ ?>
                 <ul>
-                    <?php foreach ($users as $key => $user) { ?>
-                         <li><img src="images/profile_pictures/<?php echo $user['picture']; ?>"></li>
+                   <?php foreach ($users as $key => $user) { ?>
+                         <li id="<?php  echo $user['id'];?>">
+                            <?php if(!empty($user['picture'])){ ?>
+                            <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
+                            <?php }else{ ?>
+                            <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+                            <?php }?>
+                        </li>
                    <?php  } ?>
                    
                 </ul>
@@ -204,8 +210,15 @@
     </div>
 </article>
 <?php } ?>
-<footer class="hide">
-	<header><h1>Footer</h1></header>
+<footer id="foot">
+	<header class="hide"><h1>Footer</h1></header>
+    <nav>
+        <ul>
+            <li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><span class="icon-layout"></span><?php echo $_SESSION['lang']['menudash']; ?></a></li>
+            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><span class="icon-speech-bubble"></span><?php echo $_SESSION['lang']['menumessages']; ?></a></li>
+            <li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><span class="icon-globe"></span><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
+        </ul>
+    </nav>
 </footer>
 </body>
 </html>

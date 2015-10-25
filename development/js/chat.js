@@ -60,6 +60,8 @@ $(function  () {
               });
 
             });
+
+    
 		
 		$("section.chat ul li.conversation-bubble div.conversation ul").on("scroll",function (e) {
 			if($(this).scrollTop()<= 0){

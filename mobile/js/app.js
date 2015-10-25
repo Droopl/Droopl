@@ -9,6 +9,7 @@ $(function  () {
     
     setInterval(function () {
 
+
        if($("#menu .notifications ul.show").length == 0){
           $("#menu .notifications ul").load("index.php?page=feed .notifications ul li");
 
@@ -313,6 +314,8 @@ $(function  () {
           }
       });
 
+
+
       setInterval(function () {
 
         var url = $(location).attr("href");
@@ -505,6 +508,27 @@ $(function  () {
               });
 
             });
+
+
+      if($("article.newconvo section").length){
+
+            console.log("exisits");
+
+            $("article.newconvo section div.search_users ul li").on("click",function () {
+
+              console.log("clicked");
+              $("article.newconvo section div.search_users ul li").removeClass("selected");
+              
+              var id = $(this).attr("id");
+              $(this).addClass("selected");
+
+              $("article.newconvo section form input[type='text']#user_id").val(id);
+
+            });
+
+          }
+
+    
 
     function scrollChat () {
       if($("article div.messages section.messages aside").scrollTop() + $("article div.messages section.messages aside").scrollHeight > $("article div.messages section.messages aside").scrollHeight - 10){
@@ -2206,8 +2230,9 @@ $(function  () {
     });
     
     $("article div.messages aside.conversations form#search-conversations input[type='button']#new-conversation-btn").on("click",function(){
-        $("article.new-conversation").addClass("show");
-         $("article.new-conversation").animate({opacity: 1},200);
+
+        window.location.replace("?page=messages&action=create");
+
     });
     
     $("article.new-conversation form#new-conversation-form span.close-new-conversation").on("click",function(){

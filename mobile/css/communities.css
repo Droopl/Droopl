@@ -583,13 +583,10 @@ article.newconvo{
 
 article.newconvo section{
 
-    position: fixed;
-    left: 50%;
-    margin-left: -275px;
-    width: 550px;
-    height: 320px;
-    top: 40%;
-    margin-top: -150px;
+    float: left;
+    width: 100%;
+    height: calc();
+    margin-top: 75px;
     box-sizing:border-box;
     background-color: #ffffff;
     overflow: hidden;
@@ -601,49 +598,66 @@ article.newconvo section div{
     position: relative;
 }
 article.newconvo section div.search_users{
-    overflow:hidden; 
-    height: 65px;
+    overflow:scroll; 
+    height: 90px;
+    padding: 10px;
     border-bottom: 1px solid #E8E8EA;
 }
 article.newconvo section div.search_users ul{
 
-    display: block;
-    height: 65px;
-    float: left;
+    display: inline-block;
+    height: 90px;
+    padding: 10px;
+    box-sizing:border-box;
+    width: 100%;
+    white-space: nowrap;
 }
 article.newconvo section div.search_users ul li{
 
-    display: inline-block;
-    width: 65px;
-    box-sizing:border-box;
-    padding: 12.5px 0;
+    display: block;
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin: 0 20px 20px 20px;
     text-align: center;
-    line-height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    background-image: url(../images/assets/check-icon-white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-color: #00A388;
+}
+article.newconvo section div.search_users ul li.selected img{
+    opacity: .2;
 }
 article.newconvo section div.search_users ul li img{
 
     display: inline-block;
-    height: 40px;
-
+    width: 100%;
     border-radius: 50%;
 
-}
-article.newconvo section div.search_users ul li:first-child{
-
-    margin-left: 5%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
 }
 
 article.newconvo section form input[type="text"]{
     display: inline-block;
     width: 100%;
     padding: 0 5%;
-    height: 65px;
-    line-height: 65px;
+    height: 75px;
+    line-height: 75px;
     border: none;
     box-sizing:border-box;
     border-bottom: 1px solid #E8E8EA;
     background-image: url(../images/assets/search_btn.svg);
     background-size: 15px;
+    font-size: 1em;
     background-position: right 5% center;
     background-repeat: no-repeat;
 }
@@ -670,11 +684,12 @@ article.newconvo section form textarea{
     width: 100%;
     padding: 5%;
     border: none;
-    height: 200px;
-    max-height: 200px;
-    min-height: 200px;
+    height: 400px;
+    max-height: 400px;
+    min-height: 400px;
     max-width: 100%;
     min-width: 100%;
+    font-size: 1em;
     border-bottom:1px solid #E8E8EA;
     border: none;
 }

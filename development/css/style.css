@@ -3932,6 +3932,12 @@ article div.messages aside.conversations nav{
     overflow-x: hidden;
     overflow-y: scroll;
 }
+article div.messages aside.conversations nav ul{
+    display: block;
+    width: 100%;
+    float: left;
+    margin-bottom: 55px;
+}
 article div.messages aside.conversations nav ul li{
     display: block;
     width: 100%;

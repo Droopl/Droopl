@@ -174,12 +174,18 @@
         <header class="hide"><h1>new conversation</h1></header>
         <form action="" method="post" >
             <input type="text" id="search_people" name="search_people" placeholder="Search for people" autofocus>
-            <input type="text" id="user_id" name="user_id" value="6" class="hide">
+            <input type="text" id="user_id" name="user_id" value="" class="hide" required>
             <div class="search_users">
                 <?php if(!empty($users)){ ?>
                 <ul>
                     <?php foreach ($users as $key => $user) { ?>
-                         <li><img src="images/profile_pictures/<?php echo $user['picture']; ?>"></li>
+                         <li id="<?php  echo $user['id'];?>">
+                            <?php if(!empty($user['picture'])){ ?>
+                            <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
+                            <?php }else{ ?>
+                            <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+                            <?php }?>
+                        </li>
                    <?php  } ?>
                    
                 </ul>
@@ -273,8 +279,8 @@
     </div>
 </article>
 <?php } ?>
-<footer class="hide">
-	<header><h1>Footer</h1></header>
+<footer id="foot">
+	<header class="hide"><h1>Footer</h1></header>
 </footer>
 </body>
 </html>

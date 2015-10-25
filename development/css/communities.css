@@ -597,36 +597,52 @@ article.newconvo section div{
     position: relative;
 }
 article.newconvo section div.search_users{
-    overflow:hidden; 
+    overflow:scroll; 
     height: 65px;
+    padding: 10px;
     border-bottom: 1px solid #E8E8EA;
 }
 article.newconvo section div.search_users ul{
 
-    display: block;
-    height: 65px;
-    float: left;
+    display: inline-block;
+    height: 70px;
+    padding: 10px;
+    box-sizing:border-box;
+    width: 100%;
+    white-space: nowrap;
 }
 article.newconvo section div.search_users ul li{
 
-    display: inline-block;
-    width: 65px;
-    box-sizing:border-box;
-    padding: 12.5px 0;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
     text-align: center;
-    line-height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    background-image: url(../images/assets/check-icon-white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-color: rgba(0,0,0,.4);
+}
+article.newconvo section div.search_users ul li.selected img{
+    opacity: .3;
 }
 article.newconvo section div.search_users ul li img{
 
     display: inline-block;
-    height: 40px;
-
+    width: 100%;
     border-radius: 50%;
 
-}
-article.newconvo section div.search_users ul li:first-child{
-
-    margin-left: 5%;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
 }
 
 article.newconvo section form input[type="text"]{

@@ -159,7 +159,7 @@ header#menu div form input[type="button"]{
 header#menu div nav{
 
     float: right;
-    display: none;
+    display: block;
 }
 header#menu div nav ul{
 
@@ -172,13 +172,14 @@ header#menu div nav ul li{
 header#menu div nav ul li.notifications{
 
     padding: 0 20px;
+    line-height: 75px;
+    height: 75px;
     cursor: pointer;
     position: relative;
 }
 header#menu div nav ul li.notifications span.notif{
 
     color: #F47D67;
-
     
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
@@ -191,10 +192,11 @@ header#menu div nav ul li.notifications ul{
     background-color: white;
     position: absolute;
     right: 0;
-    top: 15px;
+    top: 85%;
     width: 250px;
     height: 0px;
     overflow: hidden;
+    line-height: normal;
     border: 0px solid #E8E8EA;
     border-radius: .3em;
     border-top-right-radius: 0;
@@ -207,10 +209,10 @@ header#menu div nav ul li.notifications ul{
     transition: all .1s ease-in-out;
 }
 header#menu div nav ul li.notifications ul.show{
-    top: 38px;
+    top: 90%;
     height: 212px;
     border: 1px solid #E8E8EA;
-    width: 250px;
+    width:280px;
     -webkit-box-shadow: 0 0 25px -13px #000000;
     -moz-box-shadow: 0 0 25px -13px #000000;
     box-shadow: 0 0 25px -13px #000000;
@@ -220,14 +222,13 @@ header#menu div nav ul li.notifications ul li{
     display: block;
     float: left;
     width: 100%;
-
 }
 header#menu div nav ul li.notifications ul li a{
     display: block;
     float: left;
     width: 90%;
     padding: 8% 5%;
-    font-size: .7em;
+    font-size: .9em;
     height: auto;
     line-height: inherit;
     color: #5F6970;
@@ -312,7 +313,7 @@ header#menu div nav ul li.profile ul li a{
     padding: 10%;
     height: auto;
     line-height: inherit;
-    font-size: .7em;
+    font-size: .9em;
     color: #5F6970;
     font-weight: normal;
 
@@ -739,6 +740,7 @@ article{
     box-sizing:border-box;
     float: left;
     margin-top: 75px;
+    margin-bottom: 75px;
     position: relative;
 
 }
@@ -1358,12 +1360,15 @@ article div.feed section.post form div input[type="text"]{
     box-sizing:border-box;
     background: none;
     border: none;
+    font-size: 1em;
 }
 article div.feed section.post form div input[type="text"]#desc{
     float: left;
     width: 100%;
     padding-right: 40%;
     box-sizing:border-box;
+
+    font-size: 1em;
 }
 article div.feed section.post form div select{
     
@@ -3703,7 +3708,7 @@ article div.messages{
 article div.messages aside.conversations{
     float: left;
     width: 100%;
-    height: calc(100% - 75px);
+    height: calc(100% - 150px);
     box-sizing:border-box;
     border-right: 1px solid #E8E8EA;
 }
@@ -3763,6 +3768,12 @@ article div.messages aside.conversations nav{
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+}
+article div.messages aside.conversations nav ul{
+    display: block;
+    width: 100%;
+    float: left;
+    margin-bottom: 55px;
 }
 article div.messages aside.conversations nav ul li{
     display: block;
@@ -3841,7 +3852,7 @@ article div.messages aside.conversations nav ul li p{
 article div.messages section.messages{
     float: left;
     width: 100%;
-    height: calc(100% - 75px);
+    height: calc(100% - 150px);
     position: relative;
     overflow: hidden;
 }
@@ -4491,6 +4502,55 @@ article aside#side section.comusers nav ul li a img{
     width: 100%;
 
 }
+
+
+
+
+
+/*MAIN FOOTER*/
+
+#foot nav{
+    display: block;
+    position: fixed;
+    top: 100%;
+    margin-top: -75px;
+    width: 100%;
+    height: 75px;
+    background-color: #ffffff;
+    border-top: 1px solid #E8E8EA;
+    text-align: center;
+}
+#foot nav ul li{
+    display: inline-block;
+    width: 30%;
+    height: 75px;
+    border-right: 1px solid #E8E8EA;
+}
+#foot nav ul li:last-child{
+    border: none;
+}
+#foot nav ul li a{
+    display: block;
+    width: 100%;
+    height: 75px;
+    box-sizing:border-box;
+    padding: 15px 0;
+    color: rgba(0,0,0,.4);
+    text-decoration: none;
+    font-size: .8em;
+    text-align: center;
+    
+}
+#foot nav ul li a.current-menu-page{
+    color: #FF7F66;
+}
+#foot nav ul li a span{
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
+    font-size: 1.5em !important;
+}
+
 
 
 

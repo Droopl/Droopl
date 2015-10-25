@@ -36,9 +36,25 @@ class UserDAO{
 	}
 	
 
+	public function getUsers(){
+
+		$sql = 'SELECT id,firstname,lastname,picture FROM users LIMIT 30';
+
+		$stmt = $this->pdo->prepare($sql);
+		if($stmt->execute()){
+
+			return $illustrator = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+
+		return array();
+
+	}
+
+	
+
 	public function getSearchUsers($entry){
 
-		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating ,(
+		$sql = 'SELECT u.id,u.firstname,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating,(
         SELECT COUNT(*)
         FROM   followers AS f
     	WHERE f.user_id = u.id
@@ -53,15 +69,15 @@ class UserDAO{
         FROM   proposals AS p
             WHERE p.user_id = u.id
         ) AS proposals
-FROM users u
-LEFT OUTER JOIN user_rating as r
-ON u.id = r.user_id
-WHERE u.firstname LIKE :entry OR u.lastname LIKE :entry2 OR u.email LIKE :entry3 LIMIT 30';
+		FROM users u
+		LEFT OUTER JOIN user_rating as r
+		ON u.id = r.user_id
+		WHERE u.firstname LIKE :entry OR u.lastname LIKE :entry2 OR u.email LIKE :entry3  GROUP BY u.id LIMIT 30 ';
 
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':entry',"%".$entry."%");
-		$stmt->bindValue(':entry2',"%".$entry."%");
-		$stmt->bindValue(':entry3',"%".$entry."%");
+		$stmt->bindValue(':entry',$entry."%");
+		$stmt->bindValue(':entry2',$entry."%");
+		$stmt->bindValue(':entry3',$entry."%");
 
 		if($stmt->execute()){
 
@@ -112,7 +128,8 @@ WHERE u.firstname LIKE :entry OR u.lastname LIKE :entry2 OR u.email LIKE :entry3
 FROM users u
 LEFT OUTER JOIN user_rating as r
 ON u.id = r.user_id
-WHERE u.id = :id';
+WHERE u.id = :id
+GROUP BY u.id';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id',$id);
 

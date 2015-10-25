@@ -2,7 +2,7 @@
 <lang>
 	<menudash>Dashboard</menudash>
 	<menumessages>Berichten</menumessages>
-	<menucommunities>Maatschappijen</menucommunities>
+	<menucommunities>Communities</menucommunities>
 	<menuprofile>Mijn profiel</menuprofile>
 	<menusettings>instellingen</menusettings>
 	<menuabout>Over ons</menuabout>
@@ -24,12 +24,12 @@
    <sidequest>Zoekers</sidequest>
    <sidecollection>Mijn collectie</sidecollection>
    <sideactivity>Activiteit</sideactivity>
-   <sidecommunities>Maatschappijen</sidecommunities>
+   <sidecommunities>Communities</sidecommunities>
    <sidemembers>Leden</sidemembers>
 
    <filterpopu>Populair</filterpopu>
    <filterrecent>Recent</filterrecent>
-   <filternearby>Dicht bij</filternearby>
+   <filternearby>Dichtbij</filternearby>
    <filterquests>Zoekers</filterquests>
    <filterpropos>Voorstellen</filterpropos>
    <filtercollection>Collectie</filtercollection>
