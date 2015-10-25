@@ -78,13 +78,13 @@ article.countdown header.intro ul li{
     display: inline-block;
     width: 10px;
     height: 10px;
-    border: 2px solid rgba(0,0,0,.4);
+    border: 2px solid #F47D67;
     box-sizing:border-box;
     border-radius: 50%;
     margin: 0 5px;
 }
 article.countdown header.intro ul li.selected{
-    background-color: rgba(0,0,0,.4);
+    background-color: #F47D67;
 }
 
 article.countdown section.timer {
