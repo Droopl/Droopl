@@ -1,6 +1,6 @@
 $(function () {
 
-    var sentences = ["Nous innovons la manière dont vous consommez demain","Wij innoveren de manier waarop u morgen consumeert","We innovate the way you will consume tommorow"];
+    var sentences = ["Nous innovons la manière dont vous consommez demain","Wij innoveren de manier waarop u morgen consumeert","We innovate the way you consume tommorow"];
     var id = 0;
 
     var slideShow;
@@ -141,10 +141,10 @@ $(function () {
 
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
             if ( xDiff > 0 ) {
-                prevSlide();
+                nextSlide();
                resetSlideshow();
             } else {
-                nextSlide();
+                prevSlide();
                 
                resetSlideshow();
             }                       
