@@ -3,8 +3,8 @@
 	 	<div class="container">
 	 		<?php if(!$verificationSent && !$verified){ ?>
 	 		<header>
-	 			<h1>Haven't recieved your code ? Resend your code </h1>
-	 			<h2>Please check your junkmail if you can't find you mail</h2>
+	 			<h1>Haven't recieved your code ?</h1>
+	 			<h2>Please check your junkmail if you can't find your mail</h2>
 
 	 			<nav>
 	 				<?php if(isset($_SESSION['user'])){ ?>

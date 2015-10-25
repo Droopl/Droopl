@@ -266,6 +266,6 @@
 	<header class="hide">
 		<h1>Droopl <?php echo $_GET["page"];?></h1>
 	</header>
-	<?php if(isset($_SESSION['user']) && $_SESSION['user']['verification'] == "0" && $_GET['page'] != "register"){ ?>
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']['verification'] == "0" && $_GET['page'] != "register" && $_GET['page'] != "verification" && $_GET['page'] != "messages" && $_GET['page'] != "item"){ ?>
 	<section class="verif animated fadeInDown"><span class="icon-circle-check"></span>Your account hasn't been verified yes click <a href="?page=verification">here</a> to resend verification code</section>
 	<?php } ?>

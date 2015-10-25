@@ -1,11 +1,11 @@
 $(function () {
 
-    var sentences = ["We innovate the way you will consume tommorow","Wij innoveren wat u morgen zult consumeren","We innovate the way you will consume tommorow"];
+    var sentences = ["Nous innovons ce que vous consumerez demain","Wij innoveren wat u morgen zult consumeren","We innovate the way you will consume tommorow"];
     var id = 0;
 
     var slideShow;
 
-	var end = new Date('11/24/2015 00:01 AM');
+	var end = new Date('12/01/2015 00:01 AM');
 
     var _second = 1000;
     var _minute = _second * 60;
@@ -72,7 +72,7 @@ $(function () {
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        var dayCruve = 630 - (days/29*100)*6.3;
+        var dayCruve = 630 - (days/40*100)*6.3;
 
 
         var day = days;
