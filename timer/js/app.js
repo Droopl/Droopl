@@ -1,6 +1,6 @@
 $(function () {
 
-    var sentences = ["Nous innovons ce que vous consumerez demain","Wij innoveren wat u morgen zult consumeren","We innovate the way you will consume tommorow"];
+    var sentences = ["Nous innovons la manière dont vous consommez demain","Wij innoveren de manier waarop u morgen consumeert","We innovate the way you will consume tommorow"];
     var id = 0;
 
     var slideShow;

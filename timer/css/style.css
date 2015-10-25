@@ -144,7 +144,7 @@ article.countdown section.timer .progress svg:nth-child(2) {
 
 article.countdown section.timer .progress svg:nth-child(2) path {
   fill: none;
-  stroke-width: 15;
+  stroke-width: 18;
   stroke-dasharray: 629;
   stroke: rgba(255, 255, 255, 0.7);
   -webkit-transition: all .2s ease-out;
