@@ -15,6 +15,7 @@ $routes = array(
 	'register' => array('controller' => 'User', 'action' => 'register'),
 	'user' => array('controller' => 'User', 'action' => 'user'),
 	'collection' => array('controller' => 'Collection', 'action' =>'remove'),
+	'settings' => array('controller' => 'User', 'action' =>'settings'),
 	'update' => array('controller' => 'Collection', 'action' =>'update'),
 	'add' => array('controller' => 'Collection', 'action' =>'add'),
 	'item' => array('controller' => 'Collection', 'action' =>'item'),

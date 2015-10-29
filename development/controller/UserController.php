@@ -539,6 +539,9 @@ class UserController extends AppController{
 			  exit;
 			  break;
 	}
+
+	public function settings(){
+	}
 	
 	return $banner;
 	/* cleanup memory */
