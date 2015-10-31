@@ -805,7 +805,8 @@ article aside#side section.collection ul{
     list-style: none;
 }
 article aside#side section.collection ul li{
-    display: inline-block;
+    display: block;
+    float: left;
     width: 35px;
     height: 35px;
     margin: 0 7px;
@@ -817,10 +818,12 @@ article aside#side section.collection ul li.add-to-collection.bordered{
     border-radius: 50%;
 }
 article aside#side section.collection ul li.no-items-msg {
-    display: inline-block;
+    display: block;
+    float: left;
     width: auto;
     line-height: 35px;
     font-size: .7em;
+    margin-left: 20px;
     padding: 0;
 }
 article aside#side section.collection ul li.add-to-collection{
