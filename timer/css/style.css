@@ -106,13 +106,14 @@ article.countdown section.timer ul li{
     display: inline-block;
     opacity: 0;
     background-color: #F8F8F8;
-    width: 100px;
+    width: 80px;
     height: 80px;
     text-align: center;
     position: relative;
     font-family: Dosis;
     margin: 20px;
     border: 1px solid rgba(0,0,0,.2);
+    border-radius: .4em;
 }
 article.countdown section.timer ul li p{
   letter-spacing: 2px;
@@ -126,7 +127,52 @@ article.countdown section.timer ul li span{
   color: rgba(0,0,0,.3);
 }
 
+article.countdown footer {
+    width: 100%;
+    float: left;
+    padding: 80px;
+    box-sizing: border-box;
+}
 
+article.countdown footer a.contact {
+    display: block;
+    width: 75px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: .9em;
+    padding: 12px;
+    border-radius: .5em;
+    background-color: #F47D67;
+    margin: 0 auto;
+    position: relative;
+    
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+article.countdown footer a.contact:hover {
+    padding-left: 32px;
+}
+
+article.countdown footer a.contact:hover > span {
+    left: 10px;
+    opacity: 1;
+}
+
+article.countdown footer a.contact span {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    left: 15px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
 
 /* MOBILE CSS */
 
