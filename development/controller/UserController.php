@@ -540,8 +540,7 @@ class UserController extends AppController{
 			  break;
 	}
 
-	public function settings(){
-	}
+	
 	
 	return $banner;
 	/* cleanup memory */
@@ -550,6 +549,9 @@ class UserController extends AppController{
 
 	}
 
+	public function settings(){
+
+	}
 
 	private function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

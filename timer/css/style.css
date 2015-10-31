@@ -28,6 +28,7 @@ article.countdown{
     background-image: url(../images/login_background.svg);
     background-repeat: repeat-y;
     background-size: cover;
+    background-position: center;
 }
 article.countdown div.center{
     margin: 0 auto;
@@ -60,7 +61,7 @@ article.countdown header.intro h1{
     margin-bottom: 40px;
     font-weight: 300;
     color: rgba(0,0,0,.6);
-    font-size: 1.2em;
+    font-size: 1.7em;
     padding: 0 5%;
     box-sizing:border-box;
 }
@@ -94,69 +95,37 @@ article.countdown section.timer {
     margin-top: 50px;
 }
 
-article.countdown section.timer .progress {
+article.countdown section.timer ul {
     width: 100%;
     position: relative;
     display: inline-block;
     text-align: center;
 }
-article.countdown section.timer .progress>li {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: #93A2AC;
-  font-weight: 100;
-  margin: 30px;
-  font-size: 1em;
-  text-transform: uppercase;
+
+article.countdown section.timer ul li{
+    display: inline-block;
+    opacity: 0;
+    background-color: #F8F8F8;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    position: relative;
+    font-family: Dosis;
+    margin: 20px;
+    border: 1px solid rgba(0,0,0,.2);
+}
+article.countdown section.timer ul li p{
+  letter-spacing: 2px;
+  line-height: 80px;
+    font-size: 1.5em;
+  color: #3E454C;
+}
+article.countdown section.timer ul li span{
+  font-size: 1.3em;
+  line-height: 40px;
+  color: rgba(0,0,0,.3);
 }
 
-article.countdown section.timer .progress>li:before {
-  content: attr(data-name);
-  position: absolute;
-  width: 65px;
-  left: 50%;
-  margin-left: -32.5px;
-  height: 20px;
-  line-height: 20px;
-  top: 50%;
-  margin-top: -10px;
-  text-overflow:inherit;
-  white-space:pre-wrap;
-  text-align: center;
-  font-weight: 400;
-}
-
-article.countdown section.timer .progress svg {
-  width: 100px;
-  height: 100px;
-}
-
-article.countdown section.timer .progress svg:nth-child(2) {
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-}
-
-article.countdown section.timer .progress svg:nth-child(2) path {
-  fill: none;
-  stroke-width: 18;
-  stroke-dasharray: 629;
-  stroke: rgba(255, 255, 255, 0.7);
-  -webkit-transition: all .2s ease-out;
--moz-transition: all .2s ease-out;
--ms-transition: all .2s ease-out;
--o-transition: all .2s ease-out;
-transition: all .2s ease-out;
-  -webkit-animation: load 2s;
-  -moz-animation: load 2s;
-  -o-animation: load 2s;
-  animation: load 2s;
-}
 
 
 /* MOBILE CSS */
@@ -166,6 +135,9 @@ transition: all .2s ease-out;
     
     article.countdown header.intro div.intro img{
         height: 80px;
+    }
+    article.countdown{
+        background-size: contain;
     }
     
     article.countdown section.timer .progress svg {
@@ -178,7 +150,7 @@ transition: all .2s ease-out;
     }
     
     article.countdown header.intro h1 {
-        font-size: 1em;
+        font-size: 1.4em;
     }
     
     article.countdown header.intro {
@@ -195,19 +167,4 @@ transition: all .2s ease-out;
     
 }
 
-
-@-webkit-keyframes 
-load { 0% {
-stroke-dashoffset:0
-}
-}
-@-moz-keyframes 
-load { 0% {
-stroke-dashoffset:0
-}
-}
-@keyframes 
-load { 0% {
-stroke-dashoffset:0
-}
 

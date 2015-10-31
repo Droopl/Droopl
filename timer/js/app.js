@@ -1,6 +1,6 @@
 $(function () {
 
-    var sentences = ["Nous innovons la manière dont vous consommez demain","Wij innoveren de manier waarop u morgen consumeert","We innovate the way you consume tommorow"];
+    var sentences = ["We innovate the way you will consume tomorrow","Wij innoveren de manier waarop u morgen consumeert","Nous innovons la manière dont vous consommez demain"];
     var id = 0;
 
     var slideShow;
@@ -15,9 +15,20 @@ $(function () {
 
 	function init () {
 
+        setQuote();
         showRemaining();
         slideShow = setInterval(nextSlide,5000);
 	    timer = setInterval(showRemaining, 1000);
+
+        var time = 1000;
+        $(".timer ul li").each(function (key,val) {
+
+            setTimeout(function() {
+                $(val).addClass("animated fadeInUp");
+            }, time);
+            
+            time += 200;
+        });
 
 
 	}
@@ -72,45 +83,35 @@ $(function () {
         var minutes = Math.floor((distance % _hour) / _minute);
         var seconds = Math.floor((distance % _minute) / _second);
 
-        var dayCruve = 630 - (days/40*100)*6.3;
-
 
         var day = days;
         if(days < 10){
             day = "0"+days;
         }
 
-        $("section.timer ul li#days").attr("data-name",day+" D");
-        $("section.timer ul li#days path").attr("stroke-dashoffset",dayCruve);
+        $("section.timer ul li#days p").html(day);
 
-        var hourCruve = 630 - (hours/24*100)*6.3;
 
         var hour = hours;
         if(hours < 10){
             hour = "0"+hours;
         }
 
-        $("section.timer ul li#hours").attr("data-name",hour+" H");
-        $("section.timer ul li#hours path").attr("stroke-dashoffset",hourCruve);
+        $("section.timer ul li#hours p").html(hour);
 
         var min = minutes;
         if(minutes < 10){
             min = "0"+minutes;
         }
 
-        var minCruve = 630 - (minutes/60*100)*6.3;
-
-        $("section.timer ul li#minutes").attr("data-name",min+" M");
-        $("section.timer ul li#minutes path").attr("stroke-dashoffset",minCruve);
+        $("section.timer ul li#minutes p").html(min);
 
          var sec = seconds;
         if(seconds < 10){
             sec = "0"+seconds;
         }
-        var secCruve = 630 - (seconds/60*100)*6.3;
 
-        $("section.timer ul li#seconds").attr("data-name",sec+" S");
-        $("section.timer ul li#seconds path").attr("stroke-dashoffset",secCruve);
+        $("section.timer ul li#seconds p").html(sec);
 
         
        
