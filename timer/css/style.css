@@ -130,11 +130,57 @@ article.countdown section.timer ul li span{
 article.countdown footer {
     width: 100%;
     float: left;
-    padding: 80px;
+    padding: 100px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+article.countdown footer div.container {
+    display: inline-block;
+}
+
+article.countdown footer div.container p {
+    display: block;
+    float: left;
+    padding: 0 40px;
+    font-size: .9em;
+    line-height: 41px;
     box-sizing: border-box;
 }
 
-article.countdown footer a.contact {
+article.countdown footer div.container form {
+    display: block;
+    float: left;
+}
+
+article.countdown footer div.container form input[type='email']{
+    display: block;
+    float: left;
+    width: 270px;
+    height: 41px;
+    border: none;
+    padding-left: 12px;
+    font-size: .9em;
+    border-radius: .5em;
+    -webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+}
+
+article.countdown footer div.container form input[type='submit']{
+    display: block;
+    float: left;
+    color: #ffffff;
+    height: 41px;
+    padding: 12px;
+    margin-left: 15px;
+    background-color: #F47D67;
+    border: none;
+    font-size: .9em;
+    border-radius: .5em;
+    cursor: pointer;
+}
+
+article.countdown footer div.container a.contact {
     display: block;
     width: 75px;
     text-decoration: none;
@@ -143,7 +189,7 @@ article.countdown footer a.contact {
     padding: 12px 17px;
     border-radius: .5em;
     background-color: #F47D67;
-    margin: 0 auto;
+    float: left;
     position: relative;
     
     -webkit-transition: all .2s ease-out;
@@ -151,6 +197,14 @@ article.countdown footer a.contact {
     -ms-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
+}
+
+article.countdown footer div.container a.contact:hover {
+    padding-left: 32px;
+}
+
+article.countdown footer div.container a.contact:hover > span {
+    left: 10px;
 }
 
 article.countdown footer a.contact:hover {
@@ -162,7 +216,7 @@ article.countdown footer a.contact:hover > span {
     opacity: 1;
 }
 
-article.countdown footer a.contact span {
+article.countdown footer div.container a.contact span {
     display: block;
     opacity: 0;
     position: absolute;
@@ -178,6 +232,31 @@ article.countdown footer a.contact span {
 
 
 @media screen and (max-width: 800px) {
+    
+    article.countdown footer {
+        padding: 50px 10%;
+        padding-bottom: 100px;
+    }
+    
+    article.countdown footer div.container a.contact {
+        margin: 0 auto;
+        float: none;
+    }
+    
+    article.countdown footer div.container p {
+        width: 100%;
+        padding: 15px 0;
+    }
+    
+    article.countdown footer div.container form {
+        width: 100%;
+        text-align: center;
+    }
+    
+    article.countdown footer div.container form input[type='email']{
+        width: 200px;
+        display: inline-block;
+    }
     
     article.countdown header.intro div.intro img{
         height: 80px;
@@ -212,5 +291,3 @@ article.countdown footer a.contact span {
     }
     
 }
-
-
