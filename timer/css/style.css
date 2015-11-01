@@ -19,13 +19,13 @@ body{
 
 
 article.countdown{
-	float: left;
+	position: fixed;
     width: 100%;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
-    background-image: url(../images/login_background.svg);
+    background-image: url(../images/login_background.png);
     background-repeat: repeat-y;
     background-size: cover;
     background-position: center;
@@ -140,7 +140,7 @@ article.countdown footer a.contact {
     text-decoration: none;
     color: #ffffff;
     font-size: .9em;
-    padding: 12px;
+    padding: 12px 17px;
     border-radius: .5em;
     background-color: #F47D67;
     margin: 0 auto;
@@ -154,11 +154,11 @@ article.countdown footer a.contact {
 }
 
 article.countdown footer a.contact:hover {
-    padding-left: 32px;
+    padding-left: 40px;
 }
 
 article.countdown footer a.contact:hover > span {
-    left: 10px;
+    left: 15px;
     opacity: 1;
 }
 
@@ -166,7 +166,7 @@ article.countdown footer a.contact span {
     display: block;
     opacity: 0;
     position: absolute;
-    left: 15px;
+    left: 20px;
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
