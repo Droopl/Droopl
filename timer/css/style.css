@@ -200,19 +200,11 @@ article.countdown footer div.container a.contact {
 }
 
 article.countdown footer div.container a.contact:hover {
-    padding-left: 32px;
+    padding-left: 34px;
 }
 
 article.countdown footer div.container a.contact:hover > span {
-    left: 10px;
-}
-
-article.countdown footer a.contact:hover {
-    padding-left: 40px;
-}
-
-article.countdown footer a.contact:hover > span {
-    left: 15px;
+    left: 12px;
     opacity: 1;
 }
 
