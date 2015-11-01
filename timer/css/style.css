@@ -178,6 +178,9 @@ article.countdown footer div.container form input[type='submit']{
     font-size: .9em;
     border-radius: .5em;
     cursor: pointer;
+    -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
 }
 
 article.countdown footer div.container a.contact {
