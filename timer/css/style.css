@@ -164,6 +164,7 @@ article.countdown footer div.container form input[type='email']{
     border-radius: .5em;
     -webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
     box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+    box-sizing: border-box;
 }
 
 article.countdown footer div.container form input[type='submit']{
@@ -240,7 +241,7 @@ article.countdown footer div.container a.contact span {
     
     article.countdown footer div.container p {
         width: 100%;
-        padding: 15px 0;
+        padding: 20px 0;
     }
     
     article.countdown footer div.container form {
@@ -249,8 +250,14 @@ article.countdown footer div.container a.contact span {
     }
     
     article.countdown footer div.container form input[type='email']{
-        width: 200px;
-        display: inline-block;
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+    }
+    
+    article.countdown footer div.container form input[type='submit']{
+        margin: 0 auto;
+        float: none;
     }
     
     article.countdown header.intro div.intro img{
