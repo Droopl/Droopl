@@ -262,7 +262,6 @@ article.countdown footer div.container a.contact span {
     }
     
     article.countdown footer div.container form input[type='email']{
-<<<<<<< Updated upstream
         width: 100%;
         float: left;
         margin-bottom: 20px;
@@ -271,15 +270,11 @@ article.countdown footer div.container a.contact span {
     article.countdown footer div.container form input[type='submit']{
         margin: 0 auto;
         float: none;
-=======
-<<<<<<< HEAD
         width: 50%;
         display: inline-block;
->>>>>>> Stashed changes
     }
     article.countdown footer div.container form input[type='submit']{
         display: inline-block;
-=======
         width: 100%;
         float: left;
         margin-bottom: 20px;
@@ -288,7 +283,6 @@ article.countdown footer div.container a.contact span {
     article.countdown footer div.container form input[type='submit']{
         margin: 0 auto;
         float: none;
->>>>>>> origin/master
     }
     
     article.countdown header.intro div.intro img{
