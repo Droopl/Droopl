@@ -7,7 +7,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Droopl - launch countdown</title>
-        <meta name="description" content="">
+        <meta property="og:url"                content="http://droopl.com" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="Droopl launch countdown" />
+        <meta property="og:description"        content="We innovate the way you will consume tomorrow" />
+        <meta property="og:image"              content="http://droopl.com/images/logo.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="images/favicon.png"/>
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
@@ -39,7 +43,7 @@
                 </div>
 
                 <div class="animated fadeInUp">
-                    <h1 id="quote">Wij innoveren de manier waarop u morgen consumeert</h1>
+                    <h1 id="quote"></h1>
 
                     <nav>
                         <ul class="indicators">
@@ -92,10 +96,35 @@
                         <input type="submit" id="subscribe_submit" name="subscribe_submit" value="Subscribe">
                     </form>
                 </div>
+
+                <div
+                  class="fb-like"
+                  data-share="true"
+                  data-width="450"
+                  data-show-faces="true">
+                </div>
             </footer>
 
 
         </article>
+
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1277682118924586',
+              xfbml      : true,
+              version    : 'v2.5'
+            });
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "http://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
 
     </body>
 </html>

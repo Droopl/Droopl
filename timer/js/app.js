@@ -15,6 +15,25 @@ $(function () {
 
 	function init () {
 
+        console.log("init");
+
+        $("#subscribe").on("submit",function(e){
+            console.log("Submitting")
+            e.preventDefault();
+
+            console.log($(this).serialize());
+
+            $.post( "http://droopl.com/api/subscribe", $(this).serialize()).done(function(){
+                console.log("subscribed");
+                $("#subscribe").animate({"opacity": 0}, function(){
+                    $("#subscribe").animate({width:'toggle'},600);
+                });
+                $("article.countdown footer div.container p").animate({"opacity": 0}, function(){
+                    $("article.countdown footer div.container p").animate({width:'toggle'},600);
+                });
+            });
+        }); 
+
         setQuote();
         showRemaining();
         slideShow = setInterval(nextSlide,5000);
@@ -171,18 +190,6 @@ $(function () {
          clearInterval(slideShow);
          slideShow = setInterval(nextSlide,5000);
     }
-    
-    $("#subscribe").on("submit",function(e){
-        e.preventDefault();
-        $.post( "http://droopl.com/api/subscribe", $(this).serialize()).done(function(){
-            console.log("subscribed");
-            $("#subscribe").animate({"opacity": 0}, function(){
-                $("#subscribe").animate({width:'toggle'},600);
-            });
-            $("article.countdown footer div.container p").animate({"opacity": 0}, function(){
-                $("article.countdown footer div.container p").animate({width:'toggle'},600);
-            });
-        });
-    }); 
+
 	
 });
