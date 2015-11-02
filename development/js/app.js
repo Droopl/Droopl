@@ -1741,8 +1741,10 @@ $(function  () {
                 $("article div.feed section.post form div input#type").attr("value", "1");
                 $("article div.feed section.post form div input#quest_submit").addClass("offering-bg");
                 $("article div.feed section.post form div span.upload_image").removeClass("animated fadeIn");
-                $("article div.feed section.post form div span.upload_image").animate({"opacity": 0},200);
+                $("article div.feed section.post form div span.upload_image").animate({opacity: "0"},200);
                 $("article div.feed section.post form div span.upload_image input[type='file']").hide();
+                $("article div.feed section.post form div select").animate({right: 70},200);
+                $("article div.feed section.post form div select").css("color", "#92CCCE");
                 $("article div.feed section.post form div.collection ul li").removeClass("fadeOutUp");
 
                 $("article div.feed section.post div input#item").select();
@@ -1817,8 +1819,10 @@ $(function  () {
                 $(".button").removeClass("offering-mode").addClass("looking-mode");
                 $("article div.feed section.post form div input#type").attr("value", "0");
                 $("article div.feed section.post form div input#quest_submit").removeClass("offering-bg");
+                $("article div.feed section.post form div span.upload_image").animate({opacity: "1"},200);
                 $("article div.feed section.post form div span.upload_image input[type='file']").show();
-                $("article div.feed section.post form div span.upload_image").animate({"opacity": 1},200);
+                $("article div.feed section.post form div select").animate({right: 125},200);
+                $("article div.feed section.post form div select").css("color", "#F47D67");
                 $("article div.feed section.post form div div.added-collection-item").attr("id","");
                 $("article div.feed section.post form div.collection input#collection_item").attr("value","");
 

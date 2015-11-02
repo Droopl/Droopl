@@ -94,7 +94,7 @@
 		<section class="quest" id="<?php echo $value['quest_id']; ?>">
         <header>
 
-            <img src="images/profile_pictures/<?php echo $value['picture'];?>">
+            <img src="images/profile_pictures/<?php if(!empty($value['picture'])){ echo $value['picture']; }else{ echo "notfound.svg"; }?>">
             <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
                 echo $_SESSION['lang']['questlooking'];
             }else{ 
