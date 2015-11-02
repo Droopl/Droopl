@@ -791,7 +791,8 @@ $(function  () {
     $("article aside#side section.collection ul li.add-to-collection").on("click",addCollectionItem);
     
     $("article div.feed section.post form div.collection header h2 a.post-add-collection-item").on("click",addCollectionItem);
-                                                                                                                             
+                                                                                                                   $("article div.feed section.profile-collection ul li.template a").on("click",addCollectionItem);
+    
     function addCollectionItem(e) {
           e.preventDefault();
 
@@ -811,6 +812,11 @@ $(function  () {
 
             $("article.add_collection").removeClass("hide");
             section.addClass("animated fadeInUpBig").insertAfter("article.add_collection header.add_collection");
+              
+              $("article div.feed section.add-collection-item span.close-add").on("click", function(){
+                  $("article.add_collection").addClass("hide");
+                   $("article.add_collection .feed").remove();
+              });
               
             var obj = $("#dragndrop input[type='file']");
             obj.on('dragenter', function (e) 

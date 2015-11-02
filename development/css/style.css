@@ -1743,6 +1743,20 @@ article div.feed section{
 article div.feed section.add-collection-item{
     -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+    position: relative;
+}
+article div.feed section.add-collection-item span.close-add {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    left: 15px;
+    background-repeat: no-repeat;
+    background-image: url(../images/assets/close-icon.svg);
+    background-size: 11px;
+    background-position: center;
+    cursor: pointer;
 }
 article div.feed section.filter{
     border: 0;
@@ -2268,8 +2282,8 @@ article div.feed section.profile-collection ul li.template:hover{
 }
 article div.feed section.profile-collection ul li.template:hover a header h1{
     display: inline-block;
-    height: 60px;
-    width: 60px;
+    height: 58px;
+    width: 58px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,.3);
     -webkit-transition: all .2s ease-out;
@@ -2297,25 +2311,27 @@ article div.feed section.profile-collection ul li.template a{
     height: 100%;
     text-decoration: none;
     color: rgba(0,0,0,.2);
+    cursor: pointer;
 }
 article div.feed section.profile-collection ul li.template a header{
     float: left;
     width: 100%;
     display: block;
     box-sizing:border-box;
-    padding: 20%;
+    padding: 25% 20%;
     text-align: center;
 }
 article div.feed section.profile-collection ul li.template a header h1{
     display: inline-block;
-    height: 60px;
-    width: 60px;
+    height: 58px;
+    width: 58px;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,.1);
 }
 article div.feed section.profile-collection ul li.template a header h2{
-    margin-top: 10px;
+    margin-top: 7px;
     font-size: .8em;
+    white-space: nowrap;
 }
 article div.feed section.profile-collection ul li.profile-collection-item span.collection-item-privacy {
     position: absolute;

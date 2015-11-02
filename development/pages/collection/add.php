@@ -1,6 +1,7 @@
 <article class="add_collection">
 	<div class="feed">
 	<section class="add-collection-item">
+        <span class="close-add"></span>
 		<form action="?page=add" method="post" id="add_collection" name="add_collection" enctype="multipart/form-data">
 			<header id="upload">
 				<div class="dragndrop" id="dragndrop">
