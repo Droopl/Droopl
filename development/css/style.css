@@ -215,6 +215,15 @@ header#menu div nav ul li.notifications ul.show{
     box-shadow: 0 0 25px -13px #000000;
     overflow-y: scroll;
 }
+header#menu div nav ul li.notifications ul h1.empty-notifications {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: url(../images/assets/empty-notifications.svg) center no-repeat;
+    background-size: 60px;
+    opacity: .4;
+}
 header#menu div nav ul li.notifications ul li{
 	display: block;
     float: left;
@@ -244,7 +253,17 @@ header#menu div nav ul li.notifications ul li.notseen a{
     color: #F47D67;
 
 }
+header#menu div nav ul li.notifications ul li a p {
+    display: block;
+    float: left;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 header#menu div nav ul li.notifications ul li a span.icon{
+    display: block;
+    float: left;
 	font-size: 1.1em;
 	margin-right: 10px;
 }
@@ -353,6 +372,7 @@ header#menu div nav ul li a.current-menu-page {
 
 section.chat {
     position: fixed;
+    z-index: 2;
     width: 75px;
     height: 200px;
     right: 50%;
@@ -1555,7 +1575,7 @@ article div.feed section.post form div select{
     position: absolute;
     right: 125px;
     display: block;
-    z-index: 10;
+    z-index: 1;
     background: none;
     top: 50%;
     margin-top: -10px;
@@ -2397,7 +2417,6 @@ article div.feed section.profile-collection ul li.profile-collection-item span.c
     background-position: center;
     background-size: 17px;
     background-repeat: no-repeat;
-    cursor: pointer;
 }
 article div.feed section.profile-collection ul li.profile-collection-item {
     display: block;
