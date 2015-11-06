@@ -14,6 +14,7 @@ class CommunityController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'OfferDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'ImagesDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'InvitesDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'FollowDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CommunityDAO.php';
@@ -23,6 +24,7 @@ class CommunityController extends AppController{
 		$this->offerDAO = new OfferDAO();
 		$this->propoDAO = new PropoDAO();
 		$this->imagesDAO = new ImagesDAO();
+		$this->invitesDAO = new InvitesDAO();
 		$this->userDAO = new UserDAO();
 		$this->followDAO = new FollowDAO();
 		$this->communityDAO = new CommunityDAO();
@@ -266,6 +268,7 @@ class CommunityController extends AppController{
 
 		$community = array();
 		$members = array();
+		$query = "";
 		$followers = array();
         $isMember = false;
 
@@ -273,8 +276,25 @@ class CommunityController extends AppController{
 			$community = $this->communityDAO->getCommunityById($_GET['id']);
         	$members = $this->communityDAO->getCommunityUsersById($community['id']);
 
+        	if(!empty($_GET['userid']) && !empty($_GET['action']) && $_GET['action'] == "invite"){
+        		$user = $this->userDAO->getUserById($_GET['userid']);
+        		if(!empty($user)){
+        			$invited = $this->invitesDAO->checkInvite($_GET['userid'],$_GET['id']);
+        			if(empty($invited)){
+        				$invite = $this->invitesDAO->addInvite($_GET['userid'],$_GET['id']);
+        			}
+        		}else{
+        			$this->redirec("?page=invite&id=".$_GET['id']);
+        		}
+			}
+
 			if(isset($_SESSION['user'])){
-				$followers = $this->followDAO->getAllFollowers($_SESSION['user']['id']);
+
+				if(isset($_GET['search'])){
+					$query = $_GET['search'];
+				}
+
+				$followers = $this->invitesDAO->getAllFollowersForInvite($_SESSION['user']['id'],$query);
 	            $checkMember = $this->communityDAO->isMemberOfCommunity($_SESSION['user']['id'],$_GET['id']);
 	            if(!empty($checkMember)){
 	            	$isMember = true;
@@ -282,6 +302,8 @@ class CommunityController extends AppController{
 			}else{
 				$this->redirect("?page=login");
 			}
+
+
 
 		}else{
 			$this->redirect("?page=feed");

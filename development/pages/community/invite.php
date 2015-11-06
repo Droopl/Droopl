@@ -52,6 +52,7 @@
         		<?php if(!empty($followers)){ ?>
             <ul>
                 <?php foreach ($followers as $key => $user) {?>
+                <?php if($user['id'] != NULL){ ?>
                 <li>
                         <?php if(!empty($user['picture'])){ ?>
                         <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
@@ -61,9 +62,13 @@
 
                         <p><span class="name"><?php echo $user['firstname']." ".$user['lastname']; ?></span><span class="occupation"><?php echo $user['occupation']; ?></span></p>
 
-                        <a href="?page=invite&action=true&userid=<?php echo $user['id']; ?>&id=<?php echo $_GET['id']; ?>" class="invited">Invite <span class="icon-check"></span></a>
+                        <?php if($user['accepted'] == NULL){ ?>
+                        	<a href="?page=invite&action=invite&userid=<?php echo $user['id']; ?>&id=<?php echo $_GET['id']; ?>">Invite <span class="icon-plus"></span></a>
+                        <?php }else{ ?>
+                        	<a href="?page=invite&action=invite&userid=<?php echo $user['id']; ?>&id=<?php echo $_GET['id']; ?>" class="invited">Invite <span class="icon-check"></span></a>
+                        <?php } ?>
                 </li>
-                <?php } ?>
+                <?php }} ?>
             </ul>
 
             <?php } ?>
