@@ -501,14 +501,73 @@ article div.feed section.post nav.users ul li{
     display: block;
     float: left;
     width: 100%;
-    height: 100px;
+    height: 90px;
     padding: 20px;
     box-sizing:border-box; 
+    border-bottom: 1px solid #E8E8EA; 
+}
+article div.feed section.post nav.users ul li p{
+    display: block;
+    float: left;
+    width: 50%;
+    height: 90px;
+    padding: 5px 20px;
+    box-sizing:border-box; 
+}
+article div.feed section.post nav.users ul li p span{
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 2.5px 0;
+}
+article div.feed section.post nav.users ul li p span.name{
+    display: block;
+    float: left;
+    width: 100%;
+}
+article div.feed section.post nav.users ul li p span.occupation{
+    display: block;
+    float: left;
+    width: 100%;
+    font-size: .7em;
+    color: rgba(0,0,0,.3);
 }
 article div.feed section.post nav.users ul li img{
     float: left;
     height: 100%;
     border-radius: 50%;
+}
+
+article div.feed section.post nav.users ul li a{
+    float: right;
+    height: 100%;
+    padding: 0 3%;
+    border-radius: .5em;
+    background-color: #F47D67;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: .8em;
+    letter-spacing: 1px;
+}
+article div.feed section.post nav.users ul li a.invited{
+    background-color: #ffffff;
+    color: rgba(0,0,0,.3);
+    border: 1px solid rgba(0,0,0,.1); 
+}
+article div.feed section.post nav.users ul li a.invited span{
+    margin-left: 5px;
+    opacity: 1;
+}
+article div.feed section.post nav.users ul li a span{
+    display: inline-block;
+    margin-left: -20px;
+    opacity: 0;
+}
+article div.feed section.post nav.users ul li a:hover span{
+    margin-left: 5px;
+    opacity: 1;
 }
 
 

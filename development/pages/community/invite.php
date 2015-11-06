@@ -23,12 +23,13 @@
             <ul>
                 <?php foreach ($members as $key => $user) {?>
                 <li>
-                    <?php if(!empty($user['picture'])){ ?>
-                    <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
-                    <?php }else{ ?>
-                    <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-                    <?php }?>
-                    <p><span><?php echo $user['firstname']." ".$user['lastname']; ?></span></p>
+                    <a href="?page=user&id=<?php echo $user['user_id'] ?>">
+                        <?php if(!empty($user['picture'])){ ?>
+                        <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
+                        <?php }else{ ?>
+                        <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+                        <?php }?>
+                    </a>
                 </li>
                 <?php } ?>
             </ul>
@@ -52,13 +53,15 @@
             <ul>
                 <?php foreach ($followers as $key => $user) {?>
                 <li>
-                    <a href="?page=user&id=<?php echo $user['user_id'] ?>">
                         <?php if(!empty($user['picture'])){ ?>
                         <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
                         <?php }else{ ?>
                         <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                         <?php }?>
-                    </a>
+
+                        <p><span class="name"><?php echo $user['firstname']." ".$user['lastname']; ?></span><span class="occupation"><?php echo $user['occupation']; ?></span></p>
+
+                        <a href="?page=invite&action=true&userid=<?php echo $user['id']; ?>&id=<?php echo $_GET['id']; ?>" class="invited">Invite <span class="icon-check"></span></a>
                 </li>
                 <?php } ?>
             </ul>
