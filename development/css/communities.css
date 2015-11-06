@@ -486,6 +486,36 @@ article.create_community .privacy_slider .bar .slider span{
 
 
 
+
+
+
+
+
+/*INVTES*/
+article div.feed section.post nav.users{
+    display: block;
+    float: left;
+    width: 100%;
+}
+article div.feed section.post nav.users ul li{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    box-sizing:border-box; 
+}
+article div.feed section.post nav.users ul li img{
+    float: left;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+
+
+
+
 /*DETAIL*/
 article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.options ul li{
     width: 100%;

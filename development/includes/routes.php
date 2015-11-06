@@ -8,6 +8,7 @@ $routes = array(
     'detail' => array('controller' => 'Feed', 'action' => 'detail'),
     'community' => array('controller' => 'Community', 'action' =>'community'),
     'communities' => array('controller' => 'Community', 'action' =>'communities'),
+    'invite' => array('controller' => 'Community', 'action' =>'invite'),
     'about' => array('controller' => 'About', 'action' =>'about'),
 	'login' => array('controller' => 'User', 'action' => 'login'),
 	'verification' => array('controller' => 'Verification', 'action' => 'verification'),

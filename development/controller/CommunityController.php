@@ -15,6 +15,7 @@ class CommunityController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'ImagesDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'FollowDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CommunityDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
 
@@ -23,6 +24,7 @@ class CommunityController extends AppController{
 		$this->propoDAO = new PropoDAO();
 		$this->imagesDAO = new ImagesDAO();
 		$this->userDAO = new UserDAO();
+		$this->followDAO = new FollowDAO();
 		$this->communityDAO = new CommunityDAO();
 		$this->collectionDAO = new CollectionDAO();
 
@@ -258,6 +260,38 @@ class CommunityController extends AppController{
 					
 			}
 		}
+	}
+
+	public function invite(){
+
+		$community = array();
+		$members = array();
+		$followers = array();
+        $isMember = false;
+
+		if(!empty($_GET['id'])){
+			$community = $this->communityDAO->getCommunityById($_GET['id']);
+        	$members = $this->communityDAO->getCommunityUsersById($community['id']);
+
+			if(isset($_SESSION['user'])){
+				$followers = $this->followDAO->getAllFollowers($_SESSION['user']['id']);
+	            $checkMember = $this->communityDAO->isMemberOfCommunity($_SESSION['user']['id'],$_GET['id']);
+	            if(!empty($checkMember)){
+	            	$isMember = true;
+	            }
+			}else{
+				$this->redirect("?page=login");
+			}
+
+		}else{
+			$this->redirect("?page=feed");
+		}
+
+		$this->set('community',$community);
+		$this->set('followers',$followers);
+		$this->set('isMember',$isMember);
+		$this->set('members',$members);
+
 	}
     
     function resize($width, $height){

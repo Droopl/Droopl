@@ -65,6 +65,26 @@ class FollowDAO
 		return array();
 	}
 
+	public function getAllFollowers($user_id)
+	{
+        $sql = 'SELECT f.follow_id , u.id, u.firstname ,u.lastname,u.picture,u.occupation
+        FROM   followers AS f
+		LEFT OUTER JOIN users AS u
+        on f.friend_id = u.id
+        WHERE f.user_id = :user_id
+        ORDER BY f.follow_creation_date DESC LIMIT 10 OFFSET 0';
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':user_id',$user_id);
+
+		if($stmt->execute()){
+
+			return $follow = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+
+		return array();
+	}
+
 	public function addFollow($user_id,$friend_id){
 
 

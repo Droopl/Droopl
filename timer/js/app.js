@@ -21,17 +21,22 @@ $(function () {
             console.log("Submitting")
             e.preventDefault();
 
-            console.log($(this).serialize());
+            console.log();
 
-            $.post( "http://droopl.com/api/subscribe", $(this).serialize()).done(function(){
-                console.log("subscribed");
+            $.ajax({
+              type: "POST",
+              url: "http://droopl.com/api/subscribe",
+              data: $(this).serialize(),
+              success: function (data) {
                 $("#subscribe").animate({"opacity": 0}, function(){
                     $("#subscribe").animate({width:'toggle'},600);
                 });
                 $("article.countdown footer div.container p").animate({"opacity": 0}, function(){
                     $("article.countdown footer div.container p").animate({width:'toggle'},600);
                 });
+              }
             });
+
         }); 
 
         setQuote();

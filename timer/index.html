@@ -39,10 +39,10 @@
                 <div class="center">
 
                 <div class="intro">
-                    <img src="images/droopl_logo.svg" class="animated fadeInDown">
+                    <img src="images/droopl_logo.svg">
                 </div>
 
-                <div class="animated fadeInUp">
+                <div class="">
                     <h1 id="quote"></h1>
 
                     <nav>
@@ -92,7 +92,7 @@
                     </a>
                     <p>or</p>
                     <form id="subscribe" method="post">
-                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" autocomplete="off" required>
                         <input type="submit" id="subscribe_submit" name="subscribe_submit" value="Subscribe">
                     </form>
                 </div>
