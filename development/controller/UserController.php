@@ -551,6 +551,16 @@ class UserController extends AppController{
 
 	public function settings(){
 
+		$user = array();
+
+		if(isset($_SESSION['user'])){
+			$user = $this->userDAO->getUserById($_SESSION['user']['id']);
+		}else{
+			$this->redirect("?page=login");
+		}
+		
+		$this->set('user',$user);
+
 	}
 
 	private function generateRandomString($length = 10) {
