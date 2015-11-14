@@ -289,6 +289,8 @@ class FeedController extends AppController{
     		}
 
     		
+    	}else{
+    		$this->redirect("?page=feed");
     	}
 
 
