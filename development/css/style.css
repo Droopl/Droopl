@@ -3482,12 +3482,14 @@ article.settings{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.4);
+    overflow: scroll;
 }
 article.settings div.feed{
     float: left;
     width: 100%;
     height: 100%;
     float: none;
+    overflow: scroll;
     margin: 0 auto;
     position: relative;
 }
@@ -3499,7 +3501,7 @@ article.settings div.feed section.settings-container {
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -134px;
+    margin-top: -230px;
     margin-left: -425px;
     box-sizing: border-box;
 }
@@ -3588,6 +3590,12 @@ article.settings div.feed section.settings-container aside.right h1.settings-tit
     color: #F47D67;
     box-sizing: border-box;
 }
+article.settings div.feed section.settings-container aside.right h1.settings-title span {
+    margin-right: 10px;
+    font-size: .9em;
+    position: relative;
+    top: -2px;
+}
 article.settings div.feed section.settings-container aside.right label {
     display: block;
     width: 33%;
@@ -3608,6 +3616,7 @@ article.settings div.feed section.settings-container aside.right input[type='tex
     border: none;
     border-bottom: 1px solid #E8E8EA;
     font-size: .8em;
+    text-transform: capitalize;
 }
 article.settings div.feed section.settings-container aside.right input[type='password']{
     display: block;
@@ -3625,7 +3634,7 @@ article.settings div.feed section.settings-container aside.right input[type='dat
     width: 33%;
     padding: 20px;
     box-sizing: border-box;
-    height: 70px;
+    height: 90px;
     border: none;
     font-family: Roboto;
     color: #A9A9A9;
@@ -3633,12 +3642,29 @@ article.settings div.feed section.settings-container aside.right input[type='dat
     font-size: .8em;
     border-right: 1px solid #E8E8EA;
 }
+article.settings div.feed section.settings-container aside.right select{
+    background: none;
+    float: left;
+    border: none;
+    width: 67%;
+    text-align: center;
+    height: 56px;
+    outline: none;
+    padding-left: 20px;
+    font-size: .8em;
+    text-transform: capitalize;
+    border-bottom: 1px solid #E8E8EA;
+
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+}
 article.settings div.feed section.settings-container aside.right div.select-language {
     float: left;
     width: 33%;
     box-sizing: border-box;
     position: relative;
-    padding: 25px 20px;
+    padding: 35px 20px;
     border-right: 1px solid #E8E8EA;
 }
 
@@ -3766,7 +3792,7 @@ article.settings div.feed section.settings-container aside.right div.select-lang
 article.settings div.feed section.settings-container aside.right div.switch-gender {
     width: 33%;
     float: left;
-    padding: 23px 0;
+    padding: 33px 0;
 }
 
 article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container {
@@ -3838,6 +3864,20 @@ article.settings div.feed section.settings-container aside.right div.switch-gend
 article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn.female {
     left: 100%;
     margin-left: -20px;
+}
+article.settings div.feed section.settings-container aside.right input[type='text']#search_location{
+    display: block !important;
+    width: 100%;
+    float: left;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #E8E8EA;
+    position: inherit !important;
+    left: 0 !important;
+    color: #3E454C;
+    font-size: .8em;
+    border-top: 1px solid #E8E8EA;
 }
 article.add_collection{
     z-index: 9999;
