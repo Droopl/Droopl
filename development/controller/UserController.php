@@ -554,7 +554,7 @@ class UserController extends AppController{
 		$user = array();
 
 		if(isset($_SESSION['user'])){
-			$user = $this->userDAO->getUserById($_SESSION['user']['id']);
+			$user = $_SESSION['user']);
 		}else{
 			$this->redirect("?page=login");
 		}
