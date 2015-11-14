@@ -10,7 +10,7 @@
 		<h1>Start trading with people from your own community</h1>
 		<p>
 			Our communities will help bring people who have the same intrests closer than ever.
-			Trade with your friends, neigbours or colleges even goats ? We give you the freedom to
+			Trade with your friends, neighbours or colleges even goats ? We give you the freedom to
 			create your own community and give it a life of its own. 
 		</p>
 
