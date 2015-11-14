@@ -35,6 +35,7 @@
                                 </ul>
                                 <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
                 </div>
+                
             </aside>
         </section>
     </div>
