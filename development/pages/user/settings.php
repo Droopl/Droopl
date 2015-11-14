@@ -46,7 +46,7 @@
                             <p class="female">&#9792;</p>
                         </div>
                     </div>
-                <?php }else{ ?>
+                <?php }elseif($user['gender'] == "f"){ ?>
                     <div class="switch-gender">
                         <div class="switch-container">
                             <p class="male">&#9794;</p>

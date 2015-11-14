@@ -3093,6 +3093,10 @@ article.login form input[type="text"]{
     background-position: right 5% center;
     background-size: 15px;
     background-repeat: no-repeat;
+    
+}
+article.login form input[type="text"]:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 article.login form input{
     -webkit-transition: all .2s ease-out;
