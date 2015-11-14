@@ -1,8 +1,8 @@
 <article class="settings">
     <div class="feed">
         <section class="settings-container">
+            <form id="settings-form" method="post">
             <aside class="left">
-                
                 <form id="upload-profile-img">
                     <header id="upload">
                         <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php echo $user['picture']; ?>);border: none">
@@ -15,6 +15,7 @@
                         <p>Or press to browse</p>
                     </header>
                 </form>
+                <input type="submit" id="submit_settings" name="submit_settings" value="Save">
             </aside>
             <aside class="right">
                 <h1 class="settings-title"><span class="icon-cog"></span>Account Settings</h1>
@@ -35,7 +36,7 @@
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>">
                 <label for="country">Country:</label>
-                <select>
+                <select id="country">
                     <option value="mycountry"><?php echo $user['country']; ?></option>
                     <option>-----------</option>
                     <option value="AF">Afghanistan</option>
@@ -322,6 +323,7 @@
                 <?php } ?>
                 
             </aside>
+            </form>
         </section>
     </div>
 </article>
