@@ -17,7 +17,7 @@
 					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 					<?php }?>
 					<h1><?php echo $value['firstname'].' '.$value['lastname']; ?> <span><?php $hours = date("H", strtotime($value['message_creation_date'])); $date = date("D", strtotime($value['message_creation_date'])); echo $hours.'h '.$date;?></span></h1>
-					<p><span><?php echo $value['message']; ?></span><?php if($value['seen'] == 1){ ?><span>Not seen</span><?php } ?></p>
+					<p><span><?php echo $value['message']; ?></span><?php if($value['seen'] == 1){ ?><span class="seen"></span><?php } ?></p>
 				</header>
 				
 			</a>
