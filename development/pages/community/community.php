@@ -93,32 +93,6 @@
                 </div>
         
             <?php } ?>
-            
-            <!--<div class="hide collection">
-                    <input type="text" id="collection_item" name="collection_item" class="hide" value="">
-                    <ul>
-                        <li id="1">
-                            <img src="images/collection/dolce-gusto.png">
-                            <div class="selected"><p class="icon-check"></p></div>
-                            <p class="collection-item-name"><span>Dolce gusto</span></p>
-                        </li>
-                        <li id="2">
-                            <img src="images/collection/canon-reflex.png">
-                            <div class="selected"><p class="icon-check"></p></div>
-                            <p class="collection-item-name"><span>Reflex camera</span></p>
-                        </li>
-                        <li id="3">
-                            <img src="images/collection/disqueuse.png">
-                            <div class="selected"><p class="icon-check"></p></div>
-                            <p class="collection-item-name"><span>Disqueuse</span></p>
-                        </li>
-                        <li id="4">
-                            <img src="images/collection/cleaner.jpg">
-                            <div class="selected"><p class="icon-check"></p></div>
-                            <p class="collection-item-name"><span>Aspirateur</span></p>
-                        </li>
-                    </ul>
-            </div>-->
             <div>
                 <input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
                 <span class="upload_image">
@@ -137,55 +111,19 @@
         <section class="quest" id="<?php echo $value['quest_id']; ?>">
         <header>
 
-            <?php if(!empty($value['picture'])){ ?>
-                    <img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
-                    <?php }else{ ?>
-                    <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
-                    <?php }?>
+            <img src="images/profile_pictures/<?php if(!empty($value['picture'])){ echo $value['picture']; }else{ echo "notfound.svg"; }?>">
             <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
-                switch ($_SESSION['language']) {
-                    case 'en':
-                    echo "is looking for ";
-                    break;
-
-                    case 'nl':
-                    echo "zoekt een ";
-                    break;
-
-                    case 'fr':
-                    echo "cherche ";
-                    break;
-                    
-                    default:
-                    echo "is offering ";
-                    break;
-                } 
+                echo $_SESSION['lang']['questlooking'];
             }else{ 
 
-                switch ($_SESSION['language']) {
-                    case 'en':
-                    echo "is offering ";
-                    break;
+                echo $_SESSION['lang']['questoffering'];
 
-                    case 'nl':
-                    echo "biedt aan ";
-                    break;
-
-                    case 'fr':
-                    echo "propose ";
-                    break;
-                    
-                    default:
-                    echo "is offering ";
-                    break;
-                }
-
-}?><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
+}?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
         <?php if($value['type'] == 1){ ?>
-            <a class="collection_item"><img id="<?php echo $value['collection_id']; ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
+            <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
-        <h2><?php 
-
+        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
+        
         $full = false;
         $now = new DateTime;
         $ago = new DateTime($value['creation_date']);
@@ -217,6 +155,7 @@
         echo $result;
 
         ?></h2>
+        <?php if($value['id'] == $_SESSION['user']['id']){?>
         <nav>
             <ul>
                 <li class="options">
@@ -224,31 +163,30 @@
                 </li>
 
                 <li>
-                    <ul class="options show">
+                    <ul class="options">
                         <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span><?php echo $_SESSION['lang']['questfootercomplete']; ?></span></a></li>
                         <li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span><?php echo $_SESSION['lang']['questfooterremove']; ?></span></a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+        <?php } ?>
         </header>
-        <?php if(!empty($value['quest_description'])){ ?>
         <aside class="info">
             <p>
             <?php echo $value['quest_description'] ?></p>
             <?php 
             if($value['image_url'] != NULL){ ?>
+
                 <img src="questimages/images/<?php echo $value['image_url']; ?>">
             <?php }
              ?>
         </aside>
-        <?php } ?>    
         <footer>
-            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropos']; ?></a>
-            <a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
+            <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropo']; ?></a>
+            <a href="" class="shares icon-upload"> <?php echo $value['shares'] ?> <?php echo $_SESSION['lang']['questfootershares']; ?></a>
         </footer>
     </section>
-    
     <?php }} ?>
 
     <section class="last_quest">
