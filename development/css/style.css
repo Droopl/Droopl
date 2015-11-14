@@ -3498,11 +3498,13 @@ article.settings div.feed section.settings-container {
     margin-top: -134px;
     margin-left: -425px;
     box-sizing: border-box;
-    padding: 3%;
 }
 article.settings div.feed section.settings-container aside.left {
     float: left;
     width: 40%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #E8E8EA;
 }
 article.settings div.feed section.settings-container aside.left form {
     float: left;
@@ -3525,6 +3527,7 @@ article.settings div.feed section.settings-container aside.left header#upload di
     overflow: hidden;
     background-color: white;
     background-image: url(../images/assets/add_collection_upload_graphics.svg);
+    cursor: pointer;
 
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
@@ -3532,13 +3535,85 @@ article.settings div.feed section.settings-container aside.left header#upload di
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
+article.settings div.feed section.settings-container aside.left header#upload div#dragndrop input[type="file"]{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
 article.settings div.feed section.settings-container aside.left header#upload {
     float: left;
     width: 100%;
+    padding: 5%;
+    box-sizing: border-box;
+}
+article.settings div.feed section.settings-container aside.left header#upload h1{
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 60px;
+    font-size: 1em;
+    color: #F47D67;
+}
+article.settings div.feed section.settings-container aside.left header#upload p{
+    margin-top: 10px;
+    font-size: .7em;
+    color: #5F6970;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: .9em;
 }
 article.settings div.feed section.settings-container aside.right {
     float: left;
     width: 60%;
+}
+article.settings div.feed section.settings-container aside.right h1 {
+    display: block;
+    width: 100%;
+    padding: 30px 20px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #E8E8EA;
+    color: #F47D67;
+    box-sizing: border-box;
+}
+article.settings div.feed section.settings-container aside.right label {
+    display: block;
+    width: 30%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E8E8EA;
+    border-right: 1px solid #E8E8EA;
+    font-size: .8em;
+    color: #A9A9A9;
+}
+article.settings div.feed section.settings-container aside.right input[type='text']{
+    display: block;
+    float: left;
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #E8E8EA;
+    font-size: .8em;
+}
+article.settings div.feed section.settings-container aside.right input[type='password']{
+    display: block;
+    float: left;
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #E8E8EA;
+    font-size: .8em;
 }
 article.add_collection{
     z-index: 9999;

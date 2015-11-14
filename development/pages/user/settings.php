@@ -6,8 +6,6 @@
                     <header id="upload">
                         <div class="dragndrop" id="dragndrop">
                             <div class="preloader">
-                                <ul class="progress">
-                                </ul>
                                 <span class="remove-file"><p class="icon-cross"></p></span>
                                 <input type="file" id="collection_image" name="collection_image" accept="image/*">
                             </div>
@@ -18,6 +16,25 @@
                 </form>
             </aside>
             <aside class="right">
+                <h1>Account Settings</h1>
+                <label for="first">Firstname:</label>
+                <input type="text" id="first" name="first">
+                <label for="last">Last name:</label>
+                <input type="text" id="last" name="last">
+                <label for="new_pass">Password:</label>
+                <input type="password" id="new_pass" name="new_pass">
+                <label for="repeat_new_pass">Repeat password:</label>
+                <input type="password" id="repeat_new_pass" name="repeat_new_pass">
+                <div class="select-language">
+                                <h1>Language: </h1>
+                                <div class="flag en"></div>
+                                <ul class="lang-list">
+                                    <li class="en"><span class="en-flag"></span>English</li>
+                                    <li class="nl"><span class="nl-flag"></span>Nederlands</li>
+                                    <li class="fr"><span class="fr-flag"></span>Français</li>
+                                </ul>
+                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
+                </div>
             </aside>
         </section>
     </div>
