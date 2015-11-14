@@ -22,9 +22,10 @@
                 <label for="last">Last name:</label>
                 <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
                 <label for="new_pass">New password:</label>
-                <input type="password" id="new_pass" name="new_pass" placeholder="">
+                <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
                 <label for="repeat_new_pass">Repeat password:</label>
-                <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="">
+                <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                <input type="date" id="birth_date" name="birth_date" value="<?php echo $user['age'] ?>" placeholder="Date of birth">
                 <div class="select-language">
                                 <h1>Language: </h1>
                                 <div class="flag <?php echo $user['lang'] ?>"></div>
@@ -35,7 +36,27 @@
                                 </ul>
                                 <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
                 </div>
-                
+                <?php if($user['gender'] == "m"){ ?>
+                    <div class="switch-gender">
+                        <div class="switch-container">
+                            <p class="male selected">&#9794;</p>
+                            <div class="switch-limit">
+                                <div class="switch-btn male"></div>
+                            </div>
+                            <p class="female">&#9792;</p>
+                        </div>
+                    </div>
+                <?php }else{ ?>
+                    <div class="switch-gender">
+                        <div class="switch-container">
+                            <p class="male">&#9794;</p>
+                            <div class="switch-limit">
+                                <div class="switch-btn female"></div>
+                            </div>
+                            <p class="female selected">&#9792;</p>
+                        </div>
+                    </div>
+                <?php } ?>
             </aside>
         </section>
     </div>

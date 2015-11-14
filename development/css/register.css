@@ -359,7 +359,7 @@ article.register div.register-box div.container section.step_1 form aside.left i
     cursor: pointer;
 }
 
-article.register div.register-box div.container section.step_1 form aside.left input[type='date']:hover:before{
+/*article.register div.register-box div.container section.step_1 form aside.left input[type='date']:hover:before{
     width: 0%;
     content: "" !important;
 }
@@ -372,7 +372,7 @@ article.register div.register-box div.container section.step_1 form aside.left i
 article.register div.register-box div.container section.step_1 form aside.left input[type='date']:before {
     width:100%;
     content: attr(placeholder) !important;
-}
+}*/
 
 article.register div.register-box div.container section.step_1 form aside.right {
     display: block;

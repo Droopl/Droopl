@@ -3502,9 +3502,7 @@ article.settings div.feed section.settings-container {
 article.settings div.feed section.settings-container aside.left {
     float: left;
     width: 40%;
-    height: 100%;
     box-sizing: border-box;
-    border-right: 1px solid #E8E8EA;
 }
 article.settings div.feed section.settings-container aside.left form {
     float: left;
@@ -3574,6 +3572,8 @@ article.settings div.feed section.settings-container aside.left header#upload p{
 article.settings div.feed section.settings-container aside.right {
     float: left;
     width: 60%;
+    border-left: 1px solid #E8E8EA;
+    box-sizing: border-box;
 }
 article.settings div.feed section.settings-container aside.right h1.settings-title {
     display: block;
@@ -3586,7 +3586,7 @@ article.settings div.feed section.settings-container aside.right h1.settings-tit
 }
 article.settings div.feed section.settings-container aside.right label {
     display: block;
-    width: 30%;
+    width: 33%;
     float: left;
     padding: 20px;
     box-sizing: border-box;
@@ -3598,7 +3598,7 @@ article.settings div.feed section.settings-container aside.right label {
 article.settings div.feed section.settings-container aside.right input[type='text']{
     display: block;
     float: left;
-    width: 70%;
+    width: 67%;
     padding: 20px;
     box-sizing: border-box;
     border: none;
@@ -3608,16 +3608,30 @@ article.settings div.feed section.settings-container aside.right input[type='tex
 article.settings div.feed section.settings-container aside.right input[type='password']{
     display: block;
     float: left;
-    width: 70%;
+    width: 67%;
     padding: 20px;
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #E8E8EA;
     font-size: .8em;
 }
+article.settings div.feed section.settings-container aside.right input[type='date'] {
+    display: block;
+    float: left;
+    width: 33%;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 70px;
+    border: none;
+    font-family: Roboto;
+    color: #A9A9A9;
+    cursor: pointer;
+    font-size: .8em;
+    border-right: 1px solid #E8E8EA;
+}
 article.settings div.feed section.settings-container aside.right div.select-language {
     float: left;
-    width: 30%;
+    width: 33%;
     box-sizing: border-box;
     position: relative;
     padding: 25px 20px;
@@ -3744,6 +3758,82 @@ article.settings div.feed section.settings-container aside.right div.select-lang
 
 article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li:hover {
     background-color: #F9F9F9;
+}
+article.settings div.feed section.settings-container aside.right div.switch-gender {
+    width: 33%;
+    float: left;
+    padding: 23px 0;
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container {
+    margin: 0 auto;
+    width: 105px;
+    height: 24px;
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit {
+    width: 38px;
+    height: 12px;
+    float: left;
+    border-radius: 1em;
+    background-color: #E6E7E8;
+    position: relative;
+    top: 50%;
+    margin-top: -6px;
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p {
+    display: block;
+    float: left;
+    font-size: .8em;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.selected {
+    color: #F47D67;
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -10px;
+    background-color: #F27D6B;
+    cursor: pointer;
+    
+    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+        transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+
+-webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+        transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn.male {
+    left: 0;
+}
+
+article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn.female {
+    left: 100%;
+    margin-left: -20px;
 }
 article.add_collection{
     z-index: 9999;
