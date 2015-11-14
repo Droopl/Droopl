@@ -327,7 +327,7 @@
 		</aside>
 		<footer>
 			<a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropo']; ?></a>
-			<a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
+			<a href="" class="shares icon-upload"> <?php echo $value['shares'] ?> <?php echo $_SESSION['lang']['questfootershares']; ?></a>
 		</footer>
 	</section>
     

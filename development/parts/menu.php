@@ -101,7 +101,7 @@
 
 
     							case '2': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['user_id']; ?>"><span class="icon icon-circle-plus"></span><p><?php echo $value['firstname']; ?> followed you </p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p><?php echo $value['firstname']; ?> followed you </p><span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -137,7 +137,7 @@
     							<?php break;
 
     							case '3': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['user_id']; ?>"><span class="icon icon-circle-plus"></span><p> <?php echo $value['firstname']; ?> followed you back </p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p> <?php echo $value['firstname']; ?> followed you back </p><span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;
@@ -175,6 +175,43 @@
 
     							case '6': ?>
     							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span><p>You won <?php echo $value['firstname']; ?>'s quest </p><span class="time"><?php 
+
+									$full = false;
+							 		$now = new DateTime;
+								    $ago = new DateTime($value['notification_creation_date']);
+								    $diff = $now->diff($ago);
+
+								    $diff->w = floor($diff->d / 7);
+								    $diff->d -= $diff->w * 7;
+
+								    $string = array(
+								        'y' => 'year',
+								        'm' => 'month',
+								        'w' => 'week',
+								        'd' => 'day',
+								        'h' => 'h',
+								        'i' => 'm',
+								        's' => 's',
+								    );
+								    foreach ($string as $k => &$v) {
+								        if ($diff->$k) {
+								            $v = $diff->$k . ' ' . $v;
+								        } else {
+								            unset($string[$k]);
+								        }
+								    }
+
+								    if (!$full) $string = array_slice($string, 0, 1);
+								    $result =  $string ? implode(', ', $string) : 'just now';
+
+								    echo $result;
+
+									?></a></span></li>
+    							<?php break;
+
+
+    							case '4': ?>
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=community&id=<?php echo $value['community_id']; ?>"><span class="icon icon-plus"></span><p><?php echo $value['firstname']; ?> Invited you to a community</p><span class="time"><?php 
 
 									$full = false;
 							 		$now = new DateTime;

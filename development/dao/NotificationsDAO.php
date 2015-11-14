@@ -15,7 +15,7 @@ class NotificationsDAO
 
 	public function getNotificationsByUserId($user_id){
 
-		$sql = 'SELECT n.notification_id,p.propo_id,u.id,u.firstname,q.quest_id,n.notification_type,n.notification_creation_date,n.seen
+		$sql = 'SELECT n.notification_id,p.propo_id,u.id,u.firstname,q.quest_id,c.id AS community_id,n.notification_type,n.notification_creation_date,n.seen
 				FROM notifications AS n
 				LEFT OUTER JOIN proposals AS p
 				ON p.propo_id = n.item_id
@@ -23,6 +23,8 @@ class NotificationsDAO
 				on u.id = n.creator_user_id
 				LEFT OUTER JOIN quests AS q
 				on q.quest_id = n.item_id
+				LEFT OUTER JOIN communities AS c
+				on c.id = n.item_id
 				WHERE n.user_id = :user_id
 				GROUP BY n.notification_id
 				ORDER BY n.notification_creation_date DESC';

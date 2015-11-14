@@ -13,6 +13,7 @@
                 <?php }else{ ?>
                 <a href="?page=community&id=<?php echo $_GET['id'];?>&action=leave" class="member leave"><?php echo $_SESSION['lang']['communityleave']; ?><span class="icon-outbox"></span></a>
                 <?php } ?>
+                <a href="?page=invite&id=<?php echo $_GET['id'];?>" class="member">Invite people<span class="icon-plus"></span></a>
         	</nav>
         </header>
         <div class="description-container">

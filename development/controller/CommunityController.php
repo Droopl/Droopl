@@ -15,6 +15,7 @@ class CommunityController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'ImagesDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'InvitesDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'NotificationsDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'FollowDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CommunityDAO.php';
@@ -25,6 +26,7 @@ class CommunityController extends AppController{
 		$this->propoDAO = new PropoDAO();
 		$this->imagesDAO = new ImagesDAO();
 		$this->invitesDAO = new InvitesDAO();
+		$this->notificationsDAO = new NotificationsDAO();
 		$this->userDAO = new UserDAO();
 		$this->followDAO = new FollowDAO();
 		$this->communityDAO = new CommunityDAO();
@@ -282,6 +284,7 @@ class CommunityController extends AppController{
         			$invited = $this->invitesDAO->checkInvite($_GET['userid'],$_GET['id']);
         			if(empty($invited)){
         				$invite = $this->invitesDAO->addInvite($_GET['userid'],$_GET['id']);
+        				$this->notificationsDAO->addNotification($_GET['userid'],$_GET['id'],4,$_SESSION['user']['id']);
         			}
         		}else{
         			$this->redirec("?page=invite&id=".$_GET['id']);
