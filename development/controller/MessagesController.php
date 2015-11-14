@@ -68,6 +68,9 @@ class MessagesController extends AppController{
 						$users = $this->userDAO->getUsers();
 					}
 					if(!empty($_POST) && !empty($_POST['user_id'])){
+
+						if($_POST['user_id'] != $_SESSION['user']['id']){
+
 						$found = false;					
 						$user1 = $this->convoUsersDAO->getConversationByUserId($_POST['user_id']);
 						$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
@@ -103,7 +106,10 @@ class MessagesController extends AppController{
 							$this->redirect("?page=messages&id=".$convoId);
 						}
 
-						//
+					}else{
+						$this->redirect("?page=messages");
+					}
+
 					}
 
 

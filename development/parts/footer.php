@@ -179,6 +179,7 @@
                 <?php if(!empty($users)){ ?>
                 <ul>
                     <?php foreach ($users as $key => $user) { ?>
+                    <?php if(isset($_SESSION['user']) && $user['id'] != $_SESSION['user']['id']){ ?>
                          <li id="<?php  echo $user['id'];?>">
                             <?php if(!empty($user['picture'])){ ?>
                             <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
@@ -186,7 +187,7 @@
                             <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                             <?php }?>
                         </li>
-                   <?php  } ?>
+                   <?php } } ?>
                    
                 </ul>
                 <?php }else{ ?>
