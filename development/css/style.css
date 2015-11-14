@@ -3575,7 +3575,7 @@ article.settings div.feed section.settings-container aside.right {
     float: left;
     width: 60%;
 }
-article.settings div.feed section.settings-container aside.right h1 {
+article.settings div.feed section.settings-container aside.right h1.settings-title {
     display: block;
     width: 100%;
     padding: 30px 20px;
@@ -3614,6 +3614,136 @@ article.settings div.feed section.settings-container aside.right input[type='pas
     border: none;
     border-bottom: 1px solid #E8E8EA;
     font-size: .8em;
+}
+article.settings div.feed section.settings-container aside.right div.select-language {
+    float: left;
+    width: 30%;
+    box-sizing: border-box;
+    position: relative;
+    padding: 25px 20px;
+    border-right: 1px solid #E8E8EA;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language h1 {
+    display: block;
+    float: left;
+    color: #A9A9A9;
+    width: auto;
+    font-size: .8em;
+    line-height: 20px;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language div.flag {
+    float: left;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language div.flag.en {
+    background-image: url(../images/register/flags/United-States-of-America.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language div.flag.nl {
+    background-image: url(../images/register/flags/Netherlands.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language div.flag.fr {
+    background-image: url(../images/register/flags/France.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang{
+    display: none;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list {
+    display: block;
+    list-style: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #E8E8EA;
+    border-radius: .5em;
+    border-top-left-radius: 0;
+    left: 65%;
+    top: 22px;
+    overflow: hidden;
+    z-index: 9999;
+    opacity: 0;
+    white-space: nowrap;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list.show {
+    width: 135px;
+    height: 107px;
+    opacity: 1;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li {
+    display: block;
+    width: 100%;
+    font-size: .8em;
+    padding: 8px 15px;
+    line-height: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li span {
+    display: block;
+    float: left;
+    width: 22px;
+    height: 18px;
+    margin-right: 13px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li span.en-flag {
+    background-image: url(../images/register/flags/United-States-of-America.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li span.nl-flag {
+    background-image: url(../images/register/flags/Netherlands.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li span.fr-flag {
+    background-image: url(../images/register/flags/France.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li:hover {
+    background-color: #F9F9F9;
 }
 article.add_collection{
     z-index: 9999;

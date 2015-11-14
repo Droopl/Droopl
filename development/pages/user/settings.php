@@ -16,7 +16,7 @@
                 </form>
             </aside>
             <aside class="right">
-                <h1>Account Settings</h1>
+                <h1 class="settings-title">Account Settings</h1>
                 <label for="first">Firstname:</label>
                 <input type="text" id="first" name="first">
                 <label for="last">Last name:</label>

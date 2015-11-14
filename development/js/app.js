@@ -1201,6 +1201,8 @@ $(function  () {
             }
         });
         
+        /* REGISTER LANG */
+        
         $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").on("click",function(){
             if(!$("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").hasClass("show")){
                 $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").addClass("show");
@@ -1223,6 +1225,36 @@ $(function  () {
             
             $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").addClass(thisClass);
             $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").removeClass("show");
+        });
+        
+        
+        
+        
+        /* SETTINGS LANG */
+        
+        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
+            //console.log("oki");
+            if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
+                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
+            }else{
+                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+            }
+            
+            $(document).on('click', function (e) {
+                if ($(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language div.flag").length === 0) {
+                    $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                }
+            });
+        });
+        
+        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li").on("click",function(){
+            
+            var thisClass = $(this).attr("class");
+            $("article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang").attr("value",thisClass);
+            $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").removeClass("en nl fr");
+            
+            $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").addClass(thisClass);
+            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
         });
         
         $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
