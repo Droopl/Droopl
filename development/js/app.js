@@ -1201,6 +1201,24 @@ $(function  () {
             }
         });
         
+        $("header#menu div nav ul li.profile ul li a.icon-cog").on("click", function(e){
+            console.log("oki");
+            e.preventDefault();
+
+              $.ajax({
+                    type: "GET",
+                    url: $(this).attr("href"),
+                    success: function(data) {
+                        console.log(data);
+                      var section = $(data).find(".feed");
+
+
+                      $("article.settings").removeClass("hide");
+                      section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
+                    }
+              });
+        });
+        
         /* REGISTER LANG */
         
         $("article.register div.register-box div.container section.step_1 form aside.left div.select-language div.flag").on("click",function(){
@@ -2232,8 +2250,20 @@ $(function  () {
     });
     
    $("article div.messages aside.conversations form#search-conversations input[type='button']#new-conversation-btn").on("click",function(){
+       
+        console.log("oki");
 
-        window.location.replace("?page=messages&action=create");
+          $.ajax({
+                type: "GET",
+                url: "?page=messages&action=create",
+                success: function(data) {
+                    var section = $(data).find("article.newconvo");
+                    console.log(section);
+
+                  //$("article.settings").removeClass("hide");
+                  //section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
+                }
+          });
 
     });
     

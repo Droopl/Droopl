@@ -3516,12 +3516,10 @@ article.settings div.feed section.settings-container aside.left form {
     width: 100%;
 }
 article.settings div.feed section.settings-container aside.left header#upload div#dragndrop {
-    position: absolute;
     width: 150px;
     height: 150px;
-    top: 30px;
-    left: 50%;
-    margin-left: -75px;
+    margin: 0 auto;
+    margin-top: 40px;
     position: relative;
     box-sizing:border-box;
     border-radius: 50%;
@@ -3560,10 +3558,11 @@ article.settings div.feed section.settings-container aside.left header#upload {
 article.settings div.feed section.settings-container aside.left header#upload h1{
     display: block;
     width: 100%;
+    float: left;
     text-align: center;
     text-transform: uppercase;
     font-weight: bolder;
-    margin-top: 60px;
+    margin-top: 25px;
     font-size: 1em;
     color: #F47D67;
 }
@@ -3571,10 +3570,12 @@ article.settings div.feed section.settings-container aside.left header#upload p{
     margin-top: 10px;
     font-size: .7em;
     color: #5F6970;
+    float: left;
     display: block;
     width: 100%;
     text-align: center;
     font-size: .9em;
+    margin-bottom: 70px;
 }
 article.settings div.feed section.settings-container aside.right {
     float: left;
@@ -3646,10 +3647,12 @@ article.settings div.feed section.settings-container aside.right input[type='dat
 article.settings div.feed section.settings-container aside.left input[type='submit'] {
     padding: 4% 6%;
     border: none;
-    position: absolute;
+    display: block;
+    /*position: absolute;
     left: 50%;
     top: 400px;
-    margin-left: -37px;
+    margin-left: -37px;*/
+    margin: 0 auto 0 auto;
     background-color: #F47D67;
     border-radius: .4em;
     box-sizing:border-box;
