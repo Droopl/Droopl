@@ -6,7 +6,7 @@
         		<?php if(!empty($user['picture'])){ ?>
                 <img class="profile-img" src="images/profile_pictures/<?php echo $user['picture'];?>" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
                 <?php }else{ ?>
-                <img class="profile-img" src="images/profile_pictures/notfound.svg" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
+                <img class="profile-img" src="../../images/profile_pictures/notfound.svg" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
                 <?php }?>
         		<span class="badge">creator</span>
         	</div>
