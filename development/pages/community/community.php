@@ -17,9 +17,20 @@
         	</nav>
         </header>
         <div class="description-container">
-            <p>
-        	   <?php echo $community['description'];?>
-            </p>
+            <ul>
+                <li>
+                    <span class="bluetxt">Quests</span>
+                    <p><?php echo $community['quests']; ?></p>
+                </li>
+                <li>
+                    <span class="orangetxt">propos</span>
+                    <p><?php echo $community['propos']; ?></p>
+                </li>
+                <li>
+                    <span class="purpletxt">Members</span>
+                    <p><?php echo $community['members']; ?></p>
+                </li>
+            </ul>
         </div>
 	</section>
     <section class="comusers">

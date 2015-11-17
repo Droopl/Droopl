@@ -33,122 +33,39 @@
 		</nav>
 	</header>
 	<aside class="communities">
+
+		<?php foreach ($communities as $key => $community) { ?>
+
 		<section class="community">
 			<header>
-				<img src="images/communities/ehb.jpg">
-				<h1>Ehb</h1>
-				<h2>Establishment</h2>
+				<img src="images/communities/<?php echo $community['community_profile'];?>">
+				<h1><?php echo $community['community_name'];?></h1>
+				<h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
 			</header>
 			<aside>
 
 			<nav class="join">
-				<a href="?page=community&id=1&action=join" class="member">Join community<span class="icon-inbox"></span></a>
+				<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member">Join community<span class="icon-inbox"></span></a>
 			</nav>
-				<ul class="progress">
-		  <!--  Item  -->
-		  <li data-name="quests" data-percent="30%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#2BBCAF"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#2BBCAF"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#2BBCAF"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#2BBCAF"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#2BBCAF"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#2BBCAF"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (30/500*100)*6.3 ?>"></path>
-		    </svg> 
-	</li>
-		  <!--  Item  -->
-		  <li data-name="propos" data-percent="45%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#F5896E"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#F5896E"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#F5896E"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#F5896E"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#F5896E"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#F5896E"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (60/500*100)*6.3 ?>"></path>
-		    </svg> </li>
-
-		  <!--  Item  -->
-		  <li data-name="members" data-percent="65%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#44587A"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#44587A"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#44587A"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#44587A"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#44587A"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#44587A"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (80/100*100)*6.3 ?>"></path>
-		    </svg> </li>
- 
-</ul>
+				<ul>
+                <li>
+                    <span class="bluetxt">Quests</span>
+                    <p><?php echo $community['quests']; ?></p>
+                </li>
+                <li>
+                    <span class="orangetxt">propos</span>
+                    <p><?php echo $community['propos']; ?></p>
+                </li>
+                <li>
+                    <span class="purpletxt">Members</span>
+                    <p><?php echo $community['members']; ?></p>
+                </li>
+            </ul>
 			</aside>
 		</section>
-
-
-		<section class="community">
-			<header>
-				<img src="images/communities/ehb.jpg">
-				<h1>Ehb</h1>
-				<h2>Establishment</h2>
-			</header>
-			<aside>
-
-	<nav class="join">
-		<a href="?page=community&id=1&action=join" class="member">Join community<span class="icon-inbox"></span></a>
-			</nav>
-				<ul class="progress">
-		  <!--  Item  -->
-		  <li data-name="quests" data-percent="30%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#2BBCAF"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#2BBCAF"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#2BBCAF"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#2BBCAF"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#2BBCAF"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#2BBCAF"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (30/500*100)*6.3 ?>"></path>
-		    </svg> 
-	</li>
-		  <!--  Item  -->
-		  <li data-name="propos" data-percent="45%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#F5896E"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#F5896E"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#F5896E"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#F5896E"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#F5896E"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#F5896E"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (60/500*100)*6.3 ?>"></path>
-		    </svg> </li>
-
-		  <!--  Item  -->
-		  <li data-name="members" data-percent="65%"> <svg viewBox="-10 -10 220 220">
-		    <g fill="none" stroke-width="15" transform="translate(100,100)">
-		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#44587A"/>
-		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#44587A"/>
-		      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#44587A"/>
-		      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#44587A"/>
-		      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#44587A"/>
-		      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#44587A"/>
-		    </g>
-		    </svg> <svg viewBox="-10 -10 220 220">
-		    <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo (80/100*100)*6.3 ?>"></path>
-		    </svg> </li>
- 
-</ul>
-			</aside>
-		</section>
+			
+		<?php }?>
+		
 	</aside>
 	</div>
 </section>

@@ -238,58 +238,34 @@ article div.communities section.community aside nav a.member:hover span{
     margin-left: 10px;
     opacity: 1;
 }
-article div.communities section.community .progress {
-    float: left;
-    position: relative;
+article div.communities section.community ul{
     display: inline-block;
+    float: left;
+    width: 70%;
+    box-sizing:border-box;
+    height: 100%;
+    padding: 35px;
+    margin-bottom: 10px;
     text-align: center;
 }
-article div.communities section.community .progress>li {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: #93A2AC;
-  font-weight: 100;
-  margin: 30px;
-  font-size: .6em;
-  text-transform: uppercase;
+article div.communities section.community ul li{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+article div.communities section.community ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: .8em;
+    color: rgba(0,0,0,.3);
 }
 
-article div.communities section.community .progress>li:before {
-  content: attr(data-name);
-  position: absolute;
-  width: 100%;
-  bottom: 45%;
-  text-align: center;
-  font-weight: 400;
+article div.communities section.community ul li p{
+    display: inline-block;
+    width: 100%;
+    
 }
-
-article div.communities section.community .progress svg {
-  width: 80px;
-  height: 80px;
-}
-
-article div.communities section.community .progress svg:nth-child(2) {
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-}
-
-article div.communities section.community .progress svg:nth-child(2) path {
-  fill: none;
-  stroke-width: 25;
-  stroke-dasharray: 629;
-  stroke: rgba(255, 255, 255, 0.9);
-  -webkit-animation: load 2s;
-  -moz-animation: load 2s;
-  -o-animation: load 2s;
-  animation: load 2s;
-}
-
 
 
 article.create_community{
@@ -416,12 +392,16 @@ article.create_community section {
     width: 100%;
     float: left;
     border-radius: .5em;
-    border: none;
+    border: none !important;
     background-image: url(../images/assets/add_collection_bg.svg);
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     text-align: center;
+
+
+    -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
 
 }
 article.create_community section header#upload {

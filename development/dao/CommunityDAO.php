@@ -14,9 +14,22 @@ class CommunityDAO{
 	
 	public function getCommunityById($id){
 
-		$sql = 'SELECT *
-		FROM communities
-		WHERE id = :id';
+		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(
+        SELECT COUNT(*)
+        FROM   community_quests AS cq
+    	WHERE cq.community_id = c.id
+        ) AS quests,(
+        SELECT COUNT(*)
+        FROM   community_users AS cu
+    	WHERE cu.community_id = c.id
+        ) AS members,(
+        SELECT COUNT(*)
+        FROM   proposals AS p
+        LEFT OUTER JOIN community_quests as cq
+		ON cq.quest_id = p.quest_id
+        ) AS propos
+		FROM communities c
+		WHERE c.id = :id';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id',$id);
 
@@ -54,7 +67,21 @@ class CommunityDAO{
 	}
 	public function getAllCommunities(){
 
-		$sql = 'SELECT * FROM communities ORDER BY creation_date DESC';
+		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(
+        SELECT COUNT(*)
+        FROM   community_quests AS cq
+    	WHERE cq.community_id = c.id
+        ) AS quests,(
+        SELECT COUNT(*)
+        FROM   community_users AS cu
+    	WHERE cu.community_id = c.id
+        ) AS members,(
+        SELECT COUNT(*)
+        FROM   proposals AS p
+        LEFT OUTER JOIN community_quests as cq
+		ON cq.quest_id = p.quest_id
+        ) AS propos
+        FROM communities c ORDER BY c.creation_date DESC';
 		$stmt = $this->pdo->prepare($sql);
 
 		if($stmt->execute()){

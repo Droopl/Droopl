@@ -5083,17 +5083,38 @@ article aside#side section.community header h2{
     float: left;
 }
 article aside#side section.community div.description-container{
+    width: 100%;
     float: left;
 }
-article aside#side section.community div.description-container p{
-    display: block;
-    border-top: 1px solid #E8E8EA;
-    width: 75%;
-    padding: 12.5%;
+article aside#side section.community div.description-container ul{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    box-sizing:border-box;
+    height: 100%;
+    padding: 35px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+article aside#side section.community div.description-container ul li{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+article aside#side section.community div.description-container ul li span{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
     font-size: .8em;
-    float: left;
-    color: #5F6970;
+    color: rgba(0,0,0,.3);
 }
+
+article aside#side section.community div.description-container ul li p{
+    display: inline-block;
+    width: 100%;
+    
+}
+
 article aside#side section.comusers{
     border-top: none;
 }
