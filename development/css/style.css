@@ -3491,7 +3491,7 @@ article.settings div.feed{
     width: 100%;
     height: 100%;
     float: none;
-    overflow: scroll;
+    box-sizing: border-box;
     margin: 0 auto;
     position: relative;
 }
@@ -3501,15 +3501,15 @@ article.settings div.feed section.settings-container {
     border: none;
     width: 850px;
     position: fixed;
-    top: 50%;
     left: 50%;
-    margin-top: -230px;
+    top: 100px;
     margin-left: -425px;
     box-sizing: border-box;
 }
 article.settings div.feed section.settings-container aside.left {
     float: left;
     width: 40%;
+    height: 100%;
     box-sizing: border-box;
     position: relative;
 }
@@ -3622,6 +3622,9 @@ article.settings div.feed section.settings-container aside.right input[type='tex
     font-size: .8em;
     text-transform: capitalize;
 }
+article.settings div.feed section.settings-container aside.right input[type='text']#gender{
+    display: none !important;
+}
 article.settings div.feed section.settings-container aside.right input[type='password']{
     display: block;
     float: left;
@@ -3647,17 +3650,16 @@ article.settings div.feed section.settings-container aside.right input[type='dat
     border-right: 1px solid #E8E8EA;
 }
 article.settings div.feed section.settings-container aside.left input[type='submit'] {
-    padding: 4% 6%;
+    padding: 13px 22px;
     border: none;
     display: block;
-    /*position: absolute;
+    position: absolute;
     left: 50%;
-    top: 400px;
-    margin-left: -37px;*/
-    margin: 0 auto 0 auto;
+    margin-left: -39px;
+    bottom: 20px;
     background-color: #F47D67;
     border-radius: .4em;
-    box-sizing:border-box;
+    box-sizing: border-box;
     font-size: .9em;
     cursor: pointer;
     color: #ffffff;
@@ -3741,8 +3743,8 @@ article.settings div.feed section.settings-container aside.right div.select-lang
     border: 1px solid #E8E8EA;
     border-radius: .5em;
     border-top-left-radius: 0;
-    left: 65%;
-    top: 22px;
+    left: 75%;
+    top: 27px;
     overflow: hidden;
     z-index: 9999;
     opacity: 0;

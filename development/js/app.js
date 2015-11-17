@@ -1,4 +1,4 @@
-$(function  () {  
+$(function(){  
 
     var typing = false;
     var saveVal = "";
@@ -6,6 +6,69 @@ $(function  () {
     var part = 1;
 
      checkNotification();
+    
+    $("#menu .profile ul li a.icon-cog").on("click",function(e){
+          console.log("oki");
+            e.preventDefault();
+
+              $.ajax({
+                    type: "GET",
+                    url: $(this).attr("href"),
+                    success: function(data) {
+                        console.log(data);
+                      var section = $(data).find(".feed");
+
+
+                      $("article.settings").removeClass("hide");
+                      section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
+                    }
+              }).done(function(){
+                  
+                          /* SETTINGS LANG */
+
+                    $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
+                        console.log("oki");
+                        if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
+                            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
+                        }else{
+                            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                        }
+
+                        $(document).on('click', function (e) {
+                            if ($(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language div.flag").length === 0) {
+                                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                            }
+                        });
+                    });
+
+                    $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li").on("click",function(){
+
+                        var thisClass = $(this).attr("class");
+                        $("article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang").attr("value",thisClass);
+                        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").removeClass("en nl fr");
+
+                        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").addClass(thisClass);
+                        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                    });
+                  
+                  
+                          $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
+                    if($(this).hasClass("male")){
+                        $(this).removeClass("male").addClass("female");
+                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
+                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").addClass("selected");
+                        $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","f");
+                    }else{
+                        $(this).removeClass("female").addClass("male");
+                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
+                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
+                        $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
+                    }
+                });
+                  
+              });
+      });
+    
     
     setInterval(function () {
 
@@ -44,6 +107,7 @@ $(function  () {
         });
         
       }
+            
 
       $("section.chat ul li.conversation-bubble div.conversation").each(function () {
 
@@ -1201,23 +1265,6 @@ $(function  () {
             }
         });
         
-        $("header#menu div nav ul li.profile ul li a.icon-cog").on("click", function(e){
-            console.log("oki");
-            e.preventDefault();
-
-              $.ajax({
-                    type: "GET",
-                    url: $(this).attr("href"),
-                    success: function(data) {
-                        console.log(data);
-                      var section = $(data).find(".feed");
-
-
-                      $("article.settings").removeClass("hide");
-                      section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
-                    }
-              });
-        });
         
         /* REGISTER LANG */
         
@@ -1245,35 +1292,6 @@ $(function  () {
             $("article.register div.register-box div.container section.step_1 form aside.left div.select-language ul.lang-list").removeClass("show");
         });
         
-        
-        
-        
-        /* SETTINGS LANG */
-        
-        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
-            //console.log("oki");
-            if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
-                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
-            }else{
-                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-            }
-            
-            $(document).on('click', function (e) {
-                if ($(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language div.flag").length === 0) {
-                    $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-                }
-            });
-        });
-        
-        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li").on("click",function(){
-            
-            var thisClass = $(this).attr("class");
-            $("article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang").attr("value",thisClass);
-            $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").removeClass("en nl fr");
-            
-            $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").addClass(thisClass);
-            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-        });
         
         $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
             if($(this).hasClass("male")){

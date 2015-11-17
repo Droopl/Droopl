@@ -309,6 +309,7 @@
                             </div>
                             <p class="female">&#9792;</p>
                         </div>
+                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>">
                     </div>
                 <?php }elseif($user['gender'] == "f"){ ?>
                     <div class="switch-gender">
@@ -319,6 +320,7 @@
                             </div>
                             <p class="female selected">&#9792;</p>
                         </div>
+                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>">
                     </div>
                 <?php } ?>
                 
