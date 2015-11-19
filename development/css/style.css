@@ -4096,13 +4096,27 @@ article.detail div.feed section.quest footer div.search-proposal form input[type
     width: 80%;
     height: 60px;
     border: 0;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+article.detail div.feed section.quest footer div.search-proposal form input[type="text"].half{
+    
+    width:35%;
+}
+article.detail div.feed section.quest footer div.search-proposal form input[type="text"].half:first-child{
+    border-right: 1px solid #E8E8EA;
+}
+article.detail div.feed section.quest footer div.search-proposal form input[type="text"].half:last-child{
+    margin-left: 0%;
 }
 article.detail div.feed section.quest footer div.search-proposal form input[type="text"]#collection_item{
     display: none;
 }
 article.detail div.feed section.quest footer div.search-proposal form input[type="submit"]{
     display: block;
-    float: left;
+    float: right;
     width: 15%;
     height: 60px;
     border: 0;

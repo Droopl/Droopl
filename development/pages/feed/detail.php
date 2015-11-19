@@ -306,12 +306,27 @@
             <div class="search-proposal">
                 <form action="?page=detail&questid=<?php echo $_GET['questid']; ?>" method="post">
 
-                    <input type="text" placeholder="Propose an item from your collection" name="search_proposals" id="search_proposals">
+                    <?php if($quest['type'] == 1){ ?>
+                    <input type="text" placeholder="Propose an item from your collection" name="search_proposals" id="search_proposals" class="half">
+                    <input type="text" placeholder="Propose an item from <?php echo $quest['firstname']; ?>'s collection" name="user_search_proposals" id="user_search_proposals" class="half">
                     <input type="submit" name="submit_search" id="submit_search" value>
                     <input type="text" id="collection_item" name="collection_item" class="hide" value="">
+                    <input type="text" id="user_collection_item" name="user_collection_item" class="hide" value="">
                     <div class="added-collection-item">
                         <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                     </div>
+
+                    <?php }else{ ?>
+
+                     <input type="text" placeholder="Propose an item from your collection" name="search_proposals" id="search_proposals">
+                    <input type="submit" name="submit_search" id="submit_search" value>
+                    <input type="text" id="collection_item" name="collection_item" class="hide" value="">
+                    <div class="added-collection-item">
+                    <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
+                    </div>
+
+
+                    <?php } ?>
                     
                 </form>
             </div>
@@ -332,6 +347,26 @@
 
                  </ul>
                 </div>
+
+                 <?php if($quest['type'] == 1){ ?>
+
+                  <div class="hide collection">
+                 <ul>
+
+                        <?php foreach ($collection as $key => $value) {?>
+
+                        <li id="<?php echo $value['collection_id']; ?>">
+                            <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                            <div class="selected"><p class="icon-check"></p></div>
+                            <p class="collection-item-name"><span><?php echo $value["item_name"]; ?></span></p>
+                        </li>
+
+                        <?php } ?>
+
+                 </ul>
+                </div>
+
+                 <?php } ?>
         </div>
 
     <?php }else{ ?>
