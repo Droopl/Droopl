@@ -5128,8 +5128,8 @@ article aside#side section.comusers nav{
 article aside#side section.comusers nav ul{
     float: left;
     display: block;
-    width: 90%;
-    padding: 2.5%;
+    width: 100%;
+    text-align: center;
 }
 article aside#side section.comusers nav ul li{
 
@@ -5137,7 +5137,7 @@ article aside#side section.comusers nav ul li{
     display: block;
     width: 45px;
     height: 45px;
-    margin: 0 5%;
+    margin: 5%;
     overflow: hidden;
     border-radius: 50%;
 
