@@ -61,7 +61,7 @@ class FeedController extends AppController{
 				case 'nearby':
 				$type = "nearby";
 				break;
-				
+
 				default:
 					$type = "recent";
 					break;
@@ -83,7 +83,7 @@ class FeedController extends AppController{
 		}else{
 			$quests = $publicquests;
 		}
-		
+
 
 		if(!empty($_SESSION['user'])){
 
@@ -91,12 +91,12 @@ class FeedController extends AppController{
 
 			if(!empty($_POST)){
 
-                if(!empty($_POST['type'])){
-                    if($_POST['type'] == 0 || $_POST['type'] == 1){
-                        $type = $_POST['type'];
-                    }else{
-                        $type = 0;
-                    }
+        if(!empty($_POST['type'])){
+            if($_POST['type'] == 0 || $_POST['type'] == 1){
+                $type = $_POST['type'];
+            }else{
+                $type = 0;
+            }
 				}
 
 				if($type == 0){
@@ -106,11 +106,14 @@ class FeedController extends AppController{
 				}
 
 				if(!empty($_POST['desc'])){
-
 					$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
 				}
 
-				$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);		
+
+				if($type == 0 && $item != ""){
+					$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+				}
+
 
 				if(!empty($submition)){
 
@@ -165,7 +168,7 @@ class FeedController extends AppController{
 				}
 			}
 
-				
+
 
 
 		}
@@ -180,7 +183,7 @@ class FeedController extends AppController{
 		$this->set('usercount',$usercount);
 
 	}
-    
+
     public function detail(){
 
     	$quest = array();
@@ -257,7 +260,7 @@ class FeedController extends AppController{
 		    			}
 		    		}
 		    	}
-	            
+
 	            if(isset($_SESSION['user'])){
 	                if($quest['id'] == $_SESSION['user']['id']){
 	                	if(!empty($_GET['id'])){
@@ -269,7 +272,7 @@ class FeedController extends AppController{
 	                	}
 		    		}
 
-		    		
+
 
 		    		if(!empty($_GET['action']) && $_GET['action'] == "delete" && !empty($_GET['id'])){
 		    			$currentPropo = $this->propoDAO->getProposalById($_GET['id']);
@@ -279,7 +282,7 @@ class FeedController extends AppController{
 		    			}
 		    		}
 	            }
-            
+
 
 	    		if(!empty($quest)){
 	    			$proposals = $this->propoDAO->getProposalsByQuestId($quest['quest_id']);
@@ -288,7 +291,7 @@ class FeedController extends AppController{
 
     		}
 
-    		
+
     	}else{
     		$this->redirect("?page=feed");
     	}
@@ -305,11 +308,11 @@ class FeedController extends AppController{
         $this->set('questcount',$questcount);
 		$this->set('propocount',$propocount);
 		$this->set('usercount',$usercount);
-        
+
     }
 
     public function search()
-    {	
+    {
     	$searchQuery = "";
     	$quests = array();
     	$users = array();
@@ -325,7 +328,7 @@ class FeedController extends AppController{
     	$this->set("users",$users);
     	$this->set("items",$items);
     	$this->set("quests",$quests);
-    	
+
     }
 
 	private function getQuests($type,$page){
@@ -340,7 +343,7 @@ class FeedController extends AppController{
 			case 'nearby':
 			$quests = $this->feedDAO->getQuestFromDistance($_SESSION['user']['id'],$_SESSION['user']['latitude'],$_SESSION['user']['longitude'],$page);
 			break;
-			
+
 			default:
 				$quests = $this->feedDAO->getQuests($_SESSION['user']['id'],$page);
 				break;
@@ -359,19 +362,19 @@ class FeedController extends AppController{
 	    $new_height = $width;
 	    $new_width = $height;
 
-	    if($old_x > $old_y) 
+	    if($old_x > $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $old_y*($new_height/$old_x);
 	    }
 
-	    if($old_x < $old_y) 
+	    if($old_x < $old_y)
 	    {
 	        $thumb_w    =   $old_x*($new_width/$old_y);
 	        $thumb_h    =   $new_height;
 	    }
 
-	    if($old_x == $old_y) 
+	    if($old_x == $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $new_height;
@@ -403,7 +406,7 @@ class FeedController extends AppController{
 			  exit;
 			  break;
 	}
-	
+
 	return $banner;
 	/* cleanup memory */
 	imagedestroy($image);
@@ -420,9 +423,7 @@ class FeedController extends AppController{
 	    }
 	    return $randomString;
 	}
-	
+
 
 
 }
-
-
