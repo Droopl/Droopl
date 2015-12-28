@@ -179,7 +179,9 @@ article.countdown footer div.container ul.quotes li .wrapper{
    cursor: pointer;
    width: 100px;
    height: 100px;
-
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
    border-radius: 50%;
    overflow: hidden;
 
@@ -204,9 +206,10 @@ article.countdown footer div.container ul.quotes li img{
 
 article.countdown footer div.container ul.quotes li span{
    position: absolute;
-   bottom: 105%;
-   text-align: left;
+   bottom: 50%;
+   text-align: center;
    left: 0;
+   width: auto;
    right:0;
    opacity: 0;
    padding: 15px;

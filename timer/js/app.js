@@ -18,7 +18,7 @@ $(function () {
         console.log("init");
 
         $("article.message section.add-collection-item span.close-add").on("click",leaveMessage);
-        $("article.message section.add-collection-item #add_message").on("submit",function (e) {
+        $("article.message section.add-collection-item #add_message").submit(function (e) {
 
 
             e.preventDefault();
@@ -56,8 +56,28 @@ $(function () {
             }
 
             if(!errors){
-                console.log("NO ERRORS");
+
+                var url = "http://droopl.com/api/subscribe"; // the script where you handle the form input.
+    			var formData = new FormData($(this)[0]);
+                console.log($("#quote_img"));
+    			formData.append("quote_img", $("#quote_img")[0].files[0]);
+    			console.log(formData);
+    			jQuery.ajax({
+    			    url: url,
+    			    data: formData,
+    			    cache: false,
+    			    contentType: false,
+    			    processData: false,
+    			    type: 'POST',
+    			    success: function(data){
+                        leaveMessage();
+                        loadQuotes();
+    			    }
+    			});
+
             }
+
+
 
         });
 
@@ -84,6 +104,7 @@ $(function () {
         });
 
         setQuote();
+        loadQuotes();
         showRemaining();
         slideShow = setInterval(nextSlide,5000);
 	    timer = setInterval(showRemaining, 1000);
@@ -100,6 +121,16 @@ $(function () {
 
 
 	}
+    function loadQuotes() {
+        $("ul.quotes").html("");
+        $.get( "http://droopl.com/api/subscribers", function( data ) {
+            $(data).each(function (key,val) {
+                console.log(val);
+                $("<li/>").html("<li><div class='wrapper' style='background-image:url(http://droopl.com/profiles/"+val.url+")'></div><span>"+val.message+"</span></li>").appendTo("ul.quotes");
+            });
+        });
+
+    }
     function prevSlide () {
         id--;
         setQuote();
