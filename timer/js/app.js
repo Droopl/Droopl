@@ -15,7 +15,13 @@ $(function () {
 
 	function init () {
 
-        console.log("init");
+
+        $("article.message section.add-collection-item #message").on("keyup",function (e) {
+            if($(this).val().length > 100){
+                e.preventDefault();
+            }
+            $("#charactercount").html((100 - $(this).val().length)+ " characters left");
+        });
 
         $("article.message section.add-collection-item span.close-add").on("click",leaveMessage);
         $("article.message section.add-collection-item #add_message").submit(function (e) {
@@ -59,9 +65,8 @@ $(function () {
 
                 var url = "http://droopl.com/api/subscribe"; // the script where you handle the form input.
     			var formData = new FormData($(this)[0]);
-                console.log($("#quote_img"));
     			formData.append("quote_img", $("#quote_img")[0].files[0]);
-    			console.log(formData);
+                $("#add_item").attr("type","button").val("Receiving your love ...");
     			jQuery.ajax({
     			    url: url,
     			    data: formData,
@@ -70,6 +75,7 @@ $(function () {
     			    processData: false,
     			    type: 'POST',
     			    success: function(data){
+                        $("#add_item").attr("type","submit").val("Send us some love");
                         leaveMessage();
                         loadQuotes();
     			    }
@@ -124,10 +130,18 @@ $(function () {
     function loadQuotes() {
         $("ul.quotes").html("");
         $.get( "http://droopl.com/api/subscribers", function( data ) {
-            $(data).each(function (key,val) {
-                console.log(val);
-                $("<li/>").html("<li><div class='wrapper' style='background-image:url(http://droopl.com/profiles/"+val.url+")'></div><span>"+val.message+"</span></li>").appendTo("ul.quotes");
-            });
+            if(data.length !== 0){
+                $(data).each(function (key,val) {
+                    $("<li/>").html("<li><div class='wrapper delay"+(Math.floor(Math.random() * 3) + 1) +"' style='background-image:url(http://droopl.com/profiles/"+val.url+")'></div><span>"+val.message+"</span></li>").appendTo("ul.quotes");
+                });
+            }else if(data.length == 1){
+                $("#message_header").html("This person has left us a message");
+                $("#message_sub_header").html("Be the second and leave us a message");
+            }else{
+                $("#message_header").html("No one has left us a message yet");
+                $("#message_sub_header").html("Be the first and leave us a message");
+            }
+
         });
 
     }
@@ -316,7 +330,6 @@ $(function () {
         var obj = $("#dragndrop input[type='file']");
         obj.on('dragenter', function (e)
         {
-          console.log("enter");
             e.preventDefault();
             $(this).parent().parent().css('border', '3px solid #E8E8EA');
             $(this).parent().parent().css('background-position', 'center -140px');
@@ -336,10 +349,8 @@ $(function () {
         });
         obj.change(function ()
         {
-            console.log("changed");
              var files = this;
              readURL(files);
-             console.log(files);
         });
     }
 

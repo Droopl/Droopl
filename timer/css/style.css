@@ -5,6 +5,18 @@
 .hide{
 	display: none;
 }
+.delay1{
+   -webkit-animation-delay: 1.5s; /* Chrome, Safari, Opera */
+    animation-delay: 1.5s;
+}
+.delay2{
+   -webkit-animation-delay: 1s; /* Chrome, Safari, Opera */
+    animation-delay: 1s;
+}
+.delay3{
+   -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+    animation-delay: 2s;
+}
 input{
     -webkit-appearance: none;
    -moz-appearance:    none;
@@ -209,7 +221,6 @@ article.countdown footer div.container ul.quotes li span{
    bottom: 50%;
    text-align: center;
    left: 0;
-   width: auto;
    right:0;
    opacity: 0;
    padding: 15px;
@@ -366,10 +377,10 @@ article.message section.add-collection-item{
    position: relative;
    width: 100%;
    float: left;
+   margin-bottom: 100px;
    border-radius: .5em;
     -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
-   background-image: url(../images/add_collection_bg.svg);
    background-size: contain;
    background-position: center top;
    background-repeat: no-repeat;
@@ -406,6 +417,22 @@ article.message section.add-collection-item #dragndrop {
 article.message section.add-collection-item aside {
     width: 100%;
     text-align: left;
+}
+article.message section.add-collection-item aside div{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+article.message section.add-collection-item aside div span{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    text-align: right;
+    font-size: .8em;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5% 7.5%;
+    color: rgba(0, 0, 0, 0.5);
 }
 article.message section.add-collection-item span.close-add {
     display: block;
@@ -460,7 +487,7 @@ article.message section.add-collection-item aside input[type='email'].correct{
 article.message section.add-collection-item aside input[type='email'].wrong{
     background-image: url(../images/text_field_wrong.svg);
 }
-article.message section.add-collection-item aside input[type='submit']{
+article.message section.add-collection-item aside input#add_item{
     padding: 3% 5%;
     border: none;
     background-color: #F47D67;
@@ -475,7 +502,7 @@ article.message section.add-collection-item aside input[type='submit']{
 
 article.message section.add-collection-item aside textarea{
     width: 100%;
-    padding: 5% 7.5%;
+    padding:  5% 7.5%;
     height: 150px;
     min-width: 100%;
     max-width: 100%;
@@ -631,5 +658,19 @@ article.message section.add-collection-item header#upload p{
     article.countdown section.timer .progress {
         width: 300px;
     }
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+   article.message .container {
+      float: none;
+      width: 100%;
+      margin: 50px auto;
+   }
+   article.message section.add-collection-item{
+     border-radius: 0;
+  }
 
 }

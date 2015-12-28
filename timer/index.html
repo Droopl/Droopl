@@ -88,8 +88,8 @@
             <footer class="animated fadeInUp delay">
                 <div class="container">
 
-                    <h1>These are all people who left a message</h1>
-                    <h2>Join them and leave us a fun message</h2>
+                    <h1 id="message_header">These are all people who left a message</h1>
+                    <h2 id="message_sub_header">Join them and leave us a fun message</h2>
                     <a href="" class="message"><span class="icon-speech-bubble"></span>leave a message</a>
 
 
@@ -136,7 +136,12 @@
                                 <input type="text" id="naam" name="naam" placeholder="Full name">
                                 <input type="email" id="email" name="email" placeholder="Email address">
                             </header>
-                            <textarea placeholder="Leave us a message" id="message" name="message"></textarea>
+                            <div>
+                                <textarea placeholder="Leave us a message" id="message" name="message" maxlength="100"></textarea>
+                                <span id="charactercount">100 characters left</span>
+                            </div>
+
+
 
                             <input type="submit" id="add_item" name="add_item" value="Send us some love">
                         </aside>
