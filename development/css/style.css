@@ -178,7 +178,7 @@ header#menu div nav ul li.notifications span.notif{
 
     color: #F47D67;
 
-    
+
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
     -ms-transition: all .1s ease-in-out;
@@ -416,7 +416,7 @@ section.chat ul li.new-conversation span.new-icon {
     top: 50%;
     margin-left: -10px;
     margin-top: -10px;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -442,7 +442,7 @@ section.chat ul li.new-conversation form#new-conversation-form {
     box-shadow: 0 0 20px -13px #000000;
     opacity: 0;
     background-color: #ffffff;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -491,7 +491,7 @@ section.chat ul li.new-conversation form#new-conversation-form ul li {
     float: left;
     padding: 10px 13px;
     box-sizing: border-box;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -538,7 +538,7 @@ section.chat ul li.more-conversations div {
     white-space: nowrap;
     top: 30px;
     opacity: 0;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -867,7 +867,7 @@ article aside#side section.collection ul li.more-collection-items div{
     opacity: 0;
     left: 50%;
     top: -10px;
-    
+
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
@@ -958,7 +958,7 @@ article aside#side section.profile header div.profile_pic img{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    
+
     -webkit-box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
 box-shadow: 0 5px 30px -10px rgba(0,0,0,.3);
 }
@@ -1086,7 +1086,7 @@ article aside#side section.profile div.description-container ul li span.purpletx
 article aside#side section.profile div.description-container ul li p{
     display: inline-block;
     width: 100%;
-    
+
 }
 
 article aside#side section.profile div.map-container{
@@ -1284,7 +1284,7 @@ article div.feed ul.followers li.follower{
     box-sizing:border-box;
     margin: 1% 0;
     background-color: #ffffff;
-    border: 1px solid #E8E8EA; 
+    border: 1px solid #E8E8EA;
 
 }
 article div.feed ul.followers li.follower{
@@ -1295,7 +1295,7 @@ article div.feed ul.followers li.follower{
     box-sizing:border-box;
     margin: 1% 0;
     background-color: #ffffff;
-    border: 1px solid #E8E8EA; 
+    border: 1px solid #E8E8EA;
 
 }
 article div.feed ul.followers li.follower header{
@@ -1330,7 +1330,7 @@ article div.feed ul.followers li.follower aside ul li p{
     display: inline-block;
     width: 100%;
     font-size: .9em
-    
+
 }
 article div.feed ul.followers li.follower header h1{
     float: left;
@@ -1348,7 +1348,7 @@ article div.feed ul.followers li.follower header h2{
     width: 50%;
     margin-left: 20px;
     color: rgba(0,0,0,.3);
-    
+
 }
 article div.feed ul.followers li.follower a{
 
@@ -1361,7 +1361,7 @@ article div.feed ul.followers li.follower a{
     color: #F47D67;
     text-decoration: none;
     text-transform: capitalize;
-    
+
 }
 article div.feed ul.followers li.follower header img{
     float: left;
@@ -1447,7 +1447,7 @@ article div.feed section.post form div.collection{
     height: auto;
     max-height: 240px;
     box-sizing: border-box;
-    border-bottom: 1px solid #E8E8EA; 
+    border-bottom: 1px solid #E8E8EA;
     overflow: scroll;
 }
 article div.feed section.post form div.collection.no-collection-items{
@@ -1558,7 +1558,7 @@ article div.feed section.post form div.collection ul li img.selected{
 }
 article div.feed section.post form div:first-child{
 
-	border-bottom: 1px solid #E8E8EA; 
+	border-bottom: 1px solid #E8E8EA;
 }
 article div.feed section.post form div input[type="text"]{
 	float: left;
@@ -1602,14 +1602,14 @@ article div.feed section.post form div div.switch-container{
     right: 0;
     border: none;
     cursor: pointer;
-    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 
--webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+-webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 }
 article div.feed section.post form div div.switch-container div.contain-button{
@@ -1631,14 +1631,14 @@ article div.feed section.post form div div.switch-container div.contain-button d
     top: 50%;
     margin-top: -10px;
     background-color: #F27D6B;
-    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 
--webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+-webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 }
 article div.feed section.post form div div.switch-container div.contain-button div.looking-mode{
@@ -1685,7 +1685,7 @@ article div.feed section.post form div span.uploaded_image:hover> p{
     opacity: 1;
 }
 article div.feed section.post form div span.uploaded_image img{
-    
+
     position: absolute;
     width: 100%;
     -webkit-transition: all .2s ease-out;
@@ -1739,7 +1739,7 @@ article div.feed section{
 	float: left;
 	width: 100%;
 	background-color: #ffffff;
-	border: 1px solid #E8E8EA; 
+	border: 1px solid #E8E8EA;
 	margin-bottom: 20px;
 }
 article div.feed section.add-collection-item{
@@ -1839,7 +1839,7 @@ article div.feed section.quest header nav ul li ul.options{
     border-top-right-radius: 0;
     border: 1px solid #E8E8EA;
     box-shadow: 0 0 25px -13px #000000;
-    
+
     -webkit-transition: all .2s ease-out;
 	-moz-transition: all .2s ease-out;
 	-ms-transition: all .2s ease-out;
@@ -1913,10 +1913,10 @@ article div.feed section.quest span a.attachement{
     transition: all .2s ease-out;
 }
 article div.feed section.quest span a.attachement:hover{
-    color: #F47D67; 
+    color: #F47D67;
 }
 article div.feed section.quest header h1 a:hover{
-	color: #F47D67; 
+	color: #F47D67;
 }
 article div.feed section.quest header h2{
     position: absolute;
@@ -1924,7 +1924,7 @@ article div.feed section.quest header h2{
     right: 5%;
     padding-top: 25px;
     top: 5%;
-    color: rgba(0,0,0,.2); 
+    color: rgba(0,0,0,.2);
     font-weight: normal;
     font-size: .8em;
 }
@@ -1970,7 +1970,7 @@ article div.feed section.quest header a.collection_item span.collection_item_nam
     white-space: nowrap;
     left: 45px;
     font-size: .8em;
-    color: #F47D67; 
+    color: #F47D67;
     text-decoration: none;
     opacity: 0;
     -webkit-transition: all .2s ease-out;
@@ -1989,7 +1989,7 @@ article div.feed section.quest header img{
 	float: left;
 	height: 40px;
 	margin-right: 20px;
-	border-radius: 50%; 
+	border-radius: 50%;
 }
 
 article div.feed section.quest aside p{
@@ -2387,7 +2387,7 @@ article div.feed section.profile-collection ul li.profile-collection-item span.c
     border-top-right-radius: 0;
     border: 1px solid #E8E8EA;
     box-shadow: 0 0 25px -13px #000000;
-    
+
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
@@ -2567,7 +2567,7 @@ article.new-conversation form#new-conversation-form {
     box-shadow: 0 0 20px -13px #000000;
     opacity: 1;
     background-color: #ffffff;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -2625,7 +2625,7 @@ article.new-conversation form#new-conversation-form ul li {
     padding: 15px 20px;
     box-sizing: border-box;
     cursor: pointer;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -3095,7 +3095,7 @@ article.login form input[type="text"]{
     background-position: right 5% center;
     background-size: 15px;
     background-repeat: no-repeat;
-    
+
 }
 article.login form input[type="text"]:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -3241,7 +3241,7 @@ article.search ul.search_results li.quest:last-child{
     text-align: center;
     box-sizing:border-box;
     color: rgba(0,0,0,.2);
-    border: 1px solid rgba(0,0,0,.1); 
+    border: 1px solid rgba(0,0,0,.1);
 
 }
 article.search ul.search_results li.quest a.quest{
@@ -3250,7 +3250,7 @@ article.search ul.search_results li.quest a.quest{
     display: block;
     width: 90%;
     background-color: #ffffff;
-    border: 1px solid #E8E8EA; 
+    border: 1px solid #E8E8EA;
     color: #3E454C;
     padding: 5%;
     text-align: left;
@@ -3263,7 +3263,7 @@ article.search ul.search_results li.quest a.quest{
     transition: all .2s ease-out;
 }
 article.search ul.search_results li.quest a.quest:hover{
-    border: 1px solid rgba(242,125,107,.4); 
+    border: 1px solid rgba(242,125,107,.4);
 }
 article.search ul.search_results li.quest header{
 
@@ -3298,7 +3298,7 @@ article.search ul.search_results li.quest header h1 a{
     transition: all .2s ease-out;
 }
 article.search ul.search_results li.quest header h1 a:hover{
-    color: #F47D67; 
+    color: #F47D67;
 }
 article.search ul.search_results li.quest header h1 span{
 
@@ -3311,7 +3311,7 @@ article.search ul.search_results li.quest header img{
     float: left;
     height: 40px;
     margin-right: 20px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 article.search ul.search_results li.quest aside{
 
@@ -3338,7 +3338,7 @@ article.search ul.search_results li.user{
     width: 100%;
     margin: 1% 0;
     background-color: #ffffff;
-    border: 1px solid #E8E8EA; 
+    border: 1px solid #E8E8EA;
 
 }
 article.search ul.search_results li.user:last-child{
@@ -3351,7 +3351,7 @@ article.search ul.search_results li.user:last-child{
     text-align: center;
     box-sizing:border-box;
     color: rgba(0,0,0,.2);
-    border: 1px solid rgba(0,0,0,.1); 
+    border: 1px solid rgba(0,0,0,.1);
 
 }
 article.search ul.search_results li.user header{
@@ -3387,7 +3387,7 @@ article.search ul.search_results li.user aside ul li p{
     display: inline-block;
     width: 100%;
     font-size: .9em
-    
+
 }
 article.search ul.search_results li.user header h1{
     float: left;
@@ -3405,7 +3405,7 @@ article.search ul.search_results li.user header h2{
     width: 40%;
     margin-left: 20px;
     color: rgba(0,0,0,.3);
-    
+
 }
 article.search ul.search_results li.user a{
     float: left;
@@ -3443,7 +3443,7 @@ article.search ul.search_results li.item:last-child{
     line-height: 180px;
     text-align: center;
     color: rgba(0,0,0,.2);
-    border: 1px solid rgba(0,0,0,.1); 
+    border: 1px solid rgba(0,0,0,.1);
 
 }
 article.search ul.search_results li.item img {
@@ -3749,7 +3749,7 @@ article.settings div.feed section.settings-container aside.right div.select-lang
     z-index: 9999;
     opacity: 0;
     white-space: nowrap;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -3771,7 +3771,7 @@ article.settings div.feed section.settings-container aside.right div.select-lang
     line-height: 20px;
     box-sizing: border-box;
     cursor: pointer;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -3846,7 +3846,7 @@ article.settings div.feed section.settings-container aside.right div.switch-gend
     height: 24px;
     line-height: 24px;
     padding: 0 10px;
-    
+
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -ms-transition: all .2s ease-in-out;
@@ -3867,15 +3867,15 @@ article.settings div.feed section.settings-container aside.right div.switch-gend
     margin-top: -10px;
     background-color: #F27D6B;
     cursor: pointer;
-    
-    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+
+    -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 
--webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
-     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); 
+-webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+   -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+     -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
         transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
 }
 
@@ -4019,10 +4019,10 @@ article.detail div.feed section.quest span a.attachement{
     transition: all .2s ease-out;
 }
 article.detail div.feed section.quest span a.attachement:hover{
-    color: #F47D67; 
+    color: #F47D67;
 }
 article.detail div.feed section.quest header h1 a:hover{
-    color: #F47D67; 
+    color: #F47D67;
 }
 article.detail div.feed section.quest header h1 span{
 
@@ -4035,7 +4035,7 @@ article.detail div.feed section.quest header img{
     float: left;
     height: 40px;
     margin-right: 20px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 article.detail div.feed section.quest aside p{
@@ -4102,7 +4102,7 @@ article.detail div.feed section.quest footer div.search-proposal form input[type
     overflow: hidden;
 }
 article.detail div.feed section.quest footer div.search-proposal form input[type="text"].half{
-    
+
     width:35%;
 }
 article.detail div.feed section.quest footer div.search-proposal form input[type="text"].half:first-child{
@@ -4235,7 +4235,7 @@ article.detail div.feed section.quest footer.detail div.collection{
     height: auto;
     max-height: 240px;
     box-sizing: border-box;
-    border-bottom: 1px solid #E8E8EA; 
+    border-bottom: 1px solid #E8E8EA;
     overflow: scroll;
 }
 article.detail div.feed section.quest footer.detail div.collection.no-collection-items{
@@ -4571,7 +4571,7 @@ article div.messages section.messages header nav ul li input[type="submit"]{
     background-size: 10px;
     background-position: center;
     background-image: url(../images/assets/add-btn.svg);
-    border: 1px solid #F47D67; 
+    border: 1px solid #F47D67;
 }
 article div.messages section.messages header nav ul li img{
     float: left;
@@ -4999,7 +4999,7 @@ article aside#side section.community header{
 }
 
 article aside#side section.community header nav{
-    
+
     float: left;
     width: 100%;
     padding: 5%;
@@ -5128,7 +5128,7 @@ article aside#side section.community div.description-container ul li span{
 article aside#side section.community div.description-container ul li p{
     display: inline-block;
     width: 100%;
-    
+
 }
 
 article aside#side section.comusers{
@@ -5223,7 +5223,7 @@ article div.communities header.intro p{
     font-weight: 300;
     letter-spacing: 1.5px;
     line-height: 25px;
-    
+
 }
 article div.communities header.intro nav{
     position: absolute;
@@ -5288,17 +5288,17 @@ article div.communities section header{
 
 
 
-@-webkit-keyframes 
+@-webkit-keyframes
 load { 0% {
 stroke-dashoffset:0
 }
 }
-@-moz-keyframes 
+@-moz-keyframes
 load { 0% {
 stroke-dashoffset:0
 }
 }
-@keyframes 
+@keyframes
 load { 0% {
 stroke-dashoffset:0
 }
@@ -5419,6 +5419,6 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
 
 @media screen and (max-width: 500px){
 
-	
+
 
 }

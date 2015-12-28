@@ -5,7 +5,7 @@ $(function () {
 
     var slideShow;
 
-	var end = new Date('12/01/2015 00:01 AM');
+	var end = new Date('01/08/2016 00:01 AM');
 
     var _second = 1000;
     var _minute = _second * 60;
@@ -17,13 +17,57 @@ $(function () {
 
         console.log("init");
 
-        $("#subscribe").on("submit",function(e){
-            console.log("Submitting")
+        $("article.message section.add-collection-item span.close-add").on("click",leaveMessage);
+        $("article.message section.add-collection-item #add_message").on("submit",function (e) {
+
+
+            e.preventDefault();
+            var errors = false;
+
+            if($("#quote_img").val().length < 1){
+                errors = true;
+                $("#quote_img").parent().parent().css('border', '1px solid #f47d67');
+            }else{
+                $("#quote_img").parent().parent().css('border', 'none');
+            }
+            if($("#naam").val().length < 1){
+                errors = true;
+                $("#naam").removeClass("correct");
+                $("#naam").addClass("wrong");
+            }else{
+                $("#naam").removeClass("wrong");
+                $("#naam").addClass("correct");
+            }
+            if($("#email").val().length < 1){
+                errors = true;
+                $("#email").removeClass("correct");
+                $("#email").addClass("wrong");
+            }else{
+                $("#email").removeClass("wrong");
+                $("#email").addClass("correct");
+            }
+            if($("#message").val().length < 1){
+                errors = true;
+                $("#message").removeClass("correct");
+                $("#message").addClass("wrong");
+            }else{
+                $("#message").removeClass("wrong");
+                $("#message").addClass("correct");
+            }
+
+            if(!errors){
+                console.log("NO ERRORS");
+            }
+
+        });
+
+        $("div.container a.message").on("click",function(e){
+
             e.preventDefault();
 
-            console.log();
+            leaveMessage();
 
-            $.ajax({
+            /*$.ajax({
               type: "POST",
               url: "http://droopl.com/api/subscribe",
               data: $(this).serialize(),
@@ -35,9 +79,9 @@ $(function () {
                     $("article.countdown footer div.container p").animate({width:'toggle'},600);
                 });
               }
-            });
+          });*/
 
-        }); 
+        });
 
         setQuote();
         showRemaining();
@@ -50,7 +94,7 @@ $(function () {
             setTimeout(function() {
                 $(val).addClass("animated fadeInUp");
             }, time);
-            
+
             time += 200;
         });
 
@@ -59,7 +103,7 @@ $(function () {
     function prevSlide () {
         id--;
         setQuote();
-        
+
     }
 
     function nextSlide () {
@@ -137,28 +181,28 @@ $(function () {
 
         $("section.timer ul li#seconds p").html(sec);
 
-        
-       
+
+
     }
 
 
-    document.addEventListener('touchstart', handleTouchStart, false);        
+    document.addEventListener('touchstart', handleTouchStart, false);
     document.addEventListener('touchmove', handleTouchMove, false);
 
-    var xDown = null;                                                        
-    var yDown = null;                                                        
+    var xDown = null;
+    var yDown = null;
 
-    function handleTouchStart(evt) {                                         
-        xDown = evt.touches[0].clientX;                                      
-        yDown = evt.touches[0].clientY;                                      
-    };                                                
+    function handleTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
 
     function handleTouchMove(evt) {
         if ( ! xDown || ! yDown ) {
             return;
         }
 
-        var xUp = evt.touches[0].clientX;                                    
+        var xUp = evt.touches[0].clientX;
         var yUp = evt.touches[0].clientY;
 
         var xDiff = xDown - xUp;
@@ -170,25 +214,103 @@ $(function () {
                resetSlideshow();
             } else {
                 prevSlide();
-                
+
                resetSlideshow();
-            }                       
+            }
         } else {
             if ( yDiff > 0 ) {
-                /* up swipe */ 
-            } else { 
+                /* up swipe */
+            } else {
                 /* down swipe */
-            }                                                                 
+            }
         }
         /* reset values */
         xDown = null;
-        yDown = null;                                             
-    };
+        yDown = null;
+    }
 
 
 
 
 	init();
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(input).parent().parent().css('background-image','url('+e.target.result+')');
+                $(input).parent().parent().css('background-position', 'center');
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function handleFileUpload(files,obj){
+
+      var reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.onload = function (e) {
+
+          obj.parent().parent().css('background-image','url('+e.target.result+')');
+          obj.parent().parent().css('background-position', 'center');
+
+      };
+      
+    }
+
+    function leaveMessage() {
+
+        if($("article.message").hasClass("show")){
+
+            $("article.message").removeClass("show");
+            $("article.message").removeClass("animated fadeIn");
+
+            $("article.message input[type='text']").val("");
+            $("article.message input[type='file']").val("");
+
+        }else {
+            $("article.message").addClass("show");
+            $("article.message").addClass("animated fadeIn");
+
+            dragAndDrop();
+
+        }
+
+    }
+
+    function dragAndDrop() {
+
+        var obj = $("#dragndrop input[type='file']");
+        obj.on('dragenter', function (e)
+        {
+          console.log("enter");
+            e.preventDefault();
+            $(this).parent().parent().css('border', '3px solid #E8E8EA');
+            $(this).parent().parent().css('background-position', 'center -140px');
+        });
+        obj.on('dragover', function (e)
+        {
+        });
+        obj.on('dragleave', function (e)
+        {
+             $(this).parent().parent().css('border', '1px solid #E8E8EA');
+            $(this).parent().parent().css('background-position', 'center 0px');
+
+        });
+        obj.on('drop', function (e)
+        {
+             $(this).parent().parent().css('border', 'none');
+        });
+        obj.change(function ()
+        {
+            console.log("changed");
+             var files = this;
+             readURL(files);
+             console.log(files);
+        });
+    }
 
 
     function resetSlideshow () {
@@ -196,5 +318,5 @@ $(function () {
          slideShow = setInterval(nextSlide,5000);
     }
 
-	
+
 });

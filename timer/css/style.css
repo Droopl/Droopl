@@ -13,6 +13,9 @@ input{
 input:focus{
 	outline: none;
 }
+textarea:focus{
+	outline: none;
+}
 
 body{
 	font-family: Roboto;
@@ -135,7 +138,9 @@ article.countdown section.timer ul li span{
 article.countdown footer {
     width: 100%;
     float: left;
+    margin-top: 100px;
     padding: 100px 0;
+    background-color: #ffffff;
     box-sizing: border-box;
     text-align: center;
 }
@@ -151,51 +156,122 @@ article.countdown footer div.container {
     display: inline-block;
 }
 
-article.countdown footer div.container p {
-    display: block;
-    float: left;
-    padding: 0 40px;
-    font-size: .9em;
-    line-height: 41px;
-    box-sizing: border-box;
+article.countdown footer div.container ul.quotes{
+    display: inline-block;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
 }
 
-article.countdown footer div.container form {
-    display: block;
-    float: left;
-}
-
-article.countdown footer div.container form input[type='email']{
-    display: block;
-    float: left;
-    width: 270px;
-    height: 41px;
-    border: none;
-    padding-left: 12px;
-    font-size: .9em;
-    border-radius: .5em;
-    -webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
-    box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
-    box-sizing: border-box;
-}
-
-article.countdown footer div.container form input[type='submit']{
-    display: block;
-    float: left;
-    color: #ffffff;
-    height: 41px;
-    padding: 12px;
-    margin-left: 15px;
-    background-color: #F47D67;
-    border: none;
-    font-size: .9em;
-    border-radius: .5em;
+article.countdown footer div.container ul.quotes li{
+   display: inline-block;
+   position: relative;
+    width: 200px;
+    height: 100px;
+    margin-bottom: 100px;
+    text-align: center;
     cursor: pointer;
-    -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
+}
+article.countdown footer div.container ul.quotes li .wrapper{
+   display: inline-block;
+   position: relative;
+   background-color: #000000;
+   cursor: pointer;
+   width: 100px;
+   height: 100px;
+
+   border-radius: 50%;
+   overflow: hidden;
+
+
+
+   -webkit-animation-name: Floatingx;
+   -webkit-animation-duration: 3s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: ease-in-out;
+   -moz-animation-name: Floating;
+   -moz-animation-duration: 3s;
+   -moz-animation-iteration-count: infinite;
+   -moz-animation-timing-function: ease-in-out;
+}
+article.countdown footer div.container ul.quotes li img{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
 }
 
+
+article.countdown footer div.container ul.quotes li span{
+   position: absolute;
+   bottom: 105%;
+   text-align: left;
+   left: 0;
+   right:0;
+   opacity: 0;
+   padding: 15px;
+   border: 1px solid #E8E8EA;
+   color: #5F6970;
+   background-color: #ffffff;
+   border-radius: .5em;
+   font-size: .8em;
+
+
+   -webkit-transition: all 500ms cubic-bezier(0.850, 0, 0.265, 1.000); /* older webkit */
+-webkit-transition: all 500ms cubic-bezier(0.850, -0.010, 0.265, 1.000);
+   -moz-transition: all 500ms cubic-bezier(0.850, -0.010, 0.265, 1.000);
+     -o-transition: all 500ms cubic-bezier(0.850, -0.010, 0.265, 1.000);
+        transition: all 500ms cubic-bezier(0.850, -0.010, 0.265, 1.000); /* custom */
+
+-webkit-transition-timing-function: cubic-bezier(0.850, 0, 0.265, 1.000); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.850, -0.010, 0.265, 1.000);
+   -moz-transition-timing-function: cubic-bezier(0.850, -0.010, 0.265, 1.000);
+     -o-transition-timing-function: cubic-bezier(0.850, -0.010, 0.265, 1.000);
+        transition-timing-function: cubic-bezier(0.850, -0.010, 0.265, 1.000); /* custom */
+
+}
+article.countdown footer div.container ul.quotes li:hover span{
+   bottom: 110%;
+   opacity: 1;
+}
+
+article.countdown footer div.container a.message {
+    display: block;
+    width: 130px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: .9em;
+    padding: 12px 17px;
+    border-radius: .5em;
+    background-color: #F47D67;
+    margin: 20px auto;
+    position: relative;
+
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+article.countdown footer div.container a.message:hover {
+    padding-left: 34px;
+}
+article.countdown footer div.container a.message:hover > span {
+    left: 12px;
+    opacity: 1;
+}
+
+article.countdown footer div.container a.message span {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    left: 20px;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
 article.countdown footer div.container a.contact {
     display: block;
     width: 75px;
@@ -207,18 +283,45 @@ article.countdown footer div.container a.contact {
     background-color: #F47D67;
     float: left;
     position: relative;
-    
+
     -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
+article.countdown footer div.container p {
+    display: block;
+    float: left;
+    padding: 0 40px;
+    font-size: .9em;
+    line-height: 41px;
+    box-sizing: border-box;
+}
+article.countdown footer div.container h1 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 300;
 
+    font-size: 1.7em;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+article.countdown footer div.container h2 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: rgba(0,0,0,.6);
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
 article.countdown footer div.container a.contact:hover {
     padding-left: 34px;
 }
-
 article.countdown footer div.container a.contact:hover > span {
     left: 12px;
     opacity: 1;
@@ -235,86 +338,295 @@ article.countdown footer div.container a.contact span {
     -o-transition: all .2s ease-out;
     transition: all .2s ease-out;
 }
+article.message{
+   z-index: 9999;
+   display: none;
+   position: fixed;
+   overflow: scroll;
+   left: 0;
+   top: 0;
+   opacity: 0;
+   margin: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0,.4);
+}
+article.message.show{
+   display: block;
+}
+article.message .container {
+    float: none;
+    width: 500px;
+    margin: 50px auto;
+}
+article.message section.add-collection-item{
+   position: relative;
+   width: 100%;
+   float: left;
+   border-radius: .5em;
+    -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+    box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+   background-image: url(../images/add_collection_bg.svg);
+   background-size: contain;
+   background-position: center top;
+   background-repeat: no-repeat;
+   background-color: #ffffff;
+   text-align: center;
+}
+
+article.message section.add-collection-item #dragndrop {
+
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 30px;
+    left: 50%;
+    margin-left: -75px;
+    position: relative;
+    box-sizing:border-box;
+    border-radius: 50%;
+    border: 1px solid #E5E5E5;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: white;
+    background-image: url(../images/add_collection_upload_graphics.svg);
+
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+article.message section.add-collection-item aside {
+    width: 100%;
+    text-align: left;
+}
+article.message section.add-collection-item span.close-add {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 25px;
+    right: 25px;
+    background-repeat: no-repeat;
+    background-image: url(../images/close-icon.svg);
+    background-size: 11px;
+    background-position: center;
+    cursor: pointer;
+}
+article.message section.add-collection-item aside input[type='text']{
+    width: 100%;
+    padding: 5% 7.5%;
+    border: none;
+    border-top: 1px solid #E8E8EA;
+    box-sizing:border-box;
+    font-size: .9em;
+    text-align: left;
+    font-weight: bolder;
+    color: #3E454C;
+    background-position: right 5% center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+article.message section.add-collection-item aside input[type='text'].correct{
+    background-image: url(../images/text_field_correct.svg);
+}
+article.message section.add-collection-item aside input[type='text'].wrong{
+    background-image: url(../images/text_field_wrong.svg);
+}
+article.message section.add-collection-item aside input[type='email']{
+    width: 100%;
+    padding: 5% 7.5%;
+    border: none;
+    border-top: 1px solid #E8E8EA;
+    box-sizing:border-box;
+    font-size: .9em;
+    text-align: left;
+    font-weight: bolder;
+    color: #3E454C;
+    background-position: right 5% center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+article.message section.add-collection-item aside input[type='email'].correct{
+    background-image: url(../images/text_field_correct.svg);
+}
+article.message section.add-collection-item aside input[type='email'].wrong{
+    background-image: url(../images/text_field_wrong.svg);
+}
+article.message section.add-collection-item aside input[type='submit']{
+    padding: 3% 5%;
+    border: none;
+    background-color: #F47D67;
+    border-radius: .4em;
+    box-sizing:border-box;
+    font-size: .8em;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-left: 10px;
+    color: #ffffff;
+}
+
+article.message section.add-collection-item aside textarea{
+    width: 100%;
+    padding: 5% 7.5%;
+    height: 150px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height:150px;
+    max-height:200px;
+    border: none;
+    color: #3E454C;
+    border-top: 1px solid #E8E8EA;
+    border-bottom: 1px solid #E8E8EA;
+    box-sizing:border-box;
+    font-size: .8em;
+    resize: none;
+    background-position: right 5% top 20px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+article.message section.add-collection-item aside textarea.correct{
+    background-image: url(../images/text_field_correct.svg);
+}
+article.message section.add-collection-item aside textarea.wrong{
+    background-image: url(../images/text_field_wrong.svg);
+}
+
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 15px);}
+    to {-moz-transform: translate(0, -0px);}
+}
+article.message section.add-collection-item #dragndrop input[type="file"]{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+article.message section.add-collection-item #dragndrop span.remove-file {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255,255,255,.6);
+}
+article.message section.add-collection-item #dragndrop span.remove-file.show {
+    display: block;
+}
+article.message section.add-collection-item #dragndrop span.remove-file p.icon-cross {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    line-height: 150px;
+    margin: 0;
+    font-size: 1.3em;
+    color: #ffffff;
+}
+article.message section.add-collection-item header#upload {
+
+    float: left;
+    width: 80%;
+    padding: 10%;
+
+}
+article.message section.add-collection-item header#upload h1{
+
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: .5px;
+    color: #3E454C;
+}
+article.message section.add-collection-item header#upload h2{
+
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-top: 60px;
+    color: #F47D67;
+}
+article.message section.add-collection-item header#upload p{
+    margin-top: 10px;
+    font-size: .7em;
+    color: #5F6970;
+}
+
+
+
 
 /* MOBILE CSS */
 
 
 @media screen and (max-width: 800px) {
-    
+
     article.countdown footer {
         padding: 50px 10%;
         padding-bottom: 100px;
     }
-    
+
     article.countdown footer div.container a.contact {
         margin: 0 auto;
         float: none;
     }
-    
+    article.countdown footer div.container a.message {
+        margin: 0 auto;
+        float: none;
+    }
+
     article.countdown footer div.container p {
         width: 100%;
         padding: 20px 0;
     }
-    
-    article.countdown footer div.container form {
-        width: 100%;
-        text-align: center;
-    }
-    
-    article.countdown footer div.container form input[type='email']{
-        width: 100%;
-        float: left;
-        margin-bottom: 20px;
-    }
-    
-    article.countdown footer div.container form input[type='submit']{
-        margin: 0 auto;
-        float: none;
-        width: 50%;
-        display: inline-block;
-    }
-    article.countdown footer div.container form input[type='submit']{
-        display: inline-block;
-        width: 100%;
-        float: left;
-        margin-bottom: 20px;
-    }
-    
-    article.countdown footer div.container form input[type='submit']{
-        margin: 0 auto;
-        float: none;
-    }
-    
+
+
     article.countdown header.intro div.intro img{
         height: 80px;
     }
     article.countdown{
         background-size: contain;
     }
-    
+
     article.countdown section.timer .progress svg {
       width: 80px;
       height: 80px;
     }
-    
+
     article.countdown section.timer .progress>li {
         font-size: .8em;
     }
-    
+
     article.countdown header.intro h1 {
         font-size: 1.4em;
     }
-    
+
     article.countdown header.intro {
         margin-top: 40px;
     }
-    
+
     article.countdown section.timer {
         margin-bottom: 60px;
     }
-    
+
     article.countdown section.timer .progress {
         width: 300px;
     }
-    
+
 }

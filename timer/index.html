@@ -87,20 +87,96 @@
 
             <footer class="animated fadeInUp delay">
                 <div class="container">
-                    <a href="mailto:info@droopl.com" class="contact">
+
+                    <h1>These are all people who left a message</h1>
+                    <h2>Join them and leave us a fun message</h2>
+                    <a href="" class="message"><span class="icon-speech-bubble"></span>leave a message</a>
+
+
+
+                    <ul class="quotes">
+                        <li>
+                            <div class="wrapper">
+                                <img src="images/logo.jpg" alt="Rachouan Rejeb" />
+                            </div>
+
+                            <span>Heey guys great job Heey guys great job Heey guys great job Heey guys great job</span>
+                        </li>
+
+
+                        <li>
+                            <div class="wrapper">
+                                <img src="images/logo.jpg" alt="Rachouan Rejeb" />
+                            </div>
+
+                            <span>Heey guys great job Heey guys great job Heey guys great job Heey guys great job</span>
+                        </li>
+
+
+                        <li>
+                            <div class="wrapper">
+                                <img src="images/logo.jpg" alt="Rachouan Rejeb" />
+                            </div>
+
+                            <span>Heey guys great job Heey guys great job Heey guys great job Heey guys great job</span>
+                        </li>
+
+                        <li>
+                            <div class="wrapper">
+                                <img src="images/logo.jpg" alt="Rachouan Rejeb" />
+                            </div>
+
+                            <span>Heey guys great job Heey guys great job Heey guys great job Heey guys great job</span>
+                        </li>
+                    </ul>
+
+                    <!--<a href="mailto:info@droopl.com" class="contact">
                         <span class="icon-mail"></span>Contact us
                     </a>
-                    <p>or</p>
-                    <form id="subscribe" method="post">
-                        <input type="email" id="email" name="email" placeholder="Enter your email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" autocomplete="off" required>
-                        <input type="submit" id="subscribe_submit" name="subscribe_submit" value="Subscribe">
-                    </form>
+                    <p>or</p>-->
+
+
                 </div>
 
                <div class="fb-like" data-href="http://facebook.com/droopl" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </footer>
 
 
+        </article>
+
+        <article class="message">
+            <div class="container">
+                <section class="add-collection-item">
+                    <span class="close-add"></span>
+                    <form action="" method="post" id="add_message" name="add_message" enctype="multipart/form-data">
+                        <header id="upload">
+
+                            <h1>Show us your beautiful face</h1>
+
+                            <div class="dragndrop" id="dragndrop">
+                                <div class="preloader">
+                                    <ul class="progress">
+                                    </ul>
+                                    <span class="remove-file"><p class="icon-cross"></p></span>
+                                    <input type="file" id="quote_img" name="quote_img" accept="image/*">
+                                </div>
+                            </div>
+                            <h2>Drag and drop</h2>
+                            <p>Or press to browse</p>
+                        </header>
+                        <aside>
+                            <header>
+                                <h1 class="hide">Info about your item</h1>
+                                <input type="text" id="naam" name="naam" placeholder="Full name">
+                                <input type="email" id="email" name="email" placeholder="Email address">
+                            </header>
+                            <textarea placeholder="Leave us a message" id="message" name="message"></textarea>
+
+                            <input type="submit" id="add_item" name="add_item" value="Send us some love">
+                        </aside>
+                    </form>
+                </section>
+            </div>
         </article>
 
         <div id="fb-root"></div>
