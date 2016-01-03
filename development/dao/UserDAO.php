@@ -49,7 +49,7 @@ class UserDAO{
 
 	}
 
-	
+
 
 	public function getSearchUsers($entry){
 
@@ -71,12 +71,13 @@ class UserDAO{
 		FROM users u
 		LEFT OUTER JOIN user_rating as r
 		ON u.id = r.user_id
-		WHERE u.firstname LIKE :entry OR u.lastname LIKE :entry2 OR u.email LIKE :entry3  GROUP BY u.id LIMIT 30 ';
+		WHERE CONCAT(u.firstname ," ", u.lastname) LIKE :entry OR u.firstname LIKE :entry2 OR u.lastname LIKE :entry3 OR u.email LIKE :entry4  GROUP BY u.id LIMIT 30 ';
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':entry',$entry."%");
 		$stmt->bindValue(':entry2',$entry."%");
 		$stmt->bindValue(':entry3',$entry."%");
+		$stmt->bindValue(':entry4',$entry."%");
 
 		if($stmt->execute()){
 

@@ -314,13 +314,13 @@ $(function(){
 
         $("article div.messages section.messages aside ul li").css("opacity","0");
         var messages = $("article div.messages section.messages aside ul li");
-        var time = 0;
+        var animtime = 0;
         $.each(messages,function(key,val){
             var message = $(val);
             setTimeout(function(){
                 message.addClass("animated fadeInDown");
-            },time);
-            time+=35;
+            },animtime);
+            animtime+=35;
         });
 
       setInterval(function () {
@@ -599,7 +599,7 @@ $(function(){
 
       $("article.search ul li.quest").remove();
       if($(this).val().length > 0){
-        var url = "index.php?page=search&search_full="+$(this).val(); // the script where you handle the form input.
+        var url = "index.php?page=search&search_full="+$(this).val().replace(/\s+/g, '+'); // the script where you handle the form input.
         $( "article.search ul" ).load( url +" article.search_full ul.search_results");
       }else{
         $( "article.search ul" ).html("");
@@ -1216,13 +1216,13 @@ $(function(){
 
         var navPagesLis = $("article.register div.register-box nav.pages ul li");
         navPagesLis.css("opacity","0");
-        var time = 0;
+        var animationtime = 0;
         $.each(navPagesLis,function(key,val){
             var navPagesLi = $(val);
             setTimeout(function(){
                 navPagesLi.addClass("animated fadeInUp");
-            },time);
-            time+=250;
+            },animationtime);
+            animationtime+=250;
         });
 
         $(document).on("keyup",function(e){
