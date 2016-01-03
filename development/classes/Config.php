@@ -7,4 +7,5 @@ class Config
     const DB_USER = 'droopl' ;
     const DB_PASS = 'rechoubobodroopl';
     const DB_NAME = 'droopl';
+    const SALT = 'drooplissocool';
 }

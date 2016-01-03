@@ -51,6 +51,7 @@ class FeedController extends AppController{
 		$questcount =  $this->feedDAO->getQuestCount();
 		$propocount =  $this->propoDAO->getPropoCount();
 		$usercount = $this->userDAO->getUserCount();
+		$groupcount = $this->communityDAO->getCommunityCount();
 
 		if(!empty($_GET["filter"])){
 			switch ($_GET["filter"]) {
@@ -185,6 +186,7 @@ class FeedController extends AppController{
 		$this->set('questcount',$questcount);
 		$this->set('propocount',$propocount);
 		$this->set('usercount',$usercount);
+		$this->set('groupcount',$groupcount);
 
 	}
 
@@ -201,6 +203,8 @@ class FeedController extends AppController{
         $questcount =  $this->feedDAO->getQuestCount();
 		$propocount =  $this->propoDAO->getPropoCount();
 		$usercount = $this->userDAO->getUserCount();
+
+		$groupcount = $this->communityDAO->getCommunityCount();
 
     	if(isset($_GET) && !empty($_GET['questid'])){
 
@@ -312,6 +316,7 @@ class FeedController extends AppController{
         $this->set('questcount',$questcount);
 		$this->set('propocount',$propocount);
 		$this->set('usercount',$usercount);
+		$this->set('groupcount',$groupcount);
 
     }
 

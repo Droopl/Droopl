@@ -50,12 +50,12 @@ class MessagesController extends AppController{
 					if($checkMessage['id'] != $_SESSION['user']['id']){
 						echo "your message not";
 						$seenMessage = $this->messagesDAO->setMessageSeen($_GET['messageid']);
-						
+
 					}
 					echo $seenMessage;
 					exit();
 				}
-				
+
 			}
 
 			if(!empty($_SESSION['user']['id'])){
@@ -71,7 +71,7 @@ class MessagesController extends AppController{
 
 						if($_POST['user_id'] != $_SESSION['user']['id']){
 
-						$found = false;					
+						$found = false;
 						$user1 = $this->convoUsersDAO->getConversationByUserId($_POST['user_id']);
 						$user2 = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
 						$convoId = 0;
@@ -113,7 +113,7 @@ class MessagesController extends AppController{
 					}
 
 
-					
+
 				}
 
 				if(!empty($_GET['userid']) && !empty($_GET['action']) && $_GET['action'] == 'new'){
@@ -173,17 +173,17 @@ class MessagesController extends AppController{
 					if(empty($conversation)){
 						$id = $conversations[0]['conversation_id'];
 						$conversation = $this->conversationDAO->getConversationById($id,$_SESSION['user']['id']);
-						
+
 					}
 					if(!isset($_SESSION['conversation'])){
 						$_SESSION['conversation'] = $conversation;
 					}
 				}
-				
+
 
 				if(!empty($_POST)){
 
-					$message = ""; 
+					$message = "";
 
 					if(!empty($_POST['message']) && empty($_GET['action'])){
 						$message = $_POST['message'];
@@ -211,7 +211,7 @@ class MessagesController extends AppController{
 							$messages = $this->messagesDAO->getMessagesByConversationId($conversation['conversation_id'],$page*0);
 						}
 					}
-					
+
 				}
 
 			}
@@ -232,5 +232,3 @@ class MessagesController extends AppController{
 	}
 
 }
-
-

@@ -23,7 +23,7 @@
 	    </a>
 	</li>
 
-	
+
 <?php } ?>
 <li class="quest">
     <p>No more quests</p>
@@ -69,7 +69,7 @@
             </aside>
             </a>
         </li>
-	
+
 <?php }?>
 
 <li class="user">
@@ -91,7 +91,7 @@
         <img src='images/collection/<?php echo $item["collection_image"]; ?>' >
         <h1 class="profile-collection-item-name"><?php echo $item['item_name'] ?><span class="<?php if($item['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
     </li>
-	
+
 <?php } ?>
 <li class="item">
     <p>No more items</p>

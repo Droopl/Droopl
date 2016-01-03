@@ -43,17 +43,17 @@
                 <img class="profile_img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                 <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul id="0" class="loading"></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message" autocomplete="off"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><?php if($value['user_id'] != $_SESSION['user']['id'] && $value['seen'] == 1){ ?><span class="new-msg animated-slow infinite pulse"></span><?php } ?></li>
             <?php } ?>
-        
+
         <?php }else{ ?>
-            <?php for ($i=0; $i < 4; $i++) { 
+            <?php for ($i=0; $i < 4; $i++) {
                 $value = $dynamicConvos[$i];
-                ?> 
+                ?>
             <li class="conversation-bubble" id="<?php echo $value['conversation_id']; ?>"><?php if(!empty($value['picture'])){ ?>
                 <img class="profile_img" src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
                 <?php }else{ ?>
                 <img class="profile_img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                 <?php }?><span class="close-conversation"><p class="icon-cross"></p></span><div class="conversation" id="<?php echo $value['conversation_id']; ?>"><header><h1><a href="?page=user&id=<?php echo $value['id'];?>"><?php echo $value['firstname']." ".$value['lastname']; ?></a></h1></header><footer><ul id="0" class="loading"></ul><form id="chat-form" action="?page=messages&id=<?php echo $value['conversation_id'];?>" method="post"><input placeholder="What's up ?" type="text" id="message" name="message" autocomplete="off"><input type="submit" id="submit_msg" name="submit_msg" value=""></form></footer></div><?php if($value['user_id'] != $_SESSION['user']['id'] && $value['seen'] == 1){ ?><span class="new-msg animated-slow infinite pulse"></span><?php } ?></li>
-            
+
             <?php }?>
         <?php } ?>
         <li class="animated fadeIn more-conversations">
@@ -77,7 +77,7 @@
             <input type="text" id="search_full" name="search_full" value="" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" autocomplete="off">
             <a href="?page=home" class="close"><span class="hide">close</span></a>
         </form>
-        
+
         <ul>
             <li class="preloader">
                 <svg id="preloader" version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
@@ -188,7 +188,7 @@
                             <?php }?>
                         </li>
                    <?php } } ?>
-                   
+
                 </ul>
                 <?php }else{ ?>
                 <p>No user found</p>
@@ -228,30 +228,7 @@
                 <input>
                 <ul class="recent-list">
                     <h1>Recent</h1>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li id="1">
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
+
                 </ul>
         </form>
 </article>
@@ -263,6 +240,7 @@
                 <header>
                     <img src="images/assets/droopl_logo.svg">
                     <h1><?php echo $_SESSION['lang']['feedbacktitle']; ?></h1>
+                    <a href="?page=feed" class="close"><span class="icon-cross"></span></a>
                     <div class="type">
                         <div>
                             <input type="radio" id="type" name="type" checked="checked" value="0">
@@ -273,7 +251,7 @@
                             <input type="radio" id="type" name="type" value="1">
                             <label id="type"><p><?php echo $_SESSION['lang']['feedbackbug']; ?></p></label>
                         </div>
-                        
+
                     </div>
                 </header>
                 <textarea placeholder="<?php echo $_SESSION['lang']['feedbackText']; ?>" required id="feedback" name="feedback"></textarea>

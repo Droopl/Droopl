@@ -712,6 +712,9 @@ section.chat ul li.conversation-bubble div.conversation ul li.message p img{
     width: 25px;
     height: 25px;
 }
+section.chat ul li.conversation-bubble div.conversation ul li.message p img.light{
+    opacity: 1;
+}
 section.chat ul li.conversation-bubble div.conversation ul li.message p.me span {
     display: block;
     float: right;
@@ -3600,6 +3603,11 @@ article.settings div.feed section.settings-container aside.right h1.settings-tit
     position: relative;
     top: -2px;
 }
+article.settings div.feed section.settings-container aside.right h1.settings-title a {
+    float: right;
+    text-decoration: none;
+    color: #F47D67;
+}
 article.settings div.feed section.settings-container aside.right label {
     display: block;
     width: 33%;
@@ -4439,6 +4447,23 @@ article div.messages aside.conversations nav ul li{
     float: left;
     border-bottom: 1px solid #E8E8EA;
 }
+article div.messages aside.conversations nav ul li div.empty{
+    display: block;
+    width: 100%;
+    padding: 7.5% 5%;
+    box-sizing: border-box;
+    float: left;
+    font-size: .9em;
+    color: rgba(242,125,107,.6);
+
+}
+article div.messages aside.conversations nav ul li div.empty span:first-child{
+    margin-right: 5%;
+}
+article div.messages aside.conversations nav ul li div.empty span:last-child{
+    float: right;
+
+}
 article div.messages aside.conversations nav ul li a{
     display: block;
     width: 85%;
@@ -4514,6 +4539,75 @@ article div.messages section.messages{
     height: calc(100% - 75px);
     position: relative;
     overflow: hidden;
+}
+article div.messages section.messages div{
+
+	float: left;
+	width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+article div.messages section.messages div header{
+
+	float: left;
+	width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    line-height: normal;
+    background: none;
+    box-shadow: none;
+    height: auto;
+    box-sizing: border-box;
+}
+article div.messages section.messages div header h1{
+    display: inline-block;
+    border: none;
+    background:none;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+article div.messages section.messages div header h1.messages{
+    background-image: url(../images/assets/emty_data/messages.svg);
+}
+article div.messages section.messages div header h2{
+    display: inline-block;
+    width: 100%;
+    font-size: 1.2em;
+    opacity: .6;
+    line-height: normal;
+    margin-top: 20px;
+    font-weight: 500;
+}
+article div.messages section.messages div header h1 span{
+    display: none;
+}
+article div.messages section.messages div a{
+    display: inline-block;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border: 1px solid #F47D67;
+    border-radius: .5em;
+    font-size: .8em;
+    color: #F47D67;
+    text-decoration: none;
+    text-transform: capitalize;
+    opacity: .6;
+}
+article div.messages section.messages div a:hover{
+    opacity: 1;
+}
+article div.messages section.messages div p{
+    display: inline-block;
+    width: 90%;
+    padding: 5%;
+    font-size: .8em;
+    line-height: 25px;
+    color: #5F6970;
+    opacity: .6;
+
 }
 article div.messages section.messages header{
     left: 0;

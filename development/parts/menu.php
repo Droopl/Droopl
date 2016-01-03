@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
+<!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -39,14 +39,14 @@
         </div>
     </noscript>!-->
     <div class="js-language hide"><?php echo $_SESSION['language']; ?></div>
-    
-    <audio id="sounds" src="" class="hide"></audio>
+
+    <audio id="sounds" src="sounds/notification.mp3" class="hide"></audio>
 
     <?php if($_GET['page'] != "login" && $_GET['page'] != "register" && $_GET['page'] != "timer"){ ?>
 <header id="menu">
 	<div>
     <h1><a href="?page=feed" class="logo"><span class="hide">Droopl</span></a></h1>
-    <form action="">
+    <form action="?page=search">
         <input type="button" id="search_submit" name="search_submit" value="search">
     </form>
 
@@ -59,12 +59,12 @@
     			<span class="icon-bell"></span>
     			<ul>
                     <?php if(!empty($notifications)){ ?>
-                    
-    				<?php foreach ($notifications as $key => $value) { 
+
+    				<?php foreach ($notifications as $key => $value) {
 
     					switch ($value['notification_type']) {
     						case '0': ?>
-    							<li <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-repeat"></span><p> New proposal from <?php echo $value['firstname']; ?> </p><span class="time"><?php 
+    							<li <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-repeat"></span><p> New proposal from <?php echo $value['firstname']; ?> </p><span class="time"><?php
 
 									$full = false;
 							 		$now = new DateTime;
@@ -101,7 +101,7 @@
 
 
     							case '2': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p><?php echo $value['firstname']; ?> followed you </p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p><?php echo $value['firstname']; ?> followed you </p><span class="time"><?php
 
 									$full = false;
 							 		$now = new DateTime;
@@ -137,7 +137,7 @@
     							<?php break;
 
     							case '3': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p> <?php echo $value['firstname']; ?> followed you back </p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=user&id=<?php echo $value['id']; ?>"><span class="icon icon-circle-plus"></span><p> <?php echo $value['firstname']; ?> followed you back </p><span class="time"><?php
 
 									$full = false;
 							 		$now = new DateTime;
@@ -174,7 +174,7 @@
 
 
     							case '6': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span><p>You won <?php echo $value['firstname']; ?>'s quest </p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>"><span class="icon icon-heart"></span><p>You won <?php echo $value['firstname']; ?>'s quest </p><span class="time"><?php
 
 									$full = false;
 							 		$now = new DateTime;
@@ -211,7 +211,7 @@
 
 
     							case '4': ?>
-    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=community&id=<?php echo $value['community_id']; ?>"><span class="icon icon-plus"></span><p><?php echo $value['firstname']; ?> Invited you to a community</p><span class="time"><?php 
+    							<li  <?php echo 'id="'.$value['notification_id'].'"'; if($value['seen'] == 0){ echo 'class="notif notseen"';}else{ echo 'class="notif"';} ?>><a href="?page=community&id=<?php echo $value['community_id']; ?>"><span class="icon icon-plus"></span><p><?php echo $value['firstname']; ?> Invited you to a community</p><span class="time"><?php
 
 									$full = false;
 							 		$now = new DateTime;
@@ -245,26 +245,26 @@
 
 									?></a></span></li>
     							<?php break;
-    						
+
     					}
 					 } ?>
-    				
+
                    <?php }else{ ?>
-                    
+
                         <h1 class="empty-notifications"><span class="hide">no notifications</span></h1>
-                    
+
                     <?php } ?>
     			</ul>
     		</li>
     		<li class="profile">
                 <?php if(!empty($_SESSION['user'])){ ?>
-               
+
     			<?php if(!empty($_SESSION['user']['picture'])){ ?>
 				<img class="profile-img" src="images/profile_pictures/<?php echo $_SESSION['user']['picture'];?>" alt="rachouan rejeb">
 				<?php }else{ ?>
 				<img class="profile-img" src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 				<?php }?>
-                
+
                 <ul class="scrollable">
                     <li><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>" class="icon-head"><span><?php echo $_SESSION['lang']['menuprofile']; ?></span></a></li>
                      <li><a href="?page=settings" class="icon icon-cog"> <span><?php echo $_SESSION['lang']['menusettings']; ?></span></a></li>
@@ -274,7 +274,7 @@
                 </ul>
                 <?php }else{ ?>
 
-                    <a class="login-or-register" href="?page=login"><?php 
+                    <a class="login-or-register" href="?page=login"><?php
             switch ($_SESSION['language']) {
 			        case 'en':
 			        echo "Login or Register";
@@ -287,7 +287,7 @@
 			        case 'fr':
 			        echo "Connexion ou inscription";
 			        break;
-			        
+
 			        default:
 			        echo "Login or Register";
 			        break;
@@ -303,7 +303,7 @@
 
 
 <?php } ?>
-    
+
 <article>
 	<header class="hide">
 		<h1>Droopl <?php echo $_GET["page"];?></h1>

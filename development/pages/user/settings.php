@@ -18,7 +18,7 @@
                 <input type="submit" id="submit_settings" name="submit_settings" value="Save">
             </aside>
             <aside class="right">
-                <h1 class="settings-title"><span class="icon-cog"></span>Account Settings</h1>
+                <h1 class="settings-title"><span class="icon-cog"></span>Account Settings <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
                 <label for="first">Firstname:</label>
                 <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
                 <label for="last">Last name:</label>
@@ -32,7 +32,7 @@
                 <label for="street_nr">Streetnumber:</label>
                 <input type="text" id="street_nr" name="street_nr" value="<?php echo $user['nr']; ?>">
                 <label for="zipcode">Zipcode:</label>
-                <input type="text" id="zipcode" name="zipcode" value="<?php echo $user['zipcode']; ?>"> 
+                <input type="text" id="zipcode" name="zipcode" value="<?php echo $user['zipcode']; ?>">
                 <label for="city">City:</label>
                 <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>">
                 <label for="country">Country:</label>
@@ -323,7 +323,7 @@
                         <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>">
                     </div>
                 <?php } ?>
-                
+
             </aside>
             </form>
         </section>

@@ -1,6 +1,6 @@
 <aside id="side">
     <section class="quest">
-        <h1><?php 
+        <h1><?php
 
         switch ($_SESSION['language']) {
             case 'en':
@@ -14,11 +14,11 @@
             case 'fr':
             echo "Quêtes";
             break;
-            
+
             default:
             echo "Quests";
             break;
-        } 
+        }
         ?>
         </h1>
         <ul>
@@ -30,7 +30,7 @@
                     <?php }else{ ?>
                     <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                     <?php }?>
-                    <p><span><?php echo $val['firstname']; echo " "; echo $val['lastname'];?></span> <?php if($val['type'] == 0){ 
+                    <p><span><?php echo $val['firstname']; echo " "; echo $val['lastname'];?></span> <?php if($val['type'] == 0){
 
             switch ($_SESSION['language']) {
                 case 'en':
@@ -48,7 +48,7 @@
                 default:
                 echo "is looking for ";
                 break;
-            } 
+            }
         }else{ switch ($_SESSION['language']) {
                 case 'en':
                 echo "is offering ";
@@ -77,7 +77,7 @@
         </ul>
     </section>
     <section class="collection">
-        <h1><?php 
+        <h1><?php
 
         switch ($_SESSION['language']) {
             case 'en':
@@ -91,47 +91,47 @@
             case 'fr':
             echo "Ma collection";
             break;
-            
+
             default:
             echo "My collection";
             break;
-        } 
+        }
         ?></h1>
-        
+
         <?php if(!empty($collection)){ ?>
-            
+
             <ul>
-                
+
                 <?php if(count($collection) >= 3){ ?>
                     <li class="add-to-collection"></li>
                 <?php } ?>
-                
+
                 <?php for($i = 0; $i < 3; $i++){ ?>
-                
+
                 <?php if(!empty($collection[$i])){ ?>
-                
+
                 <li><img id="<?php echo $collection[$i]['collection_id']; ?>" src="images/collection/<?php echo $collection[$i]['collection_image']; ?>" alt="collection item rachouan rejeb"></li>
-                
+
                 <?php }else{ ?>
                     <li class="add-to-collection bordered"></li>
                 <?php } ?>
-                
+
                 <?php } ?>
-                
+
                 <?php if(count($collection) >= 3){ ?>
                 <li class="more-collection-items"><a class="more-collection-items-link" href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&filter=collection"><div><span>More</span></div></a></li>
                 <?php } ?>
             </ul>
 
         <?php }else{ ?>
-        
+
             <ul>
                 <li class="add-to-collection bordered"></li>
                 <li class="no-items-msg">You don't have any items yet.</li>
             </ul>
-        
+
         <?php } ?>
-        
+
         <!--<ul>
             <li class="add-to-collection"></li>
             <li><img src="images/collection/dolce-gusto.png" alt="collection item rachouan rejeb"></li>
@@ -141,7 +141,7 @@
         </ul>-->
     </section>
     <section class="activity">
-        <h1><?php 
+        <h1><?php
 
         switch ($_SESSION['language']) {
             case 'en':
@@ -155,11 +155,11 @@
             case 'fr':
             echo "Activité";
             break;
-            
+
             default:
             echo "Activity";
             break;
-        } 
+        }
         ?></h1>
         <ul class="progress">
           <!--  Item  -->
@@ -174,7 +174,7 @@
             </g>
             </svg> <svg viewBox="-10 -10 220 220">
             <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo ($propocount['propocount']/500*100)*6.3 ?>"></path>
-            </svg> 
+            </svg>
     </li>
           <!--  Item  -->
           <li data-name="<?php if(!($questcount['quest_count'] >= 1000)){ echo $questcount['quest_count']; }else{ echo round($questcount['quest_count'],1) . "K"; } ?> quests" data-percent="45%"> <svg viewBox="-10 -10 220 220">
@@ -205,19 +205,19 @@
             </svg> </li>
 
           <!--  Item  -->
-          <li data-name="3K droops" data-percent="95%"> <svg viewBox="-10 -10 220 220">
-            <g fill="none" stroke-width="15" transform="translate(100,100)">
-              <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#90CCCF"/>
-              <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#90CCCF"/>
-              <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#90CCCF"/>
-              <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#90CCCF"/>
-              <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#90CCCF"/>
-              <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#90CCCF"/>
-            </g>
-            </svg> <svg viewBox="-10 -10 220 220">
-            <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo 95*6.3 ?>"></path>
-            </svg> </li>
- 
+          <li data-name="<?php if(!($groupcount['groupcount'] >= 1000)){ echo $groupcount['groupcount']; }else{ echo round($groupcount['groupcount'],1) . "K"; } ?> groopls" data-percent="95%"> <svg viewBox="-10 -10 220 220">
+          <g fill="none" stroke-width="15" transform="translate(100,100)">
+            <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#90CCCF"/>
+            <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#90CCCF"/>
+            <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="#90CCCF"/>
+            <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="#90CCCF"/>
+            <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="#90CCCF"/>
+            <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="#90CCCF"/>
+          </g>
+          </svg> <svg viewBox="-10 -10 220 220">
+          <path id="count" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="<?php echo ($groupcount['groupcount']/50*100)*6.3 ?>"></path>
+          </svg> </li>
+
 </ul>
     </section>
     <section class="communities">
@@ -241,7 +241,7 @@
 <?php }else{ ?>
 <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 <?php }?>
-<h1><a href="?page=user&id=<?php echo $quest['id']; ?>"> <?php echo $quest['firstname']; echo " "; echo $quest['lastname'];?></a><?php if($quest['type'] == 0){ 
+<h1><a href="?page=user&id=<?php echo $quest['id']; ?>"> <?php echo $quest['firstname']; echo " "; echo $quest['lastname'];?></a><?php if($quest['type'] == 0){
 
     switch ($_SESSION['language']) {
         case 'en':
@@ -255,13 +255,13 @@
         case 'fr':
         echo "cherche ";
         break;
-        
+
         default:
         echo "is looking for ";
         break;
     }
-    
-}else{ 
+
+}else{
 
     switch ($_SESSION['language']) {
         case 'en':
@@ -275,12 +275,12 @@
         case 'fr':
         echo "propose ";
         break;
-        
+
         default:
         echo "is offering ";
         break;
     }
-    
+
 }?><span><?php echo $quest['item']; ?></span></h1>
 	<a href="?page=<?php echo $_GET['page']; ?>&questid=<?php echo $_GET['questid']; ?>" class="close"><span class="hide">close</span></a>
 </header>
@@ -288,7 +288,7 @@
     <aside class="info">
     <p>
     <?php echo $quest['quest_description'] ?></p>
-    <?php 
+    <?php
     if($quest['image_url'] != NULL){ ?>
         <span class="icon-paper-clip"><a href="questimages/images/<?php echo $quest['image_url']; ?>" class="attachement" target="_blank">1 image</a></span>
     <?php }
@@ -300,7 +300,7 @@
     </aside>
 <?php } ?>
 <footer class="detail">
-    
+
     <?php if($_SESSION['user']['id'] != $quest['id'] && !$accepted ){ ?>
         <div class="search-collection-container">
             <div class="search-proposal">
@@ -312,7 +312,7 @@
                     <div class="added-collection-item">
                     <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                     </div>
-                    
+
                 </form>
             </div>
             <?php if(!empty($collection)){ ?>
@@ -349,7 +349,7 @@
     <?php if(!$accepted && !$completed){ ?>
     <ul class="list">
 
-        <?php 
+        <?php
 
         if(!empty($proposals)){
 
@@ -391,8 +391,8 @@
         </div>
 
     <?php } ?>
-        
-        
+
+
     </ul>
 
     <?php }else if($accepted && !$completed){ ?>

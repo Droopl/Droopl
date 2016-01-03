@@ -96,7 +96,7 @@ class UserDAO{
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':email',$email);
-		$stmt->bindValue(':password',$password);
+		$stmt->bindValue(':password',sha1(Config::SALT.$password));
 
 		if($stmt->execute()){
 
@@ -172,7 +172,7 @@ GROUP BY u.id';
 		$stmt->bindValue(':zipcode',$zipcode);
 		$stmt->bindValue(':city',$city);
 		$stmt->bindValue(':country',$country);
-		$stmt->bindValue(':password',$pass);
+		$stmt->bindValue(':password',sha1(Config::SALT.$pass));
 		$stmt->bindValue(':lang',$selected_lang);
 		$stmt->bindValue(':latitude',$latitude);
 		$stmt->bindValue(':longitude',$longitude);

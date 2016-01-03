@@ -7,6 +7,7 @@
     </form>
 	<nav class="users">
 		<ul>
+      <?php if(!empty($conversations)){ ?>
 			<?php foreach ($conversations as $key => $value) { ?>
 			<li>
 				<a href="?page=messages&id=<?php echo $value['conversation_id']; ?>" <?php if($value['conversation_id'] == $_SESSION['conversation']['conversation_id']){ echo 'class="selected"';} ?>>
@@ -19,15 +20,22 @@
 					<h1><?php echo $value['firstname'].' '.$value['lastname']; ?> <span><?php $hours = date("H", strtotime($value['message_creation_date'])); $date = date("D", strtotime($value['message_creation_date'])); echo $hours.'h '.$date;?></span></h1>
 					<p><span><?php echo $value['message']; ?></span><?php if($value['seen'] == 1){ ?><span class="seen"></span><?php } ?></p>
 				</header>
-				
+
 			</a>
 		</li>
-			<?php } ?>
+			<?php } }else{ ?>
+				<li>
+					<div class="empty">
+						<span class="icon-circle-plus"></span>Create a new conversation <span class="icon-arrow-up"></span>
+					</div>
+				</li>
+      <?php }?>
 		</ul>
 	</nav>
 </aside>
 
 <section class="messages">
+	<?php if(!empty($messages)){ ?>
 	<header>
 		<h1><?php echo $convo_users[1]['firstname'].' '.$convo_users[1]['lastname']; ?><span class="status"></span></h1>
 		<nav>
@@ -51,11 +59,11 @@
 	</header>
 	<aside class="chat">
 		<ul>
-			<?php 
-			
+			<?php
+
 			$amount = count($messages)-1;
 
-			for ($i = $amount; $i >= 0; $i--) { 
+			for ($i = $amount; $i >= 0; $i--) {
 
 				if($messages[$i]['id'] != $_SESSION['user']['id']){
 
@@ -66,8 +74,8 @@
 			<?php }else{ ?>
 			<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 			<?php }?><span><?php echo $messages[$i]['message']; ?></span></p></li>
-		
-			<?php 
+
+			<?php
 		}else{ ?>
 
 		<li id="<?php echo $messages[$i]['message_id']; ?>" class="message <?php if($messages[$i]['seen'] == 1){ echo "notseen"; } ?>"><p class="me"><span><?php echo $messages[$i]['message']; ?></span></p></li>
@@ -78,8 +86,8 @@
 
 			</ul>
 
-			
-			
+
+
 	</aside>
 	<form action="" method="post" enctype="multipart/form-data">
 				<textarea id="message" name="message" placeholder="Whats up ?"></textarea>
@@ -88,6 +96,19 @@
 				</div>
 				<input type="submit" id="send_message" name="send_message" value="send message">
 			</form>
+
+			<?php }else{?>
+				<div class="empty_data">
+
+					<header>
+							<h1 class="messages"><span class="hide">no conversations</span></h1>
+							<h2>No conversations don't worry</h2>
+					</header>
+					<p>When you start a converation, you add an extra functionality to droopl , wait and see.</p>
+					<a href="?page=messages&action=create">start a conversation</a>
+				</div>
+
+			<?php } ?>
 </section>
-    
+
 </div>

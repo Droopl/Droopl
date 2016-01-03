@@ -11,7 +11,25 @@ class CommunityDAO{
 		$this->pdo = DatabasePDO::getInstance();
 
 	}
-	
+
+	public function getCommunityCount()
+	{
+		$sql = 'SELECT COUNT(id) AS groupcount FROM communities  WHERE id > 0';
+		$stmt = $this->pdo->prepare($sql);
+
+		if($stmt->execute()){
+
+			$groupcount = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if(!empty($groupcount)){
+
+				return $groupcount;
+			}
+
+		}
+		return 0;
+	}
+
 	public function getCommunityById($id){
 
 		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(

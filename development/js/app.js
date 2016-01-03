@@ -7,67 +7,15 @@ $(function(){
 
      checkNotification();
 
-    $("#menu .profile ul li a.icon-cog").on("click",function(e){
-          console.log("oki");
-            e.preventDefault();
+    $("#menu .profile ul li a.icon-cog").bind("click",openSettings);
 
-              $.ajax({
-                    type: "GET",
-                    url: $(this).attr("href"),
-                    success: function(data) {
-                        console.log(data);
-                      var section = $(data).find(".feed");
+    $("article.verification ul.code-ul li input[type='text']").on("keyup",function(){
 
-
-                      $("article.settings").removeClass("hide");
-                      section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
-                    }
-              }).done(function(){
-
-                          /* SETTINGS LANG */
-
-                    $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
-                        console.log("oki");
-                        if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
-                            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
-                        }else{
-                            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-                        }
-
-                        $(document).on('click', function (e) {
-                            if ($(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language div.flag").length === 0) {
-                                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-                            }
-                        });
-                    });
-
-                    $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li").on("click",function(){
-
-                        var thisClass = $(this).attr("class");
-                        $("article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang").attr("value",thisClass);
-                        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").removeClass("en nl fr");
-
-                        $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").addClass(thisClass);
-                        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
-                    });
-
-
-                          $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
-                    if($(this).hasClass("male")){
-                        $(this).removeClass("male").addClass("female");
-                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
-                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").addClass("selected");
-                        $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","f");
-                    }else{
-                        $(this).removeClass("female").addClass("male");
-                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
-                        $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
-                        $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
-                    }
-                });
-
-              });
-      });
+        if($(this).val()){
+            $(this).addClass("filled");
+            $(this).parent().next().find("input[type='text']").select();
+        }
+    });
 
 
     setInterval(function () {
@@ -751,6 +699,80 @@ $(function(){
 
     }
 
+    function openSettings(e) {
+        e.preventDefault();
+        $("#menu .profile ul li a.icon-cog").unbind("click");
+
+          $.ajax({
+                type: "GET",
+                url: $(this).attr("href"),
+                success: function(data) {
+                    console.log(data);
+                  var section = $(data).find(".feed");
+
+
+                  $("article.settings").removeClass("hide");
+                  $("article.settings").remove(".feed");
+                  section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
+
+
+                $("article.settings section h1 a.close").on("click",function (e) {
+                    e.preventDefault();
+                    $("article.settings").addClass("hide");
+                    $("article.settings .feed").remove();
+                    $("#menu .profile ul li a.icon-cog").bind("click",openSettings);
+                });
+
+                }
+          }).done(function(){
+
+                /* SETTINGS LANG */
+
+
+
+                $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
+                    console.log("oki");
+                    if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
+                        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
+                    }else{
+                        $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                    }
+
+                    $(document).on('click', function (e) {
+                        if ($(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").length === 0 && $(e.target).closest("article.settings div.feed section.settings-container aside.right div.select-language div.flag").length === 0) {
+                            $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                        }
+                    });
+                });
+
+                $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list li").on("click",function(){
+
+                    var thisClass = $(this).attr("class");
+                    $("article.settings div.feed section.settings-container aside.right div.select-language input#selected_lang").attr("value",thisClass);
+                    $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").removeClass("en nl fr");
+
+                    $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").addClass(thisClass);
+                    $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").removeClass("show");
+                });
+
+
+                      $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").on("click",function(){
+                if($(this).hasClass("male")){
+                    $(this).removeClass("male").addClass("female");
+                    $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
+                    $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").addClass("selected");
+                    $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","f");
+                }else{
+                    $(this).removeClass("female").addClass("male");
+                    $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
+                    $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
+                    $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
+                }
+            });
+
+          });
+    }
+
     function editCollectionItem(e){
 
         e.preventDefault();
@@ -953,7 +975,7 @@ $(function(){
       var form = $(this).parent().find("div.conversation footer form");
       var notification = $(this).parent().find("span.new-msg");
       var offline = $(this).parent().find("span.offline-conversation");
-      var img = $(this).parent().find("img");
+      var img = $(this).parent().find("img").first();
       var bubbles = $("section.chat ul li.conversation-bubble");
 
       if(convo.hasClass("open")){
@@ -1074,7 +1096,7 @@ $(function(){
             selectedDate.setFullYear(year, month - 1, day);
 
             var maxDate = new Date();
-            maxDate.setYear(maxDate.getYear() - 16);
+            maxDate.setYear(maxDate.getYear() - 18);
 
             if (maxDate < selectedDate) {
                 filled = false;
@@ -1330,41 +1352,8 @@ $(function(){
     });
 
     $("section.chat ul li.new-conversation span.new-icon").on("click",function(){
-        var thisConvo = $(this);
-        var bubbles = $("section.chat ul li.conversation-bubble");
-
-        if($(this).hasClass("close")){
-            $("section.chat ul li.new-conversation form#new-conversation-form ul").animate({opacity:"0"},150);
-            setTimeout(function(){
-                $("section.chat ul li.new-conversation form#new-conversation-form ul").slideUp(300);
-            },150);
-            setTimeout(function(){
-                thisConvo.removeClass("close");
-                $("section.chat ul li.new-conversation form#new-conversation-form").removeClass("show");
-            },450);
-        }else{
-            $("div.conversation footer ul").css("opacity","0");
-            $("div.conversation footer form").css("opacity","0");
-            $("div.conversation footer").slideUp(300);
-            $("div.conversation").removeClass("open");
-            $(".close-conversation").animate({opacity:"0"},100);
-            $("span.offline-conversation").animate({opacity:"1"},80);
-            $.each(bubbles,function(key,val){
-              var bubble = $(val);
-              if(!bubble.find("span.offline-conversation").length){
-                  bubble.find("img").removeClass("light");
-              }
-            });
-
-            $(this).addClass("close");
-            $("section.chat ul li.new-conversation form#new-conversation-form").addClass("show");
-            setTimeout(function(){
-                $("section.chat ul li.new-conversation form#new-conversation-form ul").slideDown(300);
-            },200);
-            setTimeout(function(){
-                $("section.chat ul li.new-conversation form#new-conversation-form ul").animate({opacity:"1"},150);
-            },500);
-        }
+        window.location.replace("?page=messages&action=create");
+        
     });
 
     function checkNotification(){
@@ -2268,19 +2257,7 @@ $(function(){
 
    $("article div.messages aside.conversations form#search-conversations input[type='button']#new-conversation-btn").on("click",function(){
 
-        console.log("oki");
-
-          $.ajax({
-                type: "GET",
-                url: "?page=messages&action=create",
-                success: function(data) {
-                    var section = $(data).find("article.newconvo");
-                    console.log(section);
-
-                  //$("article.settings").removeClass("hide");
-                  //section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
-                }
-          });
+       window.location.replace("?page=messages&action=create");
 
     });
 
