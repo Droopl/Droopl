@@ -571,6 +571,23 @@ $(function(){
   });
 
     $("article div.feed section.quest footer a.proposal").on("click",getDetail);
+    $("article div.feed section.quest footer a.shares").bind("click",shareOnFacebook);
+
+    function shareOnFacebook(e) {
+        e.preventDefault();
+        $(this).bind("click",function (e) {
+            e.preventDefault();
+        });
+
+        var url = $(this).attr("href");
+        console.log(url);
+        FB.ui({
+          method: 'feed',
+          link: url,
+          caption: 'An example caption',
+        }, function(response){});
+    }
+
     $("article aside#side section.quest ul li a").on("click",getDetail);
     function getDetail(e) {
       e.preventDefault();
@@ -1353,7 +1370,7 @@ $(function(){
 
     $("section.chat ul li.new-conversation span.new-icon").on("click",function(){
         window.location.replace("?page=messages&action=create");
-        
+
     });
 
     function checkNotification(){

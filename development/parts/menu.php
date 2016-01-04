@@ -7,9 +7,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DROOPL</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1.0">
+    <title>Droopl</title>
+    <meta property="og:url"                content="http://droopl.com" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Droopl" />
+    <meta property="og:description"        content="We innovate the way you will consume tomorrow" />
+    <meta property="og:image"              content="http://droopl.com/images/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/feather.css">

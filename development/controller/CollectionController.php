@@ -25,7 +25,10 @@ class CollectionController extends AppController{
 					if(isset($_SESSION['user'])){
 
 						if($item['user_id'] == $_SESSION['user']['id']){
-							$this->collectionDAO->removeItem($item['collection_id']);
+							$deleted = $this->collectionDAO->removeItem($item['collection_id']);
+							if($deleted){
+								$this->redirect('?page=user&id='.$_SESSION['user']['id'].'&filter=collection');
+							}
 						}
 					}
 				}
@@ -93,7 +96,7 @@ class CollectionController extends AppController{
 		$this->set("item",$item);
 
 	}
-    
+
     public function add(){
 
     	$item = "";
@@ -110,10 +113,10 @@ class CollectionController extends AppController{
 				if(!empty($_POST['item_name'])){
 					$item = $_POST['item_name'];
 				}
-                
+
 				if(!empty($_POST['item_description'])){
 					$description = $_POST['item_description'];
-				}	
+				}
 
 				if(isset($_FILES['collection_image']) && $_FILES['collection_image']['size'] != 0){
 
@@ -157,7 +160,7 @@ class CollectionController extends AppController{
 
 				    move_uploaded_file($_FILES['collection_image']['tmp_name'],$path);
 
-				    
+
 
 				    if($addItem){
 				    	$this->redirect('?page=user&id='.$user_id.'&filter=collection');
@@ -171,7 +174,7 @@ class CollectionController extends AppController{
 				$this->redirect("?page=login");
 		}
 
-        
+
     }
 
     private function generateRandomString($length = 10) {
@@ -232,5 +235,3 @@ class CollectionController extends AppController{
 	}
 
 }
-
-

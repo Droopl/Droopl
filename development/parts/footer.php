@@ -3,35 +3,7 @@
     <ul>
         <li class="animated fadeIn new-conversation">
             <span class="new-icon"></span>
-            <form id="new-conversation-form" method="post">
-                <input type="text" placeholder="New conversation ..." id="search-conversation" name="search-conversation">
-                <ul>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                    <li>
-                        <img src="images/profile_pictures/boris.jpg">
-                        <p>Boris Debusscher</p>
-                    </li>
-                </ul>
-            </form>
+
         </li>
 
         <?php if(!empty($dynamicConvos)){ ?>
@@ -73,7 +45,7 @@
 
 <article class="search">
 
-        <form>
+        <form action="?page=search" method="get">
             <input type="text" id="search_full" name="search_full" value="" placeholder="<?php echo $_SESSION['lang']['formlooking']; ?>" autocomplete="off">
             <a href="?page=home" class="close"><span class="hide">close</span></a>
         </form>
@@ -263,6 +235,19 @@
 <?php } ?>
 <footer id="foot">
 	<header class="hide"><h1>Footer</h1></header>
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+    FB.init({appId: '1277682118924586', status: true, cookie: true,
+    xfbml: true});
+    };
+    (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+    '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+    }());
+    </script>
 </footer>
 </body>
 </html>

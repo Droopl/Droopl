@@ -3,6 +3,7 @@
 	padding: 0;
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;
+
 }
 *::selection {
     background-color: rgba(239,240,241,1);
@@ -34,15 +35,18 @@ textarea:focus{
 }
 .delay1{
      -webkit-animation-delay: .5s; /* Chrome, Safari, Opera */
+	 -moz-animation-delay: .5s;
     animation-delay: .5s;
 }
 .delay2{
      -webkit-animation-delay: .7s; /* Chrome, Safari, Opera */
+	 -moz-animation-delay: .7s;
     animation-delay: .7s;
 }
 .delay3{
      -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
-    animation-delay: 2s;
+     -moz-animation-delay: .7s;
+     animation-delay: 2s;
 }
 .marg-bottom{
     margin-bottom: 60px;
@@ -102,13 +106,16 @@ header#menu{
 	left: 0;
 	top: 0;
 	width: 100%;
+    overflow: visible;
 	height: 75px;
+    box-sizing: border-box;
 	border-bottom: 1px solid #E8E8EA;
 	background-color: white;
 }
 header#menu div{
 	width: 1024px;
     margin: 0 auto;
+    overflow: visible;
 }
 header#menu div h1{
 	float: left;
@@ -146,7 +153,6 @@ header#menu div form input[type="button"]{
 	float: left;
 	width: 75px;
     height: 75px;
-	padding: 5%;
 	border: none;
 	background-image: url(../images/assets/search_btn.svg);
 	background-size: 14px;
@@ -159,14 +165,19 @@ header#menu div form input[type="button"]{
 header#menu div nav{
 
 	float: right;
+
+    overflow: visible;
 }
 header#menu div nav ul{
 
 	float: right;
+    overflow: visible;
 }
 header#menu div nav ul li{
 
 	display: inline-block;
+
+    overflow: visible;
 }
 header#menu div nav ul li.notifications{
 
@@ -279,6 +290,7 @@ header#menu div nav ul li.profile{
 	height: 75px;
     box-sizing: border-box;
     position: relative;
+    overflow: visible;
 }
 header#menu div nav ul li.profile img.profile-img{
 	text-align: center;
@@ -376,6 +388,7 @@ section.chat {
     width: 75px;
     height: 200px;
     right: 50%;
+    overflow: visible;
     margin-right: -512px;
     top: 75px;
 }
@@ -384,6 +397,7 @@ section.chat ul {
     list-style: none;
     width: 100%;
     float: left;
+    overflow: visible;
 }
 section.chat ul li.conversation-bubble {
     display: block;
@@ -393,6 +407,7 @@ section.chat ul li.conversation-bubble {
     margin-bottom: 25px;
     position: relative;
     opacity: 0;
+    overflow: visible;
 }
 section.chat ul li.conversation-bubble:last-child {
     margin-bottom: 0;
@@ -756,7 +771,6 @@ section.chat ul li.conversation-bubble span.new-msg {
 }
 
 article{
-	z-index: -9999;
 	width: 1004px;
 	margin-left: auto;
 	margin-right: auto;
@@ -1623,6 +1637,7 @@ article div.feed section.post form div div.switch-container div.contain-button{
     border-radius: 4em;
     top: 50%;
     left: 50%;
+    overflow: visible;
     margin-left: -18px;
     margin-top: -6px;
 }
@@ -1801,6 +1816,7 @@ article div.feed section.quest header{
 	height: 40px;
     position: relative;
 	padding: 5%;
+    overflow: visible;
 	line-height: 40px;
 }
 article div.feed section.quest header nav{
@@ -1808,6 +1824,7 @@ article div.feed section.quest header nav{
     float: right;
     width: 20px;
     height: 100%;
+    overflow: visible;
     position: relative;
 }
 article div.feed section.quest header nav ul{
@@ -1815,6 +1832,7 @@ article div.feed section.quest header nav ul{
     float: right;
     width: 20px;
     height: 100%;
+    overflow: visible;
     list-style: none;
 }
 article div.feed section.quest header nav ul li.options{
