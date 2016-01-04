@@ -1,8 +1,6 @@
 *{
 	margin: 0;
 	padding: 0;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
 
 }
 *::selection {
@@ -1908,6 +1906,10 @@ article div.feed section.quest header h1{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+article div.feed section.quest header h1 p{
+	display: inline;
+    width: auto;
+}
 article div.feed section.quest header h1 a{
 
 	text-decoration: none;
@@ -1949,12 +1951,19 @@ article div.feed section.quest header h2{
     font-weight: normal;
     font-size: .8em;
 }
+article.verification div{
+    height: auto;
+    overflow: visible;
+}
+article.verification div section.step_3{
+    float: left;
+}
 article div.feed section.quest header h2.editable-post{
     right: 10%;
 }
 article div.feed section.quest header h1 span{
 
-    display: inline-block;
+    display: inline;
 	font-weight: bolder;
 	color: #3E454C;
     width: auto;

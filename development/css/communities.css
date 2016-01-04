@@ -1515,6 +1515,7 @@ article.verification div.register-box div.container section.step_3 aside.left ul
     text-align: center;
     font-size: 1.8em;
     border: 2px solid #E8E8EA;
+    box-sizing: border-box;
     border-radius: .4em;
 }
 

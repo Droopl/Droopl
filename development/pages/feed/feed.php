@@ -247,13 +247,13 @@
 					<?php }else{ ?>
 					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 					<?php }?>
-			<h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){
+			<h1><p><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){
 				echo $_SESSION['lang']['questlooking'];
 			}else{
 
 				echo $_SESSION['lang']['questoffering'];
 
-}?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
+}?> </p><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
 		<?php } ?>

@@ -1,5 +1,5 @@
 <aside id="side" class="profile">
-    
+
 	<section class="profile">
         <header>
         	<div class="profile_pic">
@@ -12,12 +12,12 @@
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>
             <h2><?php echo $user['occupation'];?></h2>
-        	<nav <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ echo "class='stars'"; }else{ echo "class='stars marg-bottom'"; } ?>> 
+        	<nav <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ echo "class='stars'"; }else{ echo "class='stars marg-bottom'"; } ?>>
         		<ul>
-                    <?php 
+                    <?php
                     $rating = floatval($user['rating']);
                     for ($i=0; $i < 5; $i++) { ?>
-                        <?php 
+                        <?php
                         if($rating == 0.5){
                         ?>
                         <li class="half"></li>
@@ -27,7 +27,7 @@
                     <?php }else{ ?>
                         <li></li>
                    <?php  }
-                   $rating--; 
+                   $rating--;
                } ?>
         		</ul>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ ?>
@@ -38,9 +38,9 @@
         		<?php }else{ ?>
 
         			<a href="?page=<?php echo $_GET['page'];?>&action=unfollow&id=<?php echo $user['id']; ?>" class="icon-circle-check followed"> following</a>
-                
+
         		<?php }} ?>
-                
+
         	</nav>
         </header>
         <div class="description-container">
@@ -76,7 +76,7 @@
 
 
 <div class="feed">
-    
+
     <section class="filter">
         <ul class="filter-ul">
             <li><a href="?page=user&id=<?php echo $user['id'] ?>&filter=quests" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'quests'){ echo 'class="current-filter"';} ?>><?php echo $_SESSION['lang']['filterquests']; ?></a></li>
@@ -95,9 +95,9 @@
         <header>
 
             <img src="images/profile_pictures/<?php if(!empty($value['picture'])){ echo $value['picture']; }else{ echo "notfound.svg"; }?>">
-            <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
+            <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){
                 echo $_SESSION['lang']['questlooking'];
-            }else{ 
+            }else{
 
                 echo $_SESSION['lang']['questoffering'];
 
@@ -105,8 +105,8 @@
         <?php if($value['type'] == 1){ ?>
             <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
-        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
-        
+        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
+
         $full = false;
         $now = new DateTime;
         $ago = new DateTime($value['creation_date']);
@@ -158,7 +158,7 @@
         <aside class="info">
             <p>
             <?php echo $value['quest_description'] ?></p>
-            <?php 
+            <?php
             if($value['image_url'] != NULL){ ?>
 
                 <img src="questimages/images/<?php echo $value['image_url']; ?>">
@@ -170,13 +170,13 @@
             <a href="" class="shares icon-upload"> <?php echo $value['shares'] ?> <?php echo $_SESSION['lang']['questfootershares']; ?></a>
         </footer>
     </section>
-    
+
 	<?php } }
     }else{ ?>
-    
-    
+
+
     <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $user['id']){ ?>
-    
+
         <section class="last_quest">
 
             <header>
@@ -189,10 +189,10 @@
             <a href="?page=feed">add an item</a>
 
         </section>
-    
+
     <?php }else{ ?>
-    
-    
+
+
         <section class="last_quest">
 
             <header class="marg-bottom">
@@ -201,11 +201,11 @@
             </header>
 
         </section>
-    
+
 
     <?php } } ?>
 
-    
+
 
 
 
@@ -220,7 +220,7 @@
         <?php foreach ($followers as $key => $value) { if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $value['id']){}else{ ?>
 
         <li class="follower">
-            
+
             <header>
                 <img src="images/profile_pictures/<?php echo $value['picture'] ?>">
                 <h1><?php echo $value['firstname'] ?></h1>
@@ -255,7 +255,7 @@
 }else{ ?>
 
 <?php if(!empty($collection)){ ?>
-    
+
     <section class="profile-collection">
 
         <ul>
@@ -274,22 +274,22 @@
            <?php foreach ($collection as $key => $value) { if($_SESSION['user']['id'] == $user['id']){ ?>
 
             <li class="profile-collection-item">
-                
+
                 <span class="collection-item-privacy <?php if($value['status'] == 0){ echo "public"; }elseif($value['status'] == 1){ echo "private"; }else{ echo "public"; } ?>"></span>
-                
+
                 <span class="collection-item-menu">
                     <ul>
                         <li class="edit"><a id="<?php echo $value['collection_id']; ?>"></a></li>
                         <li class="delete"><a href="?page=user&filter=collection&id=<?php echo $user['id']; ?>&action=remove&collection_id=<?php echo $value['collection_id']; ?>" id="<?php echo $value['collection_id']; ?>"></a></li>
                     </ul>
                 </span>
-                
+
                 <img src='images/collection/<?php echo $value["collection_image"]; ?>' >
                 <h1 class="profile-collection-item-name"><?php echo $value['item_name'] ?><span class="<?php if($value['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
             </li>
-            
+
             <?php }else{ if($value['status'] == 0){ ?>
-            
+
                 <li class="profile-collection-item">
 
                 <span id="<?php echo $value['collection_id']; ?>" class="collection-item-detail"></span>
@@ -300,13 +300,13 @@
             <?php } } } ?>
 
         </ul>
-        
+
     </section>
 
 <?php }else{ ?>
-    
+
     <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $user['id']){ ?>
-    
+
         <section class="last_quest">
 
                 <header>
@@ -319,19 +319,19 @@
                 <a href="?page=add" class="add_collection_item">add an item</a>
 
         </section>
-    
+
     <?php }else{ ?>
-    
+
         <section class="last_quest">
 
                 <header class="marg-bottom">
                     <h1 class="collection"><span class="hide">no more quests</span></h1>
                     <h2><?php echo $user['firstname']; ?> doesn't have any collection items yet.</h2>
                 </header>
-            
-            
+
+
         </section>
-    
+
 <?php } }
 } ?>
 </div>
