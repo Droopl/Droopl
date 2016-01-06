@@ -57,10 +57,14 @@
 
     <nav>
     	<ul>
+            <?php if(!$isMobile){?>
     		<li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menudash']; ?></a></li>
             <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menumessages']; ?></a></li>
     		<li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
-    		<li id="notif" class="notifications">
+
+            <?php } ?>
+
+            <li id="notif" class="notifications">
     			<span class="icon-bell"></span>
     			<ul>
                     <?php if(!empty($notifications)){ ?>

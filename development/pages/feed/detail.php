@@ -1,3 +1,4 @@
+<?php if(!$isMobile){ ?>
 <aside id="side">
     <section class="quest">
         <h1><?php
@@ -231,7 +232,7 @@
         </nav>
     </section>
 </aside>
-
+<?php ?>
 <div class="feed">
 <section class="quest" id="<?php echo $quest['quest_id']; ?>">
 <header>

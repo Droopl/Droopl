@@ -1371,9 +1371,7 @@ $(function(){
         if($("header#menu nav ul li.notifications ul li.notseen").length){
             $("header#menu nav ul li.notifications span.icon-bell").addClass("notif animated swing infinite");
         }else{
-          if($("header#menu nav ul li.notifications span.icon-bell").hasClass()){
-             $("header#menu nav ul li.notifications span.icon-bell").removeClass("notif animated swing infinite");
-           }
+           $("header#menu nav ul li.notifications span.icon-bell").removeClass("notif animated swing infinite");
         }
     }
 
@@ -1720,49 +1718,44 @@ $(function(){
 
 	$("header#menu div nav ul li.notifications .icon-bell").on("click",function  () {
 
-		$("header#menu div nav ul li.profile img").next().removeClass("show");
+        console.log("CLICKED");
+
+		//$("header#menu div nav ul li.profile img").next().removeClass("show");
+
 		if($(this).next().hasClass("show")){
 			$(this).next().removeClass("show");
 		}else{
 			$(this).next().addClass("show");
-      $(this).parent().find("ul").on("scroll",function () {
-        var elements = $(this).find("li");
 
-        elements.each(function (key,val) {
-          if(isNotificationScrolledIntoView($(val))){
-            if($(val).hasClass("notseen")){
-              console.log("seen");
 
-              var id =$(val).attr("id");
-              var data = {"notification_id": id};
+            var elements = $(this).parent().find("li");
+            console.log(elements);
+            elements.each(function (key,val) {
+                console.log(val);
+                if($(val).hasClass("notseen")){
+                  console.log("seen");
+                  var id =$(val).attr("id");
+                  var data = {"notification_id": id};
 
-              $.ajax({
-               type: "POST",
-               url: "?page=feed",
-               data: data,
-               success: function(data) {
-                  $(val).removeClass("notseen");
-                  checkNotification();
-               }
-              });
-            }
+                  $.ajax({
+                   type: "POST",
+                   url: "?page=feed",
+                   data: data,
+                   success: function(data) {
+                      $(val).removeClass("notseen");
 
-          }else{
+                   }
+                  });
+                }
+            });
 
-            if($(val).hasClass("notseen")){
-              console.log("not ye seen");
-            }
-
-          }
-        });
-
-      });
+            $("header#menu nav ul li.notifications span.icon-bell").removeClass("notif animated swing infinite");
 		}
 
 
 	});
 
-      $("header#menu div nav ul li.profile img").on("click",function  () {
+    $("header#menu div nav ul li.profile img").on("click",function  () {
         $("header#menu div nav ul li.notifications .icon-bell").next().removeClass("show");
         if($(this).next().hasClass("show")){
           $(this).next().removeClass("show");

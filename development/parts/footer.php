@@ -1,4 +1,4 @@
-<?php if($_GET['page'] != "login" && $_GET['page'] != "search"  && $_GET['page'] != "timer" && $_GET['page'] != "verification" && $_GET['page'] != "about" && $_GET['page'] != "messages" && $_GET['page'] != "404" && $_GET['page'] != "register" && $_GET['page'] != "communities"){ ?>
+<?php if(!$isMobile &&$_GET['page'] != "login" && $_GET['page'] != "search"  && $_GET['page'] != "timer" && $_GET['page'] != "verification" && $_GET['page'] != "about" && $_GET['page'] != "messages" && $_GET['page'] != "404" && $_GET['page'] != "register" && $_GET['page'] != "communities"){ ?>
 <section class="chat">
     <ul>
         <li class="animated fadeIn new-conversation">
@@ -252,6 +252,13 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
 </article>
 <footer id="foot">
 	<header class="hide"><h1>Footer</h1></header>
+    <nav>
+        <ul>
+            <li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><span class="icon-layout"></span><?php echo $_SESSION['lang']['menudash']; ?></a></li>
+            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><span class="icon-speech-bubble"></span><?php echo $_SESSION['lang']['menumessages']; ?></a></li>
+            <li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><span class="icon-globe"></span><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
+        </ul>
+    </nav>
     <div id="fb-root"></div>
     <script>
     window.fbAsyncInit = function() {

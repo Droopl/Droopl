@@ -11,6 +11,10 @@ class AppController {
 
 	public function filter() {
 		call_user_func(array($this, $this->route['action']));
+
+		$isMobile = $this->isMobile();
+
+		$this->set("isMobile",$isMobile);
 		$this->logout();
 		$this->language();
 		$this->notifications();
@@ -59,6 +63,9 @@ class AppController {
 
 		$this->set("notifications",$notifications);
 	}
+	public function isMobile() {
+	    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+	}
 	public function converstations(){
 		require_once WWW_ROOT . 'dao' .DS. 'ConvoUsersDAO.php';
 
@@ -89,7 +96,7 @@ class AppController {
 		}
 	}
 	public function language()
-	{	
+	{
 		$language = "en";
 		if(isset($_SESSION['user'])){
 			$language = $_SESSION['user']['lang'];
@@ -107,7 +114,7 @@ class AppController {
 			case 'fr':
 			$_SESSION['language'] = "fr";
 			break;
-			
+
 			default:
 				$_SESSION['language'] = "en";
 				break;

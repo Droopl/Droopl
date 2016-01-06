@@ -179,9 +179,11 @@ header#menu div nav ul li{
 }
 header#menu div nav ul li.notifications{
 
-	padding: 0 20px;
-	cursor: pointer;
-	position: relative;
+    padding: 0 20px;
+    line-height: 75px;
+    height: 75px;
+    cursor: pointer;
+    position: relative;
 }
 header#menu div nav ul li.notifications span.notif{
 
@@ -216,7 +218,8 @@ header#menu div nav ul li.notifications ul{
 }
 header#menu div nav ul li.notifications ul.show{
     top: 38px;
-	height: 212px;
+	height: auto;
+	max-height: 212px;
 	border: 1px solid #E8E8EA;
     width: 250px;
     -webkit-box-shadow: 0 0 25px -13px #000000;
@@ -5441,6 +5444,59 @@ article.preloader section svg{
 
 
 
+
+
+
+/*MAIN FOOTER*/
+
+#foot nav{
+    display: block;
+    position: fixed;
+    top: 100%;
+    margin-top: -75px;
+    width: 100%;
+    height: 75px;
+    background-color: #ffffff;
+    border-top: 1px solid #E8E8EA;
+    text-align: center;
+}
+#foot nav ul li{
+    display: inline-block;
+    width: 30%;
+    height: 75px;
+    border-right: 1px solid #E8E8EA;
+}
+#foot nav ul li:last-child{
+    border: none;
+}
+#foot nav ul li a{
+    display: block;
+    width: 100%;
+    height: 75px;
+    box-sizing:border-box;
+    padding: 15px 0;
+    color: rgba(0,0,0,.4);
+    text-decoration: none;
+    font-size: .8em;
+    text-align: center;
+
+}
+#foot nav ul li a.current-menu-page{
+    color: #FF7F66;
+}
+#foot nav ul li a span{
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
+    font-size: 1.5em !important;
+}
+
+
+
+
+
+
+
 @-webkit-keyframes
 load { 0% {
 stroke-dashoffset:0
@@ -5572,6 +5628,525 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
 
 @media screen and (max-width: 500px){
 
+    article{
+        width: 100%;
+        padding: 0;
+    }
+    article.search form input#search_full {
+        float: left;
+        width: 60%;
+        border: none;
+        background: none;
+        padding: 2.5% 1%;
+        font-size: 1.2em;
+        color: #3E454C;
+    }
+    article.search form .close {
+        float: right;
+        display: block;
+        width: 30%;
+        height: 20px;
+        padding: 2.5% 1%;
+        background-image: url(../images/assets/close-icon.svg);
+        background-position: 85% 50%;
+        background-repeat: no-repeat;
+        background-size: 20px;
+    }
+    header#menu div {
+        width: 100%;
+        float: left;
+    }
+    article.search ul.search_results li.part {
+        display: block;
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5%;
+        text-align: left;
+    }
+    article.login section{
+        width: 100%;
+        float: left;
+        margin-left: 0;
+        left: 0;
+        top: 0;
+        margin-top: 20px;
 
+    }
+    article.login form{
+        width: 100%;
+    }
+    article.login section header p{
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    article.login section header h1.logo{
+        width: 70%;
+    }
+
+	article div.feed{
+		width: 100%;
+        padding: 0;
+        padding-bottom: 100px;
+	}
+    article aside#side{
+        padding: 0;
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: .5em .5em 0 0;
+        overflow: hidden;
+        background-color: #ffffff;
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 -10px 30px -10px rgba(0,0,0,.1);
+        box-shadow: 0 -10px 30px -10px rgba(0,0,0,.1);
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+
+    article aside#side section{
+        border: none;
+    }
+
+    article div.feed section.filter ul.filter-ul li{
+
+    }
+
+    article div.feed section.quest header h1{
+        float: left;
+        font-size: .8em;
+        font-weight: normal;
+        width: auto;
+        position: relative;
+        max-width: 70%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    article div.feed section.post form div{
+        position: relative;
+        float: left;
+        width: 100%;
+        background-color: white;
+    }
+    article div.feed section.post form div div.added-collection-item {
+        position: absolute;
+        display: none;
+        width: auto;
+        opacity: 0;
+        background-color: #92CCCE;
+        border-radius: .3em;
+        padding: 5px 10px;
+        top: 50%;
+        left: 5%;
+        margin-top: -11.5px;
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+    article div.feed section.post form div div.added-collection-item.show {
+        display: block;
+        opacity: 1;
+    }
+    article div.feed section.post form div div.added-collection-item p {
+        display: block;
+        font-size: .7em;
+        color: #ffffff;
+        float: left;
+    }
+    article div.feed section.post form div div.added-collection-item p span.remove-collection-item {
+        display: inline-block;
+        cursor: pointer;
+    }
+    article div.feed section.post form div.collection::selection {
+        background-color: rgba(255,255,255,1);
+    }
+    article div.feed section.post form div.collection header h1 {
+        display: block;
+        float: left;
+        border: none;
+        background:none;
+        width: 30%;
+        height: 120px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 100% center;
+        background-size: 120px;
+        text-align: center;
+    }
+    article div.feed section.post form div.collection header h2{
+        display: block;
+        float: left;
+        width: 70%;
+        height: 120px;
+        padding-top: 45px;
+        font-size: .85em;
+        opacity: .6;
+        font-weight: 500;
+        text-align: center;
+    }
+    article div.feed section.post form div.collection header h2 a{
+        display: block;
+        color: #F47D67;
+        cursor: pointer;
+    }
+    article div.feed section.post form div.collection header h1.collection {
+        background-image: url(../images/assets/emty_data/empty_collection.svg);
+    }
+    article div.feed section.post form div.collection{
+        position: relative;
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #E8E8EA;
+        overflow: hidden;
+    }
+    article div.feed section.post form div.collection.no-collection-items{
+        height: 120px;
+    }
+    article div.feed section.post form div.collection ul li:hover {
+        top: -8px;
+    }
+    article div.feed section.post form div.collection ul li:hover > p.collection-item-name{
+        opacity: 1;
+    }
+    article div.feed section.post form div.collection ul {
+        display: block;
+        left: 0;
+        position: absolute;
+        width: auto;
+        margin-left: 0;
+        white-space: nowrap;
+        padding: 6% 5%;
+    }
+    article div.feed section.post form div.collection ul li{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        top: 0;
+        border-radius: 50%;
+        position: relative;
+        margin: 0 16px;
+        cursor: pointer;
+        opacity: 0;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+    }
+    article div.feed section.post form div.collection ul li.selected {
+        top: -8px;
+    }
+    article div.feed section.post form div.collection ul li div.selected {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255,255,255,.5);
+        top: 0;
+        border-radius: 50%;
+        opacity: 0;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+    }
+    article div.feed section.post form div.collection ul li div.selected.show{
+        opacity: 1;
+    }
+    article div.feed section.post form div.collection ul li div.selected p.icon-check {
+        display: block;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.3em;
+        color: #ffffff;
+    }
+    article div.feed section.post form div.collection ul li p.collection-item-name {
+        display: block;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        width: auto;
+        white-space: nowrap;
+        top: 61px;
+        font-size: .7em;
+        color: #F47D67;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+    }
+    article div.feed section.post form div.collection ul li p.collection-item-name.selected {
+        opacity: 1;
+    }
+    article div.feed section.post form div.collection ul li p.collection-item-name span {
+        position: relative;
+        left: -50%;
+    }
+    article div.feed section.post form div.collection ul li img{
+        width: 100%;
+        position: absolute;
+        margin-left: -50%;
+        margin-top: -50%;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        -webkit-transition: all .3s ease-out;
+        -moz-transition: all .3s ease-out;
+        -ms-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+    }
+    article div.feed section.post form div.collection ul li img.selected{
+        -webkit-filter: brightness(70%);
+        filter: brightness(70%);
+    }
+    article div.feed section.post form div:first-child{
+
+        border-bottom: 1px solid #E8E8EA;
+    }
+    article div.feed section.post form div input[type="text"]{
+        float: left;
+        width: 100%;
+        padding: 5%;
+        box-sizing:border-box;
+        background: none;
+        border: none;
+        font-size: 1em;
+    }
+    article div.feed section.post form div input[type="text"]#desc{
+        float: left;
+        width: 100%;
+        padding-right: 40%;
+        box-sizing:border-box;
+
+        font-size: 1em;
+    }
+    article div.feed section.post form div select{
+
+        float: left;
+        display: block;
+        background: none;
+        border: none;
+        text-align: center;
+        height: 100%;
+        color: #F47D67;
+		margin: auto;
+		top: 0;
+
+        appearance:none;
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+    }
+    article div.feed section.post form div select:focus{
+        outline: none;
+    }
+    article div.feed section.post form div div.switch-container{
+        position: absolute;
+        width: 68px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        border: none;
+        cursor: pointer;
+        -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+       -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+         -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+            transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+       -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+         -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+            transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+    }
+    article div.feed section.post form div div.switch-container div.contain-button{
+        position: relative;
+        width: 36px;
+        height: 12px;
+        background-color: #E6E7E8;
+        border-radius: 4em;
+        top: 50%;
+        left: 50%;
+        margin-left: -18px;
+        margin-top: -6px;
+    }
+    article div.feed section.post form div div.switch-container div.contain-button div{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        top: 50%;
+        margin-top: -10px;
+        background-color: #F27D6B;
+        -webkit-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+       -moz-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+         -o-transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465);
+            transition: all 200ms cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+
+    -webkit-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+       -moz-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+         -o-transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465);
+            transition-timing-function: cubic-bezier(0.550, 0.115, 0.810, 0.465); /* custom */
+    }
+    article div.feed section.post form div div.switch-container div.contain-button div.looking-mode{
+        left: 0;
+    }
+    article div.feed section.post form div div.switch-container div.contain-button div.offering-mode{
+        left: 100%;
+        margin-left: -20px;
+        background-color: #92CCCE;
+    }
+    article div.feed section.post form div input[type="submit"]{
+
+        float: left;
+        width: 50px;
+        height: 100%;
+        border: none;
+        background-image: url(../images/assets/send_btn.svg);
+        background-size: 15px;
+        background-color: white;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    article div.feed section.post form div span.uploaded_image{
+
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        margin-top: -20px;
+        margin-right: -20px;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 1.2em;
+        color: white;
+        cursor: pointer;
+    }
+    article div.feed section.post form div span.uploaded_image:hover> img{
+        opacity: .5;
+    }
+    article div.feed section.post form div span.uploaded_image:hover> p{
+        opacity: 1;
+    }
+    article div.feed section.post form div span.uploaded_image img{
+
+        position: absolute;
+        width: 100%;
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+    article div.feed section.post form div span.uploaded_image p{
+
+        opacity: 0;
+        height: 50px;
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        width: 50px;
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+    article div.feed section.post form div nav{
+        position: absolute;
+        height: 100%;
+        right: 10px;
+        width: auto;
+    }
+    article div.feed section.post form div nav span.upload_image{
+
+        float: left;
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 100%;
+        box-sizing:border-box;
+        overflow: hidden;
+        background-image: url(../images/assets/upload_image.svg);
+        background-size: 15px;
+        background-color: white;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    article div.feed section.post form div span.upload_image input[type="file"]{
+        opacity: 0;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    article div.feed section.post form div input.offering-bg{
+        background-image: url(../images/assets/send_btn_blue.svg);
+        background-size: 15px;
+    }
+
+    article.collection_item div.feed section.detail-collection-item{
+        display: block;
+        float: left;
+        width: 100%;
+        resize: none;
+        border: none;
+        font-size: .9em;
+        height: auto;
+        left: 0;
+        top: 0;
+        margin-top: 20px;
+        margin-left: 0;
+        overflow: scroll;
+    }
+    article div.feed section.filter ul.filter-ul li {
+        display: inline-block;
+        width: 32%;
+        text-align: center;
+        margin: 0;
+    }
+    article div.feed section.filter ul.filter-ul li a {
+        font-size: .9em;
+        cursor: pointer;
+        display: block;
+        color: #3E454C;
+        width: 100%;
+        height: 100%;
+        padding: 20% 5%;
+        box-sizing: border-box;
+        text-decoration: none;
+        -webkit-transition: all .2s ease-out;
+        -moz-transition: all .2s ease-out;
+        -ms-transition: all .2s ease-out;
+        -o-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }
+    article div.feed section.filter {
+        float: left;
+        border: 0;
+        margin-top: 10px;
+        background: none;
+        background-color: #ffffff;
+        -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.1);
+        box-shadow: 0 0 30px -5px rgba(0,0,0,.1);
+    }
+    section.detail-collection-item form header#upload img.non-editable-collection-img{
+        width: 100px !important;
+        height: 100px !important;
+    }
 
 }

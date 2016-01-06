@@ -1,5 +1,5 @@
 <div class="feed">
-    
+
     <section class="filter">
         <ul class="filter-ul">
             <li><a href="?filter=recent" <?php if(!isset($_GET['filter']) || $_GET['filter'] == 'recent'){ echo 'class="current-filter"';} ?>><?php  echo $_SESSION['lang']['filterrecent']; ?></a></li>
@@ -23,37 +23,37 @@
                 </div>
 
 			</div>
-            
+
             <?php if(!empty($collection)){ ?>
-            
+
                 <div class="hide collection">
                 	<input type="text" id="collection_item" name="collection_item" class="hide" value="">
                 	<ul>
-                        
+
                         <?php foreach ($collection as $key => $value) {?>
-                        
+
                         <li id="<?php echo $value['collection_id']; ?>">
                             <img src="images/collection/<?php echo $value['collection_image']; ?>">
                             <div class="selected"><p class="icon-check"></p></div>
                             <p class="collection-item-name"><span><?php echo $value["item_name"]; ?></span></p>
                         </li>
-                        
+
                         <?php } ?>
-                        
+
                 	</ul>
                 </div>
 
             <?php }else{ ?>
-            
+
                 <div class="hide collection no-collection-items">
                     <header class="marg-bottom">
                         <h1 class="collection"><span class="hide">no more quests</span></h1>
                         <h2>You don't have any collection items yet.<a class="post-add-collection-item">Add item</a></h2>
                     </header>
                 </div>
-        
+
             <?php } ?>
-            
+
 			<!--<div class="hide collection">
                 	<input type="text" id="collection_item" name="collection_item" class="hide" value="">
                 	<ul>
@@ -110,9 +110,9 @@
 					<?php }else{ ?>
 					<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
 					<?php }?>
-			<h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
+			<h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){
 				echo $_SESSION['lang']['questlooking'];
-			}else{ 
+			}else{
 
 				echo $_SESSION['lang']['questoffering'];
 
@@ -120,7 +120,7 @@
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
 		<?php } ?>
-		<h2 <?php if(isset($_SESSION['user']) && $value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
+		<h2 <?php if(isset($_SESSION['user']) && $value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
 
 		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
 			echo $value['views']." views";
@@ -161,9 +161,9 @@
 	    }
 
 		?></h2>
-		<?php 
+		<?php
 		if (isset($_SESSION['user'])) {
-			
+
 		if($value['id'] == $_SESSION['user']['id']){?>
 		<nav>
 			<ul>
@@ -182,7 +182,7 @@
 		<?php }} ?>
 		</header>
 		<aside class="info">
-			<?php if(!empty($value['quest_description'])){ echo "<p>".$value['quest_description']."</p>"; } 
+			<?php if(!empty($value['quest_description'])){ echo "<p>".$value['quest_description']."</p>"; }
 			if($value['image_url'] != NULL){ ?>
 				<img src="questimages/images/<?php echo $value['image_url']; ?>">
 			<?php }
@@ -193,7 +193,7 @@
 			<a href="" class="shares icon-upload"> 15 <?php echo $_SESSION['lang']['questfootershares']; ?></a>
 		</footer>
 	</section>
-    
+
 	<?php }} ?>
-    
+
 </div>

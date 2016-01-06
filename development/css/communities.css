@@ -1675,3 +1675,15 @@ article div.timer section.timer .progress svg:nth-child(2) path {
   -o-animation: load 2s;
   animation: load 2s;
 }
+
+
+
+
+@media screen and (max-width: 500px){
+
+    article section.verif{
+        font-size: .7em;
+        line-height: 20px;
+        margin-top: 20px;
+    }
+}

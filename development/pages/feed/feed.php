@@ -1,3 +1,4 @@
+<?php if(!$isMobile){ ?>
 <aside id="side">
 	<section class="quest">
 		<h1><?php  echo $_SESSION['lang']['sidequest']; ?></h1>
@@ -137,6 +138,8 @@
 		</nav>
 	</section>
 </aside>
+
+<?php } ?>
 <div class="feed">
 
     <section class="filter">
@@ -220,6 +223,7 @@
             </div>-->
 			<div>
 				<input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
+				<nav>
 				<select id="destination" name="destination">
 				  <option value="public">Public</option>
 				  <?php foreach ($communities as $key => $community) { ?>
@@ -231,6 +235,7 @@
 				</span>
 				<span class="hide uploaded_image"><img src=""><p class="icon-cross"></p></span>
 				<input type="submit" id="quest_submit" name="quest_submit" value="" tabindex="4">
+			</nav>
 			</div>
 		</form>
 	</section>
@@ -256,7 +261,9 @@
 }?> </p><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
 		<?php if($value['type'] == 1){ ?>
 			<a class="collection_item"><img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
-		<?php } ?>
+		<?php }
+		if(!$isMobile){
+		?>
 		<h2 <?php if(isset($_SESSION['user']) && $value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
 
 		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
@@ -298,7 +305,7 @@
 	    }
 
 		?></h2>
-		<?php
+		<?php }
 		if (isset($_SESSION['user'])) {
 
 		if($value['id'] == $_SESSION['user']['id']){?>

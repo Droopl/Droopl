@@ -104,7 +104,9 @@
 }?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
         <?php if($value['type'] == 1){ ?>
             <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
-        <?php } ?>
+        <?php }
+		if(!$isMobile){
+		?>
         <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
 
         $full = false;
@@ -138,7 +140,8 @@
         echo $result;
 
         ?></h2>
-        <?php if($value['id'] == $_SESSION['user']['id']){?>
+        <?php }
+		if($value['id'] == $_SESSION['user']['id']){?>
         <nav>
             <ul>
                 <li class="options">
