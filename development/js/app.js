@@ -369,31 +369,7 @@ $(function(){
 
     }
 
-            var obj = $("#dragndrop input[type='file']");
-            obj.on('dragenter', function (e)
-            {
-              console.log("enter");
-                e.preventDefault();
-                $(this).parent().parent().css('border', '3px solid #E8E8EA');
-                $(this).parent().parent().css('background-position', 'center -140px');
-            });
-            obj.on('dragover', function (e)
-            {
-            });
-            obj.on('dragleave', function (e)
-            {
-                 $(this).parent().parent().css('border', '1px solid #E8E8EA');
-                $(this).parent().parent().css('background-position', 'center 0px');
-
-            });
-            obj.on('drop', function (e)
-            {
-
-                 $(this).parent().parent().css('border', 'none');
-                 var files = e.originalEvent.dataTransfer.files;
-
-                 handleFileUpload(files,obj);
-            });
+            dragAndDrop();
 
             $("div.messages section.messages form textarea").on("keyup",function (e) {
 
@@ -500,19 +476,44 @@ $(function(){
         }
     }
 
-    function handleFileUpload(files,obj){
 
-      var reader = new FileReader();
-      reader.readAsDataURL(files[0]);
-      reader.onload = function (e) {
 
-          obj.parent().parent().css('background-image','url('+e.target.result+')');
-          obj.parent().parent().css('background-position', 'center');
-          console.log(files[0]);
-          var uploadFormData = new FormData($("#add_collection")[0]);
-          uploadFormData.append("collection_image",files[0]);
-          console.log(uploadFormData);
-      };
+    function handleFileUpload(input){
+        var upload = $(input).parent();
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+
+    			$(input).parent().parent().css({"background-image":"url("+e.target.result+")","background-size":"cover"});
+                $(input).parent().parent().css('background-position', 'center');
+                var uploadFormData = new FormData($("#add_collection")[0]);
+                uploadFormData.append("collection_image",input.files[0]);
+                console.log(uploadFormData);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        /*var upload = $(obj).parent();
+
+        if (obj.files && obj.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+
+                obj.parent().parent().css('background-image','url('+e.target.result+')');
+                obj.parent().parent().css('background-position', 'center');
+                console.log(files[0]);
+                var uploadFormData = new FormData($("#add_collection")[0]);
+                uploadFormData.append("collection_image",files[0]);
+                console.log(uploadFormData);
+            };
+
+            reader.readAsDataURL(obj.files[0]);
+        }*/
+
       
     }
 
@@ -930,36 +931,14 @@ $(function(){
             $("article.add_collection").removeClass("hide");
             section.addClass("animated fadeInUpBig").insertAfter("article.add_collection header.add_collection");
 
-              $("article div.feed section.add-collection-item span.close-add").on("click", function(){
-                  $("article.add_collection").addClass("hide");
-                   $("article.add_collection .feed").remove();
-              });
-
-            var obj = $("#dragndrop input[type='file']");
-            obj.on('dragenter', function (e)
-            {
-              console.log("enter");
-                e.preventDefault();
-                $(this).parent().parent().css('border', '3px solid #E8E8EA');
-                $(this).parent().parent().css('background-position', 'center -140px');
-            });
-            obj.on('dragover', function (e)
-            {
-            });
-            obj.on('dragleave', function (e)
-            {
-                 $(this).parent().parent().css('border', '1px solid #E8E8EA');
-                $(this).parent().parent().css('background-position', 'center 0px');
+            $("article.add_collection section.add-collection-item span.close-add").on("click", function(){
+                console.log("CLOSE");
+              $("article.add_collection").addClass("hide");
+               $("article.add_collection .feed").remove();
 
             });
-            obj.on('drop', function (e)
-            {
 
-                 $(this).parent().parent().css('border', 'none');
-                 var files = e.originalEvent.dataTransfer.files;
-
-                 handleFileUpload(files,obj);
-            });
+            dragAndDrop();
 
           });
 
@@ -1066,7 +1045,7 @@ $(function(){
     });
 
     if($("article.register").length){
-
+        dragAndDrop();
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             e.preventDefault();
             //$(this).find("#search_location").blur();
@@ -1424,7 +1403,6 @@ $(function(){
     $("#quest input[type='file']").change(function(){
         readURL(this);
     });
-
     $("#login input#email").on("keyup",function () {
         if( isValidEmailAddress( $(this).val() ) ) {
           if($(this).hasClass("wrong")){
@@ -2214,49 +2192,28 @@ $(function(){
     }
 
     $(".feed a.add_collection_item").on("click",function (e) {
-      e.preventDefault();
 
+      e.preventDefault();
+      preloader(true);
       $.ajax({
             type: "GET",
             url: $(this).attr("href"),
             success: function(data) {
-
+              preloader(false);
               var section = $(data).find(".feed");
 
 
               $("article.add_collection").removeClass("hide");
               section.addClass("animated fadeInUpBig").insertAfter("article.add_collection header.add_collection");
 
-
-              var obj = $("article.add_collection #dragndrop input[type='file']");
-              obj.on('dragenter', function (e)
-              {
-                //console.log("enter");
-                  e.preventDefault();
-                  $(this).parent().parent().css('border', '3px solid #E5E5E5');
-                  $(this).parent().parent().css('background-position', 'center -140px');
-              });
-              obj.on('dragover', function (e)
-              {
-              });
-              obj.on('dragleave', function (e)
-              {
-                  //console.log("out");
-                   $(this).parent().parent().css('border', '1px solid #E5E5E5');
-                  $(this).parent().parent().css('background-position', 'center 0px');
+              $("article.add_collection section.add-collection-item span.close-add").on("click", function(){
+                  console.log("CLOSE");
+                $("article.add_collection").addClass("hide");
+                 $("article.add_collection .feed").remove();
 
               });
-              obj.on('drop', function (e)
-              {
 
-                   $(this).parent().parent().css('border', 'none');
-                  $(this).parent().parent().addClass("containFile");
-                   var files = e.originalEvent.dataTransfer.files;
-
-                   handleFileUpload(files,obj);
-              });
-
-
+              dragAndDrop();
 
             }
         });
@@ -2302,6 +2259,35 @@ $(function(){
             $("article.new-conversation").removeClass("show");
         },200);
     });
+
+    function dragAndDrop() {
+
+        var obj = $("#dragndrop input[type='file']");
+        obj.on('dragenter', function (e)
+        {
+          //console.log("enter");
+            e.preventDefault();
+            $(this).parent().parent().css('border', '3px solid #E5E5E5');
+            $(this).parent().parent().css('background-position', 'center -140px');
+        });
+        obj.on('dragover', function (e)
+        {
+        });
+        obj.on('dragleave', function (e)
+        {
+            //console.log("out");
+             $(this).parent().parent().css('border', '1px solid #E5E5E5');
+            $(this).parent().parent().css('background-position', 'center 0px');
+
+        });
+        obj.change(function(){
+            $(this).parent().parent().css('border', 'none');
+           $(this).parent().parent().addClass("containFile");
+		    handleFileUpload(this);
+		});
+
+    }
+
 
 
 	function isScrolledIntoView(elem){
