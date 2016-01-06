@@ -593,7 +593,11 @@ $(function(){
       e.preventDefault();
 
       var url = $(this).attr("href");
+      preloader(true);
+
       $.get( url, function( data ) {
+
+        preloader(false);
 
         var section = $(data).find(".feed");
 
@@ -680,10 +684,13 @@ $(function(){
     function getCollectionDetail(e) {
       e.preventDefault();
 
+      preloader(true);
+
       var id = $(this).attr("id");
       var url = "?page=item&id="+id+"&action=box";
       $.get( url, function( data ) {
 
+        preloader(false);
         var section = $(data).find(".feed");
 
 
@@ -717,6 +724,7 @@ $(function(){
     }
 
     function openSettings(e) {
+        preloader(true);
         e.preventDefault();
         $("#menu .profile ul li a.icon-cog").unbind("click");
 
@@ -724,6 +732,8 @@ $(function(){
                 type: "GET",
                 url: $(this).attr("href"),
                 success: function(data) {
+
+                    preloader(false);
                     console.log(data);
                   var section = $(data).find(".feed");
 
@@ -896,7 +906,10 @@ $(function(){
                                                                                                                    $("article div.feed section.profile-collection ul li.template a").on("click",addCollectionItem);
 
     function addCollectionItem(e) {
+
           e.preventDefault();
+
+          preloader(true);
 
           $(window).on("keyup",function (e) {
             switch(e.keyCode){
@@ -909,6 +922,8 @@ $(function(){
 
           var url = "?page=add";
           $.get( url, function( data ) {
+
+            preloader(false);
             console.log(data);
             var section = $(data).find(".feed");
 
@@ -1440,6 +1455,7 @@ $(function(){
 
     /*QUEST ADDING FUNCTIE*/
 	$("#quest").submit(function(e) {
+        preloader(true);
       e.preventDefault();
 
       var formData = new FormData($(this)[0]);
@@ -1453,6 +1469,8 @@ $(function(){
             processData: false,
 	           success: function(data)
 	           {
+
+               preloader(false);
               console.log(data);
                     $("#quest input[type='text']").val("");
                     var quests = $(".feed .quest");
@@ -2639,6 +2657,16 @@ $(function(){
           $("article.register div.register-box div.container section.step_2 aside.left form input[type='button']").on("click",function(){
               findMe();
           });
+      }
+
+      function preloader(showing) {
+          if(showing){
+              if(!$("article.preloader").hasClass("show")){
+                  $("article.preloader").addClass("show");
+              }
+          }else{
+              $("article.preloader").removeClass("show");
+          }
       }
 
 });

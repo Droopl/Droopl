@@ -5409,6 +5409,38 @@ article div.communities section header{
 
 
 
+/*PRELOADER*/
+article.preloader{
+    display: none;
+    z-index: 9999;
+    position: fixed;
+    overflow: scroll;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+article.preloader.show{
+    display: block;
+}
+article.preloader section{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 70px;
+    height: 70px;
+    margin-left: -35px;
+    margin-top: -35px;
+}
+article.preloader section svg{
+    width: 100%;
+    height: 100%;
+}
+
+
+
 @-webkit-keyframes
 load { 0% {
 stroke-dashoffset:0

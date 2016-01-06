@@ -1,6 +1,6 @@
 <article class="login">
     <div class="hide" id="loggedin"><?php echo $isloggedin; ?></div>
-    
+
 	<section>
 
 		<header>
