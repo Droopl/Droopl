@@ -4038,11 +4038,10 @@ article.detail div.feed section.quest header a.close{
     background-size: 10px;
 }
 article.detail div.feed section.quest header h1{
-
     float: left;
     font-size: .8em;
     font-weight: normal;
-    width: 400px;
+    width: auto;
 }
 article.detail div.feed section.quest header h1 a{
 

@@ -53,6 +53,7 @@ class VerificationController extends AppController{
 									if($user){
 										$_SESSION['user']['verification'] = 1;
 										$verified = true;
+										$this->redirect("?page=feed");
 									}
 
 								}
@@ -82,7 +83,7 @@ class VerificationController extends AppController{
 
 		}
 
-		
+
 	$this->set('verified',$verified);
 	$this->set('verificationSent',$verificationSent);
 	$this->set('message',$message);
@@ -100,10 +101,10 @@ class VerificationController extends AppController{
 		$this->mail->Username = 'info@droopl.com';                 // SMTP username
 		$this->mail->Password = 'Droopl543';                           // SMTP password
 		$this->mail->SMTPSecure = 'ssl';                      // Enable TLS encryption, `ssl` also accepted
-		$this->mail->Port = 465;     
+		$this->mail->Port = 465;
 
 		$this->mail->setFrom('info@droopl.com', 'Droopl');
-		$this->mail->addAddress($email);     // Add a recipient 
+		$this->mail->addAddress($email);     // Add a recipient
 		$this->mail->addReplyTo('info@droopl.com', 'Droopl');
 
 		$this->mail->isHTML(true);                                  // Set email format to HTML
@@ -116,5 +117,3 @@ class VerificationController extends AppController{
 	}
 
 }
-
-
