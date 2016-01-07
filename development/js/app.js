@@ -1076,9 +1076,25 @@ $(function(){
 
     if($("article.register").length){
         dragAndDrop();
+        
+        
+        
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             e.preventDefault();
             //$(this).find("#search_location").blur();
+        });
+        
+        $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").on("keydown",function(e){
+            var key = e.keyCode;
+            console.log(key);
+            switch(key){
+                case 9:
+                e.preventDefault();
+                break;
+            }
+            if ( $(this).prop('type') != 'date' ) {
+            $("#birth_date").datepicker();
+        }
         });
 
         $("article.register div.register-box div.container section.step_1 form").on("submit",function(e){
@@ -1198,7 +1214,7 @@ $(function(){
             if(filled){
 
                 var formData = new FormData($(this)[0]);
-
+                $(this).find("#submit_step_2").addClass("animated fadeOut");
                 $.ajax({
                     type: "POST",
                     url: "?page=register&step=2",
@@ -1292,38 +1308,39 @@ $(function(){
             var currentPage = $("article.register div.register-box nav.pages ul li.current").index();
             var sectionWidth = $("article.register div.register-box div.container section").width();
             var thisSection = $("article.register div.register-box div.container section")[currentPage];
-            //console.log(thisSection);
             var navPages = $("article.register div.register-box nav.pages ul li");
-            //console.log(navPages.length);
-            switch(e.keyCode){
-                    case 39:
-                    if(!$(thisSection).hasClass("completed")){
-                        $("article.register div.register-box nav.pages ul li.current").addClass("shake");
-                    }
-                    if(currentPage != navPages.length-1 && $(thisSection).hasClass("completed")){
-                        $("article.register div.register-box nav.pages ul li").removeClass("current");
-                        $.each(navPages,function(key,val){
-                            var thisPage = $(val);
-                            if(key == currentPage+1){
-                                thisPage.addClass("current");
-                            }
-                        });
-                        $("article.register div.register-box div.container").stop().animate({left: (currentPage+1)*-sectionWidth});
-                    }
-                    break;
+            if($("article.register div.register-box div.container section.step_2").length){
+                switch(e.keyCode){
+                        case 39:
+                        if(!$(thisSection).hasClass("completed")){
+                            $("article.register div.register-box nav.pages ul li.current").addClass("shake");
+                        }
+                        if(currentPage != navPages.length-1 && $(thisSection).hasClass("completed")){
+                            $("article.register div.register-box nav.pages ul li").removeClass("current");
+                            $.each(navPages,function(key,val){
+                                var thisPage = $(val);
+                                if(key == currentPage+1){
+                                    thisPage.addClass("current");
+                                }
+                            });
+                            $("article.register div.register-box div.container").stop().animate({left: (currentPage+1)*-sectionWidth});
+                        }
+                        break;
 
-                    case 37:
-                    if(currentPage !== 0){
-                        $("article.register div.register-box nav.pages ul li").removeClass("current");
-                        $.each(navPages,function(key,val){
-                            var thisPage = $(val);
-                            if(key == currentPage-1){
-                                thisPage.addClass("current");
-                            }
-                        });
-                        $("article.register div.register-box div.container").stop().animate({left: (currentPage-1)*-sectionWidth});
-                    }
-                    break;
+                        case 37:
+                        console.log("37");
+                        if(currentPage !== 0){
+                            $("article.register div.register-box nav.pages ul li").removeClass("current");
+                            $.each(navPages,function(key,val){
+                                var thisPage = $(val);
+                                if(key == currentPage-1){
+                                    thisPage.addClass("current");
+                                }
+                            });
+                            $("article.register div.register-box div.container").stop().animate({left: (currentPage-1)*-sectionWidth});
+                        }
+                        break;
+                }
             }
         });
 

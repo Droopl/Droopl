@@ -188,7 +188,7 @@
 
             <p>You haven't post any quests yet, don't be shy just look around in your attic you'll find something worth our while.</p>
 
-            <a href="?page=feed">add an item</a>
+            <a href="?page=feed">create a quest</a>
 
         </section>
 

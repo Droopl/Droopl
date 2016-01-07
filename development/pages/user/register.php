@@ -13,7 +13,7 @@
                             <input type="email" id="mail" name="mail" placeholder="Email">
                             <input type="password" id="pass" name="pass" placeholder="Password">
                             <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password">
-                            <input type="date" id="birth_date" name="birth_date" placeholder="Date of birth">
+                            <input type="date" id="birth_date" name="birth_date" placeholder="Date of birth (yyyy-mm-dd)">
                             <div class="select-language">
                                 <h1>Language: </h1>
                                 <div class="flag en"></div>
