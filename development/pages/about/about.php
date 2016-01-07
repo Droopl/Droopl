@@ -19,7 +19,7 @@
 		<ul>
 			<li>
 				<header>
-					<img src="images/profile_pictures/mouradtaiebi.jpg">
+					<img src="images/about/mouradtaiebi.jpg">
 					<h1>Mourad Taiebi</h1>
 					<h2>Co-owner</h2>
 				</header>
@@ -32,7 +32,7 @@
 
 			<li>
 				<header>
-					<img src="images/profile_pictures/manuminne.jpg">
+					<img src="images/about/manuminne.jpg">
 					<h1>Manu Minne</h1>
 					<h2>Co-owner</h2>
 				</header>
@@ -45,7 +45,7 @@
 
 			<li>
 				<header>
-					<img src="images/profile_pictures/danielyikik.jpg">
+					<img src="images/about/danielyikik.jpg">
 					<h1>Daniel Yikik</h1>
 					<h2>Co-owner</h2>
 				</header>
@@ -59,7 +59,7 @@
 
 			<li>
 				<header>
-					<img src="images/profile_pictures/boris.jpg">
+					<img src="images/about/borisdebusscher.jpg">
 					<h1>Boris Debusscher</h1>
 					<h2>Co-owner / Designer / Developer</h2>
 				</header>
@@ -73,7 +73,7 @@
 
 			<li>
 				<header>
-					<img src="images/profile_pictures/rachouanrejeb.jpg">
+					<img src="images/about/rachouanrejeb.jpg">
 					<h1>Rachouan Rejeb</h1>
 					<h2>Co-owner / Designer / Developer</h2>
 				</header>

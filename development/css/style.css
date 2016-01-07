@@ -3082,8 +3082,8 @@ article.login section header h1.logo{
 
     display: inline-block;
     width: 250px;
-    height: 75px;
-    background-image: url(../images/assets/droopl_logo.svg);
+    height: 100px;
+    background-image: url(../images/assets/droopl_logo_beta.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
