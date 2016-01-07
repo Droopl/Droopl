@@ -1,7 +1,7 @@
 <article class="settings">
     <div class="feed">
         <section class="settings-container">
-            <form id="settings-form" method="post">
+            <form action="?page=user&action=update" id="settings-form" method="post" enctype="multipart/form-data">
             <aside class="left">
                 <form id="upload-profile-img">
                     <header id="upload">
@@ -23,6 +23,8 @@
                 <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
                 <label for="last">Last name:</label>
                 <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
+                <label for="last">Occupation:</label>
+                <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>">
                 <label for="new_pass">New password:</label>
                 <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
                 <label for="repeat_new_pass">Repeat password:</label>

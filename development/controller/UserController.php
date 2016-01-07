@@ -93,6 +93,48 @@ class UserController extends AppController{
 						$errors = true;
 					}
 
+					if(!empty($_POST["gender"])){
+						$lang = $_POST["gender"];
+					}else{
+						$errors = true;
+					}
+
+
+					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
+
+						$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+						// thumbnail sizes
+						$sizes = array(700 => 700);
+
+						if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['profile_image'])) {
+
+							$ext = strtolower(pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION));
+							if(in_array($ext, $valid_exts)) {
+								/* resize image */
+								foreach ($sizes as $w => $h) {
+									$files[] = $this->resizeCropped($w, $h);
+								}
+								$image = $files[0];
+
+							} else {
+								$msg = 'Unsupported file';
+							}
+
+							}else{
+								$msg = 'Please upload image smaller than 200KB';
+							}
+					}
+
+					if(!$errors){
+
+						if($image != ""){
+							$this->redirect("?page=404");
+						}else{
+							$this->redirect("?page=communities");
+						}
+
+					}
+
 				}
 			}
 
@@ -278,24 +320,21 @@ class UserController extends AppController{
 						$sizes = array(700 => 700);
 
 						if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['profile_image'])) {
-						  if( $_FILES['profile_image']['size'] < $max_file_size ){
-						    // get file extension
-						    $ext = strtolower(pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION));
-						    if(in_array($ext, $valid_exts)) {
-						      /* resize image */
-						      foreach ($sizes as $w => $h) {
-						        $files[] = $this->resizeCropped($w, $h);
-						      }
-						      $step1["profile_image"] = $files[0];
+							$ext = strtolower(pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION));
+							if(in_array($ext, $valid_exts)) {
+								/* resize image */
+								foreach ($sizes as $w => $h) {
+									$files[] = $this->resizeCropped($w, $h);
+								}
+								$step1["profile_image"] = $files[0];
 
-						    } else {
-						      $msg = 'Unsupported file';
-						    }
+							} else {
+								$msg = 'Unsupported file';
+							}
 
-						  	}else{
-							    $msg = 'Please upload image smaller than 200KB';
-						  	}
-					  	}
+							}else{
+								$msg = 'Please upload image smaller than 200KB';
+							}
 					}
 
 					if(!empty($step1)){
