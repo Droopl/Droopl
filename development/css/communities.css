@@ -1387,6 +1387,8 @@ article.verification {
     top: 0;
     left: 0;
     padding: 0;
+    overflow-y: scroll;
+    padding-bottom: 100px;
     background-image: url(../images/assets/login_background.svg);
     background-size: cover;
     background-repeat: repeat-y;
@@ -1536,6 +1538,7 @@ article.verification div.register-box div.container section.step_3 aside.left in
     margin-top: 30px;
     font-weight: 400;
     border: none;
+    margin-bottom: 100px;
 }
 
 
@@ -1716,7 +1719,8 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         box-sizing:border-box;
         padding: 5%;
         text-align: center;
-        margin-bottom: 70px;
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
     article div.communities header.intro div.intro img{
         width: 70%;
@@ -1749,6 +1753,7 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         width: 100%;
         text-align: center;
         margin-bottom: 40px;
+        position: inherit;
     }
 
     article div.communities header.intro nav a.create{
@@ -1957,5 +1962,56 @@ article div.timer section.timer .progress svg:nth-child(2) path {
       -moz-animation: load 2s;
       -o-animation: load 2s;
       animation: load 2s;
+    }
+
+    article.create_community .feed {
+        float: none;
+        width: 100%;
+        margin: 50px auto;
+    }
+    article.create_community .feed section{
+        border-radius: 0px;
+    }
+    article.verification div.register-box div.container header{
+        margin-top: 40px;
+    }
+
+    article.verification div.register-box div.container header h1{
+
+        font-size: 1.2em;
+    }
+    article.verification div.register-box div.container header h2{
+
+        font-size: .9em;
+        padding: 0 40px;
+    }
+    article.verification div.register-box div.container section.step_3 aside.left h1{
+        font-size: 1.2em;
+    }
+
+    article.verification div.register-box div.container section.step_3 aside.left ul li input[type='text']{
+        display: block;
+        float: left;
+        width: 40px;
+        height: 50px;
+        text-align: center;
+        font-size: 1.8em;
+        border: 2px solid #E8E8EA;
+        box-sizing: border-box;
+        border-radius: .2em;
+    }
+    article.verification div.register-box div.container section.step_3 aside.left p{
+        font-size: .9;
+        font-weight: 300;
+
+    }
+    article.verification div.register-box div.container section.step_3 aside.left{
+        margin-bottom: 100px;
+    }
+    article.verification div.register-box div.container section.step_3 aside.left ul li{
+        display: inline-block;
+        width: 40px;
+        height: 50px;
+        margin: 0 10px;
     }
 }

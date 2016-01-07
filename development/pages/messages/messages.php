@@ -10,8 +10,12 @@
       <?php if(!empty($conversations)){ ?>
 			<?php foreach ($conversations as $key => $value) { ?>
 			<li>
+        <?php if(!$isMobile){?>
 				<a href="?page=messages&id=<?php echo $value['conversation_id']; ?>" <?php if($value['conversation_id'] == $_SESSION['conversation']['conversation_id']){ echo 'class="selected"';} ?>>
-				<header>
+        <?php }else{ ?>
+          <a href="?page=message&id=<?php echo $value['conversation_id']; ?>" <?php if($value['conversation_id'] == $_SESSION['conversation']['conversation_id']){ echo 'class="selected"';} ?>>
+        <?php } ?>
+        <header>
 					<?php if(!empty($value['picture'])){ ?>
 					<img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
 					<?php }else{ ?>
@@ -33,6 +37,8 @@
 		</ul>
 	</nav>
 </aside>
+
+<?php if(!$isMobile){ ?>
 
 <section class="messages">
 	<?php if(!empty($messages)){ ?>
@@ -91,9 +97,6 @@
 	</aside>
 	<form action="" method="post" enctype="multipart/form-data">
 				<textarea id="message" name="message" placeholder="Whats up ?"></textarea>
-				<div id="message_image_upload">
-					<input type="file" id="image_upload" accept="image/*"  name="image_upload">
-				</div>
 				<input type="submit" id="send_message" name="send_message" value="send message">
 			</form>
 
@@ -110,5 +113,7 @@
 
 			<?php } ?>
 </section>
+
+<?php } ?>
 
 </div>

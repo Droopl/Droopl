@@ -6154,4 +6154,379 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
         height: 100px !important;
     }
 
+    article div.messages aside.conversations{
+        float: left;
+        width: 100%;
+        height: calc(100% - 150px);
+        box-sizing:border-box;
+        border-right: 1px solid #E8E8EA;
+    }
+    article div.messages aside.conversations form#search-conversations{
+        display: block;
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #E8E8EA;
+    }
+    article div.messages aside.conversations form#search-conversations input[type='text']{
+        float: left;
+        display: block;
+        border: none;
+        width: 70%;
+        padding: 20px 4%;
+        box-sizing: border-box;
+        font-size: .8em;
+    }
+    article div.messages aside.conversations form#search-conversations input[type='button']#submit-search-conversations{
+        display: block;
+        float: left;
+        width: 15%;
+        height: 56px;
+        border: none;
+        background-color: #ffffff;
+        background-image: url(../images/assets/search_btn.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 13px;
+    }
+    article div.messages aside.conversations form#search-conversations input[type='button']#new-conversation-btn{
+        display: block;
+        float: left;
+        width: 15%;
+        height: 56px;
+        border: none;
+        background-color: #ffffff;
+        border-left: 1px solid #E8E8EA;
+        background-image: url(../images/assets/add-btn.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 13px;
+        cursor: pointer;
+    }
+    article div.messages div.new-conversation {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,.4);
+    }
+    article div.messages div.new-conversation form {
+    }
+    article div.messages aside.conversations nav{
+        display: block;
+        width: 100%;
+        float: left;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    article div.messages aside.conversations nav ul{
+        display: block;
+        width: 100%;
+        float: left;
+        margin-bottom: 55px;
+    }
+    article div.messages aside.conversations nav ul li{
+        display: block;
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #E8E8EA;
+    }
+    article div.messages aside.conversations nav ul li a{
+        display: block;
+        width: 85%;
+        padding: 7.5%;
+        float: left;
+        text-decoration: none;
+
+        -webkit-transition: all .1s ease-out;
+        -moz-transition: all .1s ease-out;
+        -ms-transition: all .1s ease-out;
+        -o-transition: all .1s ease-out;
+        transition: all .1s ease-out;
+    }
+
+    article div.messages aside.conversations nav ul li a.selected{
+        background-color: #FDFDFD;
+        -webkit-box-shadow: inset 2px 0 0 0 rgba(242,125,107,.7);
+        box-shadow:inset 2px 0 0 0 rgba(242,125,107,.7);
+    }
+    article div.messages aside.conversations nav ul li a:hover{
+        background-color: #FDFDFD;
+        -webkit-box-shadow: inset 2px 0 0 0 rgba(242,125,107,.7);
+        box-shadow:inset 2px 0 0 0 rgba(242,125,107,.7);
+    }
+    article div.messages aside.conversations nav ul li header{
+        display: block;
+        width: 100%;
+        float: left;
+        margin-bottom: 10px;
+    }
+    article div.messages aside.conversations nav ul li header img{
+        float: left;
+        height: 45px;
+        border-radius: 50%;
+    }
+    article div.messages aside.conversations nav ul li header h1{
+        float: left;
+        height: 30px;
+        position: relative;
+        width: 75%;
+        margin-left: 15px;
+        font-size: .9em;
+        font-weight: 500;
+        line-height: 30px;
+        color: #3E454C;
+    }
+    article div.messages aside.conversations nav ul li header h1 span{
+        position: absolute;
+        right: 0;
+        text-align: right;
+        height: 30px;
+        font-size: .7em;
+        font-weight: normal;
+        line-height: 30px;
+        color: rgba(242,125,107,.6);
+    }
+    article div.messages aside.conversations nav ul li p{
+        display: block;
+        float: left;
+        font-size: .7em;
+        margin-left: 15px;
+        color: #5F6970;
+        width: auto;
+        max-width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    article div.messages {
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin-top: -85px;
+        height: 100vh;
+        background-color: #ffffff;
+        border: 1px solid #E8E8EA;
+    }
+
+    article div.messages section.messages{
+        float: left;
+        width: 100%;
+        height: calc(100% - 150px);
+        position: relative;
+        overflow: hidden;
+    }
+    article div.messages section.messages header{
+        left: 0;
+        top: 0;
+        z-index: 3;
+        width: 100%;
+        padding: 0 5%;
+        box-sizing:border-box;
+        height: 80px;
+        line-height: 80px;
+        position: relative;
+        display: block;
+        float: left;
+        text-align: center;
+        background-color: rgba(255,255,255,.5);
+        -webkit-box-shadow: 0 1px 20px 20px rgba(255,255,255,.5);
+        box-shadow: 0 1px 20px 20px rgba(255,255,255,.5);
+    }
+    article div.messages section.messages header h1{
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 500;
+    }
+    article div.messages section.messages header nav{
+        display: block;
+        height: 25px;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        margin-top: -12.5px;
+    }
+    article div.messages section.messages header nav ul{
+        display: block;
+        height: 100%;
+        line-height: 80px;
+        float: right;
+    }
+    article div.messages section.messages header nav ul li{
+        display: block;
+        width: 25px;
+        float: left;
+        height: 25px;
+        position: relative;
+        margin-left: 15px;
+    }
+    article div.messages section.messages header nav ul li input[type="submit"]{
+        display: block;
+        float: left;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        text-indent: -99em;
+        background: none;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: center;
+        background-image: url(../images/assets/add-btn.svg);
+        border: 1px solid #F47D67;
+    }
+    article div.messages section.messages header nav ul li img{
+        float: left;
+        height: 25px;
+        border-radius: 50%;
+    }
+    article div.messages section.messages header h1 span{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+        background-color: #00A388;
+    }
+    article div.messages section.messages aside{
+        display: block;
+        float: left;
+        width: 100%;
+        height: 100%;
+        padding: 5% 5% 5% 5%;
+        height: 82.5%;
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 50px;
+        overflow: scroll;
+        box-sizing: border-box;
+    }
+    article div.messages section.messages aside.loading{
+        background-image: url(../images/assets/LoadigChat.gif);
+    }
+    article div.messages section.messages aside ul {
+        display: block;
+        float: left;
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+    article div.messages section.messages aside ul li{
+        display: block;
+        float: left;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    article div.messages section.messages aside ul li:last-child{
+        margin-bottom: 10px;
+    }
+    article div.messages section.messages aside ul li.typing{
+        margin-top: 10px;
+    }
+    article div.messages section.messages aside ul li .ball-pulse-sync > div {
+      background: #F47D67;
+      width: 7px;
+      height: 7px;
+    }
+    article div.messages section.messages aside ul li p{
+        display: block;
+        float: left;
+        margin-left: 60px;
+        width: 40%;
+        position: relative;
+    }
+    article div.messages section.messages aside ul li p.me{
+        float: right;
+    }
+    article div.messages section.messages aside ul li p span{
+        display: block;
+        float: left;
+        width: auto;
+        padding: 6% 8%;
+        background-color: #ffffff;
+        border-radius: .5em;
+        font-size: 1em;
+        border: 1px solid #E8E8EA;
+        box-sizing: border-box;
+        color: #5F6970;
+    }
+    article div.messages section.messages aside ul li p img{
+        left: -60px;
+        position: absolute;
+        width: 40px;
+        border-radius: 50%;
+    }
+
+    article div.messages section.messages aside ul li p.me span{
+        display: block;
+        float: right;
+        text-align: right;
+        background-color: #F47D67;
+        color: #ffffff;
+        border: none;
+    }
+    article div.messages section.messages aside ul li p.me img{
+        display: none;
+    }
+    article div.messages section.messages form{
+        height: 60px;
+        width: 100%;
+        border-top: 1px solid #E8E8EA;
+        position: absolute;
+        bottom: 0;
+        background-color: #ffffff;
+    }
+    article div.messages section.messages form textarea{
+        float: left;
+        display: block;
+        border: none;
+        width: 80%;
+        box-sizing:border-box;
+        min-height: 50px;
+        max-height: 200px;
+        max-width: 80%;
+        min-width: 80%;
+        font-size: 1em;
+        padding: 20px 5%;
+        height: 75px;
+    }
+    article div.messages section.messages form div{
+        float: left;
+        width: 7.5%;
+        height: 60px;
+        position: relative;
+        overflow: hidden;
+        background-image: url(../images/assets/upload_image.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+
+        cursor: pointer;
+    }
+    article div.messages section.messages form div input{
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    article div.messages section.messages form input[type="submit"]{
+        float: left;
+        width: 10%;
+        background: none;
+        border: none;
+        height: 60px;
+        position: relative;
+        overflow: hidden;
+        background-image: url(../images/assets/send_btn.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15px;
+        cursor: pointer;
+        text-indent: -99em;
+    }
+
+
 }

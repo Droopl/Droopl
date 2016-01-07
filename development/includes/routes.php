@@ -21,6 +21,7 @@ $routes = array(
 	'add' => array('controller' => 'Collection', 'action' =>'add'),
 	'item' => array('controller' => 'Collection', 'action' =>'item'),
 	'messages' => array('controller' => 'Messages', 'action' =>'messages'),
+	'message' => array('controller' => 'Messages', 'action' =>'message'),
 	'rateuser' => array('controller' => 'Rating', 'action' =>'rateuser'),
 	'404' => array('controller' => 'NotFound', 'action' =>'notFound'),
 
