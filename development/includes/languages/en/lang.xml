@@ -35,6 +35,38 @@
    <filtercollection>Collection</filtercollection>
    <filterfollowers>Followers</filterfollowers>
 
+	<timeHours>Heures</timeHours>
+    <timeMinutes>Minutes</timeMinutes>
+    <timeSeconds>Seconds</timeSeconds>
+    <timeNow>A l'instant</timeNow>
+    <feedViews>vues</feedViews>
+    <conversationSearch>Chercher des conversations ...</conversationSearch>
+    <conversationCreate>Nouveau message</conversationCreate>
+    <noConversationTitle>Vous n'avez pas encore de conversations</noConversationTitle>
+    <noConversationText>Lorsque vous démarrez une nouvelle conversation, vous ajoutez une nouvelle fonctionalité à droopl.</noConversationText>
+    <startConversation>Démarrez une conversation</startConversation>
+    <newConvSearch>Cherchez des personnes</newConvSearch>
+    <newConvText>Nouveau message</newConvText>
+    <communityTitle>Commencez à échanger contre des personnes de votre propre communauté</communityTitle>
+    <communityText>Nos communautés aident à rapprocher des personnes ayant les mêmes centres d'intérêt. Echangez avec vos amis, voisins ou avec des collèges. Nous vous donnons la liberté de créer votre propre communauté.</communityText>
+    <createCommunity>Créer une communauté</createCommunity>
+    <communityDiscover>Découvrer les communautés les plus récentes</communityDiscover>
+    <communitySearch>Cherchez des communautés</communitySearch>
+    <communityJoin>Joindre</communityJoin>
+    <questCount>Quêtes</questCount>
+    <proposCount>Propositions</proposCount>
+    <membersCount>Membres</membersCount>
+    <settingsHeader>Préférences du compte</settingsHeader>
+    <firstName>Prénom</firstName>
+    <lastName>Nom de famille</lastName>
+    <occupation>Occupation</occupation>
+    <password>Mot de passe</password>
+    <repeatPass>Répétez</repeatPass>
+    <language>Langue</language>
+    <pressBrowse>Ou cliquer pour choisir</pressBrowse>
+    <save>Enregistrer</save>
+    <wishFeedback>J'aimerais pouvoir ...</wishFeedback>
+
    <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
    <feedback>Feedback</feedback>
    <feedbackbug>Bug</feedbackbug>
