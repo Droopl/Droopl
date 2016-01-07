@@ -223,7 +223,7 @@ header#menu div nav ul li.notifications ul{
 }
 header#menu div nav ul li.notifications ul.show{
     top: 65px;
-	height: auto; 
+	height: auto;
 	max-height: 212px;
 	border: 1px solid #E8E8EA;
     width: 250px;
@@ -3528,33 +3528,28 @@ article.settings{
     z-index: 9999;
     position: fixed;
     float: left;
-    overflow: scroll;
+    overflow-y: scroll;
     left: 0;
     top: 0;
     margin: 0;
     width: 100%;
     height: 100%;
+    padding: 0;
     background-color: rgba(0,0,0,.4);
 }
 article.settings div.feed{
-    float: left;
-    width: 100%;
-    height: 100%;
-    float: none;
-    box-sizing: border-box;
+   float: none;
+    width: 850px;
     margin: 0 auto;
-    position: relative;
-    overflow: scroll;
+    box-sizing: border-box;
+    overflow-y: scroll;
 }
 article.settings div.feed section.settings-container {
     border-radius: .3em;
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     border: none;
-    width: 850px;
-    position: fixed;
-    left: 50%;
-    top: 100px;
-    margin-left: -425px;
+    width: 100%;
+    margin-top: 20%;
     box-sizing: border-box;
 }
 article.settings div.feed section.settings-container aside.left {

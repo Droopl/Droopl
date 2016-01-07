@@ -17,7 +17,7 @@ if(empty($_GET['page'])){
 	$_GET['page'] = 'feed';
 }
 if(!isset($_SESSION["user"])){
-	if(!$_GET['page'] == "register"){
+	if($_GET['page'] != "register"){
 		$_GET['page'] = 'login';
 	}
 }

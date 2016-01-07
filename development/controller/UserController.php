@@ -40,17 +40,65 @@ class UserController extends AppController{
 		$proposals = [];
 		$user = [];
 
-		
+
 		$type = "quests";
 		$isFollowed = false;
 
 		if(isset($_SESSION['user'])){
 			$checkFollow = $this->followDAO->checkFollow($_SESSION['user']['id'],$_GET['id']);
 			if(!empty($checkFollow)){
-				$isFollowed = true;	
+				$isFollowed = true;
 			}
+
+			$firstname = "";
+			$lastname = "";
+			$password = "";
+			$occupation = "";
+			$date = "";
+			$gender = "";
+			$lang = "";
+			$image = "";
+
+			if(!empty($_GET["action"]) && $_GET["action"] == "update"){
+				if(!empty($_POST)){
+					$errors =  false;
+
+					if(!empty($_POST["first"])){
+						$firstname = $_POST["first"];
+					}else{
+						$errors = true;
+					}
+
+					if(!empty($_POST["last"])){
+						$lastname = $_POST["last"];
+					}else{
+						$errors = true;
+					}
+
+					if(!empty($_POST["new_pass"]) && !empty($_POST["repeat_new_pass"]) && $_POST["new_pass"] == $_POST["repeat_new_pass"]){
+						$password = $_POST["new_pass"];
+					}else{
+						$errors = true;
+					}
+
+					if(!empty($_POST["birth_date"])){
+						$date = $_POST["birth_date"];
+					}else{
+						$errors = true;
+					}
+
+					if(!empty($_POST["selected-lang"])){
+						$lang = $_POST["selected-lang"];
+					}else{
+						$errors = true;
+					}
+
+				}
+			}
+
 		}
-		
+
+
 
 		if(!empty($_GET["id"])){
 
@@ -71,7 +119,7 @@ class UserController extends AppController{
 
 							$followers = $this->followDAO->getFollowersByUserId($id);
 							break;
-						
+
 						default:
 							$type = "quests";
 
@@ -97,7 +145,7 @@ class UserController extends AppController{
 
 		if(isset($_GET['action']) && $_GET['action'] == 'follow'){
 
-			
+
 			if(!$isFollowed){
 				$followed = $this->followDAO->addFollow($_SESSION['user']['id'],$_GET['id']);
 
@@ -121,12 +169,12 @@ class UserController extends AppController{
 				echo "allready followed";
 			}
 
-			
+
 		}
 
 		if(isset($_GET['action']) && $_GET['action'] == 'unfollow'){
 
-			
+
 			if($isFollowed){
 				$followed = $this->followDAO->removeFollow($_SESSION['user']['id'],$_GET['id']);
 
@@ -136,7 +184,7 @@ class UserController extends AppController{
 
 			}
 
-			
+
 		}
 
 		$this->set('isFollowed',$isFollowed);
@@ -170,7 +218,7 @@ class UserController extends AppController{
 
 		if(!empty($_POST)){
 
-			
+
 			if(!empty($_GET['step']) && $_GET['step'] == "1"){
 
 				$step1 = array();
@@ -362,10 +410,10 @@ class UserController extends AppController{
 		$this->mail->Username = 'info@droopl.com';                 // SMTP username
 		$this->mail->Password = 'Droopl543';                           // SMTP password
 		$this->mail->SMTPSecure = 'ssl';                      // Enable TLS encryption, `ssl` also accepted
-		$this->mail->Port = 465;     
+		$this->mail->Port = 465;
 
 		$this->mail->setFrom('info@droopl.com', 'Droopl');
-		$this->mail->addAddress($email);     // Add a recipient 
+		$this->mail->addAddress($email);     // Add a recipient
 		$this->mail->addReplyTo('info@droopl.com', 'Droopl');
 
 		$this->mail->isHTML(true);                                  // Set email format to HTML
@@ -376,7 +424,7 @@ class UserController extends AppController{
 		$this->mail->send();
 
 	}
-	
+
 
 	public function login(){
 		$pattern = '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD';
@@ -495,19 +543,19 @@ class UserController extends AppController{
 	    $new_height = $width;
 	    $new_width = $height;
 
-	    if($old_x > $old_y) 
+	    if($old_x > $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $old_y*($new_height/$old_x);
 	    }
 
-	    if($old_x < $old_y) 
+	    if($old_x < $old_y)
 	    {
 	        $thumb_w    =   $old_x*($new_width/$old_y);
 	        $thumb_h    =   $new_height;
 	    }
 
-	    if($old_x == $old_y) 
+	    if($old_x == $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $new_height;
@@ -540,8 +588,8 @@ class UserController extends AppController{
 			  break;
 	}
 
-	
-	
+
+
 	return $banner;
 	/* cleanup memory */
 	imagedestroy($image);
@@ -558,7 +606,7 @@ class UserController extends AppController{
 		}else{
 			$this->redirect("?page=login");
 		}
-		
+
 		$this->set('user',$user);
 
 	}
@@ -575,5 +623,3 @@ class UserController extends AppController{
 
 
 }
-
-

@@ -7,6 +7,7 @@ $(function(){
 
      checkNotification();
 
+
     $("#menu .profile ul li a.icon-cog").bind("click",openSettings);
 
     $("article.verification ul.code-ul li input[type='text']").on("keyup",function(){
@@ -597,6 +598,21 @@ $(function(){
         }, function(response){});
     }
 
+
+
+    $("#side section header nav.stars").bind("click",ratePerson);
+
+    function ratePerson(e) {
+        $(this).unbind("click");
+        if($("article.rating").length){
+            if($("article.rating").hasClass("hide")){
+                $("article.rating").removeClass("hide");
+            }else {
+                $("article.rating").addClass("hide");
+            }
+        }
+    }
+
     $("article aside#side section.quest ul li a").bind("click",getDetail);
     function getDetail(e) {
 
@@ -736,8 +752,9 @@ $(function(){
     }
 
     function openSettings(e) {
-        preloader(true);
         e.preventDefault();
+
+        preloader(true);
         $("#menu .profile ul li a.icon-cog").unbind("click");
 
           $.ajax({
@@ -746,6 +763,7 @@ $(function(){
                 success: function(data) {
 
                     preloader(false);
+
                     console.log(data);
                   var section = $(data).find(".feed");
 
@@ -754,6 +772,8 @@ $(function(){
                   $("article.settings").remove(".feed");
                   section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
 
+
+                  dragAndDrop();
 
                 $("article.settings section h1 a.close").on("click",function (e) {
                     e.preventDefault();
@@ -766,8 +786,6 @@ $(function(){
           }).done(function(){
 
                 /* SETTINGS LANG */
-
-
 
                 $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
                     console.log("oki");
@@ -807,6 +825,7 @@ $(function(){
                     $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
                     $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
                 }
+
             });
 
           });
@@ -2266,6 +2285,7 @@ $(function(){
 
     function dragAndDrop() {
 
+        console.log("DRAG AND DROP ACTIVE");
         var obj = $("#dragndrop input[type='file']");
         obj.on('dragenter', function (e)
         {
