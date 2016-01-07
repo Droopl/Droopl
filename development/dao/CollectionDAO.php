@@ -30,7 +30,7 @@ class CollectionDAO
 		}
 		return array();
 	}
-	
+
 	public function getCollectionById($collection_id){
 
 		$sql = 'SELECT * FROM collection WHERE collection_id =:collection_id';
@@ -55,7 +55,7 @@ class CollectionDAO
 
 		$sql = 'SELECT *
 		FROM `collection`
-		WHERE item_name LIKE :entry LIMIT 30';
+		WHERE item_name LIKE :entry AND status != 1 LIMIT 30';
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':entry',"%".$entry."%");
