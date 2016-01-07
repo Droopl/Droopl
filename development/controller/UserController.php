@@ -88,6 +88,12 @@ class UserController extends AppController{
 						$errors = true;
 					}
 
+					if(!empty($_POST["occupation"])){
+						$occupation = $_POST["occupation"];
+					}else{
+						$occupation = true;
+					}
+
 					if(!empty($_POST["gender"])){
 						$gender = $_POST["gender"];
 					}else{

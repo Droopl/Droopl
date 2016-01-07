@@ -41,7 +41,7 @@
             <a href="?page=user&id=<?php echo $user['id']; ?>">
             <header>
                 <?php if(!empty($value['picture'])){ ?>
-                <img src="images/profile_pictures/<?php echo $value['picture'];?>" alt="rachouan rejeb">
+                <img src="images/profile_pictures/<?php echo $user['picture'];?>" alt="rachouan rejeb">
                 <?php }else{ ?>
                 <img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
                 <?php }?>

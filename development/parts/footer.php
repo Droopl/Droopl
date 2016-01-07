@@ -92,7 +92,7 @@
             <header class="hide"><h1>Submit your rating for Boris Debusscher</h1></header>
             <form action="?page=rateuser&id=<?php echo $_GET['id']; ?>"method="post">
                 <input type="number" id="rating" name="rating" value="" class="hide">
-                <input type="submit" id="submit_rating" name="submit_rating" value="Rate Boris Debusscher" class="check">
+                <input type="submit" id="submit_rating" name="submit_rating" value="Rate <?php echo $user['firstname']." ".$user['lastname']; ?>" class="check">
             </form>
         </footer>
     </section>
