@@ -3480,6 +3480,10 @@ article.search ul.search_results li.item{
     position: relative;
     margin: 1% 2% 2% 1%;
 }
+article.search ul.search_results li.item a{
+    text-decoration: none;
+    color: #3E454C;
+}
 article.search ul.search_results li.item:last-child{
 
     display: block;

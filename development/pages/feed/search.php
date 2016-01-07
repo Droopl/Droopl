@@ -86,10 +86,11 @@
 <?php foreach ($items as $id => $item) { ?>
 
   <li class="item">
-
+        <a href="?page=user&id=<?php echo $item['user_id']; ?>&filter=collection">
         <span id="<?php echo $item['collection_id']; ?>" class="collection-item-detail"></span>
         <img src='images/collection/<?php echo $item["collection_image"]; ?>' >
         <h1 class="profile-collection-item-name"><?php echo $item['item_name'] ?><span class="<?php if($item['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
+        </a>
     </li>
 
 <?php } ?>
