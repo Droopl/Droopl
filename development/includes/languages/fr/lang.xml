@@ -45,6 +45,14 @@
     <noConversationTitle>Vous n'avez pas encore de conversations</noConversationTitle>
     <noConversationText>Lorsque vous démarrez une nouvelle conversation, vous ajoutez une nouvelle fonctionalité à droopl.</noConversationText>
     <startConversation>Démarrez une conversation</startConversation>
+    <newConvSearch>Cherchez des personnes</newConvSearch>
+    <newConvText>Nouveau message</newConvText>
+    <communityTitle>Commencez à échanger contre des personnes de votre propre communauté</communityTitle>
+    <communityText>Nos communautés aident à rapprocher des personnes ayant les mêmes centres d'intérêt. Echangez avec vos amis, voisins ou avec des collèges. Nous vous donnons la liberté de créer votre propre communauté.</communityText>
+    <createCommunity>Créer une communauté</createCommunity>
+    <communityDiscover>Découvrer les communautés les plus récentes</communityDiscover>
+    <communitySearch>Cherchez des communautés</communitySearch>
+    <communityJoin>Joindre</communityJoin>
 
    <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
    <feedback>Feedback</feedback>

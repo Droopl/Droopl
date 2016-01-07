@@ -7,16 +7,12 @@
 	</div>
 
 	<div class="animated fadeInUp">
-		<h1>Start trading with people from your own community</h1>
-		<p>
-			Our communities will help bring people who have the same intrests closer than ever.
-			Trade with your friends, neighbours or colleges even goats ? We give you the freedom to
-			create your own community and give it a life of its own.
-		</p>
+		<h1><?php echo $_SESSION['lang']['communityTitle']; ?></h1>
+		<p><?php echo $_SESSION['lang']['communityText']; ?></p>
 
 		<nav>
 			<header class="hide"><h1>Liven a community</h1></header>
-			<a href="?page=communities&action=create" class="create">Create a community<span class="icon-circle-plus"></span></a>
+			<a href="?page=communities&action=create" class="create"><?php echo $_SESSION['lang']['createCommunity']; ?><span class="icon-circle-plus"></span></a>
 		</nav>
 	</div>
 	</div>
@@ -25,8 +21,8 @@
 <section class="communities animated fadeInUp">
 	<div class="center">
 	<header>
-		<h1>Most active Communities</h1>
-		<nav><header class="hide"><h1>Search communities</h1></header>
+		<h1><?php echo $_SESSION['lang']['communityDiscover']; ?></h1>
+		<nav><header class="hide"><h1><?php echo $_SESSION['lang']['communitySearch']; ?></h1></header>
 			<form action="" method="get">
 				<input type="text" id="search_communities" name="search_communities" placeholder="Search for communties">
 			</form>
@@ -50,7 +46,7 @@
 			<aside>
 
 			<nav class="join">
-				<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member">Join community<span class="icon-inbox"></span></a>
+				<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityJoin']; ?><span class="icon-inbox"></span></a>
 			</nav>
 				<ul>
                 <li>
