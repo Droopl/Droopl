@@ -35,25 +35,25 @@
    <filtercollection>Collection</filtercollection>
    <filterfollowers>Followers</filterfollowers>
 
-	<timeHours>Heures</timeHours>
+	<timeHours>Hours</timeHours>
     <timeMinutes>Minutes</timeMinutes>
     <timeSeconds>Seconds</timeSeconds>
-    <timeNow>A l'instant</timeNow>
-    <feedViews>vues</feedViews>
-    <conversationSearch>Chercher des conversations ...</conversationSearch>
-    <conversationCreate>Nouveau message</conversationCreate>
-    <noConversationTitle>Vous n'avez pas encore de conversations</noConversationTitle>
-    <noConversationText>Lorsque vous démarrez une nouvelle conversation, vous ajoutez une nouvelle fonctionalité à droopl.</noConversationText>
-    <startConversation>Démarrez une conversation</startConversation>
-    <newConvSearch>Cherchez des personnes</newConvSearch>
-    <newConvText>Nouveau message</newConvText>
-    <communityTitle>Commencez à échanger contre des personnes de votre propre communauté</communityTitle>
-    <communityText>Nos communautés aident à rapprocher des personnes ayant les mêmes centres d'intérêt. Echangez avec vos amis, voisins ou avec des collèges. Nous vous donnons la liberté de créer votre propre communauté.</communityText>
-    <createCommunity>Créer une communauté</createCommunity>
-    <communityDiscover>Découvrer les communautés les plus récentes</communityDiscover>
-    <communitySearch>Cherchez des communautés</communitySearch>
-    <communityJoin>Joindre</communityJoin>
-    <questCount>Quêtes</questCount>
+    <timeNow>Just now</timeNow>
+    <feedViews>views</feedViews>
+    <conversationSearch>Zoek conversaties ...</conversationSearch>
+    <conversationCreate>Nieuw bericht</conversationCreate>
+    <noConversationTitle>You don't have any conversations yet</noConversationTitle>
+    <noConversationText>When you start a new conversation on droopl you unlock a new feature</noConversationText>
+    <startConversation>Start a conversation</startConversation>
+    <newConvSearch>Search for people</newConvSearch>
+    <newConvText>New Message</newConvText>
+    <communityTitle>Start trading with people from your own community</communityTitle>
+    <communityText>Our communities help to bring people with the same interests together. Discuss with your friends, neighbors or with colleges. We give you the freedom to create your own community.</communityText>
+    <createCommunity>Create a community</createCommunity>
+    <communityDiscover>Explore the most recent communities</communityDiscover>
+    <communitySearch>Search for communities</communitySearch>
+    <communityJoin>Join</communityJoin>
+    <questCount>Quests</questCount>
     <proposCount>Propositions</proposCount>
     <membersCount>Membres</membersCount>
     <settingsHeader>Préférences du compte</settingsHeader>
