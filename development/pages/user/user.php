@@ -183,10 +183,10 @@
 
             <header>
                 <h1 class="quest"><span class="hide">no more quests</span></h1>
-                <h2>Why don't you have any items</h2>
+                <h2>You don't have any quests</h2>
             </header>
 
-            <p>By proposing items you can trade with other people on droopl. So you need to add some</p>
+            <p>You haven't post any quests yet, don't be shy just look around in your attic you'll find something worth our while.</p>
 
             <a href="?page=feed">add an item</a>
 
@@ -335,7 +335,7 @@
                     <h2>No collection items yet ?</h2>
                 </header>
 
-                <p>You haven't post any quests yet, don't be shy just look around in your attic you'll find something worth our while.</p>
+                <p>By proposing items you can trade with other people on droopl. So you need to add some !</p>
 
                 <a href="?page=add" class="add_collection_item">add an item</a>
 
