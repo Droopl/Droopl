@@ -36,7 +36,13 @@
 
                 <?php if(!empty($collection[$i])){ ?>
 
-                <li><img id="<?php echo $collection[$i]['collection_id']; ?>" src="images/collection/<?php echo $collection[$i]['collection_image']; ?>" alt="collection item rachouan rejeb"></li>
+                <li>
+									<?php if(!empty($collection[$i]['collection_image'])){ ?>
+					                <img id="<?php echo $collection[$i]['collection_id']; ?>" src="images/collection/<?php echo $collection[$i]['collection_image']; ?>" alt="collection item">
+					                <?php }else{ ?>
+					                <img id="<?php echo $collection[$i]['collection_id']; ?>" src="images/profile_pictures/notfound.svg" alt="no image">
+					                <?php }?>
+									</li>
 
                 <?php }else{ ?>
                 	<li class="add-to-collection bordered"></li>
@@ -132,7 +138,13 @@
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
-					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>"><img src="images/communities/<?php echo $community['community_profile']; ?>"><p><span><?php echo $community['community_name']; ?></span><span class="icon-head"> <?php echo $community['usercount'] ?></span></p></a></li>
+					<li><a href="?page=community&id=<?php echo $community['community_id']; ?>">
+						<?php if(!empty($community['community_profile'])){ ?>
+						<img src="images/communities/<?php echo $community['community_profile']; ?>">
+						<?php }else{ ?>
+						<img src="images/profile_pictures/notfound.svg" alt="rachouan rejeb">
+				<?php }?>
+						<p><span><?php echo $community['community_name']; ?></span><span class="icon-head"> <?php echo $community['usercount'] ?></span></p></a></li>
 				<?php } ?>
 			</ul>
 		</nav>

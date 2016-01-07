@@ -83,7 +83,7 @@ class CommunityController extends AppController{
 				}
 
 			}
-			
+
 
 			if(!empty($_SESSION['user'])){
 
@@ -112,7 +112,7 @@ class CommunityController extends AppController{
 							$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
 						}
 
-						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);	
+						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
 
 						if(!empty($submition)){
 
@@ -160,7 +160,7 @@ class CommunityController extends AppController{
 					}
 				}
 
-					
+
 
 
 			}
@@ -176,7 +176,7 @@ class CommunityController extends AppController{
 			$this->redirect("?page=404");
 		}
 
-        
+
 		$this->set('community',$community);
 		$this->set('isMember',$isMember);
 		$this->set('users',$users);
@@ -203,6 +203,7 @@ class CommunityController extends AppController{
 
 		$community_name = "";
 		$community_description = "";
+		$community_image = "";
 		$privacy = 1;
 
 		if(!empty($_SESSION['user'])){
@@ -245,6 +246,8 @@ class CommunityController extends AppController{
 						        $files[] = $this->resize($w, $h);
 						      }
 
+									$community_image = $files[0];
+
 						    } else {
 						      $msg = 'Unsupported file';
 						    }
@@ -255,13 +258,13 @@ class CommunityController extends AppController{
 
 					}
 
-					$addedCommunity = $this->communityDAO->addCommunity($community_name,$files[0],$_SESSION['user']['id'],$community_description,$privacy);	
+					$addedCommunity = $this->communityDAO->addCommunity($community_name,$community_image,$_SESSION['user']['id'],$community_description,$privacy);
 
 					if(!empty($addedCommunity)){
 						$this->communityDAO->addCommuntyUser($_SESSION['user']['id'],$addedCommunity['id']);
 						$this->redirect("index.php?page=community&id=".$addedCommunity['id']);
 					}
-					
+
 			}
 		}
 	}
@@ -318,7 +321,7 @@ class CommunityController extends AppController{
 		$this->set('members',$members);
 
 	}
-    
+
     function resize($width, $height){
 		/* Get original image x y*/
 		list($w, $h) = getimagesize($_FILES['community_image']['tmp_name']);
@@ -328,19 +331,19 @@ class CommunityController extends AppController{
 	    $new_height = $width;
 	    $new_width = $height;
 
-	    if($old_x > $old_y) 
+	    if($old_x > $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $old_y*($new_height/$old_x);
 	    }
 
-	    if($old_x < $old_y) 
+	    if($old_x < $old_y)
 	    {
 	        $thumb_w    =   $old_x*($new_width/$old_y);
 	        $thumb_h    =   $new_height;
 	    }
 
-	    if($old_x == $old_y) 
+	    if($old_x == $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $new_height;
@@ -372,7 +375,7 @@ class CommunityController extends AppController{
 			  exit;
 			  break;
 	}
-	
+
 	return $banner;
 	/* cleanup memory */
 	imagedestroy($image);
@@ -389,19 +392,19 @@ class CommunityController extends AppController{
 	    $new_height = $width;
 	    $new_width = $height;
 
-	    if($old_x > $old_y) 
+	    if($old_x > $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $old_y*($new_height/$old_x);
 	    }
 
-	    if($old_x < $old_y) 
+	    if($old_x < $old_y)
 	    {
 	        $thumb_w    =   $old_x*($new_width/$old_y);
 	        $thumb_h    =   $new_height;
 	    }
 
-	    if($old_x == $old_y) 
+	    if($old_x == $old_y)
 	    {
 	        $thumb_w    =   $new_width;
 	        $thumb_h    =   $new_height;
@@ -433,7 +436,7 @@ class CommunityController extends AppController{
 			  exit;
 			  break;
 	}
-	
+
 	return $banner;
 	/* cleanup memory */
 	imagedestroy($image);
@@ -450,9 +453,7 @@ class CommunityController extends AppController{
 	    }
 	    return $randomString;
 	}
-	
+
 
 
 }
-
-

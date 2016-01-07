@@ -6,9 +6,8 @@
         		<?php if(!empty($user['picture'])){ ?>
                 <img class="profile-img" src="images/profile_pictures/<?php echo $user['picture'];?>" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
                 <?php }else{ ?>
-                <img class="profile-img" src="../../images/profile_pictures/notfound.svg" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
+                <img class="profile-img" src="images/profile_pictures/notfound.svg" alt="<?php echo $user['firstname'].' '.$user['lastname']?>">
                 <?php }?>
-        		<span class="badge">creator</span>
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>
             <h2><?php echo $user['occupation'];?></h2>
@@ -286,8 +285,12 @@
                         <li class="delete"><a href="?page=user&filter=collection&id=<?php echo $user['id']; ?>&action=remove&collection_id=<?php echo $value['collection_id']; ?>" id="<?php echo $value['collection_id']; ?>"></a></li>
                     </ul>
                 </span>
-
+                <?php if(!empty($value["collection_image"])){ ?>
                 <img src='images/collection/<?php echo $value["collection_image"]; ?>' >
+                <?php }else{ ?>
+                <img src="images/profile_pictures/notfound.svg" alt="no image">
+                <?php }?>
+
                 <h1 class="profile-collection-item-name"><?php echo $value['item_name'] ?><span class="<?php if($value['available'] == 0){ echo "available"; }else{ echo "not-available"; } ?>"></span></h1>
             </li>
 

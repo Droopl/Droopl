@@ -59,7 +59,6 @@
 					<?php } ?>
 				<?php }
 			} ?>
-				<li class="add"><input type="submit" id="add_user" name="add_user"></li>
 			</ul>
 		</nav>
 	</header>

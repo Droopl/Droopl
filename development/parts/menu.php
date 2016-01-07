@@ -281,7 +281,9 @@
             <li><a href="?page=<?php if(!empty($_GET['page'])){ echo $_GET['page'];}else{ echo '?page=feed';} ?>&action=feedback"class="bug icon icon-flag"><span><?php echo $_SESSION['lang']['menufeedback'];?></span></a></li>
                      <li><a class="logout icon icon-lock"><span><?php echo $_SESSION['lang']['menulogout']; ?></span></a></li>
                 </ul>
-                <?php }else{ ?>
+                <?php }else{
+                    if(!$isMobile){
+                    ?>
 
                     <a class="login-or-register" href="?page=login"><?php
             switch ($_SESSION['language']) {
@@ -303,7 +305,10 @@
 			    }
             ?></a>
 
-                <? } ?>
+                <? }else{ ?>
+                    <a class="login-or-register icon" href="?page=login"><span class="icon-head"></span></a>
+            <?php }
+            } ?>
     		</li>
     	</ul>
     </nav>

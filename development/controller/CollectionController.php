@@ -101,6 +101,8 @@ class CollectionController extends AppController{
 
     	$item = "";
     	$description = "";
+			$image = "";
+			$error = false;
 
 
     	if(!empty($_SESSION['user'])){
@@ -109,13 +111,16 @@ class CollectionController extends AppController{
 
 
 			if(!empty($_POST)){
-
 				if(!empty($_POST['item_name'])){
 					$item = $_POST['item_name'];
+				}else{
+					$error = true;
 				}
 
 				if(!empty($_POST['item_description'])){
 					$description = $_POST['item_description'];
+				}else{
+					$error = true;
 				}
 
 				if(isset($_FILES['collection_image']) && $_FILES['collection_image']['size'] != 0){
@@ -135,7 +140,7 @@ class CollectionController extends AppController{
 					        $files[] = $this->resize($w, $h);
 					      }
 
-					      $addItem = $this->collectionDAO->addItem($item,$user_id,$description,$files[0]);
+								$image = $files[0];
 
 					    } else {
 					      $msg = 'Unsupported file';
@@ -145,28 +150,13 @@ class CollectionController extends AppController{
 					  }
 					}
 
-					$type = $_FILES['collection_image']['type'];
-					$extention = ".png";
-					if($type == "image/png"){
-						$extention = ".png";
-					}elseif ($type == "image/jpeg") {
-						$extention = ".jpeg";
-					}
-					$randomname = $this->generateRandomString();
-
-				    $banner = $randomname.$extention;
-
-				    $path = WWW_ROOT . 'images' . DS .'collection'.DS.$banner;
-
-				    move_uploaded_file($_FILES['collection_image']['tmp_name'],$path);
-
-
-
-				    if($addItem){
-				    	$this->redirect('?page=user&id='.$user_id.'&filter=collection');
-				    }
-
 				}
+
+				if(!$error){
+					$addItem = $this->collectionDAO->addItem($item,$user_id,$description,$image);
+				}
+				$this->redirect('?page=user&id='.$user_id.'&filter=collection');
+
 			}
 
 

@@ -1,13 +1,18 @@
 <aside id="side" class="profile">
-    
+
 	<section class="community">
         <header>
         	<div class="profile_pic">
-        		<img src="images/communities/<?php echo $community['community_profile'];?>">
+                <?php if(!empty($user['picture'])){ ?>
+                <img src="images/communities/<?php echo $community['community_profile'];?>">
+                <?php }else{ ?>
+                <img src="images/profile_pictures/notfound.svg" alt="<?php echo $user['community_name'];?>">
+                <?php }?>
+
         	</div>
         	<h1><?php echo $community['community_name'];?></h1>
             <h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
-        	<nav> 
+        	<nav>
                 <?php if(!$isMember){?>
                 <a href="?page=community&id=<?php echo $_GET['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityjoin']; ?><span class="icon-inbox"></span></a>
                 <?php }else{ ?>
@@ -74,43 +79,47 @@
                 </div>
 
             </div>
-            
+
             <?php if(!empty($collection)){ ?>
-            
+
                 <div class="hide collection">
                     <input type="text" id="collection_item" name="collection_item" class="hide" value="">
                     <ul>
-                        
+
                         <?php foreach ($collection as $key => $value) {?>
-                        
+
                         <li id="<?php echo $value['collection_id']; ?>">
                             <img src="images/collection/<?php echo $value['collection_image']; ?>">
                             <div class="selected"><p class="icon-check"></p></div>
                             <p class="collection-item-name"><span><?php echo $value["item_name"]; ?></span></p>
                         </li>
-                        
+
                         <?php } ?>
-                        
+
                     </ul>
                 </div>
 
             <?php }else{ ?>
-            
+
                 <div class="hide collection no-collection-items">
                     <header class="marg-bottom">
                         <h1 class="collection"><span class="hide">no more quests</span></h1>
                         <h2>You don't have any collection items yet.<a class="post-add-collection-item">Add item</a></h2>
                     </header>
                 </div>
-        
+
             <?php } ?>
             <div>
                 <input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
+                <nav>
+
                 <span class="upload_image">
                     <input type="file" id="quest_upload_image" accept="image/*" name="quest_upload_image"  tabindex="3">
                 </span>
                 <span class="hide uploaded_image"><img src=""><p class="icon-cross"></p></span>
                 <input type="submit" id="quest_submit" name="quest_submit" value="" tabindex="4">
+
+            </nav>
             </div>
         </form>
     </section>
@@ -123,9 +132,9 @@
         <header>
 
             <img src="images/profile_pictures/<?php if(!empty($value['picture'])){ echo $value['picture']; }else{ echo "notfound.svg"; }?>">
-            <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){ 
+            <h1><a href="?page=user&id=<?php echo $value['id']; ?>"> <?php echo $value['firstname']; echo " "; echo $value['lastname'];?></a><?php if($value['type'] == 0){
                 echo $_SESSION['lang']['questlooking'];
-            }else{ 
+            }else{
 
                 echo $_SESSION['lang']['questoffering'];
 
@@ -133,8 +142,8 @@
         <?php if($value['type'] == 1){ ?>
             <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
-        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php 
-        
+        <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
+
         $full = false;
         $now = new DateTime;
         $ago = new DateTime($value['creation_date']);
@@ -186,7 +195,7 @@
         <aside class="info">
             <p>
             <?php echo $value['quest_description'] ?></p>
-            <?php 
+            <?php
             if($value['image_url'] != NULL){ ?>
 
                 <img src="questimages/images/<?php echo $value['image_url']; ?>">
@@ -207,10 +216,9 @@
             <h2>You're out of quests</h2>
         </header>
 
-        <p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>
+        <p>There are no quests posted yet to this community</p>
 
-        <a href="?page=people">find people</a>
 
     </section>
-    
+
 </div>

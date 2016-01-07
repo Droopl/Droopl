@@ -16,6 +16,9 @@ require_once WWW_ROOT . 'includes' .DS. 'routes.php';
 if(empty($_GET['page'])){
 	$_GET['page'] = 'feed';
 }
+if(!isset($_SESSION["user"])){
+	$_GET['page'] = 'login';
+}
 if(empty($routes[$_GET['page']])){
 	header('location:?page=404');
 	exit();
