@@ -3082,8 +3082,8 @@ article.login section header h1.logo{
 
     display: inline-block;
     width: 250px;
-    height: 100px;
-    background-image: url(../images/assets/droopl_logo_beta.svg);
+    height: 75px;
+    background-image: url(../images/assets/droopl_logo.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -3706,7 +3706,7 @@ article.settings div.feed section.settings-container aside.left input[type='subm
     display: block;
     position: absolute;
     left: 50%;
-    margin-left: -39px;
+    margin-left: -60px;
     bottom: 20px;
     background-color: #F47D67;
     border-radius: .4em;

@@ -24,7 +24,7 @@
 		<h1><?php echo $_SESSION['lang']['communityDiscover']; ?></h1>
 		<nav><header class="hide"><h1><?php echo $_SESSION['lang']['communitySearch']; ?></h1></header>
 			<form action="" method="get">
-				<input type="text" id="search_communities" name="search_communities" placeholder="Search for communties">
+				<input type="text" id="search_communities" name="search_communities" placeholder="<?php echo $_SESSION['lang']['communitySearch']; ?>">
 			</form>
 		</nav>
 	</header>
@@ -50,15 +50,15 @@
 			</nav>
 				<ul>
                 <li>
-                    <span class="bluetxt">Quests</span>
+                    <span class="bluetxt"><?php echo $_SESSION['lang']['questCount']; ?></span>
                     <p><?php echo $community['quests']; ?></p>
                 </li>
                 <li>
-                    <span class="orangetxt">propos</span>
+                    <span class="orangetxt"><?php echo $_SESSION['lang']['proposCount']; ?></span>
                     <p><?php echo $community['propos']; ?></p>
                 </li>
                 <li>
-                    <span class="purpletxt">Members</span>
+                    <span class="purpletxt"><?php echo $_SESSION['lang']['membersCount']; ?></span>
                     <p><?php echo $community['members']; ?></p>
                 </li>
             </ul>

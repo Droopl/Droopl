@@ -4,28 +4,28 @@
             <form action="?page=user&action=update" id="settings-form" method="post" enctype="multipart/form-data">
             <aside class="left">
                     <header id="upload">
-                        <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php echo $user['picture']; ?>);border: none">
+                        <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php if(!empty($user['picture'])){echo $user['picture'];}else{ echo "notfound.svg";} ?>);border: none">
                             <div class="preloader">
                                 <span class="remove-file hide"><p class="icon-cross"></p></span>
                                 <input type="file" id="profile_image" name="profile_image" accept="image/*">
                             </div>
                         </div>
                         <h1>Drag and drop</h1>
-                        <p>Or press to browse</p>
+                        <p><?php echo $_SESSION['lang']['pressBrowse']; ?></p>
                     </header>
-                <input type="submit" id="submit_settings" name="submit_settings" value="Save">
+                <input type="submit" id="submit_settings" name="submit_settings" value="<?php echo $_SESSION['lang']['save']; ?>">
             </aside>
             <aside class="right">
-                <h1 class="settings-title"><span class="icon-cog"></span>Account Settings <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
-                <label for="first">Firstname:</label>
+                <h1 class="settings-title"><span class="icon-cog"></span><?php echo $_SESSION['lang']['settingsHeader']; ?> <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
+                <label for="first"><?php echo $_SESSION['lang']['firstName']; ?>:</label>
                 <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
-                <label for="last">Last name:</label>
+                <label for="last"><?php echo $_SESSION['lang']['lastName']; ?>:</label>
                 <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
-                <label for="last">Occupation:</label>
+                <label for="last"><?php echo $_SESSION['lang']['occupation']; ?>:</label>
                 <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>">
-                <label for="new_pass">New password:</label>
+                <label for="new_pass"><?php echo $_SESSION['lang']['password']; ?>:</label>
                 <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
-                <label for="repeat_new_pass">Repeat password:</label>
+                <label for="repeat_new_pass"><?php echo $_SESSION['lang']['repeatPass']; ?>:</label>
                 <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
                 <!--<label for="street">Street:</label>
                 <input type="text" id="street" name="street" value="<?php echo $user['street']; ?>">
@@ -37,7 +37,7 @@
                 <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>">
                 <label for="country">Country:</label>
                 <select id="country">
-                    <option value="mycountry"><?php echo $user['country']; ?></option>
+                    <option value="mycountry"></option>
                     <option>-----------</option>
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Åland Islands</option>
@@ -291,7 +291,7 @@
                 </select>-->
                 <input type="date" id="birth_date" name="birth_date" value="<?php echo $user['age']; ?>" placeholder="Date of birth">
                 <div class="select-language">
-                                <h1>Language: </h1>
+                                <h1><?php echo $_SESSION['lang']['language']; ?>: </h1>
                                 <div class="flag <?php echo $user['lang']; ?>"></div>
                                 <ul class="lang-list">
                                     <li class="en"><span class="en-flag"></span>English</li>

@@ -53,6 +53,19 @@
     <communityDiscover>Découvrer les communautés les plus récentes</communityDiscover>
     <communitySearch>Cherchez des communautés</communitySearch>
     <communityJoin>Joindre</communityJoin>
+    <questCount>Quêtes</questCount>
+    <proposCount>Propositions</proposCount>
+    <membersCount>Membres</membersCount>
+    <settingsHeader>Préférences du compte</settingsHeader>
+    <firstName>Prénom</firstName>
+    <lastName>Nom de famille</lastName>
+    <occupation>Occupation</occupation>
+    <password>Mot de passe</password>
+    <repeatPass>Répétez</repeatPass>
+    <language>Langue</language>
+    <pressBrowse>Ou cliquer pour choisir</pressBrowse>
+    <save>Enregistrer</save>
+    <wishFeedback>J'aimerais pouvoir ...</wishFeedback>
 
    <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
    <feedback>Feedback</feedback>
