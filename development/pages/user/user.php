@@ -253,6 +253,21 @@
         </ul>
 
 
+<?php }else{ ?>
+
+    <section class="last_quest">
+
+            <header>
+                <h1 class="collection"><span class="hide">No Followers</span></h1>
+                <h2>You don't have any followers yet</h2>
+            </header>
+
+            <p>Search for people by pressing <span icon="icon-search"></span>, maybe if you follow them they will follow you back ?</p>
+
+            <a href="?page=add" class="add_collection_item">add an item</a>
+
+    </section>
+
 <?php }
 }else{ ?>
 

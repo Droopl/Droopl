@@ -11,7 +11,7 @@
 		<p>
 			Our communities will help bring people who have the same intrests closer than ever.
 			Trade with your friends, neighbours or colleges even goats ? We give you the freedom to
-			create your own community and give it a life of its own. 
+			create your own community and give it a life of its own.
 		</p>
 
 		<nav>
@@ -38,7 +38,12 @@
 
 		<section class="community">
 			<header>
-				<img src="images/communities/<?php echo $community['community_profile'];?>">
+				<?php if(!empty($user['picture'])){ ?>
+                <img src="images/communities/<?php echo $community['community_profile'];?>" alt="community">
+                <?php }else{ ?>
+                <img class="profile-img" src="images/profile_pictures/notfound.svg" alt="image not found">
+                <?php }?>
+
 				<h1><?php echo $community['community_name'];?></h1>
 				<h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
 			</header>
@@ -63,9 +68,9 @@
             </ul>
 			</aside>
 		</section>
-			
+
 		<?php }?>
-		
+
 	</aside>
 	</div>
 </section>
