@@ -378,7 +378,6 @@
 
             <p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>
 
-            <a href="?page=feed">add an item</a>
 
         </section>
 
