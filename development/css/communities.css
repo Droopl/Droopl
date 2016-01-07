@@ -2014,4 +2014,12 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         height: 50px;
         margin: 0 10px;
     }
+
+	article.newconvo section{
+		width: 100%;
+        float: left;
+        position: static;
+        margin-left: 0;
+        margin-top: 40px;
+	}
 }

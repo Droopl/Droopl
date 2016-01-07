@@ -217,7 +217,7 @@ header#menu div nav ul li.notifications ul{
 	transition: all .1s ease-in-out;
 }
 header#menu div nav ul li.notifications ul.show{
-    top: 38px;
+    top: 65px;
 	height: auto;
 	max-height: 212px;
 	border: 1px solid #E8E8EA;
@@ -249,7 +249,7 @@ header#menu div nav ul li.notifications ul li a{
     padding: 8% 5%;
     font-size: .7em;
     height: auto;
-    line-height: inherit;
+    line-height: 20px;
     color: #5F6970;
     font-weight: normal;
 
@@ -4708,12 +4708,7 @@ article div.messages section.messages header nav ul li img{
     border-radius: 50%;
 }
 article div.messages section.messages header h1 span{
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-left: 10px;
-    background-color: #00A388;
+    display: none;
 }
 article div.messages section.messages aside{
     display: block;
@@ -6380,12 +6375,7 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
         border-radius: 50%;
     }
     article div.messages section.messages header h1 span{
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        margin-left: 10px;
-        background-color: #00A388;
+        display: none;
     }
     article div.messages section.messages aside{
         display: block;

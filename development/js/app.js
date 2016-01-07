@@ -321,14 +321,22 @@ $(function(){
 
       console.log("exisits");
 
+      $("article.newconvo section #search_people").on("keyup",function (e) {
+          $( "article.newconvo section div.search_users ul" ).load( "?page=messages&action=create&search_users="+$(this).val()+" article.newconvo section div.search_users ul li" ,function (e) {
+              $("article.newconvo section div.search_users ul li").on("click",function () {
+                console.log("clicked");
+                $("article.newconvo section div.search_users ul li").removeClass("selected");
+                var id = $(this).attr("id");
+                $(this).addClass("selected");
+                $("article.newconvo section form input[type='text']#user_id").val(id);
+
+              });
+          });
+      });
+
       $("article.newconvo section div.search_users ul li").on("click",function () {
-
         console.log("clicked");
-
-
         $("article.newconvo section div.search_users ul li").removeClass("selected");
-
-
         var id = $(this).attr("id");
         $(this).addClass("selected");
 
