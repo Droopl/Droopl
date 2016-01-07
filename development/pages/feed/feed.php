@@ -252,6 +252,9 @@
 		</form>
 	</section>
 
+	<?php  if(!empty($quests)){ ?>
+
+
 	<?php foreach ($quests as $key => $value) {
 		if(!empty($value)){
 		?>
@@ -361,5 +364,24 @@
         </section>
 
     <?php }} ?>
+
+
+
+	<?php }else{ ?>
+
+		<section class="last_quest">
+
+            <header>
+                <h1 class="quest"><span class="hide">no more quests</span></h1>
+                <h2>Why don't you have any items</h2>
+            </header>
+
+            <p>By proposing items you can trade with other people on droopl. So you need to add some</p>
+
+            <a href="?page=feed">add an item</a>
+
+        </section>
+
+	<?php }?>
 
 </div>
