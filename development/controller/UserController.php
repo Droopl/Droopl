@@ -50,7 +50,7 @@ class UserController extends AppController{
 			$lastname = "";
 			$password = "";
 			$occupation = "";
-			$date = new Date();
+			$date = "08/01/2016";
 			$gender = "";
 			$lang = "";
 			$image = "";

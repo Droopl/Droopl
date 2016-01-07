@@ -282,7 +282,10 @@
         break;
     }
 
-}?><span><?php echo $quest['item']; ?></span></h1>
+}?></h1>
+    <?php if($quest['type'] == 1){ ?>
+        <a class="collection_item"><img id="<?php echo $quest['collection_id'] ?>" src="images/collection/<?php echo $quest['collection_image'] ?>"><span class="collection_item_name"><?php echo $quest['item_name']; ?></span></a>
+    <?php } ?>
 	<a href="?page=<?php echo $_GET['page']; ?>&questid=<?php echo $_GET['questid']; ?>" class="close"><span class="hide">close</span></a>
 </header>
 <?php if(!empty($quest['quest_description'])){ ?>

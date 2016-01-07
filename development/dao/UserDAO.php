@@ -14,7 +14,7 @@ class UserDAO{
 
 	public function updateUserWithoutPassword($first,$last,$occupation,$birth,$gender,$lang,$picture,$id){
 
-		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
+		$sql = 'UPDATE users SET firstname=:firstname,lastname=:lastname,occupation=:occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
@@ -35,7 +35,7 @@ class UserDAO{
 	}
 	public function updateUserWithoutImage($first,$last,$pass,$occupation,$birth,$gender,$lang,$id){
 
-		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,password=:password,occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
+		$sql = 'UPDATE users SET firstname=:firstname,lastname=:lastname,password=:password,occupation=:occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
@@ -55,7 +55,7 @@ class UserDAO{
 
 	public function updateUserWithoutImageAndPassword($first,$last,$occupation,$birth,$gender,$lang,$id){
 
-		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
+		$sql = 'UPDATE users SET firstname=:firstname,lastname=:lastname,occupation=:occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
@@ -73,7 +73,7 @@ class UserDAO{
 	}
 	public function updateUser($first,$last,$pass,$occupation,$birth,$gender,$lang,$picture,$id){
 
-		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,password=:password,occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
+		$sql = 'UPDATE users SET firstname=:firstname,lastname=:lastname,password=:password,occupation=:occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
