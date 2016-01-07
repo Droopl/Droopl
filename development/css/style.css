@@ -224,6 +224,7 @@ header#menu div nav ul li.notifications ul{
 header#menu div nav ul li.notifications ul.show{
     top: 65px;
 	height: auto;
+    min-height: 212px; 
 	max-height: 212px;
 	border: 1px solid #E8E8EA;
     width: 250px;
