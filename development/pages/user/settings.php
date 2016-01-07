@@ -298,7 +298,7 @@
                                     <li class="nl"><span class="nl-flag"></span>Nederlands</li>
                                     <li class="fr"><span class="fr-flag"></span>Français</li>
                                 </ul>
-                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="en">
+                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="<?php echo $user['lang']; ?>">
                 </div>
                 <?php if($user['gender'] == "m"){ ?>
                     <div class="switch-gender">

@@ -50,7 +50,7 @@ class UserController extends AppController{
 			$lastname = "";
 			$password = "";
 			$occupation = "";
-			$date = "";
+			$date = new Date();
 			$gender = "";
 			$lang = "";
 			$image = "";
@@ -72,18 +72,15 @@ class UserController extends AppController{
 						$errors = true;
 					}
 
-					print_r($_POST);
 					if(!empty($_POST["new_pass"]) && !empty($_POST["repeat_new_pass"]) && $_POST["new_pass"] == $_POST["repeat_new_pass"]){
 						$password = $_POST["new_pass"];
-					}else{
-						$errors = true;
 					}
+
 
 					if(!empty($_POST["birth_date"])){
 						$date = $_POST["birth_date"];
-					}else{
-						$errors = true;
 					}
+
 
 					if(!empty($_POST["selected-lang"])){
 						$lang = $_POST["selected-lang"];
@@ -124,12 +121,36 @@ class UserController extends AppController{
 					}
 
 					if(!$errors){
-						echo "heey";
-						if($image != ""){
-							$this->redirect("?page=404");
-						}else{
-							$this->redirect("?page=communities");
+
+						$noimage = false;
+						$nopassword = false;
+						if($password == ""){
+							$nopassword = true;
 						}
+						if($image == ""){
+							$noimage = true;
+						}
+
+						$user = array();
+
+						if($noimage && $nopassword){
+
+							$user = $this->userDAO->updateUserWithoutImageAndPassword($firstname,$lastname,$occupation,$date,$gender,$lang,$_SESSION["user"]["id"]);
+
+						}else if($noimage){
+							$user = $this->userDAO->updateUserWithoutImage($firstname,$lastname,$password,$occupation,$date,$gender,$lang,$_SESSION["user"]["id"]);
+
+						}else if($nopassword){
+							$user = $this->userDAO->updateUserWithoutPassword($firstname,$lastname,$occupation,$date,$gender,$lang,$image,$_SESSION["user"]["id"]);
+						}else{
+							$user = $this->userDAO->updateUser($firstname,$lastname,$password,$occupation,$date,$gender,$lang,$image,$_SESSION["user"]["id"]);
+						}
+
+						if(!empty($user) && $_SESSION["user"] != $user){
+							$_SESSION["user"] = $user;
+						}
+
+						$this->redirect("?page=user&id=".$_SESSION["user"]["id"]);
 
 					}
 

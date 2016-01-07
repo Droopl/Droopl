@@ -12,6 +12,86 @@ class UserDAO{
 
 	}
 
+	public function updateUserWithoutPassword($first,$last,$occupation,$birth,$gender,$lang,$picture,$id){
+
+		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':firstname',$first);
+		$stmt->bindValue(':lastname',$last);
+		$stmt->bindValue(':occupation',$occupation);
+		$stmt->bindValue(':age',$birth);
+		$stmt->bindValue(':gender',$gender);
+		$stmt->bindValue(':lang',$lang);
+		$stmt->bindValue(':picture',$picture);
+		$stmt->bindValue(':id',$id);
+
+
+		if($stmt->execute()){
+
+			return $this->getUserById($this->pdo->lastInsertId());
+
+		}
+		return false;
+	}
+	public function updateUserWithoutImage($first,$last,$pass,$occupation,$birth,$gender,$lang,$id){
+
+		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,password=:password,occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':firstname',$first);
+		$stmt->bindValue(':lastname',$last);
+		$stmt->bindValue(':password',sha1(Config::SALT.$pass));
+		$stmt->bindValue(':occupation',$occupation);
+		$stmt->bindValue(':age',$birth);
+		$stmt->bindValue(':gender',$gender);
+		$stmt->bindValue(':lang',$lang);
+		$stmt->bindValue(':id',$id);
+
+
+		if($stmt->execute()){
+			return $this->getUserById($this->pdo->lastInsertId());
+		}
+		return false;
+	}
+
+	public function updateUserWithoutImageAndPassword($first,$last,$occupation,$birth,$gender,$lang,$id){
+
+		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,occupation,age=:age,gender=:gender,lang=:lang WHERE id=:id;';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':firstname',$first);
+		$stmt->bindValue(':lastname',$last);
+		$stmt->bindValue(':occupation',$occupation);
+		$stmt->bindValue(':age',$birth);
+		$stmt->bindValue(':gender',$gender);
+		$stmt->bindValue(':lang',$lang);
+		$stmt->bindValue(':id',$id);
+
+
+		if($stmt->execute()){
+			return $this->getUserById($this->pdo->lastInsertId());
+		}
+		return false;
+	}
+	public function updateUser($first,$last,$pass,$occupation,$birth,$gender,$lang,$picture,$id){
+
+		$sql = 'UPDATE table_name SET firstname=:firstname,lastname=:lastname,password=:password,occupation,age=:age,gender=:gender,lang=:lang,picture = :picture WHERE id=:id;';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':firstname',$first);
+		$stmt->bindValue(':lastname',$last);
+		$stmt->bindValue(':password',sha1(Config::SALT.$pass));
+		$stmt->bindValue(':occupation',$occupation);
+		$stmt->bindValue(':age',$birth);
+		$stmt->bindValue(':gender',$gender);
+		$stmt->bindValue(':lang',$lang);
+		$stmt->bindValue(':picture',$picture);
+		$stmt->bindValue(':id',$id);
+
+
+		if($stmt->execute()){
+			return $this->getUserById($this->pdo->lastInsertId());
+		}
+		return false;
+	}
+
 	public function register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
 
 		return $this->addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
