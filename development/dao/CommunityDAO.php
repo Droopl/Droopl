@@ -83,7 +83,7 @@ class CommunityDAO{
 
 		return array();
 	}
-	public function getAllCommunities(){
+	public function getAllCommunities($search){
 
 		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(
         SELECT COUNT(*)
@@ -99,8 +99,11 @@ class CommunityDAO{
         LEFT OUTER JOIN community_quests as cq
 		ON cq.quest_id = p.quest_id
         ) AS propos
-        FROM communities c ORDER BY c.creation_date DESC';
+        FROM communities c
+				WHERE c.community_name LIKE :entry  ORDER BY c.creation_date DESC LIMIT 10';
+
 		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':entry',$search."%");
 
 		if($stmt->execute()){
 

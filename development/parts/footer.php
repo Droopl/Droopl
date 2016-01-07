@@ -261,19 +261,6 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
         </ul>
     </nav>
     <?php } ?>
-    <div id="fb-root"></div>
-    <script>
-    window.fbAsyncInit = function() {
-    FB.init({appId: '1277682118924586', status: true, cookie: true,
-    xfbml: true});
-    };
-    (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-    '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-    }());
-    </script>
 </footer>
 </body>
 </html>

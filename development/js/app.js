@@ -581,23 +581,7 @@ $(function(){
   });
 
     $("article div.feed section.quest footer a.proposal").bind("click",getDetail);
-    $("article div.feed section.quest footer a.shares").bind("click",shareOnFacebook);
-
-    function shareOnFacebook(e) {
-        e.preventDefault();
-        $(this).bind("click",function (e) {
-            e.preventDefault();
-        });
-
-        var url = $(this).attr("href");
-        console.log(url);
-        FB.ui({
-          method: 'feed',
-          link: url,
-          caption: 'An example caption',
-        }, function(response){});
-    }
-
+    
 
 
     $("#side section header nav.stars").bind("click",ratePerson);
@@ -1076,14 +1060,14 @@ $(function(){
 
     if($("article.register").length){
         dragAndDrop();
-        
-        
-        
+
+
+
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             e.preventDefault();
             //$(this).find("#search_location").blur();
         });
-        
+
         $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").on("keydown",function(e){
             var key = e.keyCode;
             console.log(key);

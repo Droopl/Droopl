@@ -188,9 +188,14 @@ class CommunityController extends AppController{
 	public function communities(){
 
 		$communities = array();
+		$search = "";
+
+		if(!empty($_GET["search_full"])){
+			$search = $_GET["search_full"];
+		}
 
 		if(isset($_SESSION['user'])){
-			$communities = $this->communityDAO->getAllCommunities();
+			$communities = $this->communityDAO->getAllCommunities($search);
 		}
 
 		if(!empty($_POST)){
