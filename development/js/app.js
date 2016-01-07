@@ -486,6 +486,10 @@ $(function(){
     }
 
 
+    $("article section.communities #search_communities").bind("keyup",function () {
+        $( "article section.communities aside.communities" ).load( "?page=communities&search_full="+$(this).val()+" article section.communities aside.communities section.community");
+    });
+
 
     function handleFileUpload(input){
         var upload = $(input).parent();
@@ -581,7 +585,7 @@ $(function(){
   });
 
     $("article div.feed section.quest footer a.proposal").bind("click",getDetail);
-    
+
 
 
     $("#side section header nav.stars").bind("click",ratePerson);
@@ -596,6 +600,8 @@ $(function(){
             }
         }
     }
+
+
 
     $("article aside#side section.quest ul li a").bind("click",getDetail);
     function getDetail(e) {
