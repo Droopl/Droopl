@@ -1,7 +1,7 @@
 <div class="messages">
 <aside class="conversations">
     <form id="search-conversations">
-        <input type="text" placeholder="Search conversations ..." id="search-conversations-input" name="search-conversations-input">
+        <input type="text" placeholder="<?php echo $_SESSION['lang']['conversationSearch']; ?>" id="search-conversations-input" name="search-conversations-input">
         <input type="button" id="submit-search-conversations" value="">
         <input type="button" id="new-conversation-btn" name="new-conversation-btn" value="">
     </form>
@@ -30,7 +30,7 @@
 			<?php } }else{ ?>
 				<li>
 					<div class="empty">
-						<span class="icon-circle-plus"></span>Create a new conversation <span class="icon-arrow-up"></span>
+						<span class="icon-circle-plus"></span><?php echo $_SESSION['lang']['conversationCreate']; ?><span class="icon-arrow-up"></span>
 					</div>
 				</li>
       <?php }?>
@@ -104,10 +104,10 @@
 
 					<header>
 							<h1 class="messages"><span class="hide">no conversations</span></h1>
-							<h2>No conversations don't worry</h2>
+							<h2><?php echo $_SESSION['lang']['noConversationTitle']; ?></h2>
 					</header>
-					<p>When you start a converation, you add an extra functionality to droopl , wait and see.</p>
-					<a href="?page=messages&action=create">start a conversation</a>
+					<p><?php echo $_SESSION['lang']['noConversationText']; ?></p>
+					<a href="?page=messages&action=create"><?php echo $_SESSION['lang']['startConversation']; ?></a>
 				</div>
 
 			<?php } ?>

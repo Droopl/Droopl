@@ -282,7 +282,7 @@
 		<h2 <?php if(isset($_SESSION['user']) && $value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
 
 		if(!empty($_GET['filter']) && $_GET['filter'] == "popular"){
-			echo $value['views']." views";
+			echo $value['views'].' '.$_SESSION['lang']['feedViews'];
 		}else if(!empty($_GET['filter']) && $_GET['filter'] == "nearby"){
 			echo intval($value['distance'])." km";
 		}else{

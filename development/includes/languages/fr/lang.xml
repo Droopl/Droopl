@@ -34,6 +34,17 @@
    <filterpropos>Propos</filterpropos>
    <filtercollection>Collection</filtercollection>
    <filterfollowers>Followers</filterfollowers>
+    
+   <timeHours>Heures</timeHours>
+    <timeMinutes>Minutes</timeMinutes>
+    <timeSeconds>Seconds</timeSeconds>
+    <timeNow>A l'instant</timeNow>
+    <feedViews>vues</feedViews>
+    <conversationSearch>Chercher des conversations ...</conversationSearch>
+    <conversationCreate>Nouveau message</conversationCreate>
+    <noConversationTitle>Vous n'avez pas encore de conversations</noConversationTitle>
+    <noConversationText>Lorsque vous démarrez une nouvelle conversation, vous ajoutez une nouvelle fonctionalité à droopl.</noConversationText>
+    <startConversation>Démarrez une conversation</startConversation>
 
    <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
    <feedback>Feedback</feedback>
