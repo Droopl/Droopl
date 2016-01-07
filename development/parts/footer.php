@@ -252,6 +252,7 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
 </article>
 <footer id="foot">
 	<header class="hide"><h1>Footer</h1></header>
+    <?php if($isMobile){ ?>
     <nav>
         <ul>
             <li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><span class="icon-layout"></span><?php echo $_SESSION['lang']['menudash']; ?></a></li>
@@ -259,6 +260,7 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
             <li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><span class="icon-globe"></span><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
         </ul>
     </nav>
+    <?php } ?>
     <div id="fb-root"></div>
     <script>
     window.fbAsyncInit = function() {

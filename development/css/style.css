@@ -154,7 +154,7 @@ header#menu div form input[type="button"]{
 	border: none;
 	background-image: url(../images/assets/search_btn.svg);
 	background-size: 14px;
-	background-color: white;
+	background-color: rgba(0, 0, 0, 0);;
 	background-position: center;
 	background-repeat: no-repeat;
     cursor: pointer;
@@ -3257,6 +3257,11 @@ article.search ul.search_results li.part ul{
     display: inline-block;
     width: 100%;
 }
+article.search ul.search_results li.part ul li li{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}}
 article.search ul.search_results li.quest{
 
     float: left;

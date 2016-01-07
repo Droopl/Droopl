@@ -571,7 +571,7 @@ $(function(){
       });
   });
 
-    $("article div.feed section.quest footer a.proposal").on("click",getDetail);
+    $("article div.feed section.quest footer a.proposal").bind("click",getDetail);
     $("article div.feed section.quest footer a.shares").bind("click",shareOnFacebook);
 
     function shareOnFacebook(e) {
@@ -589,16 +589,19 @@ $(function(){
         }, function(response){});
     }
 
-    $("article aside#side section.quest ul li a").on("click",getDetail);
+    $("article aside#side section.quest ul li a").bind("click",getDetail);
     function getDetail(e) {
+
       e.preventDefault();
-
-      var url = $(this).attr("href");
       preloader(true);
-
+      var button = $(this);
+      button.unbind("click");
+      var url = $(this).attr("href");
+      console.log(url);
       $.get( url, function( data ) {
 
         preloader(false);
+        button.bind("click",getDetail);
 
         var section = $(data).find(".feed");
 

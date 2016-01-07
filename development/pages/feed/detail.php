@@ -232,7 +232,7 @@
         </nav>
     </section>
 </aside>
-<?php ?>
+<?php } ?>
 <div class="feed">
 <section class="quest" id="<?php echo $quest['quest_id']; ?>">
 <header>
@@ -411,7 +411,7 @@
         <p>Your quest is completed</p>
     </div>
 
-   <?php  } ?>
+   <?php } ?>
 </div>
 </footer>
 </section>
