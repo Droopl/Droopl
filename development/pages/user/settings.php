@@ -27,7 +27,7 @@
                 <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
                 <label for="repeat_new_pass">Repeat password:</label>
                 <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
-                <label for="street">Street:</label>
+                <!--<label for="street">Street:</label>
                 <input type="text" id="street" name="street" value="<?php echo $user['street']; ?>">
                 <label for="street_nr">Streetnumber:</label>
                 <input type="text" id="street_nr" name="street_nr" value="<?php echo $user['nr']; ?>">
@@ -288,7 +288,7 @@
                     <option value="YE">Yemen</option>
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
-                </select>
+                </select>-->
                 <input type="date" id="birth_date" name="birth_date" value="<?php echo $user['age']; ?>" placeholder="Date of birth">
                 <div class="select-language">
                                 <h1>Language: </h1>
