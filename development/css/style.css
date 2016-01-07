@@ -3531,7 +3531,6 @@ article.settings{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.4);
-    overflow: scroll;
 }
 article.settings div.feed{
     float: left;
@@ -3541,6 +3540,7 @@ article.settings div.feed{
     box-sizing: border-box;
     margin: 0 auto;
     position: relative;
+    overflow: scroll;
 }
 article.settings div.feed section.settings-container {
     border-radius: .3em;
