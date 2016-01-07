@@ -361,7 +361,11 @@
             <li class="propo <?php if($quest['id'] == $_SESSION['user']['id']){ echo 'myquest'; }elseif ($value['id'] == $_SESSION['user']['id']) { echo 'mypropo'; }?>" id="<?php echo $value['propo_id']; ?>">
             <ul>
                 <li class="profile-pic">
-                    <img src="images/profile_pictures/<?php echo $value['picture']; ?>">
+                    <?php if(!empty($value['picture'])){ ?>
+                        <img class="profile-img" src="images/profile_pictures/<?php echo $value['picture'];?>">
+                    <?php }else{ ?>
+                        <img class="profile-img" src="images/profile_pictures/notfound.svg">
+                    <?php }?>
                 </li>
                 <li class="profile-name">
                     <p><a href="?page=user&id=<?php echo $value['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $value['lastname']; ?></a> proposed</p>
