@@ -3,7 +3,10 @@
 	<section class="quest">
 		<h1><?php  echo $_SESSION['lang']['sidequest']; ?></h1>
 		<ul>
-			<?php foreach ($publicquests as $id => $val) { ?>
+
+			<?php
+			if(!empty($publicquests)){
+			foreach ($publicquests as $id => $val) { ?>
 			<li>
 				<a href="?page=detail&questid=<?php echo $val['quest_id']; ?>" alt="<?php echo $val['firstname']; ?>">
 					<?php if(!empty($val['picture'])){ ?>
@@ -17,7 +20,14 @@
 				</a>
 			</li>
 
-			<?php } ?>
+			<?php
+
+			}
+		}else{ ?>
+			<li>
+				<a href="?page=feed"><p><span class="icon-repeat"></span> &nbsp;&nbsp;There are no public quests</p></a>
+			</li>
+		<?php } ?>
 
 		</ul>
 	</section>

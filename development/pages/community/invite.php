@@ -1,13 +1,18 @@
 <aside id="side" class="profile">
-    
+
 	<section class="community">
         <header>
         	<div class="profile_pic">
-        		<img src="images/communities/<?php echo $community['community_profile'];?>">
+                <?php if(!empty($community['community_profile'])){ ?>
+                <img src="images/communities/<?php echo $community['community_profile'];?>">
+                <?php }else{ ?>
+                <img class="profile-img" src="images/profile_pictures/notfound.svg">
+                <?php }?>
+
         	</div>
         	<h1><?php echo $community['community_name'];?></h1>
             <h2><?php if($community['genre'] == 0){ echo "Establishment"; }else{ echo "Group";}?></h2>
-        	<nav> 
+        	<nav>
                 <?php if(!$isMember){?>
                 <a href="?page=community&id=<?php echo $_GET['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityjoin']; ?><span class="icon-inbox"></span></a>
                 <?php }else{ ?>
@@ -45,7 +50,7 @@
             <div>
                 <input type="text" id="search_users" name="search_users" placeholder="Search users" tabindex="1">
             </div>
-            
+
         </form>
         <div>
         	<nav class="users">
