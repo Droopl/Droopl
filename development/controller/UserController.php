@@ -45,10 +45,6 @@ class UserController extends AppController{
 		$isFollowed = false;
 
 		if(isset($_SESSION['user'])){
-			$checkFollow = $this->followDAO->checkFollow($_SESSION['user']['id'],$_GET['id']);
-			if(!empty($checkFollow)){
-				$isFollowed = true;
-			}
 
 			$firstname = "";
 			$lastname = "";
@@ -60,6 +56,7 @@ class UserController extends AppController{
 			$image = "";
 
 			if(!empty($_GET["action"]) && $_GET["action"] == "update"){
+
 				if(!empty($_POST)){
 					$errors =  false;
 
@@ -75,6 +72,7 @@ class UserController extends AppController{
 						$errors = true;
 					}
 
+					print_r($_POST);
 					if(!empty($_POST["new_pass"]) && !empty($_POST["repeat_new_pass"]) && $_POST["new_pass"] == $_POST["repeat_new_pass"]){
 						$password = $_POST["new_pass"];
 					}else{
@@ -94,13 +92,13 @@ class UserController extends AppController{
 					}
 
 					if(!empty($_POST["gender"])){
-						$lang = $_POST["gender"];
+						$gender = $_POST["gender"];
 					}else{
 						$errors = true;
 					}
 
-
 					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
+
 
 						$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
 						// thumbnail sizes
@@ -126,7 +124,7 @@ class UserController extends AppController{
 					}
 
 					if(!$errors){
-
+						echo "heey";
 						if($image != ""){
 							$this->redirect("?page=404");
 						}else{
@@ -137,6 +135,13 @@ class UserController extends AppController{
 
 				}
 			}
+
+
+			$checkFollow = $this->followDAO->checkFollow($_SESSION['user']['id'],$_GET['id']);
+			if(!empty($checkFollow)){
+				$isFollowed = true;
+			}
+
 
 		}
 

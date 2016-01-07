@@ -3,18 +3,16 @@
         <section class="settings-container">
             <form action="?page=user&action=update" id="settings-form" method="post" enctype="multipart/form-data">
             <aside class="left">
-                <form id="upload-profile-img">
                     <header id="upload">
                         <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php echo $user['picture']; ?>);border: none">
                             <div class="preloader">
                                 <span class="remove-file hide"><p class="icon-cross"></p></span>
-                                <input type="file" id="collection_image" name="collection_image" accept="image/*">
+                                <input type="file" id="profile_image" name="profile_image" accept="image/*">
                             </div>
                         </div>
                         <h1>Drag and drop</h1>
                         <p>Or press to browse</p>
                     </header>
-                </form>
                 <input type="submit" id="submit_settings" name="submit_settings" value="Save">
             </aside>
             <aside class="right">
