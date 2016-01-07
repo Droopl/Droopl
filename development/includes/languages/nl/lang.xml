@@ -66,6 +66,38 @@
    <filterpropos>Voorstellen</filterpropos>
    <filtercollection>Collectie</filtercollection>
    <filterfollowers>Volgers</filterfollowers>
+    
+    <timeHours>uren</timeHours>
+    <timeMinutes>minutes</timeMinutes>
+    <timeSeconds>seconden</timeSeconds>
+    <timeNow>Juist</timeNow>
+    <feedViews>bekeken</feedViews>
+    <conversationSearch>Zoek gesprekken ...</conversationSearch>
+    <conversationCreate>Nieuw bericht</conversationCreate>
+    <noConversationTitle>U heeft nog geen gesprekken</noConversationTitle>
+    <noConversationText>Wanneer u een nieuw gesprek start, voegd u een nieuwe functie toe aan droopl.</noConversationText>
+    <startConversation>Start een gesprek</startConversation>
+    <newConvSearch>Zoek mensen</newConvSearch>
+    <newConvText>Nieuw bericht</newConvText>
+    <communityTitle>Begin te ruilen tegen mensen van jouw eigen community</communityTitle>
+    <communityText>Onze communities helpen mensen samen te brengen met dezelfde interesses. Ruil met je vrienden, buren of met je collega's. Wij geven je de vrijheid om je eigen community te creëren.</communityText>
+    <createCommunity>Maak community aan</createCommunity>
+    <communityDiscover>Ontdek de meest recente communities</communityDiscover>
+    <communitySearch>Zoek communities</communitySearch>
+    <communityJoin>Joindre</communityJoin>
+    <questCount>Quests</questCount>
+    <proposCount>Propos</proposCount>
+    <membersCount>Leden</membersCount>
+    <settingsHeader>Account instellingen</settingsHeader>
+    <firstName>Voornaam</firstName>
+    <lastName>Familienaam</lastName>
+    <occupation>Bezigheid</occupation>
+    <password>Wachtwoord</password>
+    <repeatPass>Herhaal</repeatPass>
+    <language>Taal</language>
+    <pressBrowse>Of klik om te kiezen</pressBrowse>
+    <save>Opslaan</save>
+    <wishFeedback>Ik zou willen ...</wishFeedback>
 
    <feedbacktitle>Hou droopl leuk door ons wat feedback te geven zodat wij uw ervaring kunnen verbeteren</feedbacktitle>
    <feedback>Feedback</feedback>
