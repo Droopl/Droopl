@@ -49,9 +49,8 @@ $(function(){
         $("section.chat ul li.conversation-bubble div.conversation.open ul li.notseen").each(function () {
 
           var id = $(this).attr("id");
-          console.log(id);
           $.get( "?page=messages&action=seen&messageid="+id, function( data ) {
-            console.log(data);
+
           });
         });
 
@@ -114,10 +113,8 @@ $(function(){
               if(currentConvo.attr("id") == currentBubble.attr("id")){
                 //<span class="new-msg animated-slow infinite pulse"></span>
                 if(currentBubble.find("span.new-msg").length){
-                  console.log("new message");
 
                   if(currentConvo.find("span.new-msg").length){
-                    console.log("already");
                   }else{
                     var pulse = $("<span/>").addClass("new-msg animated-slow infinite pulse");
                     currentConvo.append(pulse);
@@ -205,7 +202,6 @@ $(function(){
         $("article.rating section aside nav ul li").on("click",function () {
           selected = currentSelected;
 
-          console.log(selected);
         });
 
       });
@@ -226,9 +222,7 @@ $(function(){
 
       $("article.rating section footer form").on("submit",function (e) {
           //e.preventDefault();
-          console.log("submit");
           $("article.rating section footer form input#rating").attr("value",selected);
-          console.log( $("article.rating section footer form input#rating"));
 
           /*$.ajax({
             type:"POST",
@@ -320,12 +314,10 @@ $(function(){
 
     if($("article.newconvo section").length){
 
-      console.log("exisits");
 
       $("article.newconvo section #search_people").on("keyup",function (e) {
           $( "article.newconvo section div.search_users ul" ).load( "?page=messages&action=create&search_users="+$(this).val()+" article.newconvo section div.search_users ul li" ,function (e) {
               $("article.newconvo section div.search_users ul li").on("click",function () {
-                console.log("clicked");
                 $("article.newconvo section div.search_users ul li").removeClass("selected");
                 var id = $(this).attr("id");
                 $(this).addClass("selected");
@@ -336,7 +328,6 @@ $(function(){
       });
 
       $("article.newconvo section div.search_users ul li").on("click",function () {
-        console.log("clicked");
         $("article.newconvo section div.search_users ul li").removeClass("selected");
         var id = $(this).attr("id");
         $(this).addClass("selected");
@@ -362,7 +353,6 @@ $(function(){
               if(diff >= 0){
 
                   var percentage = mouseX/$(this).width();
-                  console.log(diff*percentage);
                   var mX = diff*percentage;
                   var posX = 0;
                   var damp = 150;
@@ -436,7 +426,6 @@ $(function(){
 
                     $("div.messages section.messages form textarea").val("");
                     var messages = $("article div.messages section.messages aside ul li");
-                    console.log("sent");
                     var loadedMessages = $(data).find("div.messages section.messages aside ul li");
 
                    $(loadedMessages).each(function(key,newMessages){
@@ -452,7 +441,6 @@ $(function(){
                        });
 
                        if(!found){
-                        console.log("adding");
                         $("article div.messages section.messages aside ul").append($(newMessages).addClass("animated slideInUp"));
 
                          var objDiv = $("article div.messages section.messages aside");
@@ -473,7 +461,6 @@ $(function(){
     function scrollChat () {
       if($("article div.messages section.messages aside")[0].scrollTop + $("article div.messages section.messages aside")[0].scrollHeight > $("article div.messages section.messages aside")[0].scrollHeight - 10){
 
-          console.log('scroll');
           var objDiv = $("article div.messages section.messages aside");
           objDiv.scrollTop(objDiv.scrollHeight);
           $('article div.messages section.messages aside').stop().animate({
@@ -503,7 +490,6 @@ $(function(){
                 $(input).parent().parent().css('background-position', 'center');
                 var uploadFormData = new FormData($("#add_collection")[0]);
                 uploadFormData.append("collection_image",input.files[0]);
-                console.log(uploadFormData);
             };
 
             reader.readAsDataURL(input.files[0]);
@@ -611,7 +597,6 @@ $(function(){
       var button = $(this);
       button.unbind("click");
       var url = $(this).attr("href");
-      console.log(url);
       $.get( url, function( data ) {
 
         preloader(false);
@@ -626,7 +611,6 @@ $(function(){
 
         $("article.detail div.feed section.quest footer div.search-proposal form").on('submit',function (e) {
             e.preventDefault();
-            console.log("submit");
             var formdata = $(this).serialize();
 
             $.ajax({
@@ -634,14 +618,12 @@ $(function(){
               url:$(this).attr("action"),
               data:formdata,
               success:function (data) {
-                  console.log(data);
                 blurCollection();
 
                 var oldPropos = $("article.detail div.feed section.quest .proposals-list ul .propo");
                 var propos = $(data).find(".proposals-list ul .propo");
 
                 if(propos.length > oldPropos.length){
-                  console.log("longer");
                   if($("article.detail div.feed section.quest footer div.proposals-list ul div.no-proposals-container").length){
                       $("article.detail div.feed section.quest footer div.proposals-list ul div.no-proposals-container").remove();
                   }
@@ -672,7 +654,6 @@ $(function(){
         $("article.detail div.feed section.quest header a.close").on("click",function (e) {
 
           e.preventDefault();
-          console.log("close");
           $("article.detail").addClass("hide");
           $("article.detail div.feed").remove();
 
@@ -681,7 +662,6 @@ $(function(){
         $(window).on("keyup",function (e) {
             switch(e.keyCode){
               case 27:
-               console.log("close");
                $("article.detail").addClass("hide");
                $("article.detail div.feed").remove();
               break;
@@ -720,7 +700,6 @@ $(function(){
         $("article.collection_item div.feed section.detail-collection-item form aside a.close-collection-detail").on("click",function (e) {
 
           e.preventDefault();
-          console.log("close");
           $("article.collection_item").addClass("hide");
           $("article.collection_item div.feed").remove();
 
@@ -754,7 +733,6 @@ $(function(){
 
                     preloader(false);
 
-                    console.log(data);
                   var section = $(data).find(".feed");
 
 
@@ -778,7 +756,6 @@ $(function(){
                 /* SETTINGS LANG */
 
                 $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
-                    console.log("oki");
                     if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
                         $("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").addClass("show");
                     }else{
@@ -905,12 +882,10 @@ $(function(){
 
     function scrollDetailCollection(e) {
           var diff = $(this).find('ul').outerWidth() - $(this).outerWidth();
-          console.log(diff);
 
           if(diff >= 0){
               var mouseX = e.pageX - $(this).offset().left;
               var percentage = mouseX/$(this).width();
-              console.log(diff*percentage);
               var mX = diff*percentage;
               var posX = 0;
               var damp = 150;
@@ -945,14 +920,12 @@ $(function(){
           $.get( url, function( data ) {
 
             preloader(false);
-            console.log(data);
             var section = $(data).find(".feed");
 
             $("article.add_collection").removeClass("hide");
             section.addClass("animated fadeInUpBig").insertAfter("article.add_collection header.add_collection");
 
             $("article.add_collection section.add-collection-item span.close-add").on("click", function(){
-                console.log("CLOSE");
               $("article.add_collection").addClass("hide");
                $("article.add_collection .feed").remove();
 
@@ -1076,7 +1049,6 @@ $(function(){
 
         $("article.register div.register-box div.container section.step_1 form aside.left input[type='date']").on("keydown",function(e){
             var key = e.keyCode;
-            console.log(key);
             switch(key){
                 case 9:
                 e.preventDefault();
@@ -1167,7 +1139,6 @@ $(function(){
                     contentType: false,
                     processData: false,
                     success:function (data) {
-                        console.log(data);
 
                         if(data == 1){
 
@@ -1214,13 +1185,11 @@ $(function(){
                     contentType: false,
                     processData: false,
                     success:function (data) {
-                        console.log(data);
 
                         if(data == "1"){
 
                             validationCodeId = data.split(" ")[1];
                             validationCode = data.split(" ")[2];
-                            console.log(validationCodeId);
 
                             $("article.register div.register-box div.container section.step_2").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");
@@ -1317,7 +1286,6 @@ $(function(){
                         break;
 
                         case 37:
-                        console.log("37");
                         if(currentPage !== 0){
                             $("article.register div.register-box nav.pages ul li").removeClass("current");
                             $.each(navPages,function(key,val){
@@ -1417,7 +1385,6 @@ $(function(){
             var reader = new FileReader();
 
             reader.onload = function (e) {
-              console.log(e.target.result);
 
               $('#quest .upload_image').addClass('animated fadeOut');
               $('#quest .uploaded_image').removeClass("hide");
@@ -1483,10 +1450,8 @@ $(function(){
 	           {
 
                preloader(false);
-              console.log(data);
                     $("#quest input[type='text']").val("");
                     var quests = $(".feed .quest");
-	           		console.log("sent");
 				    var feed = $(data).find(".feed .quest");
 
                    $(feed).each(function(key,newquest){
@@ -1502,7 +1467,6 @@ $(function(){
                      });
 
                      if(!found){
-                     	console.log("adding");
 
                      	$(newquest).addClass("animated fadeIn").insertAfter(".feed .post");
 
@@ -1616,7 +1580,6 @@ $(function(){
             // serializes the form's elements.
             success: function(data) {
                 var bool = $(data).find("#loggedin").html();
-                console.log(bool);
                 $("#login").removeClass();
                 if (bool == "false") {
                     $("#login").addClass("animated shake");
@@ -1690,12 +1653,9 @@ $(function(){
           var url = $(location).attr('href');
           $.get( url+"&part="+part, function( data ) {
 
-            console.log(part);
-
           var quests = $(".feed .quest");
           var loadedQuest = $(data).find(".feed .quest");
 
-          console.log(loadedQuest.length);
           if(loadedQuest.length > 1){
 
              $(loadedQuest).each(function(key,newquest){
@@ -1754,7 +1714,6 @@ $(function(){
 
 	$("header#menu div nav ul li.notifications .icon-bell").on("click",function  () {
 
-        console.log("CLICKED");
 
 		//$("header#menu div nav ul li.profile img").next().removeClass("show");
 
@@ -1765,11 +1724,8 @@ $(function(){
 
 
             var elements = $(this).parent().find("li");
-            console.log(elements);
             elements.each(function (key,val) {
-                console.log(val);
                 if($(val).hasClass("notseen")){
-                  console.log("seen");
                   var id =$(val).attr("id");
                   var data = {"notification_id": id};
 
@@ -1855,19 +1811,15 @@ $(function(){
                 $("article div.feed section.post div input#item").on("keyup",function () {
                   $("article div.feed section.post form div.collection ul li");
                   var itemName = $(this).val().toLowerCase();
-                  console.log(itemName);
                   var collectionItems = $("article div.feed section.post form div.collection ul li p span");
 
                   $.each(collectionItems,function (id,item) {
-                    console.log($(item).text());
 
                     var itemText = $(item).text().toLowerCase();
 
                     if(itemText.indexOf(itemName) != -1){
-                      console.log("found");
                       $(item).parent().parent().fadeIn();
                     }else{
-                      console.log("not found");
                       $(item).parent().parent().fadeOut();
                     }
                   });
@@ -2038,7 +1990,6 @@ $(function(){
             $("article.detail div.feed section.quest footer div.search-proposal form input[type='text']").val("");
 
             var lang = $("div.js-language").html();
-            console.log("click");
             $("article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item").removeClass("show");
             $("article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item").attr("id","");
             $("article.detail div.feed section.quest footer div.search-proposal form input[type='text']").attr("value","");
@@ -2133,7 +2084,6 @@ $(function(){
         $("article.detail div.feed section.quest footer div.search-proposal form input[type='text']").val(saveVal);
 
         var lang = $("div.js-language").html();
-        console.log("click");
         $(this).parent().removeClass("show");
         $("article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item").attr("id","");
         $("article.detail div.feed section.quest footer div.search-proposal form input#collection_item").attr("value","");
@@ -2167,7 +2117,6 @@ $(function(){
         $("article div.feed section.post form input#item").val(saveVal);
 
         var lang = $("div.js-language").html();
-        console.log("click");
         $(this).parent().removeClass("show");
         $("article div.feed section.post form div div.added-collection-item").attr("id","");
         $("article div.feed section.post form div.collection input#collection_item").attr("value","");
@@ -2236,7 +2185,6 @@ $(function(){
               section.addClass("animated fadeInUpBig").insertAfter("article.add_collection header.add_collection");
 
               $("article.add_collection section.add-collection-item span.close-add").on("click", function(){
-                  console.log("CLOSE");
                 $("article.add_collection").addClass("hide");
                  $("article.add_collection .feed").remove();
 
@@ -2291,7 +2239,6 @@ $(function(){
 
     function dragAndDrop() {
 
-        console.log("DRAG AND DROP ACTIVE");
         var obj = $("#dragndrop input[type='file']");
         obj.on('dragenter', function (e)
         {
@@ -2359,7 +2306,6 @@ $(function(){
         var userCoordinates = $("div.user-coordinates").html().split(" ");
         var userLatitude = parseFloat(userCoordinates[0])-0.004;
         var userLongitude = parseFloat(userCoordinates[1]);
-        console.log(userLongitude);
         var myLatlng = new google.maps.LatLng(userLatitude,userLongitude);
         var mapOptions = {
           center: { lat: userLatitude, lng: userLongitude},
@@ -2546,27 +2492,22 @@ $(function(){
 
                         case "route":
                         street = component['long_name'];
-                        console.log(street);
                         break;
 
                         case "street_number":
                         number = component['long_name'];
-                        console.log(number);
                         break;
 
                         case "postal_code":
                         zipcode = component['long_name'];
-                        console.log(zipcode);
                         break;
 
                         case "locality":
                         city = component['long_name'];
-                        console.log(city);
                         break;
 
                         case "country":
                         country = component['long_name'];
-                        console.log(country);
                         break;
 
                       }
@@ -2636,7 +2577,6 @@ $(function(){
 
                 coordinates = [latitude,longitude];
 
-                console.log(latitude,longitude);
 
                 setAdress();
                 setCenter();
