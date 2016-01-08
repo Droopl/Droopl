@@ -12,7 +12,7 @@
     <meta property="og:type"               content="website" />
     <meta property="og:title"              content="Droopl" />
     <meta property="og:description"        content="We innovate the way you will consume tomorrow" />
-    <meta property="og:image"              content="http://droopl.com/images/logo.jpg" />
+    <meta property="og:image"              content="http://droopl.com/images/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />

@@ -73,7 +73,7 @@ a[href^="https://maps.google.com/maps"]{display:none !important}
 }
 
 body{
-	font-family: Roboto;
+	font-family: Roboto,sans-serif;
 	background-color: #F4F4F4;
 	letter-spacing: .5px;
 	color: #3E454C;
@@ -1614,7 +1614,7 @@ article div.feed section.post form div select{
     top: 50%;
     margin-top: -10px;
     border: none;
-    width: 40px;
+    width: auto;
     text-align: center;
     height: 20px;
     color: #F47D67;
