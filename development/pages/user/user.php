@@ -10,7 +10,7 @@
                 <?php }?>
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>
-            <h2><?php echo $user['occupation'];?></h2>
+            <h2><?php if(!empty($user['occupation'])){ echo $user['occupation']; }else{ echo "no occupation"; }?></h2>
         	<nav <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ echo "class='stars'"; }else{ echo "class='stars marg-bottom'"; } ?>>
         		<ul>
                     <?php
@@ -45,15 +45,15 @@
         <div class="description-container">
             <ul>
                 <li>
-                    <span class="bluetxt">Quests</span>
+                    <span class="bluetxt"><?php echo $_SESSION['lang']['questCount']; ?></span>
                     <p><?php echo $user['quests']; ?></p>
                 </li>
                 <li>
-                    <span class="orangetxt">propos</span>
+                    <span class="orangetxt"><?php echo $_SESSION['lang']['proposCount']; ?></span>
                     <p><?php echo $user['proposals']; ?></p>
                 </li>
                 <li>
-                    <span class="purpletxt">Followers</span>
+                    <span class="purpletxt"><?php echo $_SESSION['lang']['followersCount']; ?></span>
                     <p><?php echo $user['followers']; ?></p>
                 </li>
             </ul>

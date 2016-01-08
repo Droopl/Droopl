@@ -222,7 +222,7 @@
                     </div>
                 </header>
                 <textarea placeholder="<?php echo $_SESSION['lang']['feedbackText']; ?>" required id="feedback" name="feedback"></textarea>
-                <input type="submit" id="feedback_btn" name="feedback_btn" value="send feedback">
+                <input type="submit" id="feedback_btn" name="feedback_btn" value="<?php echo $_SESSION['lang']['feedbackBtn']; ?>">
             </form>
         </section>
     </div>

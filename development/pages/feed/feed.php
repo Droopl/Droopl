@@ -32,7 +32,7 @@
 		</ul>
 	</section>
     <section class="collection">
-        <h1><?php  echo $_SESSION['lang']['sidecollection']; ?></h1>
+        <h1><a class="link" href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&filter=collection"><?php  echo $_SESSION['lang']['sidecollection']; ?></a></h1>
 
         <?php if(!empty($collection)){ ?>
 
@@ -144,7 +144,7 @@
 </ul>
 	</section>
 	<section class="communities">
-		<header><h1><?php  echo $_SESSION['lang']['sidecommunities']; ?></h1></header>
+		<header><h1><a class="link" href="?page=communities"><?php  echo $_SESSION['lang']['sidecommunities']; ?></a></h1></header>
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
@@ -342,8 +342,8 @@
 
 				<li>
 					<ul class="options">
-						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span>Complete</span></a></li>
-						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span>Remove</span></a></li>
+						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=complete" class="icon-check"><span><?php echo $_SESSION['lang']['questComplete']; ?></span></a></li>
+						<li><a href="?page=detail&questid=<?php echo $value['quest_id']; ?>&action=remove" class="icon-cross"><span><?php echo $_SESSION['lang']['questRemove']; ?></span></a></li>
 					</ul>
 				</li>
 			</ul>

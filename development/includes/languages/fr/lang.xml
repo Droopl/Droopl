@@ -66,8 +66,17 @@
     <pressBrowse>Ou cliquer pour choisir</pressBrowse>
     <save>Enregistrer</save>
     <wishFeedback>J'aimerais pouvoir ...</wishFeedback>
+    <proposeItem>Proposez un objet de votre collection</proposeItem>
+    <followersCount>Followers</followersCount>
+    <wonQuest>A gagné cette quête. Félicitations !</wonQuest>
+    <questComplete>Clôturer</questComplete>
+    <questRemove>Supprimer</questRemove>
+    <noPropos>Cette quête n'a pas encore de propositions</noPropos>
+    <questCompletedHeader>Quête clôturée</questCompletedHeader>
+    <questCompletedText>Cette quête a été clôturée</questCompletedText>
+    <feedbackBtn>Envoyer</feedbackBtn>
 
-   <feedbacktitle>Aidez-nous à ce que droopl reste fun en nous donnant du feedback et améliorer votre expérience !</feedbacktitle>
+   <feedbacktitle>Aidez-nous à ce que droopl reste fun. Dites-nous ce que vous en pensez et améliorer votre expérience !</feedbacktitle>
    <feedback>Feedback</feedback>
    <feedbackbug>Bug</feedbackbug>
    <feedbackText>J'aimerais pouvoir ...</feedbackText>

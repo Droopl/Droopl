@@ -244,43 +244,11 @@
 <?php }?>
 <h1><a href="?page=user&id=<?php echo $quest['id']; ?>"> <?php echo $quest['firstname']; echo " "; echo $quest['lastname'];?></a><?php if($quest['type'] == 0){
 
-    switch ($_SESSION['language']) {
-        case 'en':
-        echo "is looking for ";
-        break;
-
-        case 'nl':
-        echo "zoekt een ";
-        break;
-
-        case 'fr':
-        echo "cherche ";
-        break;
-
-        default:
-        echo "is looking for ";
-        break;
-    }
+    echo $_SESSION['lang']['questlooking'];
 
 }else{
 
-    switch ($_SESSION['language']) {
-        case 'en':
-        echo "is offering ";
-        break;
-
-        case 'nl':
-        echo "biedt aan ";
-        break;
-
-        case 'fr':
-        echo "propose ";
-        break;
-
-        default:
-        echo "is offering ";
-        break;
-    }
+    echo $_SESSION['lang']['questoffering'];
 
 }?></h1>
     <?php if($quest['type'] == 1){ ?>
@@ -310,7 +278,7 @@
             <div class="search-proposal">
                 <form action="?page=detail&questid=<?php echo $_GET['questid']; ?>" method="post">
 
-                     <input type="text" placeholder="Propose an item from your collection" name="search_proposals" id="search_proposals">
+                     <input type="text" placeholder="<?php echo $_SESSION['lang']['proposeItem']; ?>" name="search_proposals" id="search_proposals">
                     <input type="submit" name="submit_search" id="submit_search" value>
                     <input type="text" id="collection_item" name="collection_item" class="hide" value="">
                     <div class="added-collection-item">
@@ -342,7 +310,7 @@
 
         <div class="hide collection no-collection-items">
             <header class="marg-bottom">
-                <h1 class="collection"><span class="hide">no more quests</span></h1>
+                <h1 class="collection"><span class="hide">no collection items</span></h1>
                 <h2>You don't have any collection items yet.<a class="post-add-collection-item">Add item</a></h2>
             </header>
         </div>
@@ -368,7 +336,7 @@
                     <?php }?>
                 </li>
                 <li class="profile-name">
-                    <p><a href="?page=user&id=<?php echo $value['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $value['lastname']; ?></a> proposed</p>
+                    <p><a href="?page=user&id=<?php echo $value['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $value['lastname'].' '; ?></a><?php echo $_SESSION['lang']['questoffering']; ?></p>
                 </li>
                 <li class="collection-pic">
                     <img src="images/collection/<?php echo $value['collection_image']; ?>">
@@ -395,7 +363,7 @@
 
         <div class="no-proposals-container">
             <h1 class="no-proposals-icon"></h1>
-            <p class="no-proposals-yet">There are no proposals yet</p>
+            <p class="no-proposals-yet"><?php echo $_SESSION['lang']['noPropos']; ?></p>
         </div>
 
     <?php } ?>
@@ -408,14 +376,14 @@
     <div class="trophy">
         <img src="images/assets/propo_accepted_trophy.svg">
         <header><h1><?php echo $acceptedProposal['firstname']." ".$acceptedProposal['lastname'];?></h1></header>
-        <p>Has won this! quest congratulations</p>
+        <p><?php echo $_SESSION['lang']['wonQuest']; ?></p>
      </div>
 
    <?php }else if($completed){ ?>
     <div class="trophy">
         <img src="images/assets/quest_completed.svg">
-        <header><h1>Quest Completed</header>
-        <p>Your quest is completed</p>
+        <header><h1><?php echo $_SESSION['lang']['questCompletedHeader']; ?></header>
+        <p><?php echo $_SESSION['lang']['questCompletedText']; ?></p>
     </div>
 
    <?php } ?>
