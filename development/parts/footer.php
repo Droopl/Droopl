@@ -126,28 +126,9 @@
                 </header>
                 <textarea placeholder="<?php echo $_SESSION['lang']['addCommunityDescription']; ?>" id="community_description" name="community_description"></textarea>
                 <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
-<<<<<<< Updated upstream
-                <input type="submit" id="add_item" name="add_item" value="Add Item">
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <input type="submit" id="add_item" name="add_item" value="<?php echo $_SESSION['lang']['addCommunityBtn']; ?>">
                 
-=======
-                <input type="submit" id="add_item" name="add_item" value="Add Item">
-
->>>>>>> origin/master
-=======
-                <input type="submit" id="add_item" name="add_item" value="Add Item">
-
->>>>>>> origin/master
-=======
-                <input type="submit" id="add_item" name="add_item" value="Add Item">
-
->>>>>>> origin/master
->>>>>>> Stashed changes
             </aside>
         </form>
     </section>
