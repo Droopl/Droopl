@@ -127,12 +127,7 @@
                 <textarea placeholder="Description" id="community_description" name="community_description"></textarea>
                 <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
                 <input type="submit" id="add_item" name="add_item" value="Add Item">
-                <div class="privacy_slider">
-                    <div class="bar">
-                        <div class="slider"><span class="icon-unlock"></span></div>
-                        <span></span>
-                    </div>
-                </div>
+                
             </aside>
         </form>
     </section>

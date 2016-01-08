@@ -40,8 +40,8 @@
     <timeSeconds>Seconds</timeSeconds>
     <timeNow>Just now</timeNow>
     <feedViews>views</feedViews>
-    <conversationSearch>Zoek conversaties ...</conversationSearch>
-    <conversationCreate>Nieuw bericht</conversationCreate>
+    <conversationSearch>Search Conversations ...</conversationSearch>
+    <conversationCreate>New Message</conversationCreate>
     <noConversationTitle>You don't have any conversations yet</noConversationTitle>
     <noConversationText>When you start a new conversation on droopl you unlock a new feature</noConversationText>
     <startConversation>Start a conversation</startConversation>
@@ -54,18 +54,18 @@
     <communitySearch>Search for communities</communitySearch>
     <communityJoin>Join</communityJoin>
     <questCount>Quests</questCount>
-    <proposCount>Propositions</proposCount>
+    <proposCount>Propos</proposCount>
     <membersCount>Membres</membersCount>
-    <settingsHeader>Préférences du compte</settingsHeader>
-    <firstName>Prénom</firstName>
-    <lastName>Nom de famille</lastName>
+    <settingsHeader>System prefrences</settingsHeader>
+    <firstName>First name</firstName>
+    <lastName>Last name</lastName>
     <occupation>Occupation</occupation>
-    <password>Mot de passe</password>
-    <repeatPass>Répétez</repeatPass>
-    <language>Langue</language>
-    <pressBrowse>Ou cliquer pour choisir</pressBrowse>
-    <save>Enregistrer</save>
-    <wishFeedback>J'aimerais pouvoir ...</wishFeedback>
+    <password>Password</password>
+    <repeatPass>Repeat password</repeatPass>
+    <language>Language</language>
+    <pressBrowse>Press to browse</pressBrowse>
+    <save>Save</save>
+    <wishFeedback>I wish I could ...</wishFeedback>
 
    <feedbacktitle>Keep droopl fun by giving us some feedback to improve your experience</feedbacktitle>
    <feedback>Feedback</feedback>
