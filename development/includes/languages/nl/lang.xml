@@ -66,8 +66,21 @@
     <pressBrowse>Of klik om te kiezen</pressBrowse>
     <save>Opslaan</save>
     <wishFeedback>Ik zou willen ...</wishFeedback>
+    <proposeItem>Proposez un objet de votre collection</proposeItem>
+    <followersCount>Followers</followersCount>
+    <wonQuest>A gagné cette quête. Félicitations !</wonQuest>
+    <questComplete>Clôturer</questComplete>
+    <questRemove>Supprimer</questRemove>
+    <noPropos>Cette quête n'a pas encore de propositions</noPropos>
+    <questCompletedHeader>Quête clôturée</questCompletedHeader>
+    <questCompletedText>Cette quête a été clôturée</questCompletedText>
+    <feedbackBtn>Envoyer</feedbackBtn>
+    <noOccupation>Pas d'occupation</noOccupation>
+    <addCommunityName>Nom de la communauté</addCommunityName>
+    <addCommunityDescription>Description</addCommunityDescription>
+    <addCommunityBtn>Créer</addCommunityBtn>
 
-   <feedbacktitle>Hou droopl leuk door ons wat feedback te geven zodat wij uw ervaring kunnen verbeteren</feedbacktitle>
+   <feedbacktitle>Aidez-nous à ce que droopl reste fun. Dites-nous ce que vous en pensez et améliorer votre expérience !</feedbacktitle>
    <feedback>Feedback</feedback>
    <feedbackbug>Fout</feedbackbug>
    <feedbackText>Ik zou graag ...</feedbackText>
