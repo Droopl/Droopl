@@ -127,7 +127,7 @@
                 <textarea placeholder="Description" id="community_description" name="community_description"></textarea>
                 <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
                 <input type="submit" id="add_item" name="add_item" value="Add Item">
-                
+
             </aside>
         </form>
     </section>
@@ -247,7 +247,7 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
 </article>
 <footer id="foot">
 	<header class="hide"><h1>Footer</h1></header>
-    <?php if($isMobile){ ?>
+    <?php if($isMobile && $_GET['page'] != "login" && $_GET['page'] != "register" && $_GET['page'] != "timer" ){ ?>
     <nav>
         <ul>
             <li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><span class="icon-layout"></span><?php echo $_SESSION['lang']['menudash']; ?></a></li>
