@@ -66,21 +66,21 @@
     <pressBrowse>Of klik om te kiezen</pressBrowse>
     <save>Opslaan</save>
     <wishFeedback>Ik zou willen ...</wishFeedback>
-    <proposeItem>Proposez un objet de votre collection</proposeItem>
-    <followersCount>Followers</followersCount>
-    <wonQuest>A gagné cette quête. Félicitations !</wonQuest>
-    <questComplete>Clôturer</questComplete>
-    <questRemove>Supprimer</questRemove>
-    <noPropos>Cette quête n'a pas encore de propositions</noPropos>
-    <questCompletedHeader>Quête clôturée</questCompletedHeader>
-    <questCompletedText>Cette quête a été clôturée</questCompletedText>
-    <feedbackBtn>Envoyer</feedbackBtn>
-    <noOccupation>Pas d'occupation</noOccupation>
-    <addCommunityName>Nom de la communauté</addCommunityName>
-    <addCommunityDescription>Description</addCommunityDescription>
-    <addCommunityBtn>Créer</addCommunityBtn>
+    <proposeItem>Stel een item voor uit uw collectie</proposeItem>
+    <followersCount>Volgers</followersCount>
+    <wonQuest>Heeft dit zoekertje gewonnen. Proficiat!</wonQuest>
+    <questComplete>Voltooid</questComplete>
+    <questRemove>Verwijderen</questRemove>
+    <noPropos>Dit zoeker heeft nog geen voorstellen</noPropos>
+    <questCompletedHeader>Zoekertje voltooid</questCompletedHeader>
+    <questCompletedText>Dit zoekertje is voltooid</questCompletedText>
+    <feedbackBtn>Verzenden</feedbackBtn>
+    <noOccupation>Geen bezigheid</noOccupation>
+    <addCommunityName>Naam van de community</addCommunityName>
+    <addCommunityDescription>Beschrijving</addCommunityDescription>
+    <addCommunityBtn>Maak aan</addCommunityBtn>
 
-   <feedbacktitle>Aidez-nous à ce que droopl reste fun. Dites-nous ce que vous en pensez et améliorer votre expérience !</feedbacktitle>
+   <feedbacktitle>Help ons Droopl fun te houden. Laat ons weten wat je denkt en wat je wil verbeteren aan de ervaring!</feedbacktitle>
    <feedback>Feedback</feedback>
    <feedbackbug>Fout</feedbackbug>
    <feedbackText>Ik zou graag ...</feedbackText>
