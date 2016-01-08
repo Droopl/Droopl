@@ -6538,4 +6538,13 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
        margin: 0 2%;
    }
 
+   header#menu div nav ul li.notifications{
+
+       padding: 0 10px;
+       line-height: 75px;
+       height: 75px;
+       cursor: pointer;
+       position: relative;
+   }
+
 }
