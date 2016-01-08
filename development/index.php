@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Europe/Brussels');
-
 session_start();
 
 define('DS',DIRECTORY_SEPARATOR);
@@ -9,6 +7,7 @@ define('WWW_ROOT', dirname(__FILE__).DS);
 require_once WWW_ROOT . 'classes' .DS. 'Config.php';
 require_once WWW_ROOT . 'classes' .DS. 'DatabasePDO.php';
 require_once WWW_ROOT . 'includes' .DS. 'routes.php';
+
 
 if(empty($_GET['page'])){
 	$_GET['page'] = 'feed';

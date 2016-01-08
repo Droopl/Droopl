@@ -66,21 +66,21 @@
     <pressBrowse>Press to browse</pressBrowse>
     <save>Save</save>
     <wishFeedback>I wish I could ...</wishFeedback>
-    <proposeItem>Proposez un objet de votre collection</proposeItem>
+    <proposeItem>Propose an item from your collection</proposeItem>
     <followersCount>Followers</followersCount>
-    <wonQuest>A gagné cette quête. Félicitations !</wonQuest>
-    <questComplete>Clôturer</questComplete>
-    <questRemove>Supprimer</questRemove>
-    <noPropos>Cette quête n'a pas encore de propositions</noPropos>
-    <questCompletedHeader>Quête clôturée</questCompletedHeader>
-    <questCompletedText>Cette quête a été clôturée</questCompletedText>
-    <feedbackBtn>Envoyer</feedbackBtn>
-    <noOccupation>Pas d'occupation</noOccupation>
-    <addCommunityName>Nom de la communauté</addCommunityName>
+    <wonQuest>Has won this quest. Congratulations!</wonQuest>
+    <questComplete>Complete</questComplete>
+    <questRemove>Verwijderen</questRemove>
+    <noPropos>This quest doesn't have any proposals</noPropos>
+    <questCompletedHeader>Quest completed</questCompletedHeader>
+    <questCompletedText>This quest has been completed</questCompletedText>
+    <feedbackBtn>Send</feedbackBtn>
+    <noOccupation>No occupation</noOccupation>
+    <addCommunityName>Community name</addCommunityName>
     <addCommunityDescription>Description</addCommunityDescription>
-    <addCommunityBtn>Créer</addCommunityBtn>
+    <addCommunityBtn>Create</addCommunityBtn>
 
-   <feedbacktitle>Aidez-nous à ce que droopl reste fun. Dites-nous ce que vous en pensez et améliorer votre expérience !</feedbacktitle>
+   <feedbacktitle>Help us keep Droopl fun. Tell us what you think and how we can improve your experience!</feedbacktitle>
    <feedback>Feedback</feedback>
    <feedbackbug>Bug</feedbackbug>
    <feedbackText>I wish I could</feedbackText>
