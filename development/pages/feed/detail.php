@@ -250,7 +250,7 @@
 
     echo $_SESSION['lang']['questoffering'];
 
-}?></h1>
+}?> <span><?php if($quest['type'] == 0){ echo $quest['item']; }?></span></h1>
     <?php if($quest['type'] == 1){ ?>
         <a class="collection_item"><img id="<?php echo $quest['collection_id'] ?>" src="images/collection/<?php echo $quest['collection_image'] ?>"><span class="collection_item_name"><?php echo $quest['item_name']; ?></span></a>
     <?php } ?>
