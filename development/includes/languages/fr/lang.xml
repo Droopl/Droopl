@@ -63,7 +63,7 @@
     <password>Mot de passe</password>
     <repeatPass>Répétez</repeatPass>
     <language>Langue</language>
-    <pressBrowse>Ou cliquer pour choisir</pressBrowse>
+    <pressBrowse>Ou cliquez pour choisir</pressBrowse>
     <save>Enregistrer</save>
     <wishFeedback>J'aimerais pouvoir ...</wishFeedback>
     <proposeItem>Proposez un objet de votre collection</proposeItem>
@@ -75,6 +75,10 @@
     <questCompletedHeader>Quête clôturée</questCompletedHeader>
     <questCompletedText>Cette quête a été clôturée</questCompletedText>
     <feedbackBtn>Envoyer</feedbackBtn>
+    <noOccupation>Pas d'occupation</noOccupation>
+    <addCommunityName>Nom de la communauté</addCommunityName>
+    <addCommunityDescription>Description</addCommunityDescription>
+    <addCommunityBtn>Créer</addCommunityBtn>
 
    <feedbacktitle>Aidez-nous à ce que droopl reste fun. Dites-nous ce que vous en pensez et améliorer votre expérience !</feedbacktitle>
    <feedback>Feedback</feedback>
@@ -85,6 +89,7 @@
    <communityleave>Quitter le groupe</communityleave>
 
     <abouttitle>Bij Droopl bestaan we uit een team van 5 personen. Binnen ons team is er geen sprake van hiërarchie. Alle belangrijke beslissingen (ongeacht welk aspect) worden in groep genomen, met unanimiteit als streefdoel. Het droopl-team bestaat uit een diverse studie-achtergrond. Ieders bijdrage bestaat hierdoor uit raadgevingen die in het verlengde van zijn gedane studies liggen. We lichten hieronder elk teammember voor.</abouttitle>
+    Droopl est composé d'une équipe de 5 personnes. Dans notre équipe
    <aboutmourad>Student aan de Hub te Brussel. Mourad is bezig aan zijn laatste jaar handelswetenschappen. Binnen droopl is hij een medeoprichter en heeft hij de nodige financiële kennis. Zo is hij verantwoordelijk voor een betrouwbare, volledige vastlegging en opvolging van de bedrijfsadministratie en adviseert hij overige teammembers bij administratieve beslissingen.</aboutmourad>
    <aboutmanu>Afgestudeerd aan de Thomas More te Antwerpen als psychologisch consulent. Binnen droopl is hij een medeoprichter en staat hij in voor de externe woordvoerdingen en rekruteringen binnen het bedrijf. Als Spokesman functioneert Manu als schakel tussen droopl en externe mediakanalen met de nodige informatieverstrekkingen.</aboutmanu>
    <aboutdaniel>Student aan de Thomas More te Mechelen. Daniël is bezig aan zijn laatste jaar bedrijfsmanagement marketing. Binnen droopl is Daniël een medeoprichter en staat hij in voor de marketingstrategieën van het bedrijf. Zo houdt Daniël zich bezig met het marketingbeleid (opstellen van de marketingplannen, marktpositionering &amp; strategie) van onze organisatie.</aboutdaniel>

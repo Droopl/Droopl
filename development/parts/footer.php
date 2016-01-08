@@ -117,17 +117,37 @@
                     </div>
                 </div>
                 <h1>Drag and drop</h1>
-                <p>Or press to browse</p>
+                <p><?php echo $_SESSION['lang']['pressBrowse']; ?></p>
             </header>
             <aside>
                 <header>
                     <h1 class="hide">Info about your community</h1>
-                    <input type="text" id="community_name" name="community_name" placeholder="Community name">
+                    <input type="text" id="community_name" name="community_name" placeholder="<?php echo $_SESSION['lang']['addCommunityName']; ?>">
                 </header>
-                <textarea placeholder="Description" id="community_description" name="community_description"></textarea>
+                <textarea placeholder="<?php echo $_SESSION['lang']['addCommunityDescription']; ?>" id="community_description" name="community_description"></textarea>
                 <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
+<<<<<<< Updated upstream
                 <input type="submit" id="add_item" name="add_item" value="Add Item">
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                <input type="submit" id="add_item" name="add_item" value="<?php echo $_SESSION['lang']['addCommunityBtn']; ?>">
+                
+=======
+                <input type="submit" id="add_item" name="add_item" value="Add Item">
+
+>>>>>>> origin/master
+=======
+                <input type="submit" id="add_item" name="add_item" value="Add Item">
+
+>>>>>>> origin/master
+=======
+                <input type="submit" id="add_item" name="add_item" value="Add Item">
+
+>>>>>>> origin/master
+>>>>>>> Stashed changes
             </aside>
         </form>
     </section>

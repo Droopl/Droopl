@@ -10,7 +10,7 @@
                 <?php }?>
         	</div>
         	<h1><?php echo $user['firstname'];?> <?php echo $user['lastname'];?></h1>
-            <h2><?php if(!empty($user['occupation'])){ echo $user['occupation']; }else{ echo "no occupation"; }?></h2>
+            <h2><?php if(!empty($user['occupation'])){ echo $user['occupation']; }else{  echo $_SESSION['lang']['noOccupation']; }?></h2>
         	<nav <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] != $user['id']){ echo "class='stars'"; }else{ echo "class='stars marg-bottom'"; } ?>>
         		<ul>
                     <?php
