@@ -4967,7 +4967,7 @@ article.rating .feed section aside nav ul li{
     display: inline-block;
     width: 30px;
     height: 30px;
-    margin: 0 15px;
+    margin: 0 5%;
     cursor: pointer;
     background-image: url(../images/assets/star_empty.svg);
     background-position: center;
@@ -6530,5 +6530,12 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
         text-indent: -99em;
     }
 
+    article.rating .feed{
+      width: 100%;
+   }
+   article.rating .feed section aside nav ul li{
+
+       margin: 0 2%;
+   }
 
 }
