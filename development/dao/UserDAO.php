@@ -190,7 +190,7 @@ class UserDAO{
 
 	public function getUserById($id){
 
-		$sql = 'SELECT u.id,u.firstname,u.password,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating ,(
+		$sql = 'SELECT u.id,u.firstname,u.password,u.occupation,u.lastname,u.email,u.picture,u.age,u.street,u.nr,u.zipcode,u.city,u.occupation,u.gender,u.number,u.status,u.verification,u.description,u.lang,u.latitude,u.longitude,(SUM(r.rating)/COUNT(r.rating)) AS rating ,(
         SELECT COUNT(*)
         FROM   followers AS f
     	WHERE f.user_id = u.id
