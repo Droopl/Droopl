@@ -1359,18 +1359,10 @@ article div.feed ul.followers li.follower aside ul li p{
     font-size: .9em
 
 }
-article div.feed ul.followers li.follower header h1{
-    float: left;
-    font-size: .7em;
-    font-weight: 600;
-    width: 50%;
-    margin: 5% 0 2.5% 0;
-    margin-left: 20px;
-}
 article div.feed ul.followers li.follower header h2{
 
     float: left;
-    font-size: .7em;
+    font-size: .9em;
     font-weight: normal;
     width: 50%;
     margin-left: 20px;
@@ -1379,16 +1371,24 @@ article div.feed ul.followers li.follower header h2{
 }
 article div.feed ul.followers li.follower a{
 
-    display: inline-block;
-    padding: 15px 20px;
-    margin-top: 20px;
-    border: 1px solid #F47D67;
-    border-radius: .5em;
-    font-size: .7em;
-    color: #F47D67;
-    text-decoration: none;
-    text-transform: capitalize;
+   float: left;
+   font-size: .7em;
+   font-weight: 300;
+   width: 50%;
+   text-align: left;
+   margin: 5% 0 2.5% 0;
+   margin-left: 20px;
+   text-decoration: none;
+    color: #3E454C;
+    -webkit-transition: all .2s ease-out;
+-moz-transition: all .2s ease-out;
+-ms-transition: all .2s ease-out;
+-o-transition: all .2s ease-out;
+transition: all .2s ease-out;
 
+}
+article div.feed ul.followers li.follower a:hover{
+    color: #F47D67;
 }
 article div.feed ul.followers li.follower header img{
     float: left;

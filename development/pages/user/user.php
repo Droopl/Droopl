@@ -223,8 +223,13 @@
         <li class="follower">
 
             <header>
+
+                <?php if(!empty($value['picture'])){ ?>
                 <img src="images/profile_pictures/<?php echo $value['picture'] ?>">
-                <h1><?php echo $value['firstname'] ?></h1>
+                <?php }else{ ?>
+                <img class="profile-img" src="images/profile_pictures/notfound.svg">
+                <?php }?>
+                <a href="?page=user&id=<?php echo $value['id']; ?>"><h1><?php echo $value['firstname'] ?></h1></a>
                 <h2><?php echo $value['occupation'] ?></h2>
             </header>
             <aside>
