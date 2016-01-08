@@ -1,9 +1,9 @@
 <article class="register">
-    
+
     <div class="register-box animated fadeInUp">
-        
+
         <div class="container">
-        
+
             <section class="step_1">
                 <form action="" id="registration_form_step_1" method="post" enctype="multipart/form-data">
                     <aside class="left">
@@ -71,13 +71,14 @@
                     </form>
                 </aside>
             </section>
+
             <section class="step_3">
                 <aside class="left">
-                    <form action="?page=verification" id="validation_form" method="post">
-                        <h1>One more step</h1>
-                        <p>Insert the 4-digit code we just sent you by email to validate your account</p>
-                        <span class="icon-unlock"></span>
-                        <ul class="code-ul">
+                    <form action="?page=feed" id="validation_form" method="get">
+                        <h1>Your account has been created</h1>
+                        <p>Now go and enjoy Droopl</p>
+                        <span class="icon-check"></span>
+                        <!--<ul class="code-ul">
                             <li>
                                 <input type="text" id="digit_1" name="digit_1" maxlength="1" required>
                             </li>
@@ -90,21 +91,21 @@
                             <li>
                                 <input type="text" id="digit_4" name="digit_4" maxlength="1" required>
                             </li>
-                        </ul>
-                        <input type="submit" id="submit_step_3" name="submit_step_3" value="Validate">
+                        </ul>-->
+                        <input type="submit" id="submit_step_3" name="submit_step_3" value="Explore Droopl">
                     </form>
                 </aside>
             </section>
-        
+
         </div>
-        
+
         <nav class="pages">
             <ul>
                 <li class="current"></li>
                 <li></li>
             </ul>
         </nav>
-        
+
     </div>
-    
+
 </article>

@@ -28,7 +28,7 @@ class UserDAO{
 
 		if($stmt->execute()){
 
-			return $this->getUserById($this->pdo->lastInsertId());
+			return $this->getUserById($id);
 
 		}
 		return false;
@@ -48,7 +48,7 @@ class UserDAO{
 
 
 		if($stmt->execute()){
-			return $this->getUserById($this->pdo->lastInsertId());
+			return $this->getUserById($id);
 		}
 		return false;
 	}
@@ -67,7 +67,7 @@ class UserDAO{
 
 
 		if($stmt->execute()){
-			return $this->getUserById($this->pdo->lastInsertId());
+			return $this->getUserById($id);
 		}
 		return false;
 	}
@@ -87,7 +87,7 @@ class UserDAO{
 
 
 		if($stmt->execute()){
-			return $this->getUserById($this->pdo->lastInsertId());
+			return $this->getUserById($id);
 		}
 		return false;
 	}

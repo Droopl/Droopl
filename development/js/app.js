@@ -1216,7 +1216,7 @@ $(function(){
                     success:function (data) {
                         console.log(data);
 
-                        if(data.split(" ")[0] == "true"){
+                        if(data == "1"){
 
                             validationCodeId = data.split(" ")[1];
                             validationCode = data.split(" ")[2];
@@ -1234,7 +1234,6 @@ $(function(){
                             $("article.register div.register-box nav.pages ul li.current").addClass("completed");
                             $("article.register div.register-box nav.pages ul li").removeClass("current");
                             next.addClass("current");
-
                         }
 
                     }
