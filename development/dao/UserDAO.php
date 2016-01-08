@@ -239,7 +239,7 @@ GROUP BY u.id';
 
 	public function addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
 
-		$sql = 'INSERT INTO `users` (`firstname`, `lastname`, `email`, `picture`, `age`, `gender`, `street`, `nr`, `zipcode`, `city`, `country`, `password`, `occupation`, `number`, `status`, `verification`, `description`, `lang`, `latitude`, `longitude`) VALUES (:firstname, :lastname, :email, :picture, :age, :gender, :street, :nr, :zipcode, :city, :country, :password, "No occupation", "No Number", "0", "0", "No Desciption", :lang, :latitude, :longitude);';
+		$sql = 'INSERT INTO `users` (`firstname`, `lastname`, `email`, `picture`, `age`, `gender`, `street`, `nr`, `zipcode`, `city`, `country`, `password`, `occupation`, `number`, `status`, `verification`, `description`, `lang`, `latitude`, `longitude`) VALUES (:firstname, :lastname, :email, :picture, :age, :gender, :street, :nr, :zipcode, :city, :country, :password, "", "No Number", "0", "0", "No Desciption", :lang, :latitude, :longitude);';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
