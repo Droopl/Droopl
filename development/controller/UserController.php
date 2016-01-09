@@ -337,6 +337,14 @@ class UserController extends AppController{
 					}else{
 						$message = 0;
 					}
+
+					if(!empty($_POST['agreed']) && $_POST['agreed'] == "1"){
+						$step1["agreed"] = $_POST['agreed'];
+						$message = 1;
+					}else{
+						$message = 0;
+					}
+
 					if(!empty($_POST['gender'])){
 						$step1["gender"] = $_POST['gender'];
 						$message = 1;

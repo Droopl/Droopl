@@ -1127,6 +1127,11 @@ $(function(){
                 });
             }
 
+            if (!$('article.register div.register-box div.container section.step_1 #agreed').is(':checked')) {
+                filled = false;
+                $("article.register div.register-box div.container section.step_1").scrollTop($("article.register div.register-box div.container section.step_1")[0].scrollHeight);
+            }
+
 
             if(filled){
 
@@ -1141,6 +1146,8 @@ $(function(){
                     success:function (data) {
 
                         if(data == 1){
+
+                            $('article.register div.register-box div.container section.step_1 form input[type="submit"]').hide();
 
                             $("article.register div.register-box div.container section.step_1").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");

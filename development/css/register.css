@@ -120,7 +120,7 @@ article.register div.register-box div.container section aside.left form input[ty
 }
 
 article.register div.register-box div.container section.step_1 form input[type="submit"] {
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     width: auto;
     bottom: 8px;
@@ -554,6 +554,27 @@ article.register div.register-box div.container section.step_1 form aside.right 
     margin-left: -20px;
 }
 
+article.register div.register-box div.container section.step_1 form aside.right div.voorwaarden{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+
+}
+article.register div.register-box div.container section.step_1 form aside.right div.voorwaarden #agreed{
+    display: inline-block;
+    margin-right: 10px;
+
+}
+article.register div.register-box div.container section.step_1 form aside.right div.voorwaarden p{
+    font-size: .8em;
+}
+
+article.register div.register-box div.container section.step_1 form aside.right div.voorwaarden p a{
+    text-decoration: none;
+    color: #F47D67;
+}
+
 /* STEP 2 */
 
 
@@ -736,7 +757,7 @@ article.register div.register-box div.container section.step_3 aside.left h1 {
     opacity: .9;
 }
 
-article.register div.register-box div.container section.step_3 aside.left span.icon-unlock {
+article.register div.register-box div.container section.step_3 aside.left span.icon-check {
     display: block;
     float: left;
     width: 100%;
@@ -821,7 +842,7 @@ article.register div.register-box div.container section.step_3 aside.left ul li 
     }
 
     article.register div.register-box div.container section.step_1 form input[type="submit"] {
-        position: absolute;
+        position: fixed;
         z-index: 9999;
         width: auto;
         bottom: 8px;

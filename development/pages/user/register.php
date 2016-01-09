@@ -46,6 +46,10 @@
                                 </div>
                             </div>
                             <input class="hide" type="text" id="gender" name="gender" value="m">
+                            <div class="voorwaarden">
+
+                                <p><input type="checkbox" id="agreed" name="agreed" value="1"> I agree to the <a href="terms/terms-nl.pdf" target"_blank">terms and conditions</a></p>
+                            </div>
                     </aside>
                     <input type="submit" id="submit_step_1" name="submit_step_1" value="Step 2">
                 </form>
