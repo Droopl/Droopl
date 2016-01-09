@@ -89,7 +89,12 @@
                         <?php foreach ($collection as $key => $value) {?>
 
                         <li id="<?php echo $value['collection_id']; ?>">
-                            <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                            <?php if(!empty($value['collection_image'])){ ?>
+                        <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                        <?php }else{ ?>
+                        <img class="profile-img" src="images/profile_pictures/notfound.svg">
+                        <?php }?>
+
                             <div class="selected"><p class="icon-check"></p></div>
                             <p class="collection-item-name"><span><?php echo $value["item_name"]; ?></span></p>
                         </li>
@@ -140,7 +145,12 @@
 
 }?> <span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
         <?php if($value['type'] == 1){ ?>
-            <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item"><img src="images/collection/<?php echo $value['collection_image'] ?>"><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
+            <a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item">
+                <?php if(!empty($value['collection_image'])){ ?>
+            <img src="images/collection/<?php echo $value['collection_image'] ?>">
+            <?php }else{ ?>
+            <img class="profile-img" src="images/profile_pictures/notfound.svg">
+            <?php }?><span class="collection_item_name"><?php echo $value['item_name']; ?></span></a>
         <?php } ?>
         <h2 <?php if($value['id'] == $_SESSION['user']['id']){ echo "class='editable-post'"; } ?>><?php
 
