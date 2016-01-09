@@ -13,7 +13,7 @@
     <meta property="og:title"              content="Droopl" />
     <meta property="og:description"        content="We innovate the way you will consume tomorrow" />
     <meta property="og:image"              content="http://droopl.com/images/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>

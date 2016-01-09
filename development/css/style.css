@@ -6538,6 +6538,12 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
        margin: 0 2%;
    }
 
+
+
+}
+
+
+@media screen and (max-width: 320px){
    header#menu div nav ul li.notifications{
 
        padding: 0 10px;
@@ -6547,4 +6553,11 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
        position: relative;
    }
 
+	header#menu div nav ul li.profile img.profile-img{
+		text-align: center;
+	    margin: 17px 5px;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+	}
 }

@@ -1144,7 +1144,7 @@ $(function(){
 
                             $("article.register div.register-box div.container section.step_1").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");
-                            $("article.register div.register-box div.container").stop().animate({left: -800});
+                            $("article.register div.register-box div.container").stop().animate({left: -$("article.register div.register-box div.container section.step_1").outerWidth()});
                             var next = $("article.register div.register-box nav.pages ul li.current").next();
                             $("article.register div.register-box nav.pages ul li.current").addClass("completed");
                             $("article.register div.register-box nav.pages ul li").removeClass("current");
@@ -1194,7 +1194,7 @@ $(function(){
                             $("article.register div.register-box div.container section.step_2").addClass("completed");
                             $("article.register div.register-box nav.pages ul li.current").addClass("filled");
                             $("article.register div.register-box nav.pages").fadeOut();
-                            $("article.register div.register-box div.container").stop().animate({left: -1600},function(){
+                            $("article.register div.register-box div.container").stop().animate({left: -($("article.register div.register-box div.container section.step_1").outerWidth()*2)},function(){
                              $("article.register div.register-box div.container section.step_1").remove();
                              $("article.register div.register-box div.container section.step_2").remove();
                              $("article.register div.register-box div.container").css("left","0");
