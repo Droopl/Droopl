@@ -1,5 +1,5 @@
 $(function  () {
-	
+
 	/*CHAT BUBBLES*/
 	if($("section.chat ul li.conversation-bubble div.conversation form").length){
 
@@ -16,7 +16,7 @@ $(function  () {
       $.ajax({
              type: "POST",
              url: url,
-             data: formData, 
+             data: formData,
              async: false,
             cache: false,
             contentType: false,
@@ -29,15 +29,15 @@ $(function  () {
                     var loadedMessages = $(data).find("div.messages section.messages aside ul li");
 
                    $(loadedMessages).each(function(key,newMessages){
-                       
+
                        var found = false;
-                    
+
                        $(messages).each(function(id,message){
-                           
+
                            if($(newMessages).attr("id") == $(message).attr("id")){
                                 found = true;
                            }
-                       
+
                        });
 
                        if(!found){
@@ -47,7 +47,6 @@ $(function  () {
                         ul.append($(newMessages).addClass("animated slideInUp"));
 
                          var objDiv = form.parent().parent().find("ul");
-                         console.log(objDiv);
                         objDiv.stop().animate({
                           scrollTop: objDiv[0].scrollHeight
                         }, {
@@ -61,8 +60,8 @@ $(function  () {
 
             });
 
-    
-		
+
+
 		$("section.chat ul li.conversation-bubble div.conversation ul").on("scroll",function (e) {
 			if($(this).scrollTop()<= 0){
 
@@ -75,15 +74,15 @@ $(function  () {
                     var loadedMessages = $(data).find("div.messages section.messages aside ul li");
 
                    $(loadedMessages).each(function(key,newMessages){
-                       
+
                        var found = false;
-                    
+
                        $(messages).each(function(id,message){
-                           
+
                            if($(newMessages).attr("id") == $(message).attr("id")){
                                 found = true;
                            }
-                       
+
                        });
 
                        if(!found){
@@ -103,8 +102,8 @@ $(function  () {
 
 			}
 		});
-		
-	
+
+
 	}
 
 });
