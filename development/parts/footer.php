@@ -128,7 +128,7 @@
                 <input type="text" id="commmunity_privacy" name="commmunity_privacy" class="hide" value="1">
 
                 <input type="submit" id="add_item" name="add_item" value="<?php echo $_SESSION['lang']['addCommunityBtn']; ?>">
-                
+
             </aside>
         </form>
     </section>
@@ -184,7 +184,7 @@
 </article>
 <article class="remove-msg">
     <div class="animated slideInUp remove-collection-item-msg">
-        <p>Are you sure you want to delete this item from your collection ?</p>
+        <p>Are you sure you want to delete this item from your collection ? It will also delete all the quests that are linked to it.</p>
         <a href="?page=collection&action=remove&collection_id=<?php if(isset($_GET) && !empty($_GET['collection_id'])){ echo $_GET['collection_id'];} ?>" class="yes-btn"><span>Yes</span></a>
         <a class="cancel-btn"><span>Cancel</span></a>
     </div>

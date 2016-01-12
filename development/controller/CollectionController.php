@@ -5,14 +5,13 @@ require_once WWW_ROOT . 'controller'. DS .'AppController.php';
 class CollectionController extends AppController{
 
 
-	public $feedDAO;
-	public $userDAO;
-
 	public function __construct(){
 
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'FeedDAO.php';
 
 		$this->collectionDAO = new CollectionDAO();
+		$this->feedDAO = new FeedDAO();
 
 	}
 
@@ -25,6 +24,10 @@ class CollectionController extends AppController{
 					if(isset($_SESSION['user'])){
 
 						if($item['user_id'] == $_SESSION['user']['id']){
+							$deletedQuests = $this->feedDAO->deleteQuestByCollectionId($item['collection_id']);
+							if(!$deletedQuests){
+								echo "no quests found";
+							}
 							$deleted = $this->collectionDAO->removeItem($item['collection_id']);
 							if($deleted){
 								$this->redirect('?page=user&id='.$_SESSION['user']['id'].'&filter=collection');

@@ -290,11 +290,11 @@
 
 }?> </p><span><?php if($value['type'] == 0){ echo $value['item']; }?></span></h1>
 		<?php if($value['type'] == 1){ ?>
-			<a class="collection_item">
+			<a href="?page=user&id=<?php echo $value['user_id']; ?>&filter=collection" class="collection_item">
 				<?php if(!empty($value['collection_image'])){ ?>
 									<img id="<?php echo $value['collection_id'] ?>" src="images/collection/<?php echo $value['collection_image'] ?>">
 									<?php }else{ ?>
-									<img src="images/profile_pictures/notfound.svg">
+									<img src="images/profile_pictures/notfound.svg" id="<?php echo $value['collection_id'] ?>" >
 									<?php }?>
 
 

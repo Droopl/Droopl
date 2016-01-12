@@ -64,6 +64,28 @@ class FeedDAO
 		return array();
 	}
 
+	public function deleteQuestByCollectionId($collection_id){
+
+		$sql = 'SELECT * FROM `offers` WHERE collection_id = :collection_id';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(":collection_id",$collection_id);
+
+		if($stmt->execute()){
+
+			$quests = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+			if(!empty($quests)){
+
+				foreach ($quests as $key => $value) {
+					$this->removeQuest($value['quest_id']);
+				}
+				return true;
+			}
+
+		}
+		return true;
+	}
+
 	public function getQuestFromDistance($user_id,$lat,$long,$offset){
 
 		$sql = 'SELECT f.follow_id,q.quest_id,q.views,q.item,q.quest_description,q.creation_date ,q.type, COUNT(p.quest_id) AS propocount, COUNT(s.quest_id) AS shares ,SQRT(POW(69.1 *(u.latitude - :lat),2) + POW( 69.1 * (:long - u.longitude) * COS(u.latitude / 57.3),2)) AS distance , u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
@@ -222,7 +244,7 @@ class FeedDAO
 		return array();
 
 	}
-	
+
 	public function getQuestById($quest_id){
 
 		$sql = 'SELECT q.quest_id,q.active,q.item,q.quest_description,q.creation_date ,q.type, u.id,u.latitude,u.longitude, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id,c.collection_id,c.collection_image,c.item_name,c.user_id
@@ -258,7 +280,7 @@ class FeedDAO
 		$sql = "UPDATE quests set views = views+1 WHERE quest_id = :quest_id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':quest_id',$quest_id);
-		
+
 		if($stmt->execute()){
 
             return true;
@@ -294,7 +316,7 @@ class FeedDAO
 
 	public function getQuestByUserId($user_id){
 
-			$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date  ,q.type, COUNT(p.quest_id) AS propocount, COUNT(s.quest_id) AS shares , u.id, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_image,c.item_name,c.user_id
+			$sql = 'SELECT q.quest_id,q.item,q.quest_description,q.creation_date  ,q.type, COUNT(p.quest_id) AS propocount, COUNT(s.quest_id) AS shares , u.id, u.firstname ,u.lastname,u.picture, i.image_url,c.collection_id,c.collection_image,c.item_name,c.user_id
 		FROM quests AS q
 		LEFT OUTER JOIN proposals AS p
 		ON q.quest_id = p.quest_id
@@ -422,11 +444,11 @@ class FeedDAO
 
 		return false;
 	}
-    
+
     public function getActivity(){
-        
-        
-        
+
+
+
     }
 
 }

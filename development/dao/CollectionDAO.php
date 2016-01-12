@@ -139,6 +139,20 @@ class CollectionDAO
 		return false;
 	}
 
+	public function removeQuestCollectionItems($collection_id){
+
+		$sql ="DELETE FROM `collection` WHERE `collection_id` = :collection_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':collection_id',$collection_id);
+
+		if($stmt->execute()){
+
+			return true;
+		}
+
+		return false;
+	}
+
 
 
 }

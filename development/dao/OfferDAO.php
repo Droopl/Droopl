@@ -31,7 +31,6 @@ class OfferDAO
 		return array();
 	}
 
-
 	public function addOffer($quest_id,$collection_id){
 
 
