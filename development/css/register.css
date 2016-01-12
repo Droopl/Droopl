@@ -423,8 +423,19 @@ article.register div.register-box div.container section.step_1 form aside.right 
     border-radius: 50%;
     cursor: pointer;
 }
-
 article.register div.register-box div.container section.step_1 form aside.right header#upload h1 {
+    display: block;
+    float: left;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #F47D67;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+article.register div.register-box div.container section.step_1 form aside.right header#upload h2 {
     display: block;
     float: left;
     width: 100%;
@@ -558,7 +569,7 @@ article.register div.register-box div.container section.step_1 form aside.right 
     float: left;
     width: 100%;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
 
 }
 article.register div.register-box div.container section.step_1 form aside.right div.voorwaarden #agreed{

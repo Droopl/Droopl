@@ -27,13 +27,14 @@
                     </aside>
                     <aside class="right">
                             <header id="upload">
+                                <h1 >Profile picture</h1>
                                 <div class="dragndrop" id="dragndrop">
                                     <div class="preloader">
                                         <span class="remove-file"><p class="icon-cross hide"></p></span>
                                         <input type="file" id="profile_image" name="profile_image" accept="image/*">
                                     </div>
                                 </div>
-                                <h1>Drag and drop</h1>
+                                <h2>Drag and drop</h2>
                                 <p>Or press to browse</p>
                             </header>
                             <div class="switch-gender">
