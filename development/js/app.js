@@ -4,8 +4,12 @@ $(function(){
     var saveVal = "";
     var openConversations = [];
     var part = 1;
+    var notificationCount = 0;
+    var messagesCount = 0;
+    var titleBarCount = 0;
 
      checkNotification();
+     checkMessages();
 
 
     $("#menu .profile ul li a.icon-cog").bind("click",openSettings);
@@ -25,6 +29,7 @@ $(function(){
           $("#menu .notifications ul").load("index.php?page=feed .notifications ul li");
 
           checkNotification();
+          checkMessages();
 
        }
 
@@ -45,7 +50,9 @@ $(function(){
 
         if($("section.chat ul li.conversation-bubble div.conversation").length){
 
+
       if($("section.chat ul li.conversation-bubble div.conversation.open ul li.notseen").length){
+
         $("section.chat ul li.conversation-bubble div.conversation.open ul li.notseen").each(function () {
 
           var id = $(this).attr("id");
@@ -116,6 +123,7 @@ $(function(){
 
                   if(currentConvo.find("span.new-msg").length){
                   }else{
+
                     var pulse = $("<span/>").addClass("new-msg animated-slow infinite pulse");
                     currentConvo.append(pulse);
                      $("#sounds").attr("src","sounds/notification.mp3");
@@ -125,6 +133,8 @@ $(function(){
               }
 
           });
+
+
           });
         }
       });
@@ -1380,10 +1390,45 @@ $(function(){
 
     function checkNotification(){
         if($("header#menu nav ul li.notifications ul li.notseen").length){
+            notificationCount = $("header#menu nav ul li.notifications ul li.notseen").length;
+
             $("header#menu nav ul li.notifications span.icon-bell").addClass("notif animated swing infinite");
         }else{
            $("header#menu nav ul li.notifications span.icon-bell").removeClass("notif animated swing infinite");
+           notificationCount = 0;
         }
+
+        titleBarUpdate();
+    }
+
+    function checkMessages() {
+
+        if($("section.chat ul li.conversation-bubble span.new-msg").length){
+            messagesCount = $("section.chat ul li.conversation-bubble span.new-msg").length;
+
+        }else{
+            messagesCount = 0;
+        }
+
+        titleBarUpdate();
+    }
+
+    function titleBarUpdate() {
+
+        var newTitleBarCount = notificationCount + messagesCount;
+
+        var titleMessage = "Droopl ";
+
+        if(titleBarCount != newTitleBarCount){
+            titleBarCount = newTitleBarCount;
+            if(titleBarCount != 0){
+                titleMessage += "("+titleBarCount+")";
+            }
+
+            document.title = titleMessage;
+        }
+
+
     }
 
     function readURL(input) {
