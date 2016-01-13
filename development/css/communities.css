@@ -391,6 +391,7 @@ article.create_community section {
 
     width: 100%;
     float: left;
+    position: relative;
     border-radius: .5em;
     border: none !important;
     background-image: url(../images/assets/add_collection_bg.svg);
@@ -403,6 +404,17 @@ article.create_community section {
     -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
 
+}
+article.create_community section a.close {
+    position: absolute;
+    right: 2.5%;
+    display: block;
+    width: 40px;
+    height: 65px;
+    background-image: url(../images/assets/close-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px;
 }
 article.create_community section header#upload {
 
@@ -728,6 +740,18 @@ article.newconvo section div.search_users ul li img{
     transition: all .2s ease-out;
 }
 
+article.newconvo section form a.close {
+    position: absolute;
+    right: 2.5%;
+    display: block;
+    width: 40px;
+    height: 65px;
+    background-image: url(../images/assets/close-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px;
+}
+
 article.newconvo section form input[type="text"]{
     display: inline-block;
     width: 100%;
@@ -737,9 +761,6 @@ article.newconvo section form input[type="text"]{
     border: none;
     box-sizing:border-box;
     border-bottom: 1px solid #E8E8EA;
-    background-image: url(../images/assets/search_btn.svg);
-    background-size: 15px;
-    background-position: right 5% center;
     background-repeat: no-repeat;
 }
 article.newconvo section form input[type="text"].hide{
@@ -1971,6 +1992,18 @@ article div.timer section.timer .progress svg:nth-child(2) path {
     }
     article.create_community .feed section{
         border-radius: 0px;
+        position: relative;
+    }
+    article.create_community .feed section a.close {
+        position: absolute;
+        right: 2.5%;
+        display: block;
+        width: 40px;
+        height: 65px;
+        background-image: url(../images/assets/close-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 10px;
     }
     article.verification div.register-box div.container header{
         margin-top: 40px;

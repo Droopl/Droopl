@@ -255,6 +255,13 @@ $(function(){
         e.preventDefault();
     });
 
+
+    if($("article.create_community").length){
+        closeLayerElement($("article.create_community"),false);
+    }
+    if($("article.newconvo").length){
+        closeLayerElement($("article.newconvo"),false);
+    }
     if( $('article div.messages section.messages aside').length){
 
 
@@ -591,6 +598,8 @@ $(function(){
         if($("article.rating").length){
             if($("article.rating").hasClass("hide")){
                 $("article.rating").removeClass("hide");
+                $("#side section header nav.stars").bind("click",ratePerson);
+                closeLayerElement($("article.rating"),true);
             }else {
                 $("article.rating").addClass("hide");
             }
@@ -1731,7 +1740,6 @@ $(function(){
           }else{
 
             if($(".feed .last_quest").length ){
-                console.log("exists");
             }else{
               var lastQuest = $("<section/>").addClass("last_quest").html('<header><h1 class="quest"><span class="hide">no more quests</span></h1> <h2>Youre out of quests</h2></header><p>If you want to see more quests, you will need to get social. Follow some cool people on droopl and see the quests poor in.</p>');
               $(".feed").append($(lastQuest).addClass("animated fadeIn"));
@@ -2315,6 +2323,44 @@ $(function(){
 		    handleFileUpload(this);
 		});
 
+    }
+
+    function closeLayerElement(obj,hide) {
+        var closebtn = $(obj).find("a.close");
+        console.log(closebtn);
+        $(closebtn).bind("click",function  (e) {
+            e.preventDefault();
+            if(hide){
+                obj.addClass("hide");
+            }else{
+                obj.remove();
+            }
+            closebtn.unbind("click");
+        });
+
+        obj.bind("click",function (e) {
+            if($(e.target).attr("class") == obj.attr("class")){
+                obj.unbind("click");
+                if(hide){
+                    obj.addClass("hide");
+                }else{
+                    obj.remove();
+                }
+            }
+        });
+
+        $(window).bind("keyup",function (e) {
+            if(e.keyCode == 27){
+                if(hide){
+                    console.log("here");
+                    obj.addClass("hide");
+                }else{
+                    obj.remove();
+                }
+                closebtn.unbind("click");
+                $(window).unbind("keyup");
+            }
+        })
     }
 
 

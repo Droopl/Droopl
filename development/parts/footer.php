@@ -71,13 +71,16 @@
     <header class="hide rating"><h1>Rating</h1></header>
     <div class="feed">
     <section class="rating">
-        <header class="hide"><h1>Boris Debusscher</h1></header>
+        <a href="?page=user&id=<?php echo $user['id'];?>" class="close"><span class="hide">close</span></a>
+        <header class="hide"><h1><?php echo $user['firstname']; ?></h1></header>
         <aside>
             <header class="hide"><h1>Rating between 0 and 5 stars</h1><a href=""><span>close</span></a></header>
+
             <nav>
                 <header class="hide">
                     <h1>Main Rating</h1>
                 </header>
+
 
                 <ul>
                     <li class="star full"></li>
@@ -106,7 +109,9 @@
 <article class="create_community">
     <div class="feed">
     <section class="create_community">
+        <a href="?page=communities" class="close"><span class="hide">close</span></a>
         <form action="?page=communities" method="post" id="add_collection" name="add_collection" enctype="multipart/form-data">
+
             <header id="upload">
                 <div class="dragndrop" id="dragndrop">
                     <div class="preloader">
@@ -141,6 +146,7 @@
     <section class="animated slideInUp">
         <header class="hide"><h1>new conversation</h1></header>
         <form action="" method="post" >
+            <a href="?page=messages" class="close"><span class="hide">close</span></a>
             <input type="text" id="search_people" name="search_people" placeholder="<?php echo $_SESSION['lang']['newConvSearch']; ?>" autofocus>
             <input type="text" id="user_id" name="user_id" value="" class="hide" required>
             <div class="search_users">

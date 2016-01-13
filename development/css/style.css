@@ -4881,9 +4881,20 @@ article.rating .feed section{
     border-radius: .5em;
     border: none;
     overflow: hidden;
-
+    position: relative;
     -webkit-box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
     box-shadow: 0 0 30px -5px rgba(0,0,0,.3);
+}
+article.rating .feed section a.close {
+    position: absolute;
+    right: 2.5%;
+    display: block;
+    width: 40px;
+    height: 65px;
+    background-image: url(../images/assets/close-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px;
 }
 
 article.rating .feed section header{
@@ -4926,6 +4937,7 @@ article.rating .feed section footer{
     padding: 0 5% 5% 5%;
     box-sizing:border-box;
     text-align: center;
+    position: relative;
 }
 article.rating .feed section footer input{
 
@@ -4954,6 +4966,7 @@ article.rating .feed section aside nav{
 
     float: left;
     width: 100%;
+    position: relative;
 }
 article.rating .feed section aside nav ul{
 
