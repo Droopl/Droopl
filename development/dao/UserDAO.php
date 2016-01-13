@@ -151,7 +151,7 @@ class UserDAO{
 		FROM users u
 		LEFT OUTER JOIN user_rating as r
 		ON u.id = r.user_id
-		WHERE CONCAT(u.firstname ," ", u.lastname) LIKE :entry OR u.firstname LIKE :entry2 OR u.lastname LIKE :entry3 OR u.email LIKE :entry4  GROUP BY u.id LIMIT 30 ';
+		WHERE CONCAT(u.firstname ," ", u.lastname) LIKE :entry OR u.firstname LIKE :entry2 OR u.lastname LIKE :entry3 OR u.email LIKE :entry4  GROUP BY u.id LIMIT 10 ';
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':entry',$entry."%");

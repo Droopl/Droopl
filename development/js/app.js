@@ -261,9 +261,7 @@ $(function(){
     if($("article.create_community").length){
         closeLayerElement($("article.create_community"),false);
     }
-    if($("article.newconvo").length){
-        closeLayerElement($("article.newconvo"),false);
-    }
+
     if( $('article div.messages section.messages aside').length){
 
 
@@ -333,9 +331,8 @@ $(function(){
 
     if($("article.newconvo section").length){
 
-
       $("article.newconvo section #search_people").on("keyup",function (e) {
-          $( "article.newconvo section div.search_users ul" ).load( "?page=messages&action=create&search_users="+$(this).val()+" article.newconvo section div.search_users ul li" ,function (e) {
+          $( "article.newconvo section div.search_users ul" ).load( "?page=messages&action=create&search_users="+$(this).val().replace(/\s+/g, '+')+" article.newconvo section div.search_users ul li" ,function (e) {
               $("article.newconvo section div.search_users ul li").on("click",function () {
                 $("article.newconvo section div.search_users ul li").removeClass("selected");
                 var id = $(this).attr("id");
@@ -354,6 +351,8 @@ $(function(){
         $("article.newconvo section form input[type='text']#user_id").val(id);
 
       });
+
+      closeLayerElement($("article.newconvo"),false);
 
     }
 
