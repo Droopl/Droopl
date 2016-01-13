@@ -537,7 +537,8 @@ class UserController extends AppController{
 						$_SESSION['user'] = $user;
                         $isloggedin = "true";
 
-						//header("location:?page=feed");
+						header("location:?page=feed");
+						exit();
 					}
 
 				}
@@ -549,7 +550,7 @@ class UserController extends AppController{
 
 		$this->set('email',$email);
 		$this->set('password',$password);
-        $this->set('isloggedin',$isloggedin);
+    $this->set('isloggedin',$isloggedin);
 
 	}
 

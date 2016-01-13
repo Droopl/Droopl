@@ -6,7 +6,9 @@ $(function(){
     var part = 1;
     var notificationCount = 0;
     var messagesCount = 0;
+    var oldMessageCount = 0;
     var titleBarCount = 0;
+    var menuMessage = $("#menu_messages").html();
 
      checkNotification();
      checkMessages();
@@ -1430,14 +1432,27 @@ $(function(){
 
         if(titleBarCount != newTitleBarCount){
             titleBarCount = newTitleBarCount;
-            if(titleBarCount != 0){
+            if(titleBarCount !== 0){
                 titleMessage += "("+titleBarCount+")";
             }
 
             document.title = titleMessage;
         }
 
+        updateMessagesCount();
+    }
 
+    function updateMessagesCount() {
+
+
+        var messageTitle = menuMessage;
+        if(oldMessageCount != messagesCount){
+            oldMessageCount = messagesCount;
+            if(oldMessageCount !== 0){
+                messageTitle += "("+oldMessageCount+")";
+            }
+            $("#menu_messages").html(messageTitle);
+        }
     }
 
     function readURL(input) {
@@ -1631,7 +1646,7 @@ $(function(){
 
     }
 
-    $("#login").submit(function(e) {
+    /*$("#login").submit(function(e) {
         var url = "index.php?page=login"; // the script where you handle the form input.
 
         $.ajax({
@@ -1662,15 +1677,12 @@ $(function(){
                     $("#sounds").on("ended",function (argument) {
                       $(location).attr('href', "?page=feed");
                     });
-                    /*setTimeout(function() {
-                        $(location).attr('href', "?page=feed");
-                    }, 2000);*/
                 }
             }
         });
 
         return false;
-    });
+    });*/
 
   $("#side .profile a").on("click",function  () {
 
