@@ -252,7 +252,13 @@
 
 }?> <span><?php if($quest['type'] == 0){ echo $quest['item']; }?></span></h1>
     <?php if($quest['type'] == 1){ ?>
-        <a class="collection_item"><img id="<?php echo $quest['collection_id'] ?>" src="images/collection/<?php echo $quest['collection_image'] ?>"><span class="collection_item_name"><?php echo $quest['item_name']; ?></span></a>
+        <a class="collection_item">
+            <?php if(!empty($quest['collection_image'])){ ?>
+            <img id="<?php echo $quest['collection_id'] ?>" src="images/collection/<?php echo $quest['collection_image'] ?>">
+            <?php }else{ ?>
+            <img id="<?php echo $quest['collection_id'] ?>" src="images/profile_pictures/notfound.svg">
+            <?php }?>
+            <span class="collection_item_name"><?php echo $quest['item_name']; ?></span></a>
     <?php } ?>
 	<a href="?page=<?php echo $_GET['page']; ?>&questid=<?php echo $_GET['questid']; ?>" class="close"><span class="hide">close</span></a>
 </header>
@@ -295,7 +301,12 @@
                         <?php foreach ($collection as $key => $value) {?>
 
                         <li id="<?php echo $value['collection_id']; ?>">
-                            <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                            <?php if(!empty($value['collection_image'])){ ?>
+                                <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                            <?php }else{ ?>
+                                <img src="images/profile_pictures/notfound.svg">
+                            <?php }?>
+
                             <div class="selected"><p class="icon-check"></p></div>
                             <p class="collection-item-name"><span><?php echo $value["item_name"]; ?></span></p>
                         </li>
@@ -339,7 +350,12 @@
                     <p><a href="?page=user&id=<?php echo $value['id']; ?>"><?php  echo $value['firstname']; ?> <?php echo $value['lastname'].' '; ?></a><?php echo $_SESSION['lang']['questoffering']; ?></p>
                 </li>
                 <li class="collection-pic">
-                    <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                    <?php if(!empty($value['collection_image'])){ ?>
+                        <img src="images/collection/<?php echo $value['collection_image']; ?>">
+                    <?php }else{ ?>
+                        <img src="images/profile_pictures/notfound.svg">
+                    <?php }?>
+
                 </li>
                 <?php if($quest['id'] == $_SESSION['user']['id']){ ?>
                 <li class="options">

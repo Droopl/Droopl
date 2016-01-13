@@ -4225,7 +4225,17 @@ article.detail div.feed section.quest footer div.proposals-list ul{
 article.detail div.feed section.quest footer div.proposals-list ul li{
     display: inline-block;
     width: 100%;
+    height: 100px;
+    overflow-x: scroll;
     box-sizing: border-box;
+}
+article.detail div.feed section.quest footer div.proposals-list ul li.propo{
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+article.detail div.feed section.quest footer div.proposals-list ul li.propo li{
+    display: inline-block !important;
+    float: none !important;
 }
 article.detail div.feed section.quest footer div.proposals-list ul div.no-proposals-container {
     display: block;
@@ -6551,6 +6561,114 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
        margin: 0 2%;
    }
 
+	article.add_collection .feed {
+	    float: left;
+	    width: 100%;
+	    margin: 0;
+       margin-top: 20px;
+       padding: 0px;
+	}
+
+   article div.feed section.profile-collection ul li.profile-collection-item {
+       display: block;
+       float: left;
+       width: 45%;
+       height: 180px;
+       box-sizing: border-box;
+       overflow: hidden;
+       border: 1px solid #E8E8EA;
+       background-color: #ffffff;
+       text-align: center;
+       margin: 2.5%;
+       position: relative;
+       opacity: 0;
+   }
+
+   article div.feed section.profile-collection ul li.profile-collection-item:nth-child(3n+2) {
+       margin: 2.5%;
+   }
+
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.profile-name{
+       display: block;
+       float: left;
+       width: auto;
+       white-space: nowrap;
+       text-align: center;
+   }
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.profile-pic{
+       display: block;
+       float: left;
+       width: 60px;
+       padding: 0px;
+       text-align: center;
+       line-height:140px;
+       height: 100px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.collection-pic{
+      display: block;
+      float: left;
+      width: 60px;
+      padding: 0px;
+      text-align: center;
+      line-height:140px;
+      height: 100px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.collection-pic img{
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic img{
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.options{
+      display: block;
+       float: right;
+       width: 50px !important;
+       box-sizing: border-box;
+       padding: 18px 0px;
+   }
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.profile-name{
+       display: block;
+       float: left;
+       width: 60%;
+       text-align: center;
+   }
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.profile-pic{
+      display: block;
+      float: left;
+      width: 60px;
+      padding: 0px;
+      text-align: center;
+      line-height:140px;
+      height: 100px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.profile-pic img{
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+   }
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.collection-pic{
+      display: block;
+      float: left;
+      width: 60px;
+      padding: 0px;
+      text-align: center;
+      line-height:140px;
+      height: 100px;
+   }
+   article div.feed section.quest footer div.proposals-list ul li.propo.myquest ul li.collection-pic img{
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+   }
 
 
 }
@@ -6573,4 +6691,8 @@ article aside#side section.profile div.map-container:hover .ellipse-3{
 		height: 40px;
 		border-radius: 50%;
 	}
+
+   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.options{
+      display: none !important;
+   }
 }
