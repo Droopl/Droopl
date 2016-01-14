@@ -285,6 +285,7 @@ class UserController extends AppController{
 		$street = "";
 		$number = "";
 		$zipcode = "";
+		$occupation = "";
 		$city = "";
 		$country = "";
 		$latitude = "";
@@ -458,7 +459,7 @@ class UserController extends AppController{
 						$latitude = $_SESSION['register_step2']['latitude'];
 						$longitude = $_SESSION['register_step2']['longitude'];
 
-						$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
+						$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$occupation,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
 
 						if(!empty($register)){
 							//$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());

@@ -92,9 +92,9 @@ class UserDAO{
 		return false;
 	}
 
-	public function register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
+	public function register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$occupation,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
 
-		return $this->addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
+		return $this->addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$picture,$occupation,$number,$zipcode,$city,$country,$latitude,$longitude);
 
 	}
 	public function getUserCount()
@@ -237,9 +237,9 @@ GROUP BY u.id';
 	}
 
 
-	public function addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
+	public function addUser($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$occupation,$street,$number,$zipcode,$city,$country,$latitude,$longitude){
 
-		$sql = 'INSERT INTO `users` (`firstname`, `lastname`, `email`, `picture`, `age`, `gender`, `street`, `nr`, `zipcode`, `city`, `country`, `password`, `occupation`, `number`, `status`, `verification`, `description`, `lang`, `latitude`, `longitude`) VALUES (:firstname, :lastname, :email, :picture, :age, :gender, :street, :nr, :zipcode, :city, :country, :password, "", "No Number", "0", "0", "No Desciption", :lang, :latitude, :longitude);';
+		$sql = 'INSERT INTO `users` (`firstname`, `lastname`, `email`, `picture`, `age`, `gender`, `street`, `nr`, `zipcode`, `city`, `country`, `password`, `occupation`, `number`, `status`, `verification`, `description`, `lang`, `latitude`, `longitude`) VALUES (:firstname, :lastname, :email, :picture, :age, :gender, :street, :nr, :zipcode, :city, :country, :password, :occupation, "No Number", "0", "0", "No Desciption", :lang, :latitude, :longitude);';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':firstname',$first);
 		$stmt->bindValue(':lastname',$last);
@@ -249,6 +249,7 @@ GROUP BY u.id';
 		$stmt->bindValue(':gender',$gender);
 		$stmt->bindValue(':street',$street);
 		$stmt->bindValue(':nr',$number);
+		$stmt->bindValue(':occupation',$occupation);
 		$stmt->bindValue(':zipcode',$zipcode);
 		$stmt->bindValue(':city',$city);
 		$stmt->bindValue(':country',$country);
