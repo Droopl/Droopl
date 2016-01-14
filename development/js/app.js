@@ -744,7 +744,6 @@ $(function(){
         e.preventDefault();
 
         preloader(true);
-        $("#menu .profile ul li a.icon-cog").unbind("click");
 
           $.ajax({
                 type: "GET",
@@ -755,20 +754,14 @@ $(function(){
 
                   var section = $(data).find(".feed");
 
-
-                  $("article.settings").removeClass("hide");
-                  $("article.settings").remove(".feed");
+                  $("<article/>").addClass("settings").html("<header class='hide settings'><h1>settings</h1></header>").insertAfter("article.detail");
+                 // section.appendTo("article.settings");
                   section.addClass("animated fadeInUpBig").insertAfter("article.settings header.settings");
 
-
                   dragAndDrop();
+                  closeLayerElement($("article.settings"),false);
 
-                $("article.settings section h1 a.close").on("click",function (e) {
-                    e.preventDefault();
-                    $("article.settings").addClass("hide");
-                    $("article.settings .feed").remove();
-                    $("#menu .profile ul li a.icon-cog").bind("click",openSettings);
-                });
+
 
                 }
           }).done(function(){
@@ -2338,7 +2331,6 @@ $(function(){
 
     function closeLayerElement(obj,hide) {
         var closebtn = $(obj).find("a.close");
-        console.log(closebtn);
         $(closebtn).bind("click",function  (e) {
             e.preventDefault();
             if(hide){

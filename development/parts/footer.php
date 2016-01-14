@@ -179,9 +179,6 @@
 <article class="detail hide scrollable">
     <header class="hide detail"><h1>Detail</h1></header>
 </article>
-<article class="settings hide scrollable">
-    <header class="hide settings"><h1>settings</h1></header>
-</article>
 <article class="add_collection hide scrollable">
     <header class="hide add_collection"><h1>Add collection</h1></header>
 </article>

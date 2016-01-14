@@ -2,31 +2,30 @@
     <div class="feed">
         <section class="settings-container">
             <form action="?page=user&action=update" id="settings-form" method="post" enctype="multipart/form-data">
-            <aside class="left">
-                    <header id="upload">
-                        <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php if(!empty($user['picture'])){echo $user['picture'];}else{ echo "notfound.svg";} ?>);border: none">
-                            <div class="preloader">
-                                <span class="remove-file hide"><p class="icon-cross"></p></span>
-                                <input type="file" id="profile_image" name="profile_image" accept="image/*">
-                            </div>
-                        </div>
-                        <h1>Drag and drop</h1>
-                        <p><?php echo $_SESSION['lang']['pressBrowse']; ?></p>
-                    </header>
-                <input type="submit" id="submit_settings" name="submit_settings" value="<?php echo $_SESSION['lang']['save']; ?>">
-            </aside>
+
             <aside class="right">
-                <h1 class="settings-title"><span class="icon-cog"></span><?php echo $_SESSION['lang']['settingsHeader']; ?> <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
-                <label for="first"><?php echo $_SESSION['lang']['firstName']; ?>:</label>
-                <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
-                <label for="last"><?php echo $_SESSION['lang']['lastName']; ?>:</label>
-                <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
-                <label for="last"><?php echo $_SESSION['lang']['occupation']; ?>:</label>
-                <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>">
-                <label for="new_pass"><?php echo $_SESSION['lang']['password']; ?>:</label>
-                <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
-                <label for="repeat_new_pass"><?php echo $_SESSION['lang']['repeatPass']; ?>:</label>
-                <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                <h1 class="settings-title"><span class="icon-cog"></span><?php echo $_SESSION['lang']['settingsHeader']; ?>
+                <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
+                <fieldset>
+                    <label for="first"><?php echo $_SESSION['lang']['firstName']; ?>:</label>
+                    <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
+                </fieldset>
+                <fieldset>
+                    <label for="last"><?php echo $_SESSION['lang']['lastName']; ?>:</label>
+                    <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
+                </fieldset>
+                <fieldset>
+                    <label for="last"><?php echo $_SESSION['lang']['occupation']; ?>:</label>
+                    <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>">
+                </fieldset>
+                <fieldset>
+                    <label for="new_pass"><?php echo $_SESSION['lang']['password']; ?>:</label>
+                    <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                </fieldset>
+                <fieldset>
+                    <label for="repeat_new_pass"><?php echo $_SESSION['lang']['repeatPass']; ?>:</label>
+                    <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                </fieldset>
                 <!--<label for="street">Street:</label>
                 <input type="text" id="street" name="street" value="<?php echo $user['street']; ?>">
                 <label for="street_nr">Streetnumber:</label>
@@ -289,6 +288,8 @@
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
                 </select>-->
+                <fieldset>
+
                 <input type="date" id="birth_date" name="birth_date" value="<?php echo $user['age']; ?>" placeholder="Date of birth">
                 <div class="select-language">
                                 <h1><?php echo $_SESSION['lang']['language']; ?>: </h1>
@@ -324,6 +325,21 @@
                     </div>
                 <?php } ?>
 
+            </fieldset>
+            </aside>
+            <aside class="left">
+                    <header id="upload">
+                        <a href="?page=feed" class="close"></a>
+                        <div class="dragndrop" id="dragndrop" style="background-image: url(images/profile_pictures/<?php if(!empty($user['picture'])){echo $user['picture'];}else{ echo "notfound.svg";} ?>);border: none">
+                            <div class="preloader">
+                                <span class="remove-file hide"><p class="icon-cross"></p></span>
+                                <input type="file" id="profile_image" name="profile_image" accept="image/*">
+                            </div>
+                        </div>
+                        <h1>Drag and drop</h1>
+                        <p><?php echo $_SESSION['lang']['pressBrowse']; ?></p>
+                    </header>
+                <input type="submit" id="submit_settings" name="submit_settings" value="<?php echo $_SESSION['lang']['save']; ?>">
             </aside>
             </form>
         </section>
