@@ -158,6 +158,8 @@ class UserController extends AppController{
 
 						$this->redirect("?page=user&id=".$_SESSION["user"]["id"]);
 
+					}else{
+						$this->redirect("?page=user&id=".$_SESSION["user"]["id"]);
 					}
 
 				}
