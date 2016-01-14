@@ -128,29 +128,23 @@ class CollectionController extends AppController{
 
 				if(isset($_FILES['collection_image']) && $_FILES['collection_image']['size'] != 0){
 
-					$max_file_size = 1024*1000; // 200kb
 					$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
 					// thumbnail sizes
 					$sizes = array(200 => 200);
 
 					if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['collection_image'])) {
-					  if( $_FILES['collection_image']['size'] < $max_file_size ){
-					    // get file extension
-					    $ext = strtolower(pathinfo($_FILES['collection_image']['name'], PATHINFO_EXTENSION));
-					    if (in_array($ext, $valid_exts)) {
-					      /* resize image */
-					      foreach ($sizes as $w => $h) {
-					        $files[] = $this->resize($w, $h);
-					      }
+						$ext = strtolower(pathinfo($_FILES['collection_image']['name'], PATHINFO_EXTENSION));
+						if (in_array($ext, $valid_exts)) {
+							/* resize image */
+							foreach ($sizes as $w => $h) {
+								$files[] = $this->resize($w, $h);
+							}
 
-								$image = $files[0];
+							$image = $files[0];
 
-					    } else {
-					      $msg = 'Unsupported file';
-					    }
-					  } else{
-					    $msg = 'Please upload image smaller than 200KB';
-					  }
+						} else {
+							$msg = 'Unsupported file';
+						}
 					}
 
 				}
