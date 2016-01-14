@@ -195,7 +195,7 @@ class CommunityController extends AppController{
 		}
 
 		if(isset($_SESSION['user'])){
-			$communities = $this->communityDAO->getAllCommunities($search);
+			$communities = $this->communityDAO->getAllCommunities($search,$_SESSION['user']['id']);
 		}
 
 		if(!empty($_POST)){
