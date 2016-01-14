@@ -53,6 +53,7 @@
     <communityDiscover>Explore the most recent communities</communityDiscover>
     <communitySearch>Search for communities</communitySearch>
     <communityJoin>Join</communityJoin>
+	 <communityJoined>Joined</communityJoined>
     <questCount>Quests</questCount>
     <proposCount>Propos</proposCount>
     <membersCount>Membres</membersCount>

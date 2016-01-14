@@ -46,7 +46,12 @@
 			<aside>
 
 			<nav class="join">
-				<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityJoin']; ?><span class="icon-inbox"></span></a>
+				<?php if($community['joined'] == 0){ ?>
+					<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityJoin']; ?><span class="icon-inbox"></span></a>
+				<?php	}else{ ?>
+					<a href="?page=community&id=<?php echo $community['id'];?>&action=join" class="member"><?php echo $_SESSION['lang']['communityJoined']; ?><span class="icon-inbox"></span></a>
+				<?php } ?>
+
 			</nav>
 				<ul>
                 <li>

@@ -52,7 +52,8 @@
     <createCommunity>Maak community aan</createCommunity>
     <communityDiscover>Ontdek de meest recente communities</communityDiscover>
     <communitySearch>Zoek communities</communitySearch>
-    <communityJoin>Joindre</communityJoin>
+    <communityJoin>Toetreden</communityJoin>
+	 <communityJoined>Toegetreden</communityJoined>
     <questCount>Quests</questCount>
     <proposCount>Propos</proposCount>
     <membersCount>Leden</membersCount>

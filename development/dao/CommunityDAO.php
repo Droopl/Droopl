@@ -33,8 +33,9 @@ class CommunityDAO{
 	public function getCommunityById($id){
 
 		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(
-        SELECT COUNT(*)
+        SELECT COUNT(qu.quest_id)
         FROM   community_quests AS cq
+    	JOIN quests qu ON cq.quest_id = qu.quest_id AND qu.active = 1
     	WHERE cq.community_id = c.id
         ) AS quests,(
         SELECT COUNT(*)
@@ -43,10 +44,11 @@ class CommunityDAO{
         ) AS members,(
         SELECT COUNT(*)
         FROM   proposals AS p
-        LEFT OUTER JOIN community_quests as cq
+        JOIN community_quests as cq
 		ON cq.quest_id = p.quest_id
+        WHERE cq.community_id = c.id
         ) AS propos
-		FROM communities c
+        FROM communities c
 		WHERE c.id = :id';
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id',$id);
@@ -86,8 +88,9 @@ class CommunityDAO{
 	public function getAllCommunities($search){
 
 		$sql = 'SELECT c.id,c.community_name,c.community_profile,c.genre,c.creator_id,c.description,c.privacy,c.creation_date,(
-        SELECT COUNT(*)
+        SELECT COUNT(qu.quest_id)
         FROM   community_quests AS cq
+    	JOIN quests qu ON cq.quest_id = qu.quest_id AND qu.active = 1
     	WHERE cq.community_id = c.id
         ) AS quests,(
         SELECT COUNT(*)
@@ -96,9 +99,15 @@ class CommunityDAO{
         ) AS members,(
         SELECT COUNT(*)
         FROM   proposals AS p
-        LEFT OUTER JOIN community_quests as cq
+        JOIN community_quests as cq
 		ON cq.quest_id = p.quest_id
-        ) AS propos
+        WHERE cq.community_id = c.id
+        ) AS propos,
+        (
+        SELECT COUNT(*)
+        FROM   community_users AS cu
+        WHERE cu.community_id = c.id AND cu.user_id = 1
+        ) AS joined
         FROM communities c
 				WHERE c.community_name LIKE :entry  ORDER BY c.creation_date DESC LIMIT 10';
 

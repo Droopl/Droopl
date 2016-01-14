@@ -34,7 +34,7 @@
    <filterpropos>Propos</filterpropos>
    <filtercollection>Collection</filtercollection>
    <filterfollowers>Followers</filterfollowers>
-    
+
    <timeHours>Heures</timeHours>
     <timeMinutes>Minutes</timeMinutes>
     <timeSeconds>Seconds</timeSeconds>
@@ -53,6 +53,7 @@
     <communityDiscover>Découvrer les communautés les plus récentes</communityDiscover>
     <communitySearch>Cherchez des communautés</communitySearch>
     <communityJoin>Joindre</communityJoin>
+	 <communityJoined>Rejoint</communityJoined>
     <questCount>Quêtes</questCount>
     <proposCount>Propositions</proposCount>
     <membersCount>Membres</membersCount>
