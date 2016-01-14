@@ -2066,5 +2066,31 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         margin-top: 40px;
 	}
 
+    article div.about header.intro div{
+        float: left;
+        width: 100%;
+    }
+
+    article div.about header.intro div.intro img{
+
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 50px;
+    }
+
+    article div.about header.intro p{
+        font-size: .8em;
+    }
+
+    article div.about section.contributors aside.droopl ul li{
+
+        display: inline-block;
+        width: 70%;
+        height: 650px;
+        box-sizing:border-box;
+        padding: 5%;
+        margin-bottom: 100px;
+    }
+
 
 }
