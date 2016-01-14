@@ -1861,12 +1861,7 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         border-bottom: 1px solid #E8E8EA;
     }
     article div.communities section.community header {
-        display: block;
-        float: left;
-        width: 50%;
-        box-sizing: border-box;
-        padding: 5% 3.5%;
-        height: 51px;
+        width: 80%;
     }
     article div.communities section.community header img{
         float: left;
@@ -1878,17 +1873,26 @@ article div.timer section.timer .progress svg:nth-child(2) path {
     }
     article div.communities section.community header h1{
         float: left;
-        font-size: 1em;
+        font-size: .9em;
         display: inline-block;
         width: 60%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
     article div.communities section.community header h2{
         float: left;
         width: 60%;
-        font-size: .9em;
+        font-size: .7em;
         font-weight: normal;
         color: rgba(0,0,0,.3);
         display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    article div.communities section.community ul li span{
+        font-size: .7em;
     }
     article div.communities section.community aside{
         float: left;
@@ -1897,9 +1901,11 @@ article div.timer section.timer .progress svg:nth-child(2) path {
     }
     article div.communities section.community aside nav{
         position: absolute;
-        right: 5%;
-        top: 5%;
+        right: 10px;
+        top: 10px;
         width: auto;
+        height: auto;
+        padding: 0;
         overflow: hidden;
         text-align: right;
 
@@ -1909,6 +1915,10 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         -ms-transition: all .2s ease-in-out;
         -o-transition: all .2s ease-in-out;
         transition: all .2s ease-in-out;
+    }
+
+    article div.communities section.community ul{
+        width: 100%;
     }
     article div.communities section.community aside nav a.member{
         display: inline-block;
@@ -2055,4 +2065,6 @@ article div.timer section.timer .progress svg:nth-child(2) path {
         margin-left: 0;
         margin-top: 40px;
 	}
+
+
 }
