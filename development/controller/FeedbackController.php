@@ -38,12 +38,16 @@ class FeedbackController extends AppController{
 		}else{
 			$this->redirect("?page=login");
 		}
-		
-		echo $feedbackSent;
-		
+
+		if(!empty($_GET["action"]) && $_GET["action"] == "ajax"){
+			echo $feedbackSent;
+		}else{
+			$this->redirect("?page=feed");
+		}
+
+
+
 		exit();
 	}
 
 }
-
-

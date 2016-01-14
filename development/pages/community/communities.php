@@ -34,7 +34,7 @@
 
 		<section class="community">
 			<header>
-				<?php if(!empty($user['picture'])){ ?>
+				<?php if(!empty($community['community_profile'])){ ?>
                 <img src="images/communities/<?php echo $community['community_profile'];?>" alt="community">
                 <?php }else{ ?>
                 <img class="profile-img" src="images/profile_pictures/notfound.svg" alt="image not found">
