@@ -7,7 +7,7 @@
                     <input type="submit" id="edit_item" name="edit_item" value="Edit">
                 <?php } ?>
                 <?php if($item['user_id'] == $_SESSION['user']['id']){ ?>
-				<div class="dragndrop" id="dragndrop" style="background-image: url(images/collection/<?php echo $item['collection_image']; ?>);border: none">
+				<div class="dragndrop" id="dragndrop" style="background-image: <?php if(!empty($item['collection_image'])){ echo "url(images/collection/".$item['collection_image']; }else{ echo "url(images/profile_pictures/notfound.svg";} ?>);border: none">
 					<div class="preloader">
 						<ul class="progress">
 						</ul>
@@ -16,7 +16,12 @@
 					</div>
 				</div>
                 <?php }else{ ?>
-                    <img class="non-editable-collection-img" src="images/collection/<?php echo $item['collection_image']; ?>">
+                <?php if(!empty($item['collection_image'])){ ?>
+                                <img class="non-editable-collection-img" src="images/collection/<?php echo $item['collection_image']; ?>">
+                <?php }else{ ?>
+                                <img class="non-editable-collection-img" src="images/profile_pictures/notfound.svg" alt="image not found">
+                <?php }?>
+
                 <?php } ?>
 			</header>
 			<aside>
@@ -36,15 +41,15 @@
                         <input class="availability<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="availability-btn" name="availability-btn" value="not available">
                         <input type="text" name="item_availability" id="item_availability" class="hide" value="1">
                     <?php } ?>
-                    
+
                     <?php if($item['user_id'] == $_SESSION['user']['id']){ if($item['status'] == 0){ ?>
                         <p class="public"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="public">
-                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="0"> 
+                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="0">
                     <?php }else{ ?>
                         <p class="private"></p>
                         <input class="privacy<?php if($item['user_id'] == $_SESSION['user']['id']){ echo "-editable"; } ?>" type="button" id="privacy-btn" name="privacy-btn" value="private">
-                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="1"> 
+                        <input type="text" name="item_privacy" id="item_privacy" class="hide" value="1">
                     <?php } }?>
                 </div>
 			</aside>
