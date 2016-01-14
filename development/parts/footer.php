@@ -212,21 +212,23 @@
                     <img src="images/assets/droopl_logo.svg">
                     <h1><?php echo $_SESSION['lang']['feedbacktitle']; ?></h1>
                     <a href="?page=feed" class="close"><span class="icon-cross"></span></a>
-                    <div class="type">
-                        <div>
-                            <input type="radio" id="type" name="type" checked="checked" value="0">
-                            <label id="type"><p><?php echo $_SESSION['lang']['feedback']; ?></p></label>
-                        </div>
+                    <div class="container">
+                        <div class="type">
+                            <div>
+                                <input type="radio" id="type" name="type" checked="checked" value="0">
+                                <label id="type"><p><?php echo $_SESSION['lang']['feedback']; ?></p></label>
+                            </div>
 
-                        <div>
-                            <input type="radio" id="type" name="type" value="1">
-                            <label id="type"><p><?php echo $_SESSION['lang']['feedbackbug']; ?></p></label>
-                        </div>
+                            <div>
+                                <input type="radio" id="type" name="type" value="1">
+                                <label id="type"><p><?php echo $_SESSION['lang']['feedbackbug']; ?></p></label>
+                            </div>
 
+                        </div>
+                        <textarea placeholder="<?php echo $_SESSION['lang']['feedbackText']; ?>" required id="feedback" name="feedback"></textarea>
+                        <input type="submit" id="feedback_btn" name="feedback_btn" value="<?php echo $_SESSION['lang']['feedbackBtn']; ?>">
                     </div>
                 </header>
-                <textarea placeholder="<?php echo $_SESSION['lang']['feedbackText']; ?>" required id="feedback" name="feedback"></textarea>
-                <input type="submit" id="feedback_btn" name="feedback_btn" value="<?php echo $_SESSION['lang']['feedbackBtn']; ?>">
             </form>
         </section>
     </div>

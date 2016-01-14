@@ -1228,7 +1228,9 @@ article.feedback div.feed section.feedback  header div.type div{
     width: 50%;
     padding: 3%;
     box-sizing:border-box;
+    background-color: #ffffff;
 }
+
 article.feedback div.feed section.feedback  header div.type div:last-child{
    border-left: 1px solid #E8E8EA;
 }
