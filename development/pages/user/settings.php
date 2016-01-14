@@ -8,23 +8,23 @@
                 <a href="?page=feed" class="close"><span class="icon-cross"></span></a></h1>
                 <fieldset>
                     <label for="first"><?php echo $_SESSION['lang']['firstName']; ?>:</label>
-                    <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>">
+                    <input type="text" id="first" name="first" value="<?php echo $user['firstname']; ?>" required>
                 </fieldset>
                 <fieldset>
                     <label for="last"><?php echo $_SESSION['lang']['lastName']; ?>:</label>
-                    <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>">
+                    <input type="text" id="last" name="last" value="<?php echo $user['lastname']; ?>" required>
                 </fieldset>
                 <fieldset>
                     <label for="last"><?php echo $_SESSION['lang']['occupation']; ?>:</label>
-                    <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>">
+                    <input type="text" id="occupation" name="occupation" value="<?php echo $user['occupation']; ?>" required>
                 </fieldset>
                 <fieldset>
                     <label for="new_pass"><?php echo $_SESSION['lang']['password']; ?>:</label>
-                    <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                    <input type="password" id="new_pass" name="new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;" required>
                 </fieldset>
                 <fieldset>
                     <label for="repeat_new_pass"><?php echo $_SESSION['lang']['repeatPass']; ?>:</label>
-                    <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;">
+                    <input type="password" id="repeat_new_pass" name="repeat_new_pass" placeholder="&#149;&#149;&#149;&#149;&#149;" required>
                 </fieldset>
                 <!--<label for="street">Street:</label>
                 <input type="text" id="street" name="street" value="<?php echo $user['street']; ?>">
@@ -299,7 +299,7 @@
                                     <li class="nl"><span class="nl-flag"></span>Nederlands</li>
                                     <li class="fr"><span class="fr-flag"></span>Français</li>
                                 </ul>
-                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="<?php echo $user['lang']; ?>">
+                                <input class="hide" type="text" id="selected_lang" name="selected-lang" value="<?php echo $user['lang']; ?>" required>
                 </div>
                 <?php if($user['gender'] == "m"){ ?>
                     <div class="switch-gender">
@@ -310,7 +310,7 @@
                             </div>
                             <p class="female">&#9792;</p>
                         </div>
-                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>">
+                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>" required>
                     </div>
                 <?php }elseif($user['gender'] == "f"){ ?>
                     <div class="switch-gender">
@@ -321,7 +321,7 @@
                             </div>
                             <p class="female selected">&#9792;</p>
                         </div>
-                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>">
+                        <input type="text" class="hide" id="gender" name="gender" value="<?php echo $user['gender']; ?>" required>
                     </div>
                 <?php } ?>
 

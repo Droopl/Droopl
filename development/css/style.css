@@ -3393,6 +3393,7 @@ article.settings div.feed {
   width: 850px;
   margin: 0 auto;
   padding: 0;
+  height: auto;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -3655,9 +3656,9 @@ article.settings div.feed section.settings-container aside.right div.select-lang
   background-color: #ffffff;
   border: 1px solid #E8E8EA;
   border-radius: .5em;
-  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   left: 75%;
-  top: 27px;
+  bottom: 27px;
   overflow: hidden;
   z-index: 9999;
   opacity: 0;

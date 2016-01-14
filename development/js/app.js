@@ -149,7 +149,9 @@ $(function(){
 
     },1000);
 
-
+    if($("article.feedback").length){
+        closeLayerElement($("article.feedback"),false);
+    }
 
 
     if($("article.rating").length){
