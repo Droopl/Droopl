@@ -167,7 +167,30 @@ $(function(){
                  processData: false,
                  success: function(data){
                     if(data == 1){
-                        
+                        $("article.feedback div.feed section.feedback  header div").fadeOut(600,function(){
+                            $(this).animate({height:0});
+                            var lang = $("div.js-language").html();
+                            switch(lang){
+                                case 'en':
+                                $("article.feedback div.feed section.feedback header h1").text("Thanks for your feedback!");
+                                break;
+                                    
+                                case 'fr':
+                                $("article.feedback div.feed section.feedback header h1").text("Merci pour votre aide précieuse!");
+                                break;
+                                    
+                                case 'nl':
+                                $("article.feedback div.feed section.feedback header h1").text("Bedankt voor het feedback!");
+                                break;
+                                    
+                                default:
+                                $("article.feedback div.feed section.feedback header h1").text("Thanks for your feedback!");
+                                break;
+                            }
+                        });
+                        setTimeout(function(){
+                            $(location).attr("href", "?page=feed");
+                        },1400);
                     }
                  }
           });
