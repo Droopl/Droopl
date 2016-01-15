@@ -1525,10 +1525,18 @@ article div.feed section.post form div input[type="text"] {
   background: none;
   border: none;
 }
-article div.feed section.post form div input[type="text"]#desc {
+article div.feed section.post form div textarea#desc {
   float: left;
   width: 450px;
-  padding-right: 70px;
+  max-height: 400px;
+  min-height: 40px;
+  padding: 20px;
+  border: none;
+  resize: none;
+  height: auto;
+  line-height: 20px;
+  padding-right: 95px;
+  padding-bottom: 10px;
   box-sizing: border-box;
 }
 article div.feed section.post form div select {
@@ -1540,7 +1548,7 @@ article div.feed section.post form div select {
   top: 50%;
   margin-top: -10px;
   border: none;
-  width: auto;
+  width: 70px;
   text-align: center;
   height: 20px;
   color: #F47D67;
@@ -5684,9 +5692,12 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
     border: none;
     font-size: 1em;
   }
-  article div.feed section.post form div input[type="text"]#desc {
+  article div.feed section.post form div textarea#desc {
     width: 100%;
     padding: 20px;
+    resize: none;
+    border: none;
+    font-size: 1em;
   }
   article div.feed section.post form div select {
     float: left;

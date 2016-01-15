@@ -115,7 +115,7 @@
 
             <?php } ?>
             <div>
-                <input type="text" id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2">
+                <textarea id="desc" name="desc" placeholder="<?php echo $_SESSION['lang']['formdescription']; ?>" tabindex="2"></textarea>
                 <nav>
 
                 <span class="upload_image">
