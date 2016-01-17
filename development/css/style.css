@@ -2061,6 +2061,12 @@ article div.feed section.quest footer.detail {
   width: 100%;
   padding: 0;
 }
+article div.feed section.quest footer div.search-collection-container {
+  display: none;
+}
+article.detail div.feed section.quest footer div.search-collection-container {
+  display: block;;
+}
 article div.feed section.quest footer div.search-proposal {
   width: 100%;
   height: 60px;
@@ -4046,7 +4052,7 @@ article.detail div.feed section.quest footer div.search-proposal form input[type
   background: url(../images/assets/add-to-collection-icon.svg) center no-repeat;
   background-size: 15px;
 }
-article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item {
+div.feed section.quest footer div.search-proposal form div.added-collection-item {
   position: absolute;
   display: none;
   width: auto;
@@ -4063,21 +4069,21 @@ article.detail div.feed section.quest footer div.search-proposal form div.added-
   -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
 }
-article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item.show {
+div.feed section.quest footer div.search-proposal form div.added-collection-item.show {
   display: block;
   opacity: 1;
 }
-article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item p {
+div.feed section.quest footer div.search-proposal form div.added-collection-item p {
   display: block;
   font-size: 1em;
   color: #ffffff;
   float: left;
 }
-article.detail div.feed section.quest footer div.search-proposal form div.added-collection-item p span.remove-collection-item {
+div.feed section.quest footer div.search-proposal form div.added-collection-item p span.remove-collection-item {
   display: inline-block;
   cursor: pointer;
 }
-article.detail div.feed section.quest footer div.proposals-list {
+div.feed section.quest footer div.proposals-list {
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -4090,27 +4096,27 @@ article.detail div.feed section.quest footer div.proposals-list ul {
   width: 100%;
   height: auto;
 }
-article.detail div.feed section.quest footer div.proposals-list ul li {
+div.feed section.quest footer div.proposals-list ul li {
   display: inline-block;
   width: 100%;
   height: 100px;
   overflow-x: scroll;
   box-sizing: border-box;
 }
-article.detail div.feed section.quest footer div.proposals-list ul li.propo {
+div.feed section.quest footer div.proposals-list ul li.propo {
   overflow-x: scroll;
   overflow-y: hidden;
 }
-article.detail div.feed section.quest footer div.proposals-list ul li.propo li {
+div.feed section.quest footer div.proposals-list ul li.propo li {
   display: inline-block !important;
   float: none !important;
 }
-article.detail div.feed section.quest footer div.proposals-list ul div.no-proposals-container {
+div.feed section.quest footer div.proposals-list ul div.no-proposals-container {
   display: block;
   float: left;
   width: 100%;
 }
-article.detail div.feed section.quest footer div.proposals-list ul h1.no-proposals-icon {
+div.feed section.quest footer div.proposals-list ul h1.no-proposals-icon {
   display: block;
   width: 100%;
   height: 180px;
@@ -4120,7 +4126,7 @@ article.detail div.feed section.quest footer div.proposals-list ul h1.no-proposa
   background-position: center bottom;
   background-size: 150px;
 }
-article.detail div.feed section.quest footer div.proposals-list ul p.no-proposals-yet {
+div.feed section.quest footer div.proposals-list ul p.no-proposals-yet {
   display: block;
   width: 100%;
   float: left;
@@ -4131,7 +4137,7 @@ article.detail div.feed section.quest footer div.proposals-list ul p.no-proposal
   color: #3E454C;
   opacity: .4;
 }
-article.detail div.feed section.quest footer.detail div.collection header h1 {
+div.feed section.quest footer.detail div.collection header h1 {
   display: block;
   float: left;
   border: none;
@@ -4143,7 +4149,7 @@ article.detail div.feed section.quest footer.detail div.collection header h1 {
   background-size: 120px;
   text-align: center;
 }
-article.detail div.feed section.quest footer.detail div.collection header h2 {
+div.feed section.quest footer.detail div.collection header h2 {
   display: block;
   float: left;
   width: 70%;
@@ -4154,15 +4160,15 @@ article.detail div.feed section.quest footer.detail div.collection header h2 {
   font-weight: 500;
   text-align: center;
 }
-article.detail div.feed section.quest footer.detail div.collection header h2 a {
+div.feed section.quest footer.detail div.collection header h2 a {
   display: block;
   color: #F47D67;
   cursor: pointer;
 }
-article.detail div.feed section.quest footer.detail div.collection header h1.collection {
+div.feed section.quest footer.detail div.collection header h1.collection {
   background-image: url(../images/assets/emty_data/empty_collection.svg);
 }
-article.detail div.feed section.quest footer.detail div.collection {
+div.feed section.quest footer.detail div.collection {
   position: relative;
   width: 100%;
   height: auto;
@@ -4171,16 +4177,16 @@ article.detail div.feed section.quest footer.detail div.collection {
   border-bottom: 1px solid #E8E8EA;
   overflow: scroll;
 }
-article.detail div.feed section.quest footer.detail div.collection.no-collection-items {
+div.feed section.quest footer.detail div.collection.no-collection-items {
   height: 120px !important;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li:hover {
+div.feed section.quest footer.detail div.collection ul li:hover {
   top: -8px;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li:hover > p.collection-item-name {
+div.feed section.quest footer.detail div.collection ul li:hover > p.collection-item-name {
   opacity: 1;
 }
-article.detail div.feed section.quest footer.detail div.collection ul {
+div.feed section.quest footer.detail div.collection ul {
   display: block;
   width: 100%;
   margin-left: 0;
@@ -4188,7 +4194,7 @@ article.detail div.feed section.quest footer.detail div.collection ul {
   box-sizing: border-box;
   padding: 6%;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li {
+div.feed section.quest footer.detail div.collection ul li {
   display: block;
   float: left;
   width: 50px;
@@ -4205,10 +4211,10 @@ article.detail div.feed section.quest footer.detail div.collection ul li {
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li.selected {
+div.feed section.quest footer.detail div.collection ul li.selected {
   top: -8px;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li div.selected {
+div.feed section.quest footer.detail div.collection ul li div.selected {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -4222,10 +4228,10 @@ article.detail div.feed section.quest footer.detail div.collection ul li div.sel
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li div.selected.show {
+div.feed section.quest footer.detail div.collection ul li div.selected.show {
   opacity: 1;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li div.selected p.icon-check {
+div.feed section.quest footer.detail div.collection ul li div.selected p.icon-check {
   display: block;
   position: absolute;
   width: 50px;
@@ -4235,7 +4241,7 @@ article.detail div.feed section.quest footer.detail div.collection ul li div.sel
   font-size: 1.8em;
   color: #ffffff;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li p.collection-item-name {
+div.feed section.quest footer.detail div.collection ul li p.collection-item-name {
   display: block;
   opacity: 0;
   position: absolute;
@@ -4251,14 +4257,14 @@ article.detail div.feed section.quest footer.detail div.collection ul li p.colle
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li p.collection-item-name.selected {
+div.feed section.quest footer.detail div.collection ul li p.collection-item-name.selected {
   opacity: 1;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li p.collection-item-name span {
+div.feed section.quest footer.detail div.collection ul li p.collection-item-name span {
   position: relative;
   left: -50%;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li img {
+div.feed section.quest footer.detail div.collection ul li img {
   width: 100%;
   position: absolute;
   margin-left: -50%;
@@ -4272,7 +4278,7 @@ article.detail div.feed section.quest footer.detail div.collection ul li img {
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
-article.detail div.feed section.quest footer.detail div.collection ul li img.selected {
+div.feed section.quest footer.detail div.collection ul li img.selected {
   -webkit-filter: brightness(70%);
   filter: brightness(70%);
 }
