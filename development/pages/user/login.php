@@ -5,7 +5,7 @@
 
 		<header>
 			<h1 class="logo animated fadeInUp"><span class="hide">Droopl</span></h1>
-			<p class=" delay1 animated fadeInUp" >Find your perfect community , trade with your neighbours. Just live life.</p>
+			<p class=" delay1 animated fadeInUp" >Thank you for visiting droopl.  Find your perfect community, share and trade with your neighbours, friends and others and most of all have fun!</p>
 		</header>
 
 		<form class="delay1 animated fadeInUp" method="post" id="login" name="login_form">
