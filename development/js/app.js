@@ -24,6 +24,19 @@ $(function(){
         }
     });
 
+    if($("article div.messages section.messages aside ul li.notseen").length){
+
+
+      $("article div.messages section.messages aside ul li.notseen").each(function () {
+
+        var id = $(this).attr("id");
+        $.get( "?page=messages&action=seen&messageid="+id, function( data ) {
+
+        });
+      });
+
+    }
+
 
     setInterval(function () {
 
@@ -64,6 +77,8 @@ $(function(){
         });
 
       }
+
+
 
 
       $("section.chat ul li.conversation-bubble div.conversation").each(function () {

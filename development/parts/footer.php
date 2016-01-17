@@ -253,11 +253,21 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
 </article>
 <footer id="foot">
 	<header class="hide"><h1>Footer</h1></header>
-    <?php if($isMobile && $_GET['page'] != "login" && $_GET['page'] != "register" && $_GET['page'] != "timer" ){ ?>
+    <?php if($isMobile && $_GET['page'] != "login" && $_GET['page'] != "register" && $_GET['page'] != "timer" ){
+
+        $messagescount = 0;
+
+        foreach ($dynamicConvos as $key => $value) {
+            if($value['seen'] == 1){
+                $messagescount++;
+            }
+        }
+
+        ?>
     <nav>
         <ul>
             <li><a href="?page=feed" <?php if($_GET['page'] == "feed"){ echo 'class="current-menu-page"'; }?> ><span class="icon-layout"></span><?php echo $_SESSION['lang']['menudash']; ?></a></li>
-            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><span class="icon-speech-bubble"></span><?php echo $_SESSION['lang']['menumessages']; ?></a></li>
+            <li><a href="?page=messages" <?php if($_GET['page'] == "messages"){ echo 'class="current-menu-page"'; }?> ><span class="icon-speech-bubble"></span><?php echo $_SESSION['lang']['menumessages']; if($messagescount > 0){ echo " (".$messagescount.")"; } ?></a></li>
             <li><a href="?page=communities" <?php if($_GET['page'] == "communities"){ echo 'class="current-menu-page"'; }?> ><span class="icon-globe"></span><?php echo $_SESSION['lang']['menucommunities']; ?></a></li>
         </ul>
     </nav>
