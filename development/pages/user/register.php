@@ -39,11 +39,11 @@
                             </header>
                             <div class="switch-gender">
                                 <div class="switch-container">
-                                    <p class="male selected">&#9794;</p>
+                                    <p class="male selected">Male</p>
                                     <div class="switch-limit">
                                         <div class="switch-btn male"></div>
                                     </div>
-                                    <p class="female">&#9792;</p>
+                                    <p class="female">Female</p>
                                 </div>
                             </div>
                             <input class="hide" type="text" id="gender" name="gender" value="m">
