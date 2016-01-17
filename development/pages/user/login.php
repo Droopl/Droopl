@@ -28,7 +28,7 @@
             </div>
 		</form>
         <footer id="create-account" class="delay3 animated fadeInUp">
-            <p class="create-account">or <a href="?page=register">click here</a> to create an account</p>
+            <p class="create-account">or <a href="?page=register">click here</a> to create your free account</p>
         </footer>
 	</section>
 </article>
