@@ -112,7 +112,15 @@ class CommunityController extends AppController{
 							$quest_description = mb_convert_encoding($_POST['desc'], "UTF-8");
 						}
 
-						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+						if($type == 0 && $item != ""){
+							$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+						}
+
+						if ($type == 1) {
+							if(!empty($_POST['collection_item'])){
+								$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+							}
+						}
 
 						if(!empty($submition)){
 

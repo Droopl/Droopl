@@ -116,7 +116,9 @@ class FeedController extends AppController{
 				}
 
 				if ($type == 1) {
-					$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+					if(!empty($_POST['collection_item'])){
+						$submition = $this->feedDAO->addQuest($item,$user_id,$quest_description,$type,$active);
+					}
 				}
 
 
