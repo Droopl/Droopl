@@ -5491,7 +5491,14 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
   article aside#side section {
     border: none;
   }
-  article div.feed section.filter ul.filter-ul li {}
+  article div.feed section.quest header {
+    height: auto;
+    line-height: 20px;
+  }
+  article.detail div.feed section.quest header{
+    height: auto;
+    line-height: 20px;
+  }
   article div.feed section.quest header h1 {
     float: left;
     font-size: .8em;
@@ -5499,7 +5506,7 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
     width: auto;
     position: relative;
     max-width: 70%;
-    white-space: nowrap;
+    white-space: pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -6442,7 +6449,7 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
   }
 
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   header#menu div nav ul li.notifications {
     padding: 0 10px;
     line-height: 75px;
