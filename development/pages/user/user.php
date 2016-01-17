@@ -175,7 +175,8 @@
         </aside>
         <footer>
             <a href="?page=detail&questid=<?php echo $value['quest_id']; ?>" class="proposal icon-repeat"> <?php echo $value['propocount'] ?> <?php echo $_SESSION['lang']['questfooterpropo']; ?></a>
-        </footer>
+			<a href="https://www.facebook.com/dialog/feed?app_id=1277682118924586&amp;display=popup&amp;caption=I%20made%20a%20new%20quest&amp;link=http%3A%2F%2Fdroopl.com%2F%3Fpage%3Ddetail%26questid%3D<?php echo $value['quest_id']; ?>&amp;redirect_uri=http%3A%2F%2Fdroopl.com%2F" target="_blank" class="shares icon-upload"> <?php echo $_SESSION['lang']['questfootershares']; ?></a>
+		</footer>
     </section>
 
 	<?php } }
