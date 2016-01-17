@@ -3081,7 +3081,8 @@ article.login footer p.create-account a {
 article.login footer p.create-account {
   font-size: 1em;
   height: 80px;
-  line-height: 80px;
+  padding: 30px;
+  line-height: 25px;
   color: rgba(0, 0, 0, .3);
 }
 footer {

@@ -80,8 +80,8 @@
             <section class="step_3">
                 <aside class="left">
                     <form action="?page=feed" id="validation_form" method="get">
-                        <h1>Your account has been created</h1>
-                        <p>Now go and enjoy Droopl</p>
+                        <h1>Thank you for creating an account</h1>
+                        <p>Droopl works best when people are active on the website , don’t forget to invite your friends and family .</p>
                         <span class="icon-check"></span>
                         <!--<ul class="code-ul">
                             <li>
