@@ -27,6 +27,7 @@ class MessagesController extends AppController{
 		$convo_users = array();
 		$users = array();
 		$page = 10;
+		$searchquery = "";
 
 		if(isset($_GET) &&!empty($_GET['typing'])){
 			if(isset($_SESSION['conversation'])){
@@ -153,7 +154,11 @@ class MessagesController extends AppController{
 					}
 				}
 
-				$conversations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
+				if(!empty($_GET["search_full"])){
+					$searchquery = $_GET["search_full"];
+				}
+
+				$conversations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id'],$searchquery);
 				$id = 0;
 				if(!empty($_GET['id'])){
 					$id = $_GET['id'];

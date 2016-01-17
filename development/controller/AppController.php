@@ -71,9 +71,10 @@ class AppController {
 
 		$this->convoUsersDAO = new ConvoUsersDAO();
 		$converstations = array();
+		$searchquery = "";
 
 		if(!empty($_SESSION['user'])){
-			$converstations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id']);
+			$converstations = $this->convoUsersDAO->getConversationByUserId($_SESSION['user']['id'],$searchquery);
 		}
 
 		$this->set("dynamicConvos",$converstations);
