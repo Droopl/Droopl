@@ -522,12 +522,12 @@ class UserController extends AppController{
 				if(!empty($_POST['email']) && preg_match($pattern, $_POST['email']) === 1){
 					$email = $_POST['email'];
 				}else{
-					array_push($_SESSION['errors'], "Email is wrong");
+					array_push($_SESSION['errors'], "Fill in you email");
 				}
 				if(!empty($_POST['pass'])){
 					$password = $_POST['pass'];
 				}else{
-					array_push($_SESSION['errors'], "password is wrong");
+					array_push($_SESSION['errors'], "Fill in your password");
 				}
 
 
@@ -542,6 +542,8 @@ class UserController extends AppController{
 
 						header("location:?page=feed");
 						exit();
+					}else{
+						array_push($_SESSION['errors'], "Your email or password is wrong");
 					}
 
 				}

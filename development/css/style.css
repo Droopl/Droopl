@@ -3013,6 +3013,31 @@ article.login form header h1 {
   font-weight: normal;
   text-align: left;
 }
+article.login form header nav {
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5%;
+}
+article.login form header nav ul{
+  float: left;
+  width: 100%;
+}
+article.login form header nav ul li:last-child{
+  margin: 0;
+}
+article.login form header nav ul li{
+  padding: 5%;
+  border-radius: .5em;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: .8em;
+  width: 100%;
+  background-color: #F47D67;
+  display: block;
+}
 article.login form header {
   position: relative;
 }
