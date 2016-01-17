@@ -1205,7 +1205,13 @@ article aside#side section h1 {
   font-size: .8em;
   width: 90%;
   padding: 5%;
+  color: #F47D67;
   font-weight: normal;
+}
+article aside#side section h1 a {
+
+  color: #F47D67 !important;
+  text-decoration: none;
 }
 article aside#side section.quest ul li {
   display: block;

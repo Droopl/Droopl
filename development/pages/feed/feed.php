@@ -32,7 +32,7 @@
 		</ul>
 	</section>
     <section class="collection">
-        <h1><a class="link" href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&filter=collection"><?php  echo $_SESSION['lang']['sidecollection']; ?></a></h1>
+        <h1><a href="?page=user&id=<?php echo $_SESSION['user']['id']; ?>&filter=collection"><?php  echo $_SESSION['lang']['sidecollection']; ?></a></h1>
 
         <?php if(!empty($collection)){ ?>
 
@@ -144,7 +144,7 @@
 </ul>
 	</section>
 	<section class="communities">
-		<header><h1><a class="link" href="?page=communities"><?php  echo $_SESSION['lang']['sidecommunities']; ?></a></h1></header>
+		<header><h1><a href="?page=communities"><?php  echo $_SESSION['lang']['sidecommunities']; ?></a></h1></header>
 		<nav>
 			<ul>
 				<?php foreach ($communities as $key => $community) { ?>
