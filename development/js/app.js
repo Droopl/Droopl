@@ -151,10 +151,10 @@ $(function(){
 
     if($("article.feedback").length){
         closeLayerElement($("article.feedback"),false);
-        
+
         $("article.feedback div.feed section.feedback form").on("submit",function(e){
             e.preventDefault();
-            
+
             var formData = new FormData($(this)[0]);
             var url = "?page=feedback&action=ajax";
           $.ajax({
@@ -174,15 +174,15 @@ $(function(){
                                 case 'en':
                                 $("article.feedback div.feed section.feedback header h1").text("Thanks for your feedback!");
                                 break;
-                                    
+
                                 case 'fr':
                                 $("article.feedback div.feed section.feedback header h1").text("Merci pour votre aide précieuse!");
                                 break;
-                                    
+
                                 case 'nl':
                                 $("article.feedback div.feed section.feedback header h1").text("Bedankt voor het feedback!");
                                 break;
-                                    
+
                                 default:
                                 $("article.feedback div.feed section.feedback header h1").text("Thanks for your feedback!");
                                 break;
@@ -540,6 +540,11 @@ $(function(){
 
     $("article section.communities #search_communities").bind("keyup",function () {
         $( "article section.communities aside.communities" ).load( "?page=communities&search_full="+$(this).val()+" article section.communities aside.communities section.community");
+    });
+
+
+    $("article div.messages aside.conversations form#search-conversations input[type='text']").bind("keyup",function () {
+        $( "article div.messages aside.conversations nav ul" ).load( "?page=messages&search_full="+$(this).val()+" article div.messages aside.conversations nav ul li");
     });
 
 
