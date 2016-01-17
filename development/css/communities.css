@@ -1300,6 +1300,7 @@ article div.about header.intro{
 }
 article div.about header.intro div{
     width: 900px;
+    padding-bottom: 70px;
     position: relative;
 }
 article div.about header.intro div.intro{
