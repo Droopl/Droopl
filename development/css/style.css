@@ -3058,20 +3058,22 @@ article.login form input[type="password"] {
 }
 article.login form input[type="submit"] {
   display: block;
+
   width: 30%;
   padding: 4% 5%;
   background-color: #F47D67;
   border-radius: .5em;
   border: none;
   color: white;
-  margin: 15px;
+  font-size: .9em;
+  margin: 15px auto;
 }
 article.login footer p.create-account a {
   text-decoration: none;
   color: #F27D6B;
 }
 article.login footer p.create-account {
-  font-size: .8em;
+  font-size: 1em;
   height: 80px;
   line-height: 80px;
   color: rgba(0, 0, 0, .3);
