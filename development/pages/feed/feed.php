@@ -128,7 +128,7 @@
 		    </svg> </li>
 
 		  <!--  Item  -->
-		  <li data-name="<?php if(!($groupcount['groupcount'] >= 1000)){ echo $groupcount['groupcount']; }else{ echo round($groupcount['groupcount'],1) . "K"; } ?> groopls" data-percent="95%"> <svg viewBox="-10 -10 220 220">
+		  <li data-name="<?php if(!($groupcount['groupcount'] >= 1000)){ echo $groupcount['groupcount']; }else{ echo round($groupcount['groupcount'],1) . "K"; } ?> groups" data-percent="95%"> <svg viewBox="-10 -10 220 220">
 		    <g fill="none" stroke-width="15" transform="translate(100,100)">
 		      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="#90CCCF"/>
 		      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="#90CCCF"/>
