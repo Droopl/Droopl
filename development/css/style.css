@@ -5444,6 +5444,23 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
   }
 }
 @media screen and (max-width: 500px) {
+
+  header#menu div nav ul li.profile {
+    float: right;
+    cursor: pointer;
+    height: 75px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+  }
+  header#menu div nav ul li.notifications{
+    float: left;
+    cursor: pointer;
+    height: 75px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+  }
   article {
     width: 100%;
     padding: 0;
