@@ -258,9 +258,12 @@ C22.32,8.481,24.301,9.057,26.013,10.047z">
         $messagescount = 0;
 
         foreach ($dynamicConvos as $key => $value) {
-            if($value['seen'] == 1){
-                $messagescount++;
+            if(isset($_SESSION["user"])){
+                if($value['seen'] == 1 && $_SESSION["user"]['id'] != $value['user_id']){
+                    $messagescount++;
+                }
             }
+
         }
 
         ?>

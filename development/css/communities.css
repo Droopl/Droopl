@@ -595,13 +595,13 @@ article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul 
 article div.feed section.quest footer div.proposals-list ul li ul li.options{
     display: block;
     float: left;
-    width: 150px;
+    width: 100px;
     padding: 25px 0px;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.options ul li{
     float: left;
     display: block;
-    width: 50%;
+    width: 45%;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.options a{
 

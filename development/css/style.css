@@ -2162,7 +2162,7 @@ article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul 
 article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.collection-pic {
   display: block;
   float: left;
-  width: 120px;
+  width: 100px;
   padding: 25px 0px 25px 0;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic {
@@ -2196,7 +2196,7 @@ article div.feed section.quest footer div.proposals-list ul li ul li.profile-nam
 article div.feed section.quest footer div.proposals-list ul li ul li.collection-pic {
   display: block;
   float: left;
-  width: 150px;
+  width: 100px;
   padding: 25px 0px 25px 0;
 }
 article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic img {
@@ -3012,12 +3012,12 @@ article.login form {
   border-radius: .3em;
 }
 article.login form header h1 {
-  color: #3E454C;
-  font-size: .8em;
+  color: #F47D67;
+  font-size: 1em;
+  text-align: center;
   width: 90%;
   padding: 5%;
   font-weight: normal;
-  text-align: left;
 }
 article.login form header nav {
   float: left;
@@ -3102,8 +3102,9 @@ article.login form input[type="submit"] {
   border-radius: .5em;
   border: none;
   color: white;
-  font-size: .9em;
-  margin: 15px auto;
+  font-size: .8em;
+  text-transform: capitalize;
+  margin: 15px;
 }
 article.login footer p.create-account a {
   text-decoration: none;
@@ -4086,7 +4087,7 @@ div.feed section.quest footer div.search-proposal form div.added-collection-item
 div.feed section.quest footer div.proposals-list {
   width: 100%;
   height: auto;
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
   float: left;
 }
@@ -4100,11 +4101,12 @@ div.feed section.quest footer div.proposals-list ul li {
   display: inline-block;
   width: 100%;
   height: 100px;
-  overflow-x: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
   box-sizing: border-box;
 }
 div.feed section.quest footer div.proposals-list ul li.propo {
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 div.feed section.quest footer div.proposals-list ul li.propo li {
@@ -6376,6 +6378,7 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
     white-space: nowrap;
     text-align: center;
   }
+
   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.profile-pic {
     display: block;
     float: left;
@@ -6395,6 +6398,37 @@ article aside#side section.profile div.map-container:hover .ellipse-3 {
     height: 100px;
   }
   article div.feed section.quest footer div.proposals-list ul li.propo.mypropo ul li.collection-pic img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  article div.feed section.quest footer div.proposals-list ul li ul li.profile-pic{
+    display: block;
+    float: left;
+    width: 20%;
+    padding: 0px;
+    text-align: center;
+    line-height: 140px;
+    height: 100px;
+  }
+
+    article div.feed section.quest footer div.proposals-list ul li ul li.profile-name {
+      display: block;
+      float: left;
+      width: 50%;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+  article div.feed section.quest footer div.proposals-list ul li ul li.collection-pic{
+    display: block;
+    float: left;
+    width: 25%;
+    padding: 0px;
+    text-align: center;
+    line-height: 140px;
+    height: 100px;
+  }
+  article div.feed section.quest footer div.proposals-list ul li ul li.collection-pic img {
     display: inline-block;
     width: 40px;
     height: 40px;
