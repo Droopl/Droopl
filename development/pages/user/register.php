@@ -40,7 +40,7 @@
                             <div class="switch-gender">
                                 <div class="switch-container">
                                     <p class="male selected">Male</p>
-                                    <div class="switch-limit">
+                                    <div class="switch-limit"  id="register_switch_btn">
                                         <div class="switch-btn male"></div>
                                     </div>
                                     <p class="female">Female</p>

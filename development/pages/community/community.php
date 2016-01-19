@@ -72,7 +72,7 @@
                 <div class="added-collection-item">
                     <p>Reflex Camera <span class="remove-collection-item icon-cross"></span></p>
                 </div>
-                <div class="switch-container">
+                <div class="switch-container"  id="quest_switch_btn">
                     <div class="contain-button">
                         <div class="button looking-mode"></div>
                     </div>

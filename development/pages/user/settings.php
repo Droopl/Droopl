@@ -305,7 +305,7 @@
                     <div class="switch-gender">
                         <div class="switch-container">
                             <p class="male selected">&#9794;</p>
-                            <div class="switch-limit">
+                            <div class="switch-limit"  id="settings_switch_btn">
                                 <div class="switch-btn male"></div>
                             </div>
                             <p class="female">&#9792;</p>
@@ -316,7 +316,7 @@
                     <div class="switch-gender">
                         <div class="switch-container">
                             <p class="male">&#9794;</p>
-                            <div class="switch-limit">
+                            <div class="switch-limit" id="settings_switch_btn">
                                 <div class="switch-btn female"></div>
                             </div>
                             <p class="female selected">&#9792;</p>
