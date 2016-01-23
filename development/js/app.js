@@ -1983,38 +1983,38 @@ $(function(){
 
     var bool = true;
 
-    if($("#quest_switch_btn").length){
+    if(document.contains(document.getElementById("quest_switch_btn"))){
+
         var questSwitchButton = document.getElementById('quest_switch_btn');
 
         questSwitchButton.addEventListener('touchstart', questTouchStart, false);
         questSwitchButton.addEventListener('touchmove', questTouchMove, false);
 
-        var xDown = null;
-        var yDown = null;
 
-        function questTouchStart(evt) {
-            xDown = evt.touches[0].clientX;
-            yDown = evt.touches[0].clientY;
+    }
+
+    function questTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
+
+    function questTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
         }
 
-        function questTouchMove(evt) {
-            if ( ! xDown || ! yDown ) {
-                return;
-            }
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
 
-            var xUp = evt.touches[0].clientX;
-            var yUp = evt.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
 
-            var xDiff = xDown - xUp;
-            var yDiff = yDown - yUp;
-
-            if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-                questslider();
-            }
-            /* reset values */
-            xDown = null;
-            yDown = null;
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+            questslider();
         }
+        /* reset values */
+        xDown = null;
+        yDown = null;
     }
 
 
