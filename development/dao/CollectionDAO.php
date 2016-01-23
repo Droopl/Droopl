@@ -110,7 +110,7 @@ class CollectionDAO
 	public function updateItem($id,$description,$item_name,$status,$available){
 
 
-		$sql = "UPDATE `collection` SET description = :description, item_name = :item_name ,status = :status , available = :available  WHERE collection_id = :id;";
+		$sql = "UPDATE `collection` SET description = :description, item_name = :item_name ,status = :status , available = :available  WHERE collection_id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(":description",$description);
         $stmt->bindValue(":item_name",$item_name);
