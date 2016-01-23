@@ -67,13 +67,13 @@ class CollectionController extends AppController{
 
 				$updated = $this->collectionDAO->updateItem($_GET['id'],$description,$name,$status,$available);
 
-				echo boolval($updated);
+				echo $updated;
 
 				exit();
 
 			}
 		}else{
-            echo boolval(false);
+            echo false;
 		}
 
 	}
