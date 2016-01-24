@@ -842,39 +842,7 @@ $(function(){
                 var xDown = null;
                 var yDown = null;
 
-                function settingsTouchStart(evt) {
-                    xDown = evt.touches[0].clientX;
-                    yDown = evt.touches[0].clientY;
-                }
 
-                function settingsTouchMove(evt) {
-                    if ( ! xDown || ! yDown ) {
-                        return;
-                    }
-
-                    var xUp = evt.touches[0].clientX;
-                    var yUp = evt.touches[0].clientY;
-
-                    var xDiff = xDown - xUp;
-                    var yDiff = yDown - yUp;
-
-                    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-                        if($("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").hasClass("male")){
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("male").addClass("female");
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").addClass("selected");
-                            $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","f");
-                        }else{
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("female").addClass("male");
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
-                            $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
-                            $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
-                        }
-                    }
-                    /* reset values */
-                    xDown = null;
-                    yDown = null;
-                }
 
                 $("article.settings div.feed section.settings-container aside.right div.select-language div.flag").on("click",function(){
                     if(!$("article.settings div.feed section.settings-container aside.right div.select-language ul.lang-list").hasClass("show")){
@@ -918,6 +886,40 @@ $(function(){
             });
 
           });
+    }
+
+    function settingsTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
+
+    function settingsTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+            if($("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").hasClass("male")){
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("male").addClass("female");
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").addClass("selected");
+                $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","f");
+            }else{
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("female").addClass("male");
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
+                $("article.settings div.feed section.settings-container aside.right div.switch-gender div.switch-container p.male").addClass("selected");
+                $("article.settings div.feed section.settings-container aside.right input[type='text']#gender").attr("value","m");
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
     }
 
     function editCollectionItem(e){
@@ -1158,6 +1160,40 @@ $(function(){
 
     });
 
+    function registerTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    }
+
+    function registerTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+            if($("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").hasClass("male")){
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("male").addClass("female");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","f");
+            }else{
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("female").addClass("male");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").addClass("selected");
+                $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","m");
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    }
+
     if($("article.register").length){
         dragAndDrop();
 
@@ -1168,39 +1204,7 @@ $(function(){
         var xDown = null;
         var yDown = null;
 
-        function registerTouchStart(evt) {
-            xDown = evt.touches[0].clientX;
-            yDown = evt.touches[0].clientY;
-        }
 
-        function registerTouchMove(evt) {
-            if ( ! xDown || ! yDown ) {
-                return;
-            }
-
-            var xUp = evt.touches[0].clientX;
-            var yUp = evt.touches[0].clientY;
-
-            var xDiff = xDown - xUp;
-            var yDiff = yDown - yUp;
-
-            if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-                if($("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").hasClass("male")){
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("male").addClass("female");
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").removeClass("selected");
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").addClass("selected");
-                    $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","f");
-                }else{
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container div.switch-limit div.switch-btn").removeClass("female").addClass("male");
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.female").removeClass("selected");
-                    $("article.register div.register-box div.container section.step_1 form aside.right div.switch-gender div.switch-container p.male").addClass("selected");
-                    $("article.register div.register-box div.container section.step_1 form aside.right input[type='text']#gender").attr("value","m");
-                }
-            }
-            /* reset values */
-            xDown = null;
-            yDown = null;
-        }
 
         $("article.register div.register-box div.container section.step_2 aside.left form").on("submit",function(e){
             e.preventDefault();
