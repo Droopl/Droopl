@@ -161,7 +161,7 @@ $(function(){
     }
 
 
-    },1000);
+},5000);
 
     if($("article.feedback").length){
         closeLayerElement($("article.feedback"),false);
