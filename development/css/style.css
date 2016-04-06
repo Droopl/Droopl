@@ -8,9 +8,6 @@
 *::-moz-selection {
   background-color: rgba(239, 240, 241, 1);
 }
-*::-webkit-scrollbar {
-  width: 0 !important
-}
 .hide {
   display: none;
 }
@@ -1241,7 +1238,7 @@ article aside#side section.quest ul li p {
   overflow: hidden;
   float: left;
   display: block;
-  width: 230px;
+  width: 80%;
   line-height: 20px;
   margin-left: 10px;
 }
@@ -5133,107 +5130,7 @@ article aside#side section.comusers nav ul li a img {
   height: 100%;
 }
 
-/*COMMUNITIES*/
-article div.communities {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  top: 75px;
-}
-article div.communities div.center {
-  margin: 0 auto;
-  width: 1024px;
-}
-article div.communities header.intro {
-  width: 100%;
-  float: left;
-  box-sizing: border-box;
-  padding: 5%;
-}
-article div.communities header.intro div {
-  width: 900px;
-  position: relative;
-}
-article div.communities header.intro div.intro {
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 5%;
-  text-align: center;
-  margin-bottom: 70px;
-}
-article div.communities header.intro div.intro img {
-  height: 70px;
-}
-article div.communities header.intro h1 {
-  display: inline-block;
-  width: 70%;
-  margin-bottom: 20px;
-  font-weight: 500;
-  font-size: 1em;
-}
-article div.communities header.intro p {
-  width: 70%;
-  float: left;
-  font-size: .9em;
-  color: #5F6970;
-  font-weight: 300;
-  letter-spacing: 1.5px;
-  line-height: 25px;
-}
-article div.communities header.intro nav {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-article div.communities header.intro nav a.create {
-  display: block;
-  float: right;
-  height: 50px;
-  width: 180px;
-  text-align: center;
-  line-height: 50px;
-  color: #ffffff;
-  letter-spacing: 1px;
-  text-decoration: none;
-  background-color: #F47D67;
-  border-radius: .5em;
-  font-size: .8em;
-  font-weight: 300;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-article div.communities header.intro nav a.create:hover {
-  width: 200px;
-}
-article div.communities header.intro nav a.create span {
-  margin-left: -10px;
-  opacity: 0;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-article div.communities header.intro nav a.create:hover span {
-  margin-left: 10px;
-  opacity: 1;
-}
-article div.communities section {
-  width: 100%;
-  float: left;
-  box-sizing: border-box;
-  padding: 5%;
-  background-color: white;
-  border-top: 1px solid #E8E8EA;
-}
-article div.communities section header {
-  float: left;
-  width: 100%;
-}
+
 
 /*PRELOADER*/
 article.preloader {

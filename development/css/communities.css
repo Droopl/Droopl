@@ -50,9 +50,9 @@ article div.communities header.intro div.intro{
     float: left;
     width: 100%;
     box-sizing:border-box;
-    padding: 5%;
+    padding: 2% 5%;
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 article div.communities header.intro div.intro img{
     height: 70px;
@@ -123,6 +123,7 @@ article div.communities header.intro nav a.create:hover span{
 article div.communities section.communities{
     width: 100%;
     float: left;
+    padding: 5%;
     box-sizing:border-box;
     background-color: white;
     padding-bottom: 200px;
