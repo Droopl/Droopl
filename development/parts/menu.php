@@ -16,20 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-control" content="public">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/feather.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/loaders.min.css">
-    <link rel="stylesheet" type="text/css" href="css/hover.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/communities.css">
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="js/jquery.min.js"></script>
+	<!--<script async src="js/jquery.min.js"></script>-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&libraries=places&sensor=false&types=(cities)"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/drooplgame.js"></script>
-	<script type="text/javascript" src="js/chat.js"></script>
+    <script async type="text/javascript" src="js/app.js"></script>
+	<script async type="text/javascript" src="js/drooplgame.js"></script>
+	<script async type="text/javascript" src="js/chat.js"></script>
 </head>
 
 <body>
@@ -44,7 +39,7 @@
     </noscript>!-->
     <div class="js-language hide"><?php echo $_SESSION['language']; ?></div>
 
-    <audio id="sounds" src="sounds/notification.mp3" class="hide"></audio>
+    <audio id="sounds" src="" class="hide"></audio>
 
     <?php if($_GET['page'] != "login" && $_GET['page'] != "register" && $_GET['page'] != "timer"){ ?>
 <header id="menu">

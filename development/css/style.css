@@ -260,7 +260,7 @@ header#menu div nav ul li.notifications ul li.notseen a {
 header#menu div nav ul li.notifications ul li a p {
   display: block;
   float: left;
-  width: 150px;
+  width: 60%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
