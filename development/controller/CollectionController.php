@@ -122,8 +122,6 @@ class CollectionController extends AppController{
 
 				if(!empty($_POST['item_description'])){
 					$description = $_POST['item_description'];
-				}else{
-					$error = true;
 				}
 
 				if(isset($_FILES['collection_image']) && $_FILES['collection_image']['size'] != 0){

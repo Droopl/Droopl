@@ -17,11 +17,11 @@
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta http-equiv="Cache-control" content="public">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/style.min.css">
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<!--<script async src="js/jquery.min.js"></script>-->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&libraries=places&sensor=false&types=(cities)"></script>
+    <link async href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
+    <link async rel="stylesheet" type="text/css" href="css/style.min.css">
+	<!--<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>-->
+	<script src="js/jquery.min.js"></script>
+    <script async type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDW4WkPdqlHs1e-hRent6pjDumSxAboPe4&libraries=places&sensor=false&types=(cities)"></script>
     <script async type="text/javascript" src="js/app.js"></script>
 	<script async type="text/javascript" src="js/drooplgame.js"></script>
 	<script async type="text/javascript" src="js/chat.js"></script>
