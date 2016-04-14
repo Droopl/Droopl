@@ -14,6 +14,7 @@ class UserController extends AppController{
 		require_once WWW_ROOT . 'dao' .DS. 'NotificationsDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'FollowDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'UserDAO.php';
+		require_once WWW_ROOT . 'dao' .DS. 'ImagesDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'PropoDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'VerificationDAO.php';
 		require_once WWW_ROOT . 'dao' .DS. 'CollectionDAO.php';
@@ -27,6 +28,7 @@ class UserController extends AppController{
 		$this->collectionDAO = new CollectionDAO();
 		$this->propoDAO = new PropoDAO();
 		$this->userDAO = new UserDAO();
+		$this->imagesDAO = new ImagesDAO();
 		$this->mail = new PHPMailer();
 
 	}
@@ -101,7 +103,6 @@ class UserController extends AppController{
 					}
 
 					if(isset($_FILES['profile_image']) && $_FILES['profile_image']['size'] != 0){
-
 
 						$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
 						// thumbnail sizes
@@ -293,8 +294,54 @@ class UserController extends AppController{
 
 		$message = 0;
 
-		if(!empty($_POST)){
 
+		if(!empty($_POST['register_submit']) && $_POST['register_submit'] == "post"){
+
+
+			if(!empty($_POST["item"])){
+				$_SESSION['quest'] = $_POST;
+
+				if(isset($_FILES['quest_upload_image']) && $_FILES['quest_upload_image']['size'] != 0){
+					$_SESSION['quest']["file"] = $_FILES['quest_upload_image'];
+				}
+
+				if(!empty($_FILES['quest_upload_image'])){
+					$max_file_size = 1024*100000; // 200kb
+					$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+					// thumbnail sizes
+					$sizes = array(700 => 700);
+
+					if (isset($_FILES['quest_upload_image'])) {
+						if( $_FILES['quest_upload_image']['size'] < $max_file_size ){
+							// get file extension
+							$ext = strtolower(pathinfo($_FILES['quest_upload_image']['name'], PATHINFO_EXTENSION));
+							if (in_array($ext, $valid_exts)) {
+								/* resize image */
+								foreach ($sizes as $w => $h) {
+									$files[] = $this->resizeQuest($w, $h);
+								}
+
+								foreach ($files as $key => $value) {
+
+									//$this->imagesDAO->addImage($submition['quest_id'],$value);
+									$_SESSION['quest']["file"] = $value;
+								}
+
+							}
+						}
+					}
+				}
+
+
+			}else{
+				$this->redirect("index.php?page=login");
+			}
+
+
+
+		}
+
+		if(!empty($_POST) && empty($_POST['register_submit'])){
 
 			if(!empty($_GET['step']) && $_GET['step'] == "1"){
 
@@ -318,14 +365,12 @@ class UserController extends AppController{
 					}else{
 						$message = 0;
 					}
-
 					if(!empty($_POST['pass']) && $_POST['pass'] == $_POST['repeat_pass']){
 						$step1["pass"] = $_POST['pass'];
 						$message = 1;
 					}else{
 						$message = 0;
 					}
-
 					if(!empty($_POST['birth_date'])){
 						$step1["birth"] = $_POST['birth_date'];
 						$message = 1;
@@ -340,14 +385,12 @@ class UserController extends AppController{
 					}else{
 						$message = 0;
 					}
-
 					if(!empty($_POST['agreed']) && $_POST['agreed'] == "1"){
 						$step1["agreed"] = $_POST['agreed'];
 						$message = 1;
 					}else{
 						$message = 0;
 					}
-
 					if(!empty($_POST['gender'])){
 						$step1["gender"] = $_POST['gender'];
 						$message = 1;
@@ -463,10 +506,25 @@ class UserController extends AppController{
 
 						if(!empty($register)){
 							//$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
+
 							$followed = $this->followDAO->addFollow($register['id'],$register['id']);
-							$loginUser = $this->userDAO->loginUser($register['email'],$register['password']);
+							$loginUser = $this->userDAO->loginUser($register['email'],$pass);
 							if(!empty($loginUser)){
 								$_SESSION['user'] = $loginUser;
+							}
+
+							if(!empty($_SESSION["quest"])){
+
+
+								$submition = $this->feedDAO->addQuest($_SESSION["quest"]["item"],$register["id"],$_SESSION["quest"]["desc"],0,true);
+								if($submition){
+									$this->feedDAO->addPublicQuest($submition['quest_id'],$register["id"]);
+									$this->imagesDAO->addImage($submition['quest_id'],$_SESSION["quest"]["file"]);
+								}
+
+
+
+								unset($_SESSION['quest']);
 							}
 
 							//$this->sendValidationCode($code["code"],$register['email']);
@@ -512,6 +570,15 @@ class UserController extends AppController{
 		$password = "";
         $isloggedin = "false";
 		$user = [];
+
+
+
+		if(!empty($_SESSION['quest'])){
+			if(!empty($_SESSION['quest']["file"])){
+				unlink(WWW_ROOT . 'questimages' . DS .'images'.DS.$_SESSION['quest']["file"]);
+			}
+			unset($_SESSION['quest']);
+		}
 
 		if(!isset($_SESSION['user'])){
 
@@ -693,6 +760,67 @@ class UserController extends AppController{
 		$this->set('user',$user);
 
 	}
+	function resizeQuest($width, $height){
+		/* Get original image x y*/
+		list($w, $h) = getimagesize($_FILES['quest_upload_image']['tmp_name']);
+		/* calculate new image size with ratio */
+		$old_x          =   $w;
+	    $old_y          =   $h;
+	    $new_height = $width;
+	    $new_width = $height;
+
+	    if($old_x > $old_y)
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $old_y*($new_height/$old_x);
+	    }
+
+	    if($old_x < $old_y)
+	    {
+	        $thumb_w    =   $old_x*($new_width/$old_y);
+	        $thumb_h    =   $new_height;
+	    }
+
+	    if($old_x == $old_y)
+	    {
+	        $thumb_w    =   $new_width;
+	        $thumb_h    =   $new_height;
+	    }
+		/* new file name */
+		$randomname = $this->generateRandomString();
+		$banner = $randomname.".jpg";
+
+		$path = WWW_ROOT . 'questimages' . DS .'images'.DS.$banner;
+		/* read binary data from image file */
+		$imgString = file_get_contents($_FILES['quest_upload_image']['tmp_name']);
+
+		/* create image from string */
+		$image = imagecreatefromstring($imgString);
+		$tmp = imagecreatetruecolor($thumb_w,$thumb_h);
+		imagecopyresampled($tmp,$image,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y);
+		/* Save image */
+		switch ($_FILES['quest_upload_image']['type']) {
+			case 'image/jpeg':
+			  imagejpeg($tmp, $path, 100);
+			  break;
+			case 'image/png':
+			  imagepng($tmp, $path, 0);
+			  break;
+			case 'image/gif':
+			  imagegif($tmp, $path);
+			  break;
+			default:
+			  exit;
+			  break;
+	}
+
+	return $banner;
+	/* cleanup memory */
+	imagedestroy($image);
+	imagedestroy($tmp);
+
+	}
+
 
 	private function generateRandomString($length = 10) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

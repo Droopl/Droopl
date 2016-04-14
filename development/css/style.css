@@ -2976,9 +2976,9 @@ article.login section {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 500px;
+  width: 400px;
   text-align: center;
-  margin-left: -250px;
+  margin-left: -200px;
   margin-top: -225px;
 }
 article.login section header h1.logo {
@@ -2996,17 +2996,94 @@ article.login section header p {
   margin-top: 20px;
   line-height: 30px;
 }
+article.login section header nav{
+  display: inline-block;
+  margin-top: 20px;
+}
+article.login section header nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+article.login section header nav ul li a{
+  display: inline-block;
+}
 article.login form {
+  float: left;
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 50px;
-  width: 400px;
+  width: 100%;
+  display: block;
   background-color: #ffffff;
   border: 1px solid #E8E8EA;
   -webkit-box-shadow: 0 0 30px -15px rgba(0, 0, 0, .3);
   box-shadow: 0 0 30px -15px rgba(0, 0, 0, .3);
   border-radius: .3em;
+}
+article.login section header nav ul li a {
+  font-size: .9em;
+  cursor: pointer;
+  color: #3E454C;
+  padding-bottom: 4px;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+  -ms-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+article.login section header nav ul li a:hover {
+  box-shadow: 0 -13px 0 -10px #F47D67 inset;
+}
+article.login section header nav ul li a.current-filter {
+  font-weight: bold;
+  box-shadow: 0 -13px 0 -10px #F47D67 inset;
+}
+article.login form#register_quest textarea{
+  float: left;
+  width: 100%;
+  max-height: 400px;
+  min-height: 40px;
+  padding: 20px;
+  border: none;
+  resize: none;
+  height: auto;
+  padding-right: 95px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E8E8EA;
+}
+article.login form#register_quest nav{
+  float: left;
+  width: 100%;
+  height: 70px;
+}
+article.login form#register_quest div nav span.upload_image {
+  float: left;
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url(../images/assets/upload_image.svg);
+  background-size: 15px;
+  background-color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+article.login form#register_quest nav input[type="submit"]{
+  float: right;
+  cursor: pointer;
+}
+article.login form#register_quest div span.upload_image input[type="file"] {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
 }
 article.login form header h1 {
   color: #F47D67;
