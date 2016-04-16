@@ -3191,6 +3191,19 @@ article.login footer p.create-account {
   line-height: 25px;
   color: rgba(0, 0, 0, .3);
 }
+article.login footer nav ul li {
+  display: inline-block;
+  margin: 20px 0;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+article.login footer nav ul li a{
+  text-decoration: none;
+  color: #F27D6B;
+}
+article.login footer{
+  margin-bottom: 50px;
+}
 footer {
   float: left;
   width: 100%;

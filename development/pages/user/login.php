@@ -85,6 +85,23 @@
 
         <footer id="create-account" class="delay3 animated fadeInUp">
             <p class="create-account">or <a href="?page=register">click here</a> to create your free account</p>
+            <nav>
+                <header>
+                    <h1>Sponsored By</h1>
+                </header>
+                <ul>
+                    <li>
+                        <img src="images/sponsors/tentoo.png">
+                    </li>
+                    <li>
+                        Jouw logo hier? Contacteer ons voor een samenwerking of sponsorschap.
+                        </br>
+                        </br>
+                        <a href="mailto:info@droopl.com">info@droopl.com</a>
+                    </li>
+                </ul>
+            </nav>
         </footer>
 	</section>
+
 </article>
