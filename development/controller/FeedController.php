@@ -68,6 +68,9 @@ class FeedController extends AppController{
 					break;
 			}
 		}
+		if(!empty($_GET['action']) && $_GET["action"] == "newuser"){
+			$this->redirect("?page=user&id=".$_SESSION['user']['id']."&filter=collection");
+		}
 
 		if(!empty($_GET['part'])){
 			$page *= intval($_GET['part']);

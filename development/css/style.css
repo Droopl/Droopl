@@ -2043,15 +2043,12 @@ article div.feed section.last_quest a {
   display: inline-block;
   padding: 15px 20px;
   margin-top: 20px;
-  border: 1px solid #F47D67;
+  background-color: #F47D67;
   border-radius: .5em;
   font-size: .8em;
-  color: #F47D67;
+  color: #ffffff;
   text-decoration: none;
   text-transform: capitalize;
-  opacity: .6;
-}
-article div.feed section.last_quest a:hover {
   opacity: 1;
 }
 article div.feed section.quest footer.detail {

@@ -352,7 +352,7 @@
 
                 <p>By proposing items you can trade with other people on droopl. So you need to add some !</p>
 
-                <a href="?page=add" class="add_collection_item">add an item</a>
+                <a href="?page=add" class="add_collection_item animated tada">add an item</a>
 
         </section>
 
