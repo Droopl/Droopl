@@ -1221,9 +1221,9 @@ $(function(){
                 e.preventDefault();
                 break;
             }
-            if ( $(this).prop('type') != 'date' ) {
-            $("#birth_date").datepicker();
-        }
+            /*if ( $(this).prop('type') != 'date' ) {
+                $("#birth_date").datepicker();
+            }*/
         });
 
         $("article.register div.register-box div.container section.step_1 form").on("submit",function(e){
@@ -1626,6 +1626,9 @@ $(function(){
     $("#quest input[type='file']").change(function(){
         readURL(this);
     });
+    $("#register_quest input[type='file']").change(function(){
+        $(this).parent().css("background-image","url(images/assets/check-icon.svg)");
+    });
     $("#login input#email").on("keyup",function () {
         if( isValidEmailAddress( $(this).val() ) ) {
           if($(this).hasClass("wrong")){
@@ -1989,7 +1992,7 @@ $(function(){
 
     var bool = true;
 
-    if(document.contains(document.getElementById("quest_switch_btn"))){
+    if(document.body.contains(document.getElementById("quest_switch_btn"))){
 
         var questSwitchButton = document.getElementById('quest_switch_btn');
 
@@ -2040,7 +2043,7 @@ $(function(){
                 switch(lang){
 
                     case 'en':
-                    $("article div.feed section.post form div input#item").attr("placeholder", "What are you offering ?");
+                    $("article div.feed section.post form div input#item").attr("placeholder", "What do you like to offer ?");
                     break;
 
                     case 'fr':
@@ -2048,11 +2051,11 @@ $(function(){
                     break;
 
                     case 'nl':
-                    $("article div.feed section.post form div input#item").attr("placeholder", "Wat wil je uitlenen ?");
+                    $("article div.feed section.post form div input#item").attr("placeholder", "Wat wil je aanbieden ?");
                     break;
 
                     default:
-                    $("article div.feed section.post form div input#item").attr("placeholder", "What are you offering ?");
+                    $("article div.feed section.post form div input#item").attr("placeholder", "What do you like to offer ?");
                     break;
                 }
 

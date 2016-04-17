@@ -120,7 +120,7 @@ article.register div.register-box div.container section aside.left form input[ty
 }
 
 article.register div.register-box div.container section.step_1 form input[type="submit"] {
-    position: fixed;
+    position: absolute;
     z-index: 9999;
     width: auto;
     bottom: 8px;
@@ -348,7 +348,7 @@ article.register div.register-box div.container section.step_1 form aside.left d
     background-color: #F9F9F9;
 }
 
-article.register div.register-box div.container section.step_1 form aside.left input[type='date'] {
+article.register div.register-box div.container section.step_1 form aside.left input#birth_date {
     display: block;
     float: left;
     width: 50%;

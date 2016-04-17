@@ -84,7 +84,7 @@
 
 
         <footer id="create-account" class="delay3 animated fadeInUp">
-            <p class="create-account">or <a href="?page=register">click here</a> to create your free account</p>
+            <p class="create-account">or <a href="?page=register">click here</a> to create your account without a quest</p>
             <nav>
                 <header>
                     <h1>Sponsored By</h1>
@@ -96,6 +96,8 @@
                     <li>
                         Jouw logo hier? Contacteer ons voor een samenwerking of sponsorschap.
                         </br>
+                        </br>
+                        <a href="tel:+32489860271">+32489860271</a>
                         </br>
                         <a href="mailto:info@droopl.com">info@droopl.com</a>
                     </li>

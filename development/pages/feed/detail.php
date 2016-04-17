@@ -210,6 +210,7 @@
 
     <?php if($_SESSION['user']['id'] != $quest['id'] && !$accepted ){ ?>
         <div class="search-collection-container">
+					<?php if(!empty($collection)){ ?>
             <div class="search-proposal">
                 <form action="?page=detail&questid=<?php echo $_GET['questid']; ?>" method="post">
 
@@ -222,8 +223,6 @@
 
                 </form>
             </div>
-            <?php if(!empty($collection)){ ?>
-
                 <div class="hide collection">
                  <ul>
 
@@ -248,10 +247,10 @@
 
     <?php }else{ ?>
 
-        <div class="hide collection no-collection-items">
+        <div class="show collection no-collection-items">
             <header class="marg-bottom">
-                <h1 class="collection"><span class="hide">no collection items</span></h1>
-                <h2>You don't have any collection items yet.<a class="post-add-collection-item">Add item</a></h2>
+                <h1 class="collection"></h1>
+                <h2>You don't have any collection items yet.<a href="?page=add" class="post-add-collection-item">Add item</a></h2>
             </header>
         </div>
 </div>

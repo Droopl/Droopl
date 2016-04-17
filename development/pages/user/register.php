@@ -8,12 +8,12 @@
                 <form action="" id="registration_form_step_1" method="post" enctype="multipart/form-data">
                     <aside class="left">
                         <h1 class="title">Registration</h1>
-                            <input type="text" id="first" name="first" placeholder="Firstname">
+                            <input type="text" id="first" name="first" placeholder="First name">
                             <input type="text" id="last" name="last" placeholder="Last name">
                             <input type="email" id="mail" name="mail" placeholder="Email">
                             <input type="password" id="pass" name="pass" placeholder="Password">
                             <input type="password" id="repeat_pass" name="repeat_pass" placeholder="Repeat password">
-                            <input type="date" id="birth_date" name="birth_date" placeholder="Date of birth (yyyy-mm-dd)">
+                            <input type="text" id="birth_date" name="birth_date" onfocus="(this.type='date')" placeholder="Date of birth">
                             <div class="select-language">
                                 <h1>Language: </h1>
                                 <div class="flag en"></div>
@@ -81,7 +81,7 @@
                 <aside class="left">
                     <form action="?page=feed" id="validation_form" method="get">
                         <h1>Thank you for creating an account</h1>
-                        <p>Droopl works best when people are active on the website , don’t forget to invite your friends and family .</p>
+                        <p>Droopl works best when people are active on the website, don’t forget to invite your friends and family .</p>
                         <span class="icon-check"></span>
                         <!--<ul class="code-ul">
                             <li>
