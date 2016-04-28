@@ -1902,6 +1902,7 @@ article.verification div {
 }
 article.verification div section.step_3 {
   float: left;
+  width: 100%;
 }
 article div.feed section.quest header h2.editable-post {
   right: 10%;

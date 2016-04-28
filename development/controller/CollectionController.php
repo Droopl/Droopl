@@ -128,7 +128,7 @@ class CollectionController extends AppController{
 
 					$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
 					// thumbnail sizes
-					$sizes = array(200 => 200);
+					$sizes = array(500 => 500);
 
 					if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['collection_image'])) {
 						$ext = strtolower(pathinfo($_FILES['collection_image']['name'], PATHINFO_EXTENSION));

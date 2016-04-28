@@ -543,17 +543,17 @@ class UserController extends AppController{
 	public function sendValidationCode($code,$email){
 
 		$this->mail->isSMTP();                                      // Set mailer to use SMTP
-		$this->mail->Host = 'smtpout.europe.secureserver.net';  // Specify main and backup SMTP servers
+		$this->mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 		$this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$this->mail->Username = 'info@droopl.com';                 // SMTP username
-		$this->mail->Password = 'Droopl543';                           // SMTP password
-		$this->mail->SMTPSecure = 'ssl';                      // Enable TLS encryption, `ssl` also accepted
-		$this->mail->Port = 465;
+		$this->mail->Username = 'droopl.info@gmail.com';                 // SMTP username
+		$this->mail->Password = 'droopl111';                           // SMTP password
+		$this->mail->SMTPSecure = 'tls';                      // Enable TLS encryption, `ssl` also accepted
+		$this->mail->Port = 587;
 
-		$this->mail->setFrom('info@droopl.com', 'Droopl');
+		$this->mail->setFrom('droopl.info@gmail.com', 'Droopl');
 		$this->mail->addAddress($email);     // Add a recipient
-		$this->mail->addReplyTo('info@droopl.com', 'Droopl');
-
+		$this->mail->addReplyTo('droopl.info@gmail.com', 'Droopl');
+		
 		$this->mail->isHTML(true);                                  // Set email format to HTML
 
 		$this->mail->Subject = 'Heey this is a subject';
