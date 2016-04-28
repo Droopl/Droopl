@@ -62,6 +62,8 @@ class VerificationController extends AppController{
 								$message = "Your code is wrong";
 							}
 						}
+					}else{
+						$this->verificationDAO->addVerification($_SESSION['user']['id'],$this->generateValidationCode());
 					}
 
 				}else{
@@ -76,9 +78,12 @@ class VerificationController extends AppController{
 
 			if(isset($_SESSION['user'])){
 				$newCode = $this->verificationDAO->getVerificationByUserId($_SESSION['user']['id']);
-				if(!empty($newCode)){
-					$verificationSent = $this->sendValidationCode($newCode['code'],$_SESSION['user']['email']);
+				if(empty($newCode)){
+					$this->verificationDAO->addVerification($_SESSION['user']['id'],$this->generateValidationCode());
+					$newCode = $this->verificationDAO->getVerificationByUserId($_SESSION['user']['id']);
 				}
+				print_r($newCode);
+				$verificationSent = $this->sendValidationCode($newCode['code'],$_SESSION['user']['email']);
 			}
 
 		}
@@ -98,7 +103,7 @@ class VerificationController extends AppController{
 		$this->mail->isSMTP();                                      // Set mailer to use SMTP
 		$this->mail->Host = 'smtpout.europe.secureserver.net';  // Specify main and backup SMTP servers
 		$this->mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$this->mail->Username = 'info@droopl.com';                 // SMTP username
+		$this->mail->Username = 'webmaster@droopl.com';                 // SMTP username
 		$this->mail->Password = 'Droopl543';                           // SMTP password
 		$this->mail->SMTPSecure = 'ssl';                      // Enable TLS encryption, `ssl` also accepted
 		$this->mail->Port = 465;
@@ -109,11 +114,22 @@ class VerificationController extends AppController{
 
 		$this->mail->isHTML(true);                                  // Set email format to HTML
 
-		$this->mail->Subject = 'Heey this is a subject';
+		$this->mail->Subject = 'Welcome to droopl';
 		$this->mail->Body    = '<header style="width:100%;float:left;text-align:center;"><img src="http://droopl.com/images/droopl_mail.png" style="display:inline-block;height:100px;"><br/><h1 style="width:100%;box-sizing:border-box;padding:5%;font-size:2em;color:#5F6970;text-align:center">You have been succesfully registered <br/> Your validationcode is:</h1><h2 style="width:100%;box-sizing:border-box;padding:5%;font-size:4em;letter-spacing:2px;color:#3E454C;text-align:center">'.$code.'</h2></header>';
 
 		return $this->mail->send();
 
 	}
+
+	private function generateValidationCode($length = 4) {
+	    $characters = '0123456789';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
+
 
 }

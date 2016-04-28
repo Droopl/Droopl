@@ -11,12 +11,17 @@
 					<div class="preloader">
 						<ul class="progress">
 						</ul>
+
+
 						<input type="file" id="collection_image" name="collection_image" accept="image/*">
                         <span class="remove-file"><p class="icon-cross"></p></span>
 					</div>
 				</div>
                 <?php }else{ ?>
                 <?php if(!empty($item['collection_image'])){ ?>
+                                <?php if(!empty($item['collection_image'])){ ?>
+                                <a href="images/collection/<?php echo $item['collection_image']?>" target="_blank"></a>
+                                <?php } ?>
                                 <img class="non-editable-collection-img" src="images/collection/<?php echo $item['collection_image']; ?>">
                 <?php }else{ ?>
                                 <img class="non-editable-collection-img" src="images/profile_pictures/notfound.svg" alt="image not found">

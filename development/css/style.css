@@ -1541,6 +1541,7 @@ article div.feed section.post form div textarea#desc {
   padding-right: 95px;
   padding-bottom: 10px;
   box-sizing: border-box;
+  font-family: Roboto, sans-serif !important;
 }
 article div.feed section.post form div select {
   position: absolute;
@@ -1721,7 +1722,7 @@ article div.feed section.add-collection-item span.close-add {
   width: 20px;
   height: 20px;
   top: 15px;
-  left: 15px;
+  right: 15px;
   background-repeat: no-repeat;
   background-image: url(../images/assets/close-icon.svg);
   background-size: 11px;
@@ -2611,6 +2612,13 @@ article.collection_item div.feed section.detail-collection-item form header#uplo
   height: 150px;
   border-radius: 50%;
 }
+article.collection_item div.feed section.detail-collection-item form header#upload a{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
 article.collection_item div.feed section.detail-collection-item form header#upload div#dragndrop {
   position: absolute;
   width: 150px;
@@ -2692,6 +2700,7 @@ article.collection_item div.feed section.detail-collection-item form aside texta
   font-size: .9em;
   height: 90px;
   overflow: scroll;
+  font-family: Roboto, sans-serif !important;
 }
 article.collection_item div.feed section.detail-collection-item form aside a.close-collection-detail {
   position: absolute;

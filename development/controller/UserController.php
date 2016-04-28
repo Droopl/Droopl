@@ -505,7 +505,7 @@ class UserController extends AppController{
 						$register = $this->userDAO->register($first,$last,$mail,$pass,$birth,$selected_lang,$gender,$picture,$occupation,$street,$number,$zipcode,$city,$country,$latitude,$longitude);
 
 						if(!empty($register)){
-							//$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
+							$code = $this->verifDAO->addVerification($register['id'],$this->generateValidationCode());
 
 							$followed = $this->followDAO->addFollow($register['id'],$register['id']);
 							$loginUser = $this->userDAO->loginUser($register['email'],$pass);
@@ -527,7 +527,7 @@ class UserController extends AppController{
 								unset($_SESSION['quest']);
 							}
 
-							//$this->sendValidationCode($code["code"],$register['email']);
+							$this->sendValidationCode($code["code"],$register['email']);
 
 							unset($_SESSION['register_step1']);
 							unset($_SESSION['register_step2']);
