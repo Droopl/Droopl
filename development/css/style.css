@@ -3057,6 +3057,7 @@ article.login form#register_quest textarea{
   padding-bottom: 10px;
   box-sizing: border-box;
   border-bottom: 1px solid #E8E8EA;
+  font-family: Roboto,sans-serif;
 }
 article.login form#register_quest nav{
   float: left;
