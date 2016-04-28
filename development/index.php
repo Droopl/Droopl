@@ -28,6 +28,7 @@ if(empty($routes[$_GET['page']])){
 	exit();
 }
 
+
 $route = $routes[$_GET['page']];
 $controllerName = $route['controller'] . 'Controller';
 

@@ -3,7 +3,7 @@
 	 	<div class="container">
 	 		<?php if(!$verificationSent && !$verified){ ?>
 	 		<header>
-	 			<h1>Haven't recieved your code ?</h1>
+	 			<h1>Haven't received your code ?</h1>
 	 			<h2>Please check your junkmail if you can't find your mail</h2>
 
 	 			<nav>

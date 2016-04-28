@@ -20,6 +20,7 @@ class AppController {
 		$this->notifications();
 		$this->languageCheck();
 		$this->converstations();
+		$this->checkVerif();
 	}
 	public function languageCheck(){
 
@@ -35,6 +36,22 @@ class AppController {
 
 		 $xml = (array) $sxe;
 		 $_SESSION['lang'] = $xml;
+
+	}
+	public function checkVerif(){
+		require_once WWW_ROOT . 'dao' .DS. 'VerificationDAO.php';
+		$this->verificationDAO = new VerificationDAO();
+		$verified = true;
+		if(!empty($_SESSION["user"])){
+			$checkVerif = $this->verificationDAO->getVerificationByUserId($_SESSION['user']['id']);
+			if($checkVerif['verified'] == 0){
+				if($_GET["page"] != 'verification'){
+					header('location:index.php?page=verification');
+					exit();
+				}
+
+			}
+		}
 
 	}
 	public function notifications(){
